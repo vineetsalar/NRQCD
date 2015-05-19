@@ -45,12 +45,14 @@ using namespace LHAPDF;
 //=========================== Global Variables ============================//
 const Double_t mC = 1.5;
 const Double_t mC2 = mC*mC;
+const Double_t mC3 = mC*mC*mC;
 const Double_t mJPsi = 3.096916;
 const Double_t mJPsi2 = mJPsi*mJPsi;
 const Double_t pi = TMath::Pi();
 
 
-
+const Double_t hbarc = 0.197327;
+const Double_t hbarc2 = hbarc*hbarc;
 
 
 // For Parton Distribution Function
@@ -59,22 +61,66 @@ Double_t PartonSigmaGG(Double_t QSquare);
 Double_t GetAlphaS(Double_t Q);
 Double_t quark_function(int nf, Double_t x, Double_t Qsquare);
 
+Double_t Sum_DSigmaDt(Double_t Xa, Double_t Xb, Double_t Pt, Double_t Y, Double_t RootS);
+
+
+Double_t DSigmaDt_QQbar_3S1_1(Double_t Xa, Double_t Xb, Double_t Pt, Double_t Y, Double_t RootS);
+Double_t OO_QQbar_3S1_1_JPsi();
+Double_t OO_QQbar_3S1_1_Psi2S();
+
+
+
 void QuarkoniaProd_NRQCD()
 {
+  gROOT->SetStyle("Plain");
+  gStyle->SetPalette(1);
+  gStyle->SetOptTitle(0);
+  //gStyle->SetOptStat("nmr");
+  gStyle->SetOptStat(0);
+  gStyle->SetOptFit(0);
+  
+  gStyle->SetTitleFillColor(0);
+  gStyle->SetStatColor(0);
+
+  gStyle->SetFrameBorderMode(0);
+  gStyle->SetFrameFillColor(0);
+  gStyle->SetFrameLineColor(kBlack);
+
+  gStyle->SetCanvasColor(0);
+  gStyle->SetCanvasBorderMode(0);
+  gStyle->SetCanvasBorderSize(0);
+
+  gStyle->SetPadColor(0);
+  gStyle->SetPadBorderMode(0);
+  gStyle->SetPadBorderSize(0);
+
+  gStyle->SetTextSize(0.04);
+  gStyle->SetTextFont(42);
+  gStyle->SetLabelFont(42,"xyz");
+  gStyle->SetTitleFont(42,"xyz");
+  gStyle->SetTitleSize(0.048,"xyz");
+  gStyle->SetPadBottomMargin(0.12);
+  gStyle->SetPadTopMargin(0.03);
+  gStyle->SetPadRightMargin(0.065);
+  gStyle->SetPadLeftMargin(0.12);
+
+  //gStyle->SetTitleXOffset(1.15);
+  //gStyle->SetTitleYOffset(1.2);
+
+  gStyle->SetPadTickX(1);
+  gStyle->SetPadTickY(1);
+
   gStyle->SetCanvasDefH(600);
   gStyle->SetCanvasDefW(600);
-  gStyle->SetOptStat(0);
-  gStyle->SetLineWidth(0);
-  gStyle->SetOptDate(0);
-  gStyle->SetOptFit(0);
-  gStyle->SetFillColor(0);
-  gStyle->SetCanvasColor(10);
-  gStyle->SetPadBorderMode(0);
-  gStyle->SetPadColor(0);
-  gStyle->SetTitleFillColor(0);
-  gStyle->SetOptTitle(0);
-  gStyle->SetOptStat(1); 
-  gStyle->SetOptFit(1);
+  gStyle->SetHistMinimumZero(kTRUE);
+  gStyle->SetErrorX(0);   
+  gStyle->SetEndErrorSize(0);
+
+  gStyle->SetMarkerStyle(20);
+  gStyle->SetMarkerSize(1.3);
+
+  gROOT->ForceStyle();
+  
   
   //export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/vineet/LHAPDF/lib
   //gSystem->Load("libLHAPDF.so");
@@ -108,24 +154,27 @@ void QuarkoniaProd_NRQCD()
   Double_t Rap = 0.0;
   
   Double_t RapMin = 0.0;
-  Double_t RapMax = 6.0;
-  Double_t RapStep = 0.5;
+  Double_t RapMax = 5.0;
+  Double_t RapStep = 0.01;
   Int_t NNRap = (RapMax - RapMin)/RapStep;
 
-  Double_t YY[100]={0.0};
-  Double_t DSigmaDPtDY_YY[100]={0.0};
+  Double_t YY[1000]={0.0};
+  Double_t DSigmaDPtDY_YY[1000]={0.0};
   
   Double_t RootS = 2760;
 
 
   cout<<" YY "<<"    "<<"DSigmaDPtDY_YY"<<endl;
 
+
+  Double_t Fac = hbarc2*10000000.0;
+
   for(Int_t i =0;i<NNRap;i++)
     {
 
       Rap = RapMin+ (i*RapStep);
       YY[i]=Rap;
-      DSigmaDPtDY_YY[i]=DSigmaDPtDy(0.00001, Rap,RootS);
+      DSigmaDPtDY_YY[i]=Fac*DSigmaDPtDy(5.0, Rap,RootS);
 
       cout<<YY[i]<<"     "<<DSigmaDPtDY_YY[i]<<endl;
     }
@@ -140,6 +189,8 @@ void QuarkoniaProd_NRQCD()
 
   new TCanvas; 
   gPad->SetTicks();
+  gPad->SetLeftMargin(0.16);
+  grDSigmaDPtDY_YY->GetYaxis()->SetTitleOffset(1.6);
   grDSigmaDPtDY_YY->Draw("AL");
 
 
@@ -165,7 +216,7 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y, Double_t RootS)
 
   Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
   
-  Double_t MuFSquare = Mt*Mt;
+  Double_t MuFSquare = mJPsi2;
 
   Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
   Double_t XaMax = 1.0;
@@ -188,26 +239,24 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y, Double_t RootS)
 
       Ga = quark_function(0,Xa,MuFSquare);
       Gb = quark_function(0,Xb,MuFSquare);
-      Term = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
+      
+      Term = Xa*Xb*2.0*Pt/(Xa - (Mt*TMath::Exp(Y)/RootS));
 
-      Sum = Sum + Ga*Gb*Term; 
+      //Sum_DSigmaDt(Double_t Xa, Double_t Xb, Double_t Pt, Double_t Y, Double_t RootS)
+      
+
+      Sum = Sum + Ga*Gb*Term*Sum_DSigmaDt(Xa,Xb,Pt,Y,RootS); 
 
     }
   
  
-  Val = Sum*2.0*Pt*PartonSigmaGG(MuFSquare);
+   
+  Val = Sum;
   
+
   return Val*XaStep;
 
-
 }
-
-
-
-
-
-
-
 
 
 
@@ -261,4 +310,65 @@ Double_t GetAlphaS(Double_t Q)
   return AlphaS;
 
 
+}
+
+Double_t Sum_DSigmaDt(Double_t Xa, Double_t Xb, Double_t Pt, Double_t Y, Double_t RootS)
+{
+
+  Double_t Term1 = DSigmaDt_QQbar_3S1_1(Xa, Xb, Pt, Y, RootS)*OO_QQbar_3S1_1_JPsi();
+
+  Double_t Sum = Term1;
+
+  return Sum;
+
+
+}
+
+
+
+
+
+
+
+
+
+Double_t DSigmaDt_QQbar_3S1_1(Double_t Xa, Double_t Xb, Double_t Pt, Double_t Y, Double_t RootS)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+  Double_t SS = Xa*Xb*RootS*RootS;
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(-Y);
+
+  Double_t AlphaS = 0.41;
+  Double_t R02 = 0.49; 
+
+  Double_t Constt = 5.0*pi*AlphaS*AlphaS*AlphaS*R02/(9.0*mJPsi*SS*SS);
+  Double_t Term1 = mJPsi2/((SS-mJPsi2)*(SS-mJPsi2)*(TT-mJPsi2)*(TT-mJPsi2)*(UU-mJPsi2)*(UU-mJPsi2));
+  Double_t Term2 = SS*SS*(SS-mJPsi2)*(SS-mJPsi2) + TT*TT*(TT-mJPsi2)*(TT-mJPsi2) + UU*UU*(UU-mJPsi2)*(UU-mJPsi2);
+
+  Double_t Value =0.0;
+
+  Value = Constt*Term1*Term2;
+  return Value;
+}
+
+
+Double_t OO_QQbar_3S1_1_JPsi()
+{
+  Double_t Value =0.0;
+  Value = 1.2; //GeV^3
+
+  return Value/mC3;
+
+}
+
+
+
+Double_t OO_QQbar_3S1_1_Psi2S()
+{
+ Double_t Value =0.0;
+  Value = 0.76/mC3; //GeV^3
+
+  return Value;
 }
