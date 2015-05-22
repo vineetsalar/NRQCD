@@ -58,7 +58,7 @@ const Double_t mJPsi4 = mJPsi2*mJPsi2;
 
 const Double_t OO_QQbar_3S1_1_JPsi=1.2/mC3;   //GeV^3
 const Double_t OO_QQbar_1S0_8_JPsi=0.018/mC3;   //GeV^3
-
+const Double_t OO_QQbar_3S1_8_JPsi=0.0013/mC3;  
 
 
 
@@ -74,12 +74,15 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y);
 
 Double_t GetAlphaS(Double_t Q);
 Double_t quark_function(int nf, Double_t x, Double_t Qsquare);
+Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y);
 
 Double_t Sum_GG_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y);
-Double_t DSigmaDt_GG_QQbar_3S1_1(Double_t Xa, Double_t Pt, Double_t Y);
 
+
+Double_t DSigmaDt_GG_QQbar_3S1_1(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y);
+
 
 void QuarkoniaProd_NRQCD()
 {
@@ -263,7 +266,8 @@ void QuarkoniaProd_NRQCD()
  
   Double_t DSigmaDt_Pt[1000]={0.0};
   
-  
+  Double_t SPlusTPlusU[1000]={0.0};
+
   cout<<" Pt "<<"    "<<" SIgma Dt"<<"     "<<"DSigmaDPtDY_Pt"<<endl;
 
 
@@ -277,10 +281,36 @@ void QuarkoniaProd_NRQCD()
       
       DSigmaDPtDY_Pt[i]=DSigmaDPtDy(Pt,1.0);
       
-      cout<<APt[i]<<"     "<<DSigmaDt_Pt[i]<<"  "<<DSigmaDPtDY_Pt[i]<<endl;
+      SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0);
+
+
+      cout<<APt[i]<<"     "<<DSigmaDt_Pt[i]<<"  "<<DSigmaDPtDY_Pt[i]<<"   "<<SPlusTPlusU[i]<<endl;
     }
   
 
+
+
+  TGraph *grSPlusTPlusU = new TGraph(NNPt,APt,SPlusTPlusU);
+  grSPlusTPlusU->SetName("grSPlusTPlusU");
+  grSPlusTPlusU->SetTitle("grSPlusTPlusU");
+  grSPlusTPlusU->SetLineWidth(2);
+  grSPlusTPlusU->SetLineColor(2);
+  grSPlusTPlusU->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grSPlusTPlusU->GetYaxis()->SetTitle("s+t+u");
+
+  grSPlusTPlusU->GetYaxis()->SetRangeUser(0.0,20);
+
+  new TCanvas; 
+  gPad->SetTicks();
+  //gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.16);
+  grSPlusTPlusU->GetYaxis()->SetTitleOffset(1.6);
+  grSPlusTPlusU->Draw("AL");
+
+
+
+
+  //return;
 
 
   TGraph *grDSigmaDt_Pt = new TGraph(NNPt,APt,DSigmaDt_Pt);
@@ -322,7 +352,7 @@ void QuarkoniaProd_NRQCD()
   Double_t Rap = 0.0;
   
   Double_t RapMin = -5.0;
-  Double_t RapMax = 2.0;
+  Double_t RapMax = 5.0;
   Double_t RapStep = 0.1;
   Int_t NNRap = (RapMax - RapMin)/RapStep;
 
@@ -474,19 +504,16 @@ Double_t Sum_GG_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Term2 = DSigmaDt_GG_QQbar_1S0_8(Xa, Pt, Y)*OO_QQbar_1S0_8_JPsi;
 
-
+  Double_t Term3 = DSigmaDt_GG_QQbar_3S1_8(Xa, Pt, Y)*OO_QQbar_3S1_8_JPsi;
+  
   Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
 
-  MtTerm =1.0;
-
-  Double_t Sum = 2.0*Pt*MtTerm*(Term1);
+  Double_t Sum = 2.0*Pt*MtTerm*(Term1+Term2+Term3);
+  
+  Sum =Term3;
 
   Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
-
-   Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y)));
-
-   //cout<<XaMin<<"  "<<Xa<<"  "<<Xb<<"  "<<MtTerm<<"   "<<endl;
-
+   
   return Fac*Sum;
 
 }
@@ -500,8 +527,8 @@ Double_t DSigmaDt_GG_QQbar_3S1_1(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
 
   Double_t SS = Xa*Xb*RootS*RootS;
-  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(Y);
-  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(-Y);
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
 
 
   //Double_t AlphaS = 0.41;
@@ -528,24 +555,28 @@ Double_t DSigmaDt_GG_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
   
   Double_t SS = Xa*Xb*RootS*RootS;
-  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(Y);
-  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(-Y);
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
   
   Double_t SS2 = SS*SS;
   Double_t TT2 = TT*TT;
   Double_t UU2 = UU*UU;
 
-
   Double_t AlphaS = GetAlphaS(Mt);
 
+  
   Double_t Constt = 5.0*TMath::Power((4.0*pi*AlphaS),3)/(16.0*mJPsi);
+ 
   Double_t Term1 = SS2*(SS-mJPsi2)*(SS-mJPsi2) + SS*TT*UU*(mJPsi2-2.0*SS) + TT*UU*TT*UU;
-  Double_t Term2Num = (SS2 - mJPsi2*SS + mJPsi2*mJPsi2)*(SS2 - mJPsi2*SS + mJPsi2*mJPsi2) - TT*UU*(2.0*TT2 + 3.0*TT*UU + 2.0*UU2);
+ 
+  Double_t Term2Num = (SS2 - mJPsi2*SS + mJPsi4)*(SS2 - mJPsi2*SS + mJPsi4) - TT*UU*(2.0*TT2 + 3.0*TT*UU + 2.0*UU2);
+  
   Double_t Term2Deno = SS*TT*UU*( (SS-mJPsi2)*(TT-mJPsi2)*(UU-mJPsi2)*(SS-mJPsi2)*(TT-mJPsi2)*(UU-mJPsi2));
+  
   Double_t Term2 =  Term2Num/Term2Deno;
 
   Double_t Amp = Constt*Term1*Term2;
-
+  
   Double_t Val = Amp/(16.0*pi*SS2);
 
 
@@ -561,8 +592,8 @@ Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
   
   Double_t SS = Xa*Xb*RootS*RootS;
-  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(Y);
-  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(-Y);
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
   
   Double_t SS2 = SS*SS;
   Double_t TT2 = TT*TT;
@@ -572,20 +603,24 @@ Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Constt = -((4.0*pi*AlphaS)* (4.0*pi*AlphaS)*(4.0*pi*AlphaS))/(144.0*mJPsi3);
 
-
   Double_t Term1 = 2.0*mJPsi2*SS*(TT2 + UU2)*TT*UU/((SS-mJPsi2)*(SS-mJPsi2));
   Double_t Term2 = 27.0*(SS*TT + TT*UU + UU*SS) - 19.0*mJPsi4/((SS-mJPsi2)*(TT-mJPsi2)*(UU-mJPsi2)*(SS-mJPsi2)*(TT-mJPsi2)*(UU-mJPsi2));
 
+  Double_t H0_Amp = Constt*Term1*Term2;
 
 
+  Double_t Term3 = SS2*( TMath::Power((SS-mJPsi2),4) + TT2*TT2 + UU2*UU2 + 2.0*mJPsi4*TMath::Power((TT*UU/SS),2))/TMath::Power((SS-mJPsi2),2);
+  Double_t Term4 = (27.0*(SS*TT + TT*UU + UU*SS) - 19.0*mJPsi4)/((SS-mJPsi2)*(TT-mJPsi2)*(UU-mJPsi2)*(SS-mJPsi2)*(TT-mJPsi2)*(UU-mJPsi2));
 
-  return 0;
+  Double_t H1_Amp = Constt*Term3*Term4;
+
+  Double_t  Amp = H0_Amp + H1_Amp; 
+
+  Double_t Val = Amp/(16.0*pi*SS2);
+
+  return Val;
 
 }
-
-
-
-
 
 
 
@@ -631,3 +666,20 @@ Double_t PartonSigmaGG(Double_t QSquare)
 
 
 
+Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  
+  Double_t SS = Xa*Xb*RootS*RootS;
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
+  
+  Double_t Value = SS + TT + UU;
+
+  return Value;
+
+
+
+}
