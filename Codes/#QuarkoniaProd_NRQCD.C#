@@ -686,7 +686,7 @@ Double_t DSigmaDt_GG_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t AlphaS = GetAlphaS(Mt);
 
 
-  Double_t Constt = 5.0*TMath::Power(4.0*pi*AlphaS,3.0);
+  Double_t Constt = 5.0*TMath::Power((4.0*pi*AlphaS),3.0);
 
   Double_t Term1 = SS2*ZZ4*TMath::Power((SS2 -ZZ2),4.0);
  

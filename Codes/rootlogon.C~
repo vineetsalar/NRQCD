@@ -1,0 +1,5 @@
+{
+  gSystem->AddIncludePath(" -I./inc ");
+  // gROOT->ProcessLine(".include ./inc");
+  cout << "Setting the include path to: " <<  gSystem->GetIncludePath() << endl;
+}
