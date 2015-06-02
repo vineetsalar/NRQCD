@@ -50,6 +50,11 @@ const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
 const Double_t RootS = 7000.0;
 
+
+
+/*
+//JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Int_t QQbarVar =1;
 const Double_t mC = 1.5;
 const Double_t mC2 = mC*mC;
 const Double_t mC3 = mC*mC*mC;
@@ -57,19 +62,54 @@ const Double_t mJPsi = 3.096916;
 const Double_t mJPsi2 = mJPsi*mJPsi;
 const Double_t mJPsi3 = mJPsi*mJPsi2;
 const Double_t mJPsi4 = mJPsi2*mJPsi2;
-
-const Double_t BR_JPsi2MuMu = 0.05961; 
-
 const Double_t OO_QQbar_3S1_1_JPsi=1.2;   //GeV^3
 const Double_t OO_QQbar_1S0_8_JPsi=0.018;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0013;  //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC2; //GeV^5 
+*/
 
 
-const Double_t OO_QQbar_3S1_1_Psi2S=0.76; //GeV^3 
-const Double_t OO_QQbar_1S0_8_Psi2S=0.0080;   //GeV^3
-const Double_t OO_QQbar_3S1_8_Psi2S=0.0033;  //GeV^3
-const Double_t OO_QQbar_3P0_8_Psi2S=0.0080*mC2; //GeV^5 
+/*
+//Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Int_t QQbarVar =2;
+const Double_t mC = 1.5;
+const Double_t mC2 = mC*mC;
+const Double_t mC3 = mC*mC*mC;
+const Double_t mJPsi = 3.686109;
+const Double_t mJPsi2 = mJPsi*mJPsi;
+const Double_t mJPsi3 = mJPsi*mJPsi2;
+const Double_t mJPsi4 = mJPsi2*mJPsi2;
+
+const Double_t OO_QQbar_3S1_1_JPsi=0.76; //GeV^3 
+const Double_t OO_QQbar_1S0_8_JPsi=0.0080;   //GeV^3
+const Double_t OO_QQbar_3S1_8_JPsi=0.0033;  //GeV^3
+const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC2; //GeV^5 
+*/
+
+
+
+// Chic0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Int_t QQbarVar = 3;
+const Double_t mC = 1.5;
+const Double_t mC2 = mC*mC;
+const Double_t mC3 = mC*mC*mC;
+const Double_t mJPsi = 3.41475;
+const Double_t mJPsi2 = mJPsi*mJPsi;
+const Double_t mJPsi3 = mJPsi*mJPsi2;
+const Double_t mJPsi4 = mJPsi2*mJPsi2;
+
+const Double_t OO_QQbar_3S1_1_JPsi=0.0;          //GeV^3 
+const Double_t OO_QQbar_1S0_8_JPsi=0.0;       //GeV^3
+const Double_t OO_QQbar_3S1_8_JPsi=0.0;      //GeV^3
+const Double_t OO_QQbar_3P0_8_JPsi=0.0;  //GeV^5 
+
+const Double_t OO_QQbar_3P0_1_Chic=0.054*mC2;        
+const Double_t OO_QQbar_3S1_8_Chic=0.00187*mC2;        
+
+
+
+
+
 
 
 
@@ -184,6 +224,17 @@ void QuarkoniaProd_NRQCD()
 
   //UBAR = -2,
   //UP = 2,
+
+
+  //================ Out Root File ===================//
+  TFile *OutFile;
+
+  if(QQbarVar ==1){OutFile = new TFile("JPsiCrossSection.root","Recreate");}
+  if(QQbarVar ==2){OutFile = new TFile("Psi2SCrossSection.root","Recreate");}
+  if(QQbarVar ==3){OutFile = new TFile("Chic0_1PCrossSection.root","Recreate");}
+  if(QQbarVar ==4){OutFile = new TFile("Chic1_1PCrossSection.root","Recreate");}
+  if(QQbarVar ==5){OutFile = new TFile("Chic2_1PCrossSection.root","Recreate");}
+
 
 
 
@@ -378,7 +429,7 @@ void QuarkoniaProd_NRQCD()
 
   Double_t APt[1000]={0.0};
 
-  Double_t DSigmaDPtDY_Y0009_Pt[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt[1000]={0.0};
  
   
   Double_t DSigmaDt_GG_Pt[1000]={0.0};
@@ -394,7 +445,7 @@ void QuarkoniaProd_NRQCD()
 
 
  
-  cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Y0009_Pt: "<<endl;
+  cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   
 
 
@@ -405,7 +456,7 @@ void QuarkoniaProd_NRQCD()
       APt[i]=Pt;
       SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0);
 
-      DSigmaDPtDY_Y0009_Pt[i]= BR_JPsi2MuMu*DSigmaDPtDy(Pt,1.0)/0.9;
+      DSigmaDPtDY_Pt[i]= DSigmaDPtDy(Pt,1.0);
      
       DSigmaDt_GG_Pt[i]=Sum_GG_DSigmaDt(0.1,Pt,1.0);
       
@@ -413,7 +464,7 @@ void QuarkoniaProd_NRQCD()
 
       DSigmaDt_qg_Pt[i]=Sum_qg_DSigmaDt(0.2,Pt,1.0);
       
-      cout<<APt[i]<<"    "<<DSigmaDt_GG_Pt[i]<<"    "<<DSigmaDt_qq_Pt[i]<<"    "<<DSigmaDt_qg_Pt[i]<<"    "<<DSigmaDPtDY_Y0009_Pt[i]<<endl;
+      cout<<APt[i]<<"    "<<DSigmaDt_GG_Pt[i]<<"    "<<DSigmaDt_qq_Pt[i]<<"    "<<DSigmaDt_qg_Pt[i]<<"    "<<DSigmaDPtDY_Pt[i]<<endl;
     }
   
 
@@ -490,34 +541,34 @@ void QuarkoniaProd_NRQCD()
 
 
 
-  TGraph *grDSigmaDPtDY_Y0009_Pt = new TGraph(NNPt,APt,DSigmaDPtDY_Y0009_Pt);
-  grDSigmaDPtDY_Y0009_Pt->SetName("grDSigmaDPtDY_Pt");
-  grDSigmaDPtDY_Y0009_Pt->SetTitle("grDSigmaDPtDY_Pt");
-  grDSigmaDPtDY_Y0009_Pt->SetLineWidth(2);
-  grDSigmaDPtDY_Y0009_Pt->SetLineColor(2);
-  grDSigmaDPtDY_Y0009_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
-  grDSigmaDPtDY_Y0009_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+  TGraph *grDSigmaDPtDY_Pt = new TGraph(NNPt,APt,DSigmaDPtDY_Pt);
+  grDSigmaDPtDY_Pt->SetName("grDSigmaDPtDY_Pt");
+  grDSigmaDPtDY_Pt->SetTitle("grDSigmaDPtDY_Pt");
+  grDSigmaDPtDY_Pt->SetLineWidth(2);
+  grDSigmaDPtDY_Pt->SetLineColor(2);
+  grDSigmaDPtDY_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
 
-  TLegend *lgd_DSigmaDPtDY_Y0009_Pt = new TLegend(0.40,0.80,0.88,0.93);
-  lgd_DSigmaDPtDY_Y0009_Pt->SetBorderSize(0);
-  lgd_DSigmaDPtDY_Y0009_Pt->SetFillStyle(0);
-  lgd_DSigmaDPtDY_Y0009_Pt->SetFillColor(0);
-  lgd_DSigmaDPtDY_Y0009_Pt->SetTextSize(0.03);
+  TLegend *lgd_DSigmaDPtDY_Pt = new TLegend(0.40,0.80,0.88,0.93);
+  lgd_DSigmaDPtDY_Pt->SetBorderSize(0);
+  lgd_DSigmaDPtDY_Pt->SetFillStyle(0);
+  lgd_DSigmaDPtDY_Pt->SetFillColor(0);
+  lgd_DSigmaDPtDY_Pt->SetTextSize(0.03);
 
   
   new TCanvas; 
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
-  Draw_CMS_D2NDPtDy_PromptJPsi_Y0009_Pt(lgd_DSigmaDPtDY_Y0009_Pt);
+  Draw_CMS_D2NDPtDy_PromptJPsi_Y0009_Pt(lgd_DSigmaDPtDY_Pt);
   
-  lgd_DSigmaDPtDY_Y0009_Pt->AddEntry(grDSigmaDPtDY_Y0009_Pt,"NRQCD, prompt J/#psi","L");
-  grDSigmaDPtDY_Y0009_Pt->GetYaxis()->SetTitleOffset(1.6);
-  grDSigmaDPtDY_Y0009_Pt->Draw("Lsame");
-  lgd_DSigmaDPtDY_Y0009_Pt->Draw("same");
+  lgd_DSigmaDPtDY_Pt->AddEntry(grDSigmaDPtDY_Pt,"NRQCD, prompt J/#psi","L");
+  grDSigmaDPtDY_Pt->GetYaxis()->SetTitleOffset(1.6);
+  grDSigmaDPtDY_Pt->Draw("Lsame");
+  lgd_DSigmaDPtDY_Pt->Draw("same");
 
 
-  return;
+  //return;
 
  
 
@@ -628,8 +679,22 @@ void QuarkoniaProd_NRQCD()
 
 
 
-
-
+  grGluonDissFunc_Q1->Write();
+  grUpQuarkDissFunc_Q1->Write();
+  grUpBarQuarkDissFunc_Q1->Write();
+  grDownQuarkDissFunc_Q1->Write();
+  grAlphaSVsQ->Write();
+  grSPlusTPlusU->Write();
+  grDSigmaDt_GG_Pt->Write();
+  grDSigmaDt_qq_Pt->Write();
+  grDSigmaDt_qg_Pt->Write();
+  grDSigmaDPtDY_Pt->Write();
+  grDSigmaDt_GG_Rap->Write();
+  grDSigmaDt_qq_Rap->Write();
+  grDSigmaDt_qg_Rap->Write();
+  grDSigmaDPtDY_Rap->Write();
+  
+  OutFile->Close();
 
   return;
   
@@ -1463,11 +1528,40 @@ Double_t DSigmaDt_GG_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y)
 
   return Val; 
 
-
-
 }
 
 
+
+//============================================= Chi_c Functions ===================================//
+
+
+
+//=================== gg --> QQbar g functions ==================================================//
+
+Double_t DSigmaDt_GG_QQbar_3P0_1(Double_t Xa, Double_t Pt, Double_t Y)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+
+  Double_t SS = Xa*Xb*RootS*RootS;
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
+
+  
+  Double_t AlphaS = GetAlphaS(Mt);
+  Double_t R02 = 0.49; 
+
+
+  Double_t Constt = 5.0*pi*AlphaS*AlphaS*AlphaS*R02/(9.0*mJPsi*SS*SS);
+  Double_t Term1 = mJPsi2/((SS-mJPsi2)*(SS-mJPsi2)*(TT-mJPsi2)*(TT-mJPsi2)*(UU-mJPsi2)*(UU-mJPsi2));
+  Double_t Term2 = SS*SS*(SS-mJPsi2)*(SS-mJPsi2) + TT*TT*(TT-mJPsi2)*(TT-mJPsi2) + UU*UU*(UU-mJPsi2)*(UU-mJPsi2);
+
+  Double_t Value =0.0;
+
+  Value = Constt*Term1*Term2;
+  return Value;
+}
 
 
 
