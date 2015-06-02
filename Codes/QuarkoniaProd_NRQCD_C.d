@@ -54,6 +54,7 @@
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TStyle.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TGraphErrors.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TGraph.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TGraphAsymmErrors.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TRandom3.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TRandom.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TF1.h
@@ -88,6 +89,8 @@
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TMap.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/THashTable.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TUrl.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TLatex.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TText.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/LHAPDF/include/LHAPDF/LHAPDF.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/LHAPDF/include/LHAPDF/LHAPDFConfig.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/cintdictversion.h /home/vineet/root/include/RVersion.h
