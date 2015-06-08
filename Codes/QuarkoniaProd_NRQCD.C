@@ -1,3 +1,8 @@
+//============================================================================================================================================================//
+//=========================================== Vineet Kumar, Prashant Shukla =================================================================================//
+//=========================================== BARC Mumbai ==================================================================================================//
+
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -65,7 +70,7 @@ const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for 
 
 const Double_t OO_QQbar_1S0_8_JPsi=0.018;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0013;  //GeV^3
-const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC2; //GeV^5   //not being used right now 
+const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC*mC; //GeV^5   //not being used right now 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
@@ -85,7 +90,7 @@ const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for 
 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0080;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0033;  //GeV^3
-const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC2; //GeV^5 
+const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC*mC; //GeV^5 
 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
@@ -104,9 +109,9 @@ const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0;     //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0;      //GeV^5 
 
-//const Double_t OO_QQbar_3P0_1_Chic=0.054*mC2;
+//const Double_t OO_QQbar_3P0_1_Chic=0.054*mC*mC;
 const Double_t NC = 3.0;        
-const Double_t R02 = 2.0*pi*0.054*mC2/(3.0*NC);  //GeV^5 
+const Double_t R02 = 2.0*pi*0.054*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
@@ -123,9 +128,9 @@ const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0;     //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0;      //GeV^5 
 
-//const Double_t OO_QQbar_3P0_1_Chic=0.054*3.0*mC2;
+//const Double_t OO_QQbar_3P0_1_Chic=0.054*3.0*mC*mC;
 const Double_t NC = 3.0;        
-const Double_t R02 = 2.0*pi*0.054*3.0*mC2/(3.0*NC);  //GeV^5 
+const Double_t R02 = 2.0*pi*0.054*3.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
@@ -141,9 +146,9 @@ const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0;     //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0;      //GeV^5 
 
-//const Double_t OO_QQbar_3P0_1_Chic=0.054*5.0*mC2;
+//const Double_t OO_QQbar_3P0_1_Chic=0.054*5.0*mC*mC;
 const Double_t NC = 3.0;        
-const Double_t R02 = 2.0*pi*0.054*5.0*mC2/(3.0*NC);  //GeV^5 
+const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
@@ -160,14 +165,11 @@ const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0;     //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0;      //GeV^5 
 
-//const Double_t OO_QQbar_3P0_1_Chic=0.054*5.0*mC2;
+//const Double_t OO_QQbar_3P0_1_Chic=0.054*5.0*mC*mC;
 const Double_t NC = 3.0;        
-const Double_t R02 = 2.0*pi*0.054*5.0*mC2/(3.0*NC);  //GeV^5 
+const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
-
-
-
 
 
 
@@ -185,11 +187,10 @@ const Double_t mJPsi6 = mJPsi4*mJPsi2;
 const Double_t mJPsi8 = mJPsi4*mJPsi4;
 const Double_t mJPsi10 = mJPsi8*mJPsi2;
 const Double_t mJPsi12 = mJPsi10*mJPsi2;
-
-
-
-
-
+const Double_t mJPsi14 = mJPsi10*mJPsi4;
+const Double_t mJPsi16 = mJPsi10*mJPsi6;
+const Double_t mJPsi18 = mJPsi10*mJPsi8;
+const Double_t mJPsi20 = mJPsi10*mJPsi10;
 
 
 // For Parton Distribution Function
@@ -229,8 +230,15 @@ Double_t Sum_GG_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3S1_1(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y);
+
 Double_t DSigmaDt_GG_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y);
+Double_t DSigmaDt_GG_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y);
+
+
+
+
+
 
 //=================== Chi functions =============================//
 Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
@@ -238,7 +246,6 @@ Double_t Sum_GG_DSigmaDt_Chi(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3P0_1(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3P1_1(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y);
-
 
 
 
@@ -321,7 +328,7 @@ void QuarkoniaProd_NRQCD()
   if(QQbarVar ==3){OutFile = new TFile("Chic0_1PCrossSection.root","Recreate");}
   if(QQbarVar ==4){OutFile = new TFile("Chic1_1PCrossSection.root","Recreate");}
   if(QQbarVar ==5){OutFile = new TFile("Chic2_1PCrossSection.root","Recreate");}
-
+  if(QQbarVar ==6){OutFile = new TFile("Y1SCrossSection.root","Recreate");}
 
 
 
@@ -1644,7 +1651,7 @@ Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t SS3 = SS2*SS;
   Double_t SS4 = SS2*SS2;
   Double_t SS6 = SS4*SS2;
-  Double_t SS6 = SS4*SS4;
+  Double_t SS8 = SS4*SS4;
 
   Double_t ZZ2 = ZZ*ZZ;
   Double_t ZZ4 = ZZ2*ZZ2;
@@ -1681,7 +1688,7 @@ Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Term10 = mJPsi12*SS4;
 
 
-  Double_t Amp_h1 = Constt * (Term4 - Term5 + Term6 - Term7 + Term8 - Term9 + Term10)/ Term3;
+  Double_t Amp_h1 = Constt1 * (Term4 - Term5 + Term6 - Term7 + Term8 - Term9 + Term10)/ Term3;
 
   
   Double_t Amp = Amp_h0 + Amp_h1;
@@ -1695,6 +1702,121 @@ Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
 
 
+Double_t DSigmaDt_GG_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
+{
+  Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  
+  Double_t SS = Xa*Xb*RootS*RootS;
+
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
+
+  Double_t ZZ = TMath::Sqrt(TT*UU);  
+
+  Double_t SS2 = SS*SS;
+  Double_t SS3 = SS2*SS;
+  Double_t SS4 = SS2*SS2;
+  Double_t SS6 = SS4*SS2;
+  Double_t SS8 = SS4*SS4;
+  Double_t SS10 = SS8*SS2;
+  Double_t SS12 = SS8*SS4;
+
+
+  Double_t ZZ2 = ZZ*ZZ;
+  Double_t ZZ4 = ZZ2*ZZ2;
+  Double_t ZZ6 = ZZ4*ZZ2;
+  Double_t ZZ8 = ZZ6*ZZ2;
+  Double_t ZZ10 = ZZ8*ZZ2;
+  Double_t ZZ12 = ZZ8*ZZ4;
+
+  Double_t AlphaS = GetAlphaS(Mt);
+
+
+  Double_t Constt0 = (SS*ZZ2*TMath::Power((4.0*pi*AlphaS),3.0))/(6.0*mJPsi3);
+  
+  Double_t Term1 = SS2*TMath::Power(SS2-ZZ2,4);
+ 
+  Double_t Term2 = mJPsi2*SS*ZZ2*TMath::Power(SS2-ZZ2,2)*(11.0*SS2 + 2.0*ZZ2);
+  
+  Double_t Term3 = mJPsi4*(SS8* - 12.0*SS6*ZZ2 + 41.0*SS4*ZZ4 - 20.0*SS2*ZZ6 + ZZ8);
+
+  Double_t Term4 = mJPsi6*SS*(4.0*SS6 - 26.0*SS4*ZZ2 - SS2*ZZ4 - 5.0*ZZ6); 
+  
+  Double_t Term5 = mJPsi8*(29.0*SS6 - 114.0*SS4*ZZ2 + 108.0*SS2*ZZ4 - 10.0*ZZ6);
+  
+  Double_t Term6 = mJPsi10*SS*(65.0*SS4 - 104.0*SS2*ZZ2 + 33.0*ZZ4); 
+
+  Double_t Term7 = mJPsi12*(54.0*SS4 - 20.0*SS2*ZZ2 + 7.0*ZZ4); 
+    
+  Double_t Term8 = mJPsi14*SS*(23.0*SS2 + 5.0*ZZ2);
+  
+  Double_t Term9 = 7.0*mJPsi16*SS2;
+
+  Double_t Term10 = TMath::Power(SS-mJPsi2,6)*TMath::Power(SS*mJPsi2+ZZ2,4);
+  
+  Double_t Amp_h0 = Constt0 * (Term1 - Term2 + Term3 - Term4 + Term5 - Term6 + Term7 - Term8 + Term9) / Term10;
+  
+
+
+  Double_t Constt1 = TMath::Power((4.0*pi*AlphaS),3.0)/(2.0*mJPsi);
+  
+  Double_t Term11 = 2.0*SS2*TMath::Power(SS2-ZZ2,2)*(SS6 - 4.0*SS4*ZZ2 + SS2*ZZ4 - ZZ6);
+ 
+  Double_t Term12 = mJPsi2*SS*(10.0*SS10-37.0*SS8*ZZ2 + 19.0*SS6*ZZ4 + 11.0*SS4*ZZ6 - SS2*ZZ8 -4.0*ZZ10);
+  
+  Double_t Term13 = mJPsi4*(25.0*SS10 - 61.0*SS8*ZZ2 - 27.0*SS6*ZZ4 - 34.0*SS4*ZZ6 + 23.0*SS2*ZZ8 - 2.0*ZZ10);
+
+  Double_t Term14 = mJPsi6*SS*(42.0*SS8 - 77.0*SS6*ZZ2 + 41.0*SS4*ZZ4 - 22.0*SS2*ZZ6 + 17.0*ZZ8); 
+  
+  Double_t Term15 = mJPsi8*(53.0*SS8 - 88.0*SS6*ZZ2 + 69.0*SS4*ZZ4 - 68.0*SS2*ZZ6 + 3.0*ZZ8);
+
+  Double_t Term16 = mJPsi10*SS*(54.0*SS6 - 85.0*SS4*ZZ2 + 60.0*SS2*ZZ4 - 9.0*ZZ6); 
+  
+  Double_t Term17 = mJPsi12*SS2*(43.0*SS4 - 47.0*SS2*ZZ2 + 20.0*ZZ4 ); 
+
+  Double_t Term18 = mJPsi14*SS3*(22.0*SS2 - 9.0*ZZ2); 
+
+  Double_t Term19 = 5.0*mJPsi16*SS4; 
+
+  Double_t Amp_h1 = Constt1 * (Term11 - Term12 + Term13 - Term14 + Term15 - Term16 + Term17 - Term18 + Term19) / Term10;
+
+
+
+  Double_t Constt2 = TMath::Power((4.0*pi*AlphaS),3.0)*mJPsi/2.0;
+
+  Double_t Term21 = 2.0*SS2*(SS12 - 8.0*SS10*ZZ2 + 22.0*SS8*ZZ4 - 24.0*SS6*ZZ6 + 10.0*SS4*ZZ8 - 3.0*SS2*ZZ10 + ZZ12);
+
+  Double_t Term22 = mJPsi2*SS*(16.0*SS12 - 102.0*SS10*ZZ2 + 210.0*SS8*ZZ4 - 153.0*SS6*ZZ6 + 36.0*SS4*ZZ8 - 6.0*SS2*ZZ10 + 4.0*ZZ12);
+
+  Double_t Term23 = mJPsi4*(60.0*SS12 - 306.0*SS10*ZZ2 + 482.0*SS8*ZZ4 - 271.0*SS6*ZZ6 + 77.0*SS4*ZZ8 - 18.0*SS2*ZZ10 + 2.0*ZZ12);
+
+  Double_t Term24 = mJPsi6*SS*(140.0*SS10 - 573.0*SS8*ZZ2 + 710.0*SS6*ZZ4 - 344.0*SS4*ZZ6 + 91.0*SS2*ZZ8 - 18.0*ZZ10); 
+  
+  Double_t Term25 = mJPsi8*(226.0*SS10 - 741.0*SS8*ZZ2 + 737.0*SS6*ZZ4 - 310.0*SS4*ZZ6 + 77.0*SS2*ZZ8 - 4.0*ZZ10);
+
+  Double_t Term26 = mJPsi10*SS*(264.0*SS8 - 686.0*SS6*ZZ2 + 541.0*SS4*ZZ4 - 177.0*SS2*ZZ6 + 25.0*ZZ8); 
+  
+  Double_t Term27 = mJPsi12*(226.0*SS8 - 452.0*SS6*ZZ2 + 261.0*SS4*ZZ4 - 55.0*SS2*ZZ6 + 2.0*ZZ8 ); 
+
+  Double_t Term28 = mJPsi14*SS*(140.0*SS6 - 201.0*SS4*ZZ2 + 71.0*SS2*ZZ4 - 6.0*ZZ6); 
+
+  Double_t Term29 = mJPsi16*SS2*(60.0*SS4 - 53.0*SS2*ZZ2 + 8.0*ZZ4); 
+
+  Double_t Term30 = 2.0*mJPsi18*SS3*(8.0*SS2 - 3.0*ZZ2); 
+
+  Double_t Term31 = 2.0*mJPsi20*SS4; 
+
+  Double_t Amp_h2 = Constt2 * (Term21 - Term22 + Term23 - Term24 + Term25 - Term26 + Term27 - Term28 + Term29 - Term30 + Term31) / (SS*ZZ2*Term10);
+
+
+  Double_t Amp = Amp_h0 + Amp_h1 + Amp_h2;
+  
+  Double_t Val = Amp/(16.0*pi*SS2);
+
+  return Val; 
+
+}
 
 
 
