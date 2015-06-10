@@ -1,8 +1,6 @@
-//============================================================================================================================================================//
-//=========================================== Vineet Kumar, Prashant Shukla =================================================================================//
-//=========================================== BARC Mumbai ==================================================================================================//
-
-
+//=================================================================================================================================//
+//=========================================== Vineet Kumar, Prashant Shukla ======================================================//
+//=========================================== BARC Mumbai =======================================================================//
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -57,7 +55,7 @@ const Double_t RootS = 7000.0;
 
 
 
-/*
+
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
 const Double_t mC = 1.5;
@@ -67,13 +65,13 @@ const Double_t mJPsi = 3.096916;
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*1.2/(3.0*NC);  //GeV^3
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
-
 const Double_t OO_QQbar_1S0_8_JPsi=0.018;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0013;  //GeV^3
-const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC*mC; //GeV^5   //not being used right now 
-const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
-const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
-*/
+const Double_t OO_QQbar_3P0_8_JPsi=0.018; //GeV^5   //not being used right now 
+
+const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
+const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
+
 
 
 /*
@@ -92,8 +90,8 @@ const Double_t OO_QQbar_1S0_8_JPsi=0.0080;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0033;  //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC*mC; //GeV^5 
 
-const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
-const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
+const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
+const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
 */
 
 
@@ -153,27 +151,106 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
 
-
-
+/*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 6;
-const Double_t mC = 1.5;
-const Double_t mJPsi = 3.55620;
+const Double_t mC = 4.88;
+const Double_t mJPsi = 9.46030;
 
-const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
-const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
-const Double_t OO_QQbar_3S1_8_JPsi=0.0;     //GeV^3
-const Double_t OO_QQbar_3P0_8_JPsi=0.0;      //GeV^5 
-
-//const Double_t OO_QQbar_3P0_1_Chic=0.054*5.0*mC*mC;
+//const Double_t OO_QQbar_3S1_1_JPsi=10.9;   //GeV^3
 const Double_t NC = 3.0;        
-const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
+const Double_t R02 = 2.0*pi*10.9/(3.0*NC);  //GeV^3
+const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
+
+const Double_t OO_QQbar_3S1_8_JPsi=0.0477;  //GeV^3
+const Double_t OO_QQbar_1S0_8_JPsi=0.0121;   //GeV^3
+const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0121; //GeV^3   //not being used right now 
+
+
+//================ Faltu ===============//
+const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
+const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
+*/
+
+/*
+// Y(2S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Int_t QQbarVar = 7;
+const Double_t mC = 4.88;
+const Double_t mJPsi = 10.02326;
+
+//const Double_t OO_QQbar_3S1_1_JPsi=4.5;   //GeV^3
+const Double_t NC = 3.0;        
+const Double_t R02 = 2.0*pi*4.5/(3.0*NC);  //GeV^3
+const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
+
+const Double_t OO_QQbar_3S1_8_JPsi=0.0224;  //GeV^3
+const Double_t OO_QQbar_1S0_8_JPsi=-0.0067;   //GeV^3
+const Double_t OO_QQbar_3P0_8_JPsi=-5.0*0.0067; //GeV^3   //not being used right now 
+
+//================ Faltu ===============//
+const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
+const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
+*/
+
+/*
+// Y(3S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Int_t QQbarVar = 8;
+const Double_t mC = 4.88;
+const Double_t mJPsi = 10.3552;
+
+//const Double_t OO_QQbar_3S1_1_JPsi=4.3;   //GeV^3
+const Double_t NC = 3.0;        
+const Double_t R02 = 2.0*pi*4.3/(3.0*NC);  //GeV^3
+const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
+
+const Double_t OO_QQbar_3S1_8_JPsi=0.0513;  //GeV^3
+const Double_t OO_QQbar_1S0_8_JPsi=0.0002;   //GeV^3
+const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0002; //GeV^3   //not being used right now 
+
+//================ Faltu ===============//
+const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
+const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
+*/
+
+/*
+// Chi_b0 (1P)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Int_t QQbarVar = 9;
+const Double_t mC = 4.88;
+const Double_t mJPsi = 9.85944;
+
+//const Double_t OO_QQbar_3P0_1_Chic= 0.1*mb*mb; // going through R02        
+const Double_t NC = 3.0;        
+const Double_t R02 = 2.0*pi*0.1*mC*mC/(3.0*NC);  //GeV^3
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
-const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
+const Double_t OO_QQbar_3S1_8_Chic=0.1008;  // no mc2 it is going as GeV^3  
+                                              
+//================ Faltu ===============//
+//const Double_t OO_QQbar_3S1_1_JPsi=4.3;   //GeV^3
+const Double_t OO_QQbar_3S1_1_JPsi=0.0;   //GeV^3 This is going through R02 for singlet state
+const Double_t OO_QQbar_3S1_8_JPsi=0.0;  //GeV^3
+const Double_t OO_QQbar_1S0_8_JPsi=0.0;   //GeV^3
+const Double_t OO_QQbar_3P0_8_JPsi=0.0; //GeV^3   //not being used right now 
+*/
 
+/*
+// Chi_b0 (2P)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Int_t QQbarVar = 10;
+const Double_t mC = 4.88;
+const Double_t mJPsi = 10.2325;
 
-
-
+//const Double_t OO_QQbar_3P0_1_Chic= 0.036*mb*mb; // going through R02        
+const Double_t NC = 3.0;        
+const Double_t R02 = 2.0*pi*0.036*mC*mC/(3.0*NC);  //GeV^3
+const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
+const Double_t OO_QQbar_3S1_8_Chic=0.0324;  // no mc2 it is going as GeV^3  
+                                              
+//================ Faltu ===============//
+//const Double_t OO_QQbar_3S1_1_JPsi=4.3;   //GeV^3
+const Double_t OO_QQbar_3S1_1_JPsi=0.0;   //GeV^3 This is going through R02 for singlet state
+const Double_t OO_QQbar_3S1_8_JPsi=0.0;  //GeV^3
+const Double_t OO_QQbar_1S0_8_JPsi=0.0;   //GeV^3
+const Double_t OO_QQbar_3P0_8_JPsi=0.0; //GeV^3   //not being used right now 
+*/
 
 
 //=================== Power of mass =================//
@@ -200,31 +277,28 @@ Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDPtDy(Double_t Pt, Double_t Y);
 Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
 
-Double_t DSigmaDPtDy_qg(Double_t Pt, Double_t Y);
-Double_t DSigmaDPtDy_UG(Double_t Pt, Double_t Y);
-Double_t DSigmaDPtDy_DG(Double_t Pt, Double_t Y);
 
+//============================ qg ===================//
 Double_t Sum_qg_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y);
-
 Double_t DSigmaDt_qg_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_qg_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y);
+
 Double_t DSigmaDt_qg_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y);
+Double_t DSigmaDt_qg_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y);
+Double_t DSigmaDt_qg_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y);
 
 
-Double_t DSigmaDPtDy_qqbar(Double_t Pt, Double_t Y);
-Double_t DSigmaDPtDy_UUbar(Double_t Pt, Double_t Y);
-Double_t DSigmaDPtDy_DDbar(Double_t Pt, Double_t Y);
-
+//============================ qqbar ===================//
 Double_t Sum_qq_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y);
-
 Double_t DSigmaDt_qq_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_qq_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y);
+
 Double_t DSigmaDt_qq_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y);
+Double_t DSigmaDt_qq_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y);
+Double_t DSigmaDt_qq_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y);
 
 
-
-Double_t DSigmaDPtDy_GG(Double_t Pt, Double_t Y);
-
+//============================ ggbar ===================//
 Double_t Sum_GG_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y);
 
 Double_t DSigmaDt_GG_QQbar_3S1_1(Double_t Xa, Double_t Pt, Double_t Y);
@@ -238,16 +312,15 @@ Double_t DSigmaDt_GG_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y);
 
 
 
-
-
 //=================== Chi functions =============================//
 Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
+
+
 Double_t Sum_GG_DSigmaDt_Chi(Double_t Xa, Double_t Pt, Double_t Y);
+
 Double_t DSigmaDt_GG_QQbar_3P0_1(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3P1_1(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y);
-
-
 
 
 
@@ -328,9 +401,13 @@ void QuarkoniaProd_NRQCD()
   if(QQbarVar ==3){OutFile = new TFile("Chic0_1PCrossSection.root","Recreate");}
   if(QQbarVar ==4){OutFile = new TFile("Chic1_1PCrossSection.root","Recreate");}
   if(QQbarVar ==5){OutFile = new TFile("Chic2_1PCrossSection.root","Recreate");}
+  
   if(QQbarVar ==6){OutFile = new TFile("Y1SCrossSection.root","Recreate");}
+  if(QQbarVar ==7){OutFile = new TFile("Y2SCrossSection.root","Recreate");}
+  if(QQbarVar ==8){OutFile = new TFile("Y3SCrossSection.root","Recreate");}
 
-
+  if(QQbarVar ==9){OutFile = new TFile("Chib0_1PCrossSection.root","Recreate");}
+  if(QQbarVar ==10){OutFile = new TFile("Chib0_2PCrossSection.root","Recreate");}
 
 
 
@@ -548,17 +625,17 @@ void QuarkoniaProd_NRQCD()
     {
       Pt = PtMin+ (i*PtStep);
       APt[i]=Pt;
-      SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0);
+      SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0)/mJPsi2;
 
       DSigmaDPtDY_Pt[i]= DSigmaDPtDy(Pt,1.0);
      
-      if(QQbarVar ==1 || QQbarVar ==2){
+      if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 ){
       DSigmaDt_GG_Pt[i]= Sum_GG_DSigmaDt(0.1,Pt,1.0);
       DSigmaDt_qq_Pt[i]= Sum_qq_DSigmaDt(0.2,Pt,1.0);
       DSigmaDt_qg_Pt[i]=Sum_qg_DSigmaDt(0.2,Pt,1.0);
       }
 
-      if(QQbarVar ==3 || QQbarVar ==4){
+      if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==9 || QQbarVar == 10){
 	DSigmaDt_GG_Pt[i]= Sum_GG_DSigmaDt_Chi(0.1,Pt,1.0);
 	DSigmaDt_qq_Pt[i]= Sum_qq_DSigmaDt(0.2,Pt,1.0);
 	DSigmaDt_qg_Pt[i]=Sum_qg_DSigmaDt(0.2,Pt,1.0);
@@ -579,7 +656,7 @@ void QuarkoniaProd_NRQCD()
   grSPlusTPlusU->GetXaxis()->SetTitle("p_{T}(GeV/c)");
   grSPlusTPlusU->GetYaxis()->SetTitle("s+t+u");
 
-  grSPlusTPlusU->GetYaxis()->SetRangeUser(0.0,20);
+  grSPlusTPlusU->GetYaxis()->SetRangeUser(0.0,5);
 
   new TCanvas; 
   gPad->SetTicks();
@@ -701,13 +778,14 @@ void QuarkoniaProd_NRQCD()
       
       ARap[i]=Rap;
       DSigmaDPtDY_Rap[i]=DSigmaDPtDy(4.0,Rap);
-      if(QQbarVar ==1 || QQbarVar ==2){
+      
+      if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 ){
 	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt(0.2,4.0,Rap);
 	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt(0.2,4.0,Rap);
 	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt(0.2,4.0,Rap);
       }
 
-      if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
+      if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5  || QQbarVar == 9 || QQbarVar == 10){
 
 	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt_Chi(0.2,4.0,Rap);
 	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt(0.2,4.0,Rap);
@@ -817,17 +895,13 @@ void QuarkoniaProd_NRQCD()
 
 
 
-
-
-
-
 Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
 {
   //Double_t Value =  DSigmaDPtDy_qg(Pt, Y) + DSigmaDPtDy_qqbar(Pt, Y) +  DSigmaDPtDy_GG(Pt, Y);
   Double_t Value = 0.0;   
-  if(QQbarVar ==1 || QQbarVar ==2){ Value = DSigmaDt_IntX(Pt, Y,3,0) + DSigmaDt_IntX(Pt, Y,2,0) +   DSigmaDt_IntX(Pt, Y,1,0) + DSigmaDt_IntX(Pt, Y,3,-3) + DSigmaDt_IntX(Pt, Y,2,-2)  
-      +     DSigmaDt_IntX(Pt, Y,1,-1) +  DSigmaDt_IntX(Pt, Y, 0, 0);}
-  
+  if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar ==6 || QQbarVar ==7 || QQbarVar ==8 )
+    { Value = DSigmaDt_IntX(Pt, Y,3,0) + DSigmaDt_IntX(Pt, Y,2,0) +   DSigmaDt_IntX(Pt, Y,1,0) + DSigmaDt_IntX(Pt, Y,3,-3) + DSigmaDt_IntX(Pt, Y,2,-2) + DSigmaDt_IntX(Pt, Y,1,-1) +  DSigmaDt_IntX(Pt, Y, 0, 0);}
+    
   if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5 ) {Value = DSigmaDt_IntX_Chi(Pt, Y,0,0);}
   
   return Value;
@@ -870,7 +944,11 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
       Gb = quark_function(Parton2,Xb,MuFSquare);
       
       if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt(Xa,Pt,Y);} 
-      if( (Parton1 ==0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt(Xa,Pt,Y);} 
+      
+
+      if( (Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt(Xa,Pt,Y);} 
+     
+
       if(Parton1 !=0 && Parton2 !=0){SumDSigmaDt = Sum_qq_DSigmaDt(Xa,Pt,Y);} 
 
       Sum = Sum + Ga*Gb*SumDSigmaDt; 
@@ -896,122 +974,6 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
 //===============================================================================
 //OO_QQbar_3S1_1_JPsi, OO_QQbar_1S0_8_JPsi, OO_QQbar_3S1_8_JPsi, OO_QQbar_3P0_8_JPsi
 
-
-
-Double_t DSigmaDPtDy_qg(Double_t Pt, Double_t Y)
-{
-  Double_t Val =  DSigmaDPtDy_UG(Pt, Y) + DSigmaDPtDy_DG(Pt, Y);
-  return Val;
-}
-
-
-
-
-Double_t DSigmaDPtDy_UG(Double_t Pt, Double_t Y)
-{
-  //   quark_function(Int_t nf, Double_t x,Double_t Qsquare)
-
-  Double_t Xa = 0.0;
-  Double_t Xb = 0.0;
-  Double_t Ga = 0.0;
-  Double_t Gb = 0.0;
-
-  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
-  
-  Double_t MuFSquare = Mt*Mt;
-
-  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
-  
-  Double_t XaMax = 1.0;
-  
-  Double_t XaStep = 0.001;
-
-  Int_t NNXa = (XaMax - XaMin)/XaStep;
-
-  Double_t Val =0.0;
-  Double_t Sum =0.0;
-  
-  for(Int_t i =0 ; i<NNXa; i++)
-    
-    {
-
-      Xa = XaMin + (i*XaStep);
-
-      Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-      Ga = quark_function(2,Xa,MuFSquare);
-      Gb = quark_function(0,Xb,MuFSquare);
-      
-      Sum = Sum + Ga*Gb*Sum_qg_DSigmaDt(Xa,Pt,Y); 
-
-      //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
-
-
-    }
-  
-   
-  Val = Sum;
-  
-
-  return Val*XaStep;
-
-}
-
-
-
-Double_t DSigmaDPtDy_DG(Double_t Pt, Double_t Y)
-{
-  //   quark_function(Int_t nf, Double_t x,Double_t Qsquare)
-
-  Double_t Xa = 0.0;
-  Double_t Xb = 0.0;
-  Double_t Ga = 0.0;
-  Double_t Gb = 0.0;
-
-  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
-  
-  Double_t MuFSquare = Mt*Mt;
-
-  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
-  
-  Double_t XaMax = 1.0;
-  
-  Double_t XaStep = 0.001;
-
-  Int_t NNXa = (XaMax - XaMin)/XaStep;
-
-  Double_t Val =0.0;
-  Double_t Sum =0.0;
-  
-  for(Int_t i =0 ; i<NNXa; i++)
-    
-    {
-
-      Xa = XaMin + (i*XaStep);
-
-      Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-      Ga = quark_function(1,Xa,MuFSquare);
-      Gb = quark_function(0,Xb,MuFSquare);
-      
-      Sum = Sum + Ga*Gb*Sum_qg_DSigmaDt(Xa,Pt,Y); 
-
-      //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
-
-    }
-  
-   
-  Val = Sum;
-  
-
-  return Val*XaStep;
-
-}
-
-
-
-
-
 Double_t Sum_qg_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
 {
 
@@ -1019,15 +981,26 @@ Double_t Sum_qg_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
   
   Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
 
+  //Double_t Term1 = DSigmaDt_qg_QQbar_3S1_1(Xa, Pt, Y)*OO_QQbar_3S1_1_JPsi;
+
   Double_t Term2 = DSigmaDt_qg_QQbar_1S0_8(Xa, Pt, Y)*OO_QQbar_1S0_8_JPsi;
 
   Double_t Term3 = DSigmaDt_qg_QQbar_3S1_8(Xa, Pt, Y)*OO_QQbar_3S1_8_JPsi;
 
   Double_t Term4 = DSigmaDt_qg_QQbar_3P0_8(Xa, Pt, Y)*OO_QQbar_3P0_8_JPsi;
+
+  Double_t Term5 = DSigmaDt_qg_QQbar_3P1_8(Xa, Pt, Y)*3.0*OO_QQbar_3P0_8_JPsi;
+
+  Double_t Term6 = DSigmaDt_qg_QQbar_3P2_8(Xa, Pt, Y)*5.0*OO_QQbar_3P0_8_JPsi;
   
+
+
   Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
 
-  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4);
+  //Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4+Term5 + Term6);
+
+
+  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3);
 
      
   Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
@@ -1132,128 +1105,89 @@ Double_t DSigmaDt_qg_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y)
 }
 
 
+Double_t DSigmaDt_qg_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
+{
+  Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  
+  Double_t SS = Xa*Xb*RootS*RootS;
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
+  
+  Double_t SS2 = SS*SS;
+  Double_t UU2 = UU*UU;
+  Double_t TT2 = TT*TT;
+
+  Double_t AlphaS = GetAlphaS(Mt);
+  
+  Double_t Constt = -TMath::Power(4.0*pi*AlphaS,3)/(27.0*mJPsi3);
+
+  Double_t Term1 = TT*(SS2*(SS-mJPsi2)*(SS-mJPsi2) + UU2*(SS+mJPsi2)*(SS+mJPsi2)); 
+  Double_t Term2 = TMath::Power(TT-mJPsi2,4)*TMath::Power(SS-mJPsi2,2);
+
+  Double_t Amp_h0 = 5.0*Constt*Term1/Term2;
+
+  Double_t Term3 = mJPsi2*SS*UU*(TT2 + TT*UU + UU2); 
+
+  Double_t Amp_h1 = 20.0*Constt*Term3/Term2;
+
+  Double_t Amp = (Amp_h0 + Amp_h1);
+
+  Double_t Val = Amp/(16.0*pi*SS2);
+
+  return Val;
+  
+}
+
+
+Double_t DSigmaDt_qg_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
+{
+
+ Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  
+  Double_t SS = Xa*Xb*RootS*RootS;
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
+  
+  Double_t SS2 = SS*SS;
+  Double_t UU2 = UU*UU;
+  
+  Double_t AlphaS = GetAlphaS(Mt);
+  
+  Double_t Constt = - TMath::Power(4.0*pi*AlphaS,3)/(27.0*mJPsi3);
+
+  Double_t Term1 = TT/TMath::Power(TT-mJPsi2,4);
+  Double_t Term2 = SS2 + UU2 + (12.0*mJPsi2*SS*UU2*(SS2 + mJPsi2*SS + mJPsi4)/TMath::Power(SS-mJPsi2,4));
+  
+  Double_t Amp_h0 = Constt*Term1*Term2;
+
+
+  Double_t Term3 = mJPsi2*SS*UU/TMath::Power(TT-mJPsi2,4);
+  Double_t Term4 = (TMath::Power(SS-mJPsi2,2)*(SS2+mJPsi4) - TMath::Power(SS+mJPsi2,2)*TT*UU) /TMath::Power(SS-mJPsi2,4);
+
+  Double_t Amp_h1 = 12.0*Constt*Term3*Term4;
+
+  Double_t Term5 = mJPsi4 / (TT*TMath::Power(TT-mJPsi2,4));
+  Double_t Term6 = SS2 + UU2 + 2.0*SS2*TT*UU*( (SS-mJPsi2)*(2.0*TT+UU)-UU2 / TMath::Power(SS-mJPsi2,4) );
+
+  Double_t Amp_h2 = 6.0*Constt*Term5*Term6;
+
+  Double_t Amp = (Amp_h0 + Amp_h1 + Amp_h2);
+
+  Double_t Val = Amp/(16.0*pi*SS2);
+
+  return Val;
+
+
+}
+
 
 
 //===============================================================================
 // q+q_bar--> QQbar + g partonic cross sections
 //===============================================================================
 //OO_QQbar_3S1_1_JPsi, OO_QQbar_1S0_8_JPsi, OO_QQbar_3S1_8_JPsi, OO_QQbar_3P0_8_JPsi
-
-
-Double_t DSigmaDPtDy_qqbar(Double_t Pt, Double_t Y)
-{
-  Double_t Val =  DSigmaDPtDy_UUbar(Pt, Y) + DSigmaDPtDy_UUbar(Pt, Y);
-  return Val;
-}
-
-
-
-
-Double_t DSigmaDPtDy_UUbar(Double_t Pt, Double_t Y)
-{
-  //   quark_function(Int_t nf, Double_t x,Double_t Qsquare)
-
-  Double_t Xa = 0.0;
-  Double_t Xb = 0.0;
-  Double_t Ga = 0.0;
-  Double_t Gb = 0.0;
-
-  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
-  
-  Double_t MuFSquare = Mt*Mt;
-
-  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
-  
-  Double_t XaMax = 1.0;
-  
-  Double_t XaStep = 0.001;
-
-  Int_t NNXa = (XaMax - XaMin)/XaStep;
-
-  Double_t Val =0.0;
-  Double_t Sum =0.0;
-  
-  for(Int_t i =0 ; i<NNXa; i++)
-    
-    {
-
-      Xa = XaMin + (i*XaStep);
-
-      Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-      Ga = quark_function(2,Xa,MuFSquare);
-      Gb = quark_function(-2,Xb,MuFSquare);
-      
-      Sum = Sum + Ga*Gb*Sum_qq_DSigmaDt(Xa,Pt,Y); 
-
-      //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
-
-
-    }
-  
-   
-  Val = Sum;
-  
-
-  return Val*XaStep;
-
-}
-
-
-
-Double_t DSigmaDPtDy_DDbar(Double_t Pt, Double_t Y)
-{
-  //   quark_function(Int_t nf, Double_t x,Double_t Qsquare)
-
-  Double_t Xa = 0.0;
-  Double_t Xb = 0.0;
-  Double_t Ga = 0.0;
-  Double_t Gb = 0.0;
-
-  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
-  
-  Double_t MuFSquare = Mt*Mt;
-
-  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
-  
-  Double_t XaMax = 1.0;
-  
-  Double_t XaStep = 0.001;
-
-  Int_t NNXa = (XaMax - XaMin)/XaStep;
-
-  Double_t Val =0.0;
-  Double_t Sum =0.0;
-  
-  for(Int_t i =0 ; i<NNXa; i++)
-    
-    {
-
-      Xa = XaMin + (i*XaStep);
-
-      Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-      Ga = quark_function(1,Xa,MuFSquare);
-      Gb = quark_function(-1,Xb,MuFSquare);
-      
-      Sum = Sum + Ga*Gb*Sum_qq_DSigmaDt(Xa,Pt,Y); 
-
-      //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
-
-    }
-  
-   
-  Val = Sum;
-  
-
-  return Val*XaStep;
-
-}
-
-
-
-
-
 
 Double_t Sum_qq_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
 {
@@ -1270,9 +1204,17 @@ Double_t Sum_qq_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Term4 = DSigmaDt_qq_QQbar_3P0_8(Xa, Pt, Y)*OO_QQbar_3P0_8_JPsi;
   
+  Double_t Term5 = DSigmaDt_qq_QQbar_3P1_8(Xa, Pt, Y)*3.0*OO_QQbar_3P0_8_JPsi;
+
+  Double_t Term6 = DSigmaDt_qq_QQbar_3P2_8(Xa, Pt, Y)*5.0*OO_QQbar_3P0_8_JPsi;
+
+
   Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
 
-  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4);
+  // Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4 + Term5 + Term6);
+
+
+  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3);
 
 
     
@@ -1384,65 +1326,89 @@ Double_t DSigmaDt_qq_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y)
 
 
 
-//==================================================================================
-// g+g-->QQbar + g partonic cross sections
-//==================================================================================
 
-
-
-Double_t DSigmaDPtDy_GG(Double_t Pt, Double_t Y)
+Double_t DSigmaDt_qq_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
 {
-  //   quark_function(Int_t nf, Double_t x,Double_t Qsquare)
-
-  Double_t Xa = 0.0;
-  Double_t Xb = 0.0;
-  Double_t Ga = 0.0;
-  Double_t Gb = 0.0;
-
-  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
+  Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
   
-  Double_t MuFSquare = Mt*Mt;
-
-  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
+  Double_t SS = Xa*Xb*RootS*RootS;
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
   
-  Double_t XaMax = 1.0;
+  Double_t SS2 = SS*SS;
+  Double_t TT2 = TT*TT;
+  Double_t UU2 = UU*UU;
   
-  Double_t XaStep = 0.001;
-
-  Int_t NNXa = (XaMax - XaMin)/XaStep;
-
-  Double_t Val =0.0;
-  Double_t Sum =0.0;
+  Double_t AlphaS = GetAlphaS(Mt);
   
-  for(Int_t i =0 ; i<NNXa; i++)
-    
-    {
+  Double_t Constt = 40.0*TMath::Power(4.0*pi*AlphaS,3.0)/(81.0*mJPsi3);
 
-      Xa = XaMin + (i*XaStep);
+  Double_t Term1 = SS*(TT2 + UU2);
+  Double_t Term2 = TMath::Power(SS-mJPsi2,4.0);
 
-      Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  Double_t Amp_h0 = Constt*Term1/Term2;
 
-      Ga = quark_function(0,Xa,MuFSquare);
-      Gb = quark_function(0,Xb,MuFSquare);
-      
-      Sum = Sum + Ga*Gb*Sum_GG_DSigmaDt(Xa,Pt,Y); 
+  Double_t Term3 = mJPsi2*TT*UU;
 
-      //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
+  Double_t Amp_h1 = 4.0*Constt*Term3/Term2;
 
+  Double_t Amp = Amp_h0 + Amp_h1;
 
-    }
+  Double_t Val = Amp/(16.0*pi*SS2);
+
+  return Val;
+
   
-   
-  Val = Sum;
+}
+
+
+Double_t DSigmaDt_qq_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
+{
+  Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
   
+  Double_t SS = Xa*Xb*RootS*RootS;
+  Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
+  
+  Double_t SS2 = SS*SS;
+  Double_t TT2 = TT*TT;
+  Double_t UU2 = UU*UU;
+  
+  Double_t AlphaS = GetAlphaS(Mt);
+  
+  Double_t Constt = TMath::Power(4.0*pi*AlphaS,3.0)/(81.0*mJPsi3);
 
-  return Val*XaStep;
+  Double_t Term1 = SS*(TT2 + UU2);
+  Double_t Term2 = TMath::Power(SS-mJPsi2,4.0);
 
+  Double_t Amp_h0 = 8.0*Constt*Term1/Term2;
+
+  Double_t Term3 = mJPsi2*TT*UU;
+
+  Double_t Amp_h1 = 32.0*Constt*Term3/Term2;
+
+  Double_t Term4 = mJPsi4*(TT2 + UU2);
+  Double_t Term5 = SS*TMath::Power(SS-mJPsi2,4.0);
+  
+  Double_t Amp_h2 = 16.0*Constt*Term4/Term5;
+
+  Double_t Amp = Amp_h0 + Amp_h1 + Amp_h2;
+
+  Double_t Val = Amp/(16.0*pi*SS2);
+
+  return Val;
+  
 }
 
 
 
 
+
+//==================================================================================
+// g+g-->QQbar + g partonic cross sections
+//==================================================================================
 
 Double_t Sum_GG_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
 {
@@ -1458,8 +1424,14 @@ Double_t Sum_GG_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Term3 = DSigmaDt_GG_QQbar_3S1_8(Xa, Pt, Y)*OO_QQbar_3S1_8_JPsi;
 
   Double_t Term4 = DSigmaDt_GG_QQbar_3P0_8(Xa, Pt, Y)*OO_QQbar_3P0_8_JPsi;
+
+  Double_t Term5 = DSigmaDt_GG_QQbar_3P1_8(Xa, Pt, Y)*3.0*OO_QQbar_3P0_8_JPsi;
+
+  Double_t Term6 = DSigmaDt_GG_QQbar_3P2_8(Xa, Pt, Y)*5.0*OO_QQbar_3P0_8_JPsi;
   
   Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
+
+  //Double_t Sum = 2.0*Pt*MtTerm*(Term1+Term2+Term3+Term4+Term5+Term6);
 
   Double_t Sum = 2.0*Pt*MtTerm*(Term1+Term2+Term3);
 
@@ -1700,8 +1672,6 @@ Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
 }
 
 
-
-
 Double_t DSigmaDt_GG_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
 {
   Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
@@ -1817,20 +1787,6 @@ Double_t DSigmaDt_GG_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
   return Val; 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //============================================= Chi_c Functions ===================================//
