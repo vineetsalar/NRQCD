@@ -55,7 +55,7 @@ const Double_t RootS = 7000.0;
 
 
 
-/*
+
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
 const Double_t mC = 1.5;
@@ -71,7 +71,7 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.018; //GeV^5   //not being used right now
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
-*/
+
 
 
 /*
@@ -152,6 +152,7 @@ const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3
 */
 
 
+/*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 6;
 const Double_t mC = 4.88;
@@ -170,7 +171,7 @@ const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0121; //GeV^3   //not being used right 
 //================ Faltu ===============//
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
-
+*/
 
 /*
 // Y(2S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -231,8 +232,6 @@ const Double_t OO_QQbar_3S1_8_JPsi=0.0;  //GeV^3
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;   //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0; //GeV^3   //not being used right now 
 */
-
-
 
 
 
@@ -1029,21 +1028,6 @@ Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
 {
 
@@ -1154,22 +1138,21 @@ Double_t Sum_qg_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Term3 = DSigmaDt_qg_QQbar_3S1_8(Xa, Pt, Y)*OO_QQbar_3S1_8_JPsi;
 
+  //OK
   Double_t Term4 = DSigmaDt_qg_QQbar_3P0_8(Xa, Pt, Y)*OO_QQbar_3P0_8_JPsi;
-
+  
+  //OK
   Double_t Term5 = DSigmaDt_qg_QQbar_3P1_8(Xa, Pt, Y)*3.0*OO_QQbar_3P0_8_JPsi;
 
+  //(OK)
   Double_t Term6 = DSigmaDt_qg_QQbar_3P2_8(Xa, Pt, Y)*5.0*OO_QQbar_3P0_8_JPsi;
   
 
 
   Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
 
-  //Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4+Term5 + Term6);
-
-
-  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3);
-
-     
+  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4+Term5 + Term6);
+   
   Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
    
   return Fac*Sum;
@@ -1335,8 +1318,13 @@ Double_t DSigmaDt_qg_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Amp_h1 = 12.0*Constt*Term3*Term4;
 
+
   Double_t Term5 = mJPsi4 / (TT*TMath::Power(TT-mJPsi2,4));
-  Double_t Term6 = SS2 + UU2 + 2.0*SS2*TT*UU*( (SS-mJPsi2)*(2.0*TT+UU)-UU2 / TMath::Power(SS-mJPsi2,4) );
+
+
+  Double_t Term61 = SS2 + UU2; 
+  Double_t Term62 = 2.0*SS2*TT*UU* ((SS-mJPsi2)*(2.0*TT+UU)-UU2)/TMath::Power(SS-mJPsi2,4); 
+  Double_t Term6 = Term61 + Term62;
 
   Double_t Amp_h2 = 6.0*Constt*Term5*Term6;
 
@@ -1484,22 +1472,19 @@ Double_t Sum_qq_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Term3 = DSigmaDt_qq_QQbar_3S1_8(Xa, Pt, Y)*OO_QQbar_3S1_8_JPsi;
 
+  //OK
   Double_t Term4 = DSigmaDt_qq_QQbar_3P0_8(Xa, Pt, Y)*OO_QQbar_3P0_8_JPsi;
   
+  //OK
   Double_t Term5 = DSigmaDt_qq_QQbar_3P1_8(Xa, Pt, Y)*3.0*OO_QQbar_3P0_8_JPsi;
 
+  //OK
   Double_t Term6 = DSigmaDt_qq_QQbar_3P2_8(Xa, Pt, Y)*5.0*OO_QQbar_3P0_8_JPsi;
-
 
   Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
 
-  // Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4 + Term5 + Term6);
+  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4 + Term5 + Term6);
 
-
-  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3);
-
-
-    
   Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
    
   return Fac*Sum;
@@ -1806,9 +1791,6 @@ Double_t Sum_GG_DSigmaDt_Chi(Double_t Xa, Double_t Pt, Double_t Y)
 }
 
 
-
-
-
 Double_t Sum_GG_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
 {
 
@@ -1821,20 +1803,21 @@ Double_t Sum_GG_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Term2 = DSigmaDt_GG_QQbar_1S0_8(Xa, Pt, Y)*OO_QQbar_1S0_8_JPsi;
 
   Double_t Term3 = DSigmaDt_GG_QQbar_3S1_8(Xa, Pt, Y)*OO_QQbar_3S1_8_JPsi;
-
+  
+  //OK
   Double_t Term4 = DSigmaDt_GG_QQbar_3P0_8(Xa, Pt, Y)*OO_QQbar_3P0_8_JPsi;
-
+  
+  //OK
   Double_t Term5 = DSigmaDt_GG_QQbar_3P1_8(Xa, Pt, Y)*3.0*OO_QQbar_3P0_8_JPsi;
-
+  
+  //OK
   Double_t Term6 = DSigmaDt_GG_QQbar_3P2_8(Xa, Pt, Y)*5.0*OO_QQbar_3P0_8_JPsi;
   
   Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
 
-  //Double_t Sum = 2.0*Pt*MtTerm*(Term1+Term2+Term3+Term4+Term5+Term6);
+  Double_t Sum = 2.0*Pt*MtTerm*(Term1+Term2+Term3+Term4+Term5+Term6);
 
-  Double_t Sum = 2.0*Pt*MtTerm*(Term1+Term2+Term3);
-
-  
+    
   Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
    
   return Fac*Sum;
@@ -1949,56 +1932,64 @@ Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
 Double_t DSigmaDt_GG_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y)
 {
-  Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
+ Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
   Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
   
   Double_t SS = Xa*Xb*RootS*RootS;
-
   Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  
   Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
 
-  Double_t ZZ = TMath::Sqrt(TT*UU);  
-
   Double_t SS2 = SS*SS;
+  Double_t SS3 = SS2*SS;
   Double_t SS4 = SS2*SS2;
-  
+  Double_t SS6 = SS4*SS2;
+  Double_t SS8 = SS6*SS2;
+  Double_t SS10 = SS8*SS2;
+  Double_t SS12 = SS10*SS2;
+
+
+  Double_t ZZ = TMath::Sqrt(TT*UU);  
+    
   Double_t ZZ2 = ZZ*ZZ;
   Double_t ZZ4 = ZZ2*ZZ2;
+  Double_t ZZ6 = ZZ4*ZZ2;
+  Double_t ZZ8 = ZZ6*ZZ2;
+  Double_t ZZ10 = ZZ8*ZZ2;
+  Double_t ZZ12 = ZZ10*ZZ2;
 
+  
   Double_t AlphaS = GetAlphaS(Mt);
 
-  Double_t Constt = 5.0*TMath::Power((4.0*pi*AlphaS),3.0)/(12.0*mJPsi3);
-
-  Double_t Term1 = SS2*ZZ4*TMath::Power((SS2 -ZZ2),4);
+  Double_t Constt = 5.0*TMath::Power(4.0*pi*AlphaS,3.0)/(12.0*mJPsi3);
+  
+  Double_t Term1 = SS2*ZZ4*TMath::Power(SS2-ZZ2,4);
  
+  Double_t Term2 = mJPsi2*SS*ZZ2*TMath::Power(SS2 -ZZ2,2)*(3.0*SS2 - 2.0*ZZ2)*(2.0*SS4 - 6.0*SS2*ZZ2 + 3.0*ZZ4);
 
-  Double_t Term2 = mJPsi2*SS*ZZ2*TMath::Power((SS2 -ZZ2),2)*(3.0*SS2 - 2.0*ZZ2)*(2.0*SS4 - 6.0*SS2*ZZ2 + 3.0*ZZ4);
+  Double_t Term3 = mJPsi4*(9.0*SS12 - 84.0*SS10*ZZ2 + 265.0*SS8*ZZ4 - 382.0*SS6*ZZ6 + 276.0*SS4*ZZ8 - 88.0*SS2*ZZ10 + 9.0*ZZ12);
 
-  Double_t Term3 = mJPsi4*(9.0*SS4*SS4*SS4 - 84.0*SS4*SS4*SS2*ZZ2 + 265.0*SS4*SS4*ZZ4 - 382.0*SS4*SS2*ZZ4*ZZ2 + 276.0*SS4*ZZ4*ZZ4 - 88.0*SS2*ZZ4*ZZ4*ZZ2 + 9.0*ZZ4*ZZ4*ZZ4);
+  Double_t Term4 = mJPsi6*SS*(54.0*SS10 - 357.0*SS8*ZZ2 + 844.0*SS6*ZZ4 - 898.0*SS4*ZZ6 + 439.0*SS2*ZZ8 - 81.0*ZZ10);
 
-  Double_t Term4 = mJPsi4*mJPsi2*SS*(54.0*SS4*SS4*SS2 - 357.0*SS4*SS4*ZZ2 + 844.0*SS4*SS2*ZZ4 - 898.0*SS4*ZZ4*ZZ2* + 439.0*SS2*ZZ4*ZZ4 - 81.0*ZZ4*ZZ4*ZZ2);
+  Double_t Term5 = mJPsi8*(153.0*SS10 - 798.0*SS8*ZZ2 + 1415.0*SS6*ZZ4 - 1041.0*SS4*ZZ6 + 301.0*SS2*ZZ8 - 18.0*ZZ10);
 
-  Double_t Term5 = mJPsi4*mJPsi4*(153.0*SS4*SS4*SS2 - 798.0*SS4*SS4*ZZ2 + 1415.0*SS4*SS2*ZZ4 - 1041.0*SS4*ZZ4*ZZ2* + 301.0*SS2*ZZ4*ZZ4 - 18.0*ZZ4*ZZ4*ZZ2);
+  Double_t Term6 = mJPsi10*SS*(270.0*SS8 - 1089.0*SS6*ZZ2 + 1365.0*SS4*ZZ4 - 616.0*SS2*ZZ6 + 87.0*ZZ8);
 
-  Double_t Term6 = mJPsi4*mJPsi4*mJPsi2*SS*(270.0*SS4*SS4 - 1089.0*SS4*SS2*ZZ2 + 1365.0*SS4*ZZ4 - 616.0*SS2*ZZ4*ZZ2* + 87.0*ZZ4*ZZ4);
+  Double_t Term7 = mJPsi12*(324.0*SS8 - 951.0*SS6*ZZ2 + 769.0*SS4*ZZ4 - 189.0*SS2*ZZ6 + 9.0*ZZ8);
 
-  Double_t Term7 = mJPsi4*mJPsi4*mJPsi4*(324.0*SS4*SS4 - 951.0*SS4*SS2*ZZ2 + 769.0*SS4*ZZ4 - 189.0*SS2*ZZ4*ZZ2* + 9.0*ZZ4*ZZ4);
+  Double_t Term8 = 9.0*mJPsi14*SS*(6.0*SS2 - ZZ2)*(5.0*SS4 - 9.0*SS2*ZZ2 + 3.0*ZZ4);
 
-  Double_t Term8 = 9.0*mJPsi4*mJPsi4*mJPsi4*mJPsi2*SS*(6.0*SS2 - ZZ2)*(5.0*SS4 - 9.0*SS2*ZZ2 + 3.0*ZZ4);
+  Double_t Term9 = 3.0*mJPsi16*SS2*(51.0*SS4 - 59.0*SS2*ZZ2 + 12.0*ZZ4);
 
-  Double_t Term9 = 3.0*mJPsi4*mJPsi4*mJPsi4*mJPsi4*SS2*(51.0*SS4 - 59.0*SS2*ZZ2 + 12.0*ZZ4);
+  Double_t Term10 = 27.0*mJPsi18*SS3*(2.0*SS2 - ZZ2);
 
-  Double_t Term10 = 27.0*mJPsi4*mJPsi4*mJPsi4*mJPsi4*mJPsi2*SS2*SS*(2.0*SS2 - ZZ2);
+  Double_t Term11 = 9.0*mJPsi20*SS4;
 
-  Double_t Term11 = 9.0*mJPsi4*mJPsi4*mJPsi4*mJPsi4*mJPsi4*SS2*SS2;
-
-  Double_t Term12 = SS*ZZ2*TMath::Power((SS-mJPsi2),4.0)*TMath::Power((SS*mJPsi2+ZZ2),4);
-
+  Double_t Term12 = SS*ZZ2*TMath::Power(SS-mJPsi2,4.0)*TMath::Power(SS*mJPsi2 + ZZ2,4);
   
 
   Double_t Amp = Constt * (Term1 + Term2 + Term3 - Term4 + Term5 - Term6 + Term7 - Term8 + Term9 - Term10 + Term11) / Term12;
 
-  
   Double_t Val = Amp/(16.0*pi*SS2);
 
   return Val; 
@@ -2008,30 +1999,34 @@ Double_t DSigmaDt_GG_QQbar_3P0_8(Double_t Xa, Double_t Pt, Double_t Y)
 
 Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
 {
+ 
   Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
   Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
   
   Double_t SS = Xa*Xb*RootS*RootS;
-
   Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  
   Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
-
-  Double_t ZZ = TMath::Sqrt(TT*UU);  
-
+  //  Double_t UU2 = UU*UU;
+  
   Double_t SS2 = SS*SS;
   Double_t SS3 = SS2*SS;
   Double_t SS4 = SS2*SS2;
   Double_t SS6 = SS4*SS2;
-  Double_t SS8 = SS4*SS4;
+  Double_t SS8 = SS6*SS2;
+  
 
+  Double_t ZZ = TMath::Sqrt(TT*UU);  
+  
   Double_t ZZ2 = ZZ*ZZ;
   Double_t ZZ4 = ZZ2*ZZ2;
   Double_t ZZ6 = ZZ4*ZZ2;
   Double_t ZZ8 = ZZ6*ZZ2;
 
+
   Double_t AlphaS = GetAlphaS(Mt);
 
-  Double_t Constt = 5.0*TMath::Power((4.0*pi*AlphaS),3.0)/(6.0*mJPsi3);
+  Double_t Constt = 5.0*TMath::Power(4.0*pi*AlphaS,3.0)/(6.0*mJPsi3);
 
   Double_t Term1 = SS*ZZ2*(TMath::Power(SS2-ZZ2,2) - 2.0*mJPsi2*SS*ZZ2 - mJPsi4*(SS2 + 2.0*ZZ2)+ mJPsi8);
  
@@ -2039,12 +2034,12 @@ Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Term3 = TMath::Power(SS2-ZZ2,4)*TMath::Power(SS*mJPsi2+ZZ2,4);
 
-  Double_t Amp_h0 = Constt * Term1 * Term2 / Term3;
+  Double_t Amp_h0 = (Constt * Term1 * Term2 )/ Term3;
 
 
   Double_t Constt1 = Constt*mJPsi2;
 
-  Double_t Term4 =2.0*TMath::Power(SS2-ZZ2,2)*(SS6- 4.0*SS4*ZZ2 + SS2*ZZ4 - ZZ6);
+  Double_t Term4 =2.0*TMath::Power(SS2-ZZ2,2)*(SS6 - 4.0*SS4*ZZ2 + SS2*ZZ4 - ZZ6);
 
   Double_t Term5 = mJPsi2*SS*(2.0*SS2-ZZ2)*(5.0*SS6 - 17.0*SS4*ZZ2 + 9.0*SS2*ZZ4 - ZZ6);
 
@@ -2058,11 +2053,9 @@ Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Term10 = mJPsi12*SS4;
 
-
   Double_t Amp_h1 = Constt1 * (Term4 - Term5 + Term6 - Term7 + Term8 - Term9 + Term10)/ Term3;
 
-  
-  Double_t Amp = Amp_h0 + Amp_h1;
+    Double_t Amp = Amp_h0 + Amp_h1;
   
   Double_t Val = Amp/(16.0*pi*SS2);
 
@@ -2073,48 +2066,53 @@ Double_t DSigmaDt_GG_QQbar_3P1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
 Double_t DSigmaDt_GG_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
 {
+    
   Double_t Mt = TMath::Sqrt(mJPsi2+Pt*Pt);
   Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
   
   Double_t SS = Xa*Xb*RootS*RootS;
-
   Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
+  
   Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
-
-  Double_t ZZ = TMath::Sqrt(TT*UU);  
-
+  //  Double_t UU2 = UU*UU;
+  
   Double_t SS2 = SS*SS;
   Double_t SS3 = SS2*SS;
   Double_t SS4 = SS2*SS2;
   Double_t SS6 = SS4*SS2;
-  Double_t SS8 = SS4*SS4;
+  Double_t SS8 = SS6*SS2;
   Double_t SS10 = SS8*SS2;
-  Double_t SS12 = SS8*SS4;
+  Double_t SS12 = SS10*SS2;
+  
 
-
+  Double_t ZZ = TMath::Sqrt(TT*UU);  
+  
   Double_t ZZ2 = ZZ*ZZ;
   Double_t ZZ4 = ZZ2*ZZ2;
   Double_t ZZ6 = ZZ4*ZZ2;
   Double_t ZZ8 = ZZ6*ZZ2;
   Double_t ZZ10 = ZZ8*ZZ2;
-  Double_t ZZ12 = ZZ8*ZZ4;
+  Double_t ZZ12 = ZZ10*ZZ2;
+
+
 
   Double_t AlphaS = GetAlphaS(Mt);
 
-
-  Double_t Constt0 = (SS*ZZ2*TMath::Power((4.0*pi*AlphaS),3.0))/(6.0*mJPsi3);
+  Double_t Constt0 = (TMath::Power((4.0*pi*AlphaS),3.0)*SS*ZZ2)/(6.0*mJPsi3);
   
   Double_t Term1 = SS2*TMath::Power(SS2-ZZ2,4);
  
   Double_t Term2 = mJPsi2*SS*ZZ2*TMath::Power(SS2-ZZ2,2)*(11.0*SS2 + 2.0*ZZ2);
   
-  Double_t Term3 = mJPsi4*(SS8* - 12.0*SS6*ZZ2 + 41.0*SS4*ZZ4 - 20.0*SS2*ZZ6 + ZZ8);
+
+  Double_t Term3 = mJPsi4*(SS8 - 12.0*SS6*ZZ2 + 41.0*SS4*ZZ4 - 20.0*SS2*ZZ6 + ZZ8);
+
 
   Double_t Term4 = mJPsi6*SS*(4.0*SS6 - 26.0*SS4*ZZ2 - SS2*ZZ4 - 5.0*ZZ6); 
   
   Double_t Term5 = mJPsi8*(29.0*SS6 - 114.0*SS4*ZZ2 + 108.0*SS2*ZZ4 - 10.0*ZZ6);
   
-  Double_t Term6 = mJPsi10*SS*(65.0*SS4 - 104.0*SS2*ZZ2 + 33.0*ZZ4); 
+  Double_t Term6 = mJPsi10*SS*(65.0*SS4 - 104.0*SS2*ZZ2 - 33.0*ZZ4); 
 
   Double_t Term7 = mJPsi12*(54.0*SS4 - 20.0*SS2*ZZ2 + 7.0*ZZ4); 
     
@@ -2125,9 +2123,9 @@ Double_t DSigmaDt_GG_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Term10 = TMath::Power(SS-mJPsi2,6)*TMath::Power(SS*mJPsi2+ZZ2,4);
   
   Double_t Amp_h0 = Constt0 * (Term1 - Term2 + Term3 - Term4 + Term5 - Term6 + Term7 - Term8 + Term9) / Term10;
-  
 
 
+ 
   Double_t Constt1 = TMath::Power((4.0*pi*AlphaS),3.0)/(2.0*mJPsi);
   
   Double_t Term11 = 2.0*SS2*TMath::Power(SS2-ZZ2,2)*(SS6 - 4.0*SS4*ZZ2 + SS2*ZZ4 - ZZ6);
@@ -2178,9 +2176,9 @@ Double_t DSigmaDt_GG_QQbar_3P2_8(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t Amp_h2 = Constt2 * (Term21 - Term22 + Term23 - Term24 + Term25 - Term26 + Term27 - Term28 + Term29 - Term30 + Term31) / (SS*ZZ2*Term10);
 
-
   Double_t Amp = Amp_h0 + Amp_h1 + Amp_h2;
-  
+
+
   Double_t Val = Amp/(16.0*pi*SS2);
 
   return Val; 
