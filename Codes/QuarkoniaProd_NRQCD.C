@@ -55,10 +55,10 @@ const Double_t RootS = 7000.0;
 
 
 
-/*
+
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
-const Double_t mC = 1.5;
+const Double_t mC = 1.4;
 const Double_t mJPsi = 3.096916;
 
 //const Double_t OO_QQbar_3S1_1_JPsi=1.2;   //GeV^3
@@ -71,7 +71,6 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.018; //GeV^5   //not being used right now
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
-*/
 
 
 /*
@@ -133,7 +132,7 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
 
-
+/*
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
 const Double_t mC = 1.5;
@@ -149,7 +148,7 @@ const Double_t NC = 3.0;
 const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
-
+*/
 
 
 /*
@@ -650,8 +649,8 @@ void QuarkoniaProd_NRQCD()
 
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	//DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPtDy(Pt,1.0);
-	DSigmaDPtDY_Pt[i] = DSigmaDPtDy(Pt,1.0);
+	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPtDy(Pt,0.1);
+	//DSigmaDPtDY_Pt[i] = DSigmaDPtDy(Pt,0.1);
       }
 
 
@@ -659,7 +658,7 @@ void QuarkoniaProd_NRQCD()
 	
 	//DSigmaDPtDY_Pt[i]= Upsilon2MuMu*1000000 * DSigmaDPtDy(Pt,1.0); // nb to fb conversion
 
-	DSigmaDPtDY_Pt[i]= 1000000 * DSigmaDPtDy(Pt,1.0); // nb to fb conversion
+	DSigmaDPtDY_Pt[i]= 1000000 * DSigmaDPtDy(Pt,0.1); // nb to fb conversion
       }
 
 
@@ -671,9 +670,9 @@ void QuarkoniaProd_NRQCD()
       
       
       if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar == 5 || QQbarVar ==9 || QQbarVar == 10){
-	DSigmaDt_GG_Pt[i]= Sum_GG_DSigmaDt_Chi(0.1,Pt,1.0);
-	DSigmaDt_qq_Pt[i]= Sum_qq_DSigmaDt_Chi(0.2,Pt,1.0);
-	DSigmaDt_qg_Pt[i]=Sum_qg_DSigmaDt_Chi(0.2,Pt,1.0);
+	DSigmaDt_GG_Pt[i]= Sum_GG_DSigmaDt_Chi(0.1,Pt,0.1);
+	DSigmaDt_qq_Pt[i]= Sum_qq_DSigmaDt_Chi(0.2,Pt,0.1);
+	DSigmaDt_qg_Pt[i]=Sum_qg_DSigmaDt_Chi(0.2,Pt,0.1);
       }
 
 
@@ -962,9 +961,14 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
 
 
   if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar ==6 || QQbarVar ==7 || QQbarVar ==8 ){ 
-    Value_gq = DSigmaDt_IntX(Pt, Y,3,0) + DSigmaDt_IntX(Pt, Y,2,0) +   DSigmaDt_IntX(Pt, Y,1,0) + DSigmaDt_IntX(Pt, Y,0,3) + DSigmaDt_IntX(Pt, Y,0,2) +   DSigmaDt_IntX(Pt, Y,0,1);
-    Value_qq = DSigmaDt_IntX(Pt, Y,3,-3) + DSigmaDt_IntX(Pt, Y,2,-2) + DSigmaDt_IntX(Pt, Y,1,-1);
+    
     Value_gg = DSigmaDt_IntX(Pt, Y, 0, 0);
+    
+    Value_qq = DSigmaDt_IntX(Pt, Y,3,-3) + DSigmaDt_IntX(Pt, Y,2,-2) + DSigmaDt_IntX(Pt, Y,1,-1) + DSigmaDt_IntX(Pt, Y,-3,3) + DSigmaDt_IntX(Pt, Y,-2,2) + DSigmaDt_IntX(Pt, Y,-1,1);
+    
+    Value_gq = DSigmaDt_IntX(Pt, Y,3,0) + DSigmaDt_IntX(Pt, Y,2,0) +   DSigmaDt_IntX(Pt, Y,1,0) + DSigmaDt_IntX(Pt, Y,0,3) 
+      + DSigmaDt_IntX(Pt, Y,0,2) +   DSigmaDt_IntX(Pt, Y,0,1) + DSigmaDt_IntX(Pt, Y,-3,0) + DSigmaDt_IntX(Pt, Y,-2,0) +   
+      DSigmaDt_IntX(Pt, Y,-1,0) + DSigmaDt_IntX(Pt, Y,0,-3) + DSigmaDt_IntX(Pt, Y,0,-2) +   DSigmaDt_IntX(Pt, Y,0,-1);
   }
 
   
@@ -981,7 +985,9 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
 
   }
 
-  Value =  Value_gq + Value_qq + Value_gg;
+  //Value =  Value_gq + Value_qq + Value_gg;
+
+  Value =  Value_gg;
 
   
   return Value;
@@ -1063,7 +1069,7 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
   
   Double_t XaMax = 1.0;
   
-  Double_t XaStep = 0.001;
+  Double_t XaStep = 0.0001;
 
   Int_t NNXa = (XaMax - XaMin)/XaStep;
 

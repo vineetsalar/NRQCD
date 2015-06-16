@@ -1,0 +1,1 @@
+pdflatex QurkoniaProd.tex;pdflatex QurkoniaProd.tex;pdflatex QurkoniaProd.tex;evince QurkoniaProd.pdf&
