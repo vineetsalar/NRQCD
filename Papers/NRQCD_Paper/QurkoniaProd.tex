@@ -18,6 +18,7 @@
 \newcommand{\pT}{p_{T}}
 \newcommand{\calO}{{\cal{O}}}
 \newcommand{\barQ}{{\bar{Q}}}
+\newcommand{\barq}{{\bar{q}}}
 \newcommand{\barc}{{\bar{c}}}
 \newcommand{\barb}{{\bar{b}}}
 \newcommand{\baru}{\bar{u}}
@@ -34,6 +35,24 @@
 \newcommand{\cu}{{\hat{u}}}
 \newcommand{\alphas}{{\alpha_{s}}}
 
+%\newcommand{}{{}}
+
+\newcommand{\shat}{\hat{\rm s}}
+\newcommand{\that}{\hat{\rm t}}
+\newcommand{\uhat}{\hat{\rm u}}
+\newcommand{\zhat}{\hat{\rm z}}
+
+\newcommand{\CA}{{\cal A}}
+\newcommand{\Qbar}{{\overline Q}}
+\newcommand{\QQbaroctetgen}{{Q\Qbar[ ^{2S+1}L_J^{(8)}]}}
+\newcommand{\QQbaroctetsingS}{{Q\Qbar[ ^1S_0^{(8)}]}}
+\newcommand{\QQbaroctettripP}{{Q\Qbar[ ^3P_J^{(8)}]}}
+\newcommand{\QQbaroctettripPone}{{Q\Qbar[ ^3P_1^{(8)}]}}
+
+\def\QQbaroctettripS{Q\Qbar[ ^3S_1^{(8)}]}
+\def\QQbaroctetPzero{Q\Qbar[ ^3P_0^{(8)}]}
+\def\QQbaroctetPone{Q\Qbar[ ^3P_1^{(8)}]}
+\def\QQbaroctetPtwo{Q\Qbar[ ^3P_2^{(8)}]}
 
 %\newcommand{\hatt}{\hat{t}}
 %\newcommand{\hatu}{\hat{u}}
@@ -525,11 +544,9 @@ use these corss sections in our calculations.
 To order $\alpha_{s}^{3}$, on the other hand, one has typically
 two-by-two scattering processes. The relevant cross
 sections are given below:
-
-\begin{enumerate}
-
-\item g q $\rightarrow ^{(2S+1)}L_{J}$ q or (q$\rightarrow \bar{\rm q})$
-
+\subsubsection{Color Singlet PQCD cross sections}
+\begin{itemize}
+\item g q $\rightarrow {\rm ^{(2S+1)}L_{J}}$ q or (q$\rightarrow \bar{\rm q})$
 \begin{equation}
 \begin{split}
 \frac{d\sigma}{d\ct}(^1S_0) = &\frac{2\pi\alphas^{3} (R_{0})^{2}}{9M\cs^2}\cdot\frac{(\ct-M^2)^{2}-2\cs\cu}{(-\ct)(\ct-M^2)^{2}}\\
@@ -539,17 +556,202 @@ sections are given below:
                               &\frac{(\ct-M^2)^2(\ct^2+6M^4)-2\cs\cu(\ct^2-6M^2(\ct-M^2))}{(-\ct)(\ct-M^2)^4}\\
 \end{split}  
 \end{equation}
-
-\item q $\bar{\rm q}$ $\rightarrow ^{(2S+1)}L_{J}$ g
+\item q $\bar{\rm q}$ $\rightarrow {\rm ^{(2S+1)}L_{J}}$ g
 \begin{equation}
-\frac{d\sigma}{d\ct}(^{(2S+1)}L_{J})=-\frac{8}{3}\frac{\ct^2}{\cs^2}\frac{d\sigma}{d\ct}(g q \rightarrow ^{(2S+1)}L_{J} q)|_{\ct\leftrightarrow\cu}
+\frac{d\sigma}{d\ct}({\rm ^{(2S+1)}L_{J}})=-\frac{8}{3}\frac{\ct^2}{\cs^2}\frac{d\sigma}{d\ct}({\rm g q \rightarrow ^{(2S+1)}L_{J} q})|_{\ct\leftrightarrow\cu}
+\end{equation}
+\item g g $\rightarrow {\rm ^{(2S+1)}L_{J}}$ g
+\begin{equation}
+\begin{split}
+\frac{d\sigma}{d\ct}(^3S_1) = &\frac{5\pi\alphas^{3} (R_{0})^{2}}{9M\cs^2}\cdot \frac{M^2}{(\cs-M^2)^2 (\ct-M^2)^2 (\cu-M^2)^2}\\
+                             &\cdot \{[\cs^2(\cs-M^2)^2]+[\cs\rightarrow\ct]+[\cs\rightarrow\cu] \}\\
+\frac{d\sigma}{d\ct}(^1S_0) = &\frac{\pi\alphas^{3} (R_{0})^{2}}{2M\cs^2}\frac{1}{\cs\ct\cu(\cs-M^2)^2(\ct-M^2)^2(\cu-M^2)^2}\\
+                              &\cdot\{[\cs^4(\cs-M^2)^2((\cs-M^2)^2+2M^4)\\
+                              &-\frac{4}{3}\cs\ct\cu(\cs^2+\ct^2+\cu^2)(\cs-M^2)(\ct-M^2)(\cu-M^2)\\
+                              &+\frac{16}{3}M^2\cs\ct\cu(\cs^2\ct^2+\cs^2\cu^2+\ct^2\cu^2)\\
+                              &+\frac{28}{3}M^4\cs^2\ct^2\cu^2]+[\cs\leftrightarrow\ct]+[\cs\leftrightarrow\cu]\}\\
+\end{split}  
+\end{equation}
+We define two new variables as a combination of $\cs,\ct and \cu$. These variables can  be used to define 
+the g g $\rightarrow {\rm ^{(2S+1)}L_{J}}$ g cross sections.
+cross sections
+\begin{equation}
+\begin{split}
+  P = & \,\cs\ct + \ct\cu + \cu\cs \\
+  Q = & \,\cs\ct\cu\\
+\end{split} 
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{d\sigma}{d\ct}(^1S_0) = ~&\frac{\pi \alphas^3 (R_{0})^{2}}{M\cs^2}\frac{P^2(M^8-2M^4P+P^2+2M^2Q)}{Q(Q-M^2P)^2}\\
+\frac{d\sigma}{d\ct}(^3S_1) = ~&\frac{10\pi \alphas^3 (R_{0})^{2}}{9\cs^2}\frac{M(P^2-M^2Q)}{(Q-M^2P)^2}\\
+\frac{d\sigma}{d\ct}(^1P_1) = ~&\frac{40\pi \alphas^3 (R_{1}^\prime)^{2}}{3M\cs^2}\frac{[-M^{10}P + M^6P^2 + Q(5M^8-7M^4P+2P^2)+4M^2Q^2]}{(Q-M^2P)^3}\\
+\frac{d\sigma}{d\ct}(^3P_0) = ~&\frac{4\pi \alphas^3 (R_{1}^\prime)^{2}}{M^3\cs^2}\frac{1}{Q(Q-M^2P)^4}[9M^4P^4(M^8-2M^4P+P^2)\\
+                              ~&-6M^2P^3Q(2M^8-5M^4P+P^2)\\
+                              ~&-P^2Q^2(M^8+2M^4P-P^2)\\
+                              ~&+2M^2PQ^3(M^4-P)+6M^4Q^4]\\
+\frac{d\sigma}{d\ct}(^3P_1) = ~&\frac{12\pi \alphas^3 (R_{1}^\prime)^{2}}{M^3\cs^2}\frac{P^2\{M^2P^2(M^4-4P)-2Q(M^8-5M^4P-P^2)-15M^2Q^2\}}{(Q-M^2P)^4}\\
+\frac{d\sigma}{d\ct}(^3P_2) = ~&\frac{4\pi \alphas^3 (R_{1}^\prime)^{2}}{M^3\cs^2}\frac{1}{Q(Q-M^2P)^4}\\
+                             ~&\{12M^4P^4(M^8-2M^4P+P^2) - 3M^2P^3Q(8M^8-M^4P+4P^2)\\
+                             ~&-2P^2Q^2(7M^8-43M^4P-P^2)+M^2PQ^3(16M^4-61P)\\
+                             ~&+12M^4Q^4\}\\
+\end{split}  
+\end{equation}
+\end{itemize}
+
+
+
+\subsubsection{Color Octet PQCD cross sections}
+We list below short distance squared amplitudes for $2 \to 2$ scattering 
+processes which mediate color-octet quarkonia production. 
+These expressions are averaged over initial spins and colors of the two 
+incident partons.  The helicity levels of outgoing $J=1$ and $J=2$ pairs 
+are labeled by the subscript $h$.  The total squared amplitudes for creating 
+specific quarkonia states can be obtained by multiplying these process-independent 
+short distance expressions with appropriate long distance NRQCD matrix 
+elements. 
+
+
+\bigskip
+
+
+\begin{itemize}
+\item q $\bar{\rm q}$ $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ g
+
+\begin{equation}
+\begin{split}
+%{\overline{\sum}} | \CA(q\barq \to \QQbaroctetsingS g) |^2 &= {5 (4\pi \alphas)^3 \over 27 M} {\ct^2+\cu^2 \over \cs (\cs-M^2)^2}\\
+\mathop{{\bar{\sum}}} | \CA(q\barq \to \QQbaroctetsingS g) |^2 &= {5 (4\pi \alphas)^3 \over 27 M} {\ct^2+\cu^2 \over \cs (\cs-M^2)^2}\\
+\mathop{{\bar{\sum_{h=0}}}} | \CA(q\barq \to \QQbaroctettripS g) |^2 &= {8 (4\pi \alphas)^3 \over 81 M^3} {M^2 \shat \over (\shat-M^2)^4} 
+\bigl[4(\that^2+\uhat^2)-\that\uhat \bigr]\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(q\barq \to \QQbaroctettripS g) |^2 &= {2 (4\pi \alphas)^3 \over 81 M^3} {\shat^2+M^4 \over (\shat-M^2)^4} 
+{\that^2+\uhat^2 \over \that\uhat} \bigl[4(\that^2+\uhat^2)-\that\uhat \bigr]\\ 
+\mathop{{\bar{\sum}}} | \CA(q\barq \to \QQbaroctetPzero g) |^2 &= {20 (4\pi \alphas)^3 \over 81 M^3} {(\shat-3 M^2)^2 
+(\that^2+\uhat^2) \over \shat(\shat-M^2)^4}\\
+\mathop{{\bar{\sum_{h=0}}}} | \CA(q\barq \to \QQbaroctetPone g) |^2 &={40 (4\pi \alphas)^3 \over 81 M^3} {\shat(\that^2+\uhat^2)
+\over (\shat-M^2)^4} \\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(q\barq \to \QQbaroctetPone g) |^2 &= {160 (4\pi \alphas)^3 \over 81 M^3} {M^2 \that \uhat\over (\shat-M^2)^4}\\ 
+\mathop{{\bar{\sum_{h=0}}}} | \CA(q\barq \to \QQbaroctetPtwo g) |^2 &= {8 (4\pi \alphas)^3 \over 81 M^3} {\shat(\that^2+\uhat^2)\over (\shat-M^2)^4}\\ 
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(q\barq \to \QQbaroctetPtwo g) |^2 &={32 (4\pi \alphas)^3 \over 27 M^3} {M^2 \that\uhat\over (\shat-M^2)^4}\\ 
+\mathop{{\bar{\sum_{|h|=2}}}} | \CA(q\barq \to \QQbaroctetPtwo g) |^2 &={16 (4\pi \alphas)^3 \over 27 M^3} {M^4 (\that^2+\uhat^2)\over \shat(\shat-M^2)^4}\\
+\end{split}  
 \end{equation}
 
 
 
 
+\item g q $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ q
 
-\end{enumerate}
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum}}} | \CA(gq \to \QQbaroctetsingS q) |^2 &=-{5 (4\pi \alphas)^3 \over 72 M} {\shat^2+\uhat^2 \over \that (\that-M^2)^2}\\
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gq \to \QQbaroctettripS q) |^2 &=-{(4\pi \alphas)^3 \over 54 M^3} {M^2 \that\bigl[4(\shat^2+\uhat^2)-\shat\uhat\bigr] \over 
+\bigl[(\shat-M^2)(\that-M^2)\bigr]^2}\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gq \to \QQbaroctettripS q) |^2 &=-{(4\pi \alphas)^3 \over 108 M^3} \\
+                                   &\times {(\shat^2+\uhat^2+2 M^2 \that)(\shat-M^2)^2- 2 M^2 \shat\that\uhat \over \shat\uhat\bigl[(\shat-M^2)(\that-M^2)\bigr]^2} \\
+                                   & \times \bigl[4(\shat^2+\uhat^2)-\shat\uhat\bigr]\\ 
+\mathop{{\bar{\sum}}} | \CA(gq \to \QQbaroctetPzero q) |^2 &=-{5 (4\pi \alphas)^3 \over 54 M^3} {(\that-3 M^2)^2(\shat^2+\uhat^2) \over \that(\that-M^2)^4}\\ 
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gq \to \QQbaroctetPone q) |^2 &=-{5 (4\pi \alphas)^3 \over 27 M^3} 
+       {\that \bigl[\shat^2(\shat-M^2)^2 + \uhat^2(\shat+M^2)^2 \bigr] \over(\that-M^2)^4 (\shat-M^2)^2}\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gq \to \QQbaroctetPone q) |^2 &=-{20 (4\pi \alphas)^3 \over 27 M^3} 
+       {M^2 \shat \uhat(\that^2+\that\uhat+\uhat^2) \over (\that-M^2)^4 (\shat-M^2)^2}\\ 
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gq \to \QQbaroctetPtwo q) |^2 &=-{(4\pi \alphas)^3 \over 27 M^3} {\that \over (\that-M^2)^4}\\
+                                 & \times \bigl[ \shat^2+\uhat^2+12 M^2 \shat \uhat^2{\shat^2+M^2 \shat + M^4 \over(\shat-M^2)^4} \bigr]\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gq \to \QQbaroctetPtwo q) |^2 &=-{4 (4\pi \alphas)^3 \over 9 M^3} {M^2 \shat\uhat\over (\that-M^2)^4} \\
+                                                                & \times {(\shat-M^2)^2 (\shat^2+M^4) - (\shat+M^2)^2 \that\uhat \over (\shat-M^2)^4}\\
+\mathop{{\bar{\sum_{|h|=2}}}} | \CA(gq \to \QQbaroctetPtwo q) |^2 &=-{2 (4\pi \alphas)^3 \over 9 M^3} {M^4\over \that(\that-M^2)^4} \\
+                                        & \times \bigl[ \shat^2+\uhat^2 + 2 \shat^2 \that \uhat{(\shat-M^2)(2 \that+\uhat) - \uhat^2 \over (\shat-M^2)^4} \bigr] 
+\end{split}  
+\end{equation}
+
+
+\item g g $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ g ( The $gg \to \QQbaroctettripP\ g$ squared amplitudes are expressed in 
+  terms of the variables $\shat$ and $\zhat \equiv \sqrt{\that\uhat}$.)
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum}}} | \CA(gg \to \QQbaroctetsingS g) |^2 &=
+       {5 (4\pi \alphas)^3 \over 16 M} \bigl[ \shat^2 (\shat-M^2)^2 + \shat \that\uhat(M^2-2\shat) + (\that\uhat)^2 \bigr] \\
+       &\times { (\shat^2-M^2 \shat + M^4)^2-\that\uhat (2 \that^2 + 3 \that\uhat + 2 \uhat^2) \over \shat\that\uhat \bigl[ (\shat-M^2) (\that-M^2) (\uhat-M^2) \bigr]^2}\\ 
+\mathop{{\bar{\sum_{h=0}}}} | \CA(g g \to \QQbaroctettripS g) |^2 &= -{(4\pi \alphas)^3 \over 144 M^3}{2 M^2 \shat \over (\shat-M^2)^2} (\that^2+\uhat^2) \that\uhat \\
+                                                              & \times {27(\shat\that+\that\uhat+\uhat\shat)-19M^4 \over \bigl[(\shat-M^2)(\that-M^2)(\uhat-M^2)\bigr]^2}\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(g g \to \QQbaroctettripS g) |^2 &= -{(4\pi \alphas)^3 \over 144 M^3} {\shat^2 \over (\shat-M^2)^2}\\ 
+                                                                  &\times \bigl[(\shat-M^2)^4+\that^4+\uhat^4+2 M^4 \bigl({\that\uhat \over \shat}\bigr)^2 \bigr]\\ 
+                                                                & \times {27(\shat\that+\that\uhat+\uhat\shat)-19M^4 \over \bigl[(\shat-M^2)(\that-M^2)(\uhat-M^2)\bigr]^2}\\ 
+\mathop{{\bar{\sum}}} | \CA(gg \to \QQbaroctetPzero g) |^2 &= {5 (4\pi \alphas)^3 \over 12 M^3} \frac{1}{\bigl[\shat \zhat^2 (\shat-M^2)^4 (\shat M^2 + \zhat^2)^4 \bigr]}\\
+                                                           & \times \Bigl\{\shat^2 \zhat^4 (\shat^2-\zhat^2)^4+ M^2 \shat \zhat^2 (\shat^2-\zhat^2)^2 (3\shat^2-2\zhat^2)(2\shat^4 - 6 \shat^2 \zhat^2 + 3 \zhat^4)\\
+                                                           & + M^4 \bigl[ 9\shat^{12} - 84 \shat^{10} \zhat^2 + 265 \shat^8 \zhat^4  - 382 \shat^6 \zhat^6 + 276 \shat^4 \zhat^8 - 88 \shat^2 \zhat^{10}+ 9 \zhat^{12} \bigr]\\ 
+                                                           & - M^6 \shat \bigl[ 54 \shat^{10} - 357 \shat^8 \zhat^2  + 844 \shat^6 \zhat^4 - 898 \shat^4 \zhat^6 + 439 \shat^2 \zhat^8- 81 \zhat^{10} \bigr] \\
+                                                           & + M^8 \bigl[ 153 \shat^{10} - 798 \shat^8 \zhat^2 + 1415 \shat^6 \zhat^4 - 1041 \shat^4 \zhat^6 + 301 \shat^2 \zhat^8 - 18 \zhat^{10} \bigr] \\
+                                                           & -M^{10} \shat \bigl[ 270 \shat^8 - 1089 \shat^6 \zhat^2 + 1365 \shat^4 \zhat^4 - 616 \shat^2 \zhat^6 + 87 \zhat^8 \bigr] \\
+                                                           & + M^{12} \bigl[ 324 \shat^8 - 951 \shat^6 \zhat^2 + 769 \shat^4 \zhat^4 - 189 \shat^2 \zhat^6 + 9 \zhat^8 \bigr] \\
+                                                           & - 9 M^{14} \shat \bigl[ (6 \shat^2 - \zhat^2) (5 \shat^4 - 9 \shat^2 \zhat^2 + 3 \zhat^4) \bigr]\\
+                                                           & + 3 M^{16} \shat^2 \bigl[51 \shat^4 - 59 \shat^2 \zhat^2 + 12 \zhat^4\bigr]\\
+                                                           & - 27 M^{18} \shat^3 \bigl[2\shat^2 - \zhat^2 \bigr]\\
+                                                           & + 9 M^{20} \shat^4 \Bigr\} \\
+\end{split}  
+\end{equation}
+
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gg \to \QQbaroctetPone g) |^2 &={5 (4\pi \alphas)^3 \over 6 M^3} \frac{1}{\bigl[(\shat-M^2)^4 (\shat M^2 + \zhat^2)^4  \bigr]}\\
+                                                              & \times \shat \zhat^2 \bigl[(\shat^2-\zhat^2)^2 - 2 M^2 \shat \zhat^2 - M^4 (\shat^2+2 \zhat^2) + M^8 \bigr] \\
+                                                             & \times \bigl[(\shat^2-\zhat^2)^2 - M^2 \shat (2\shat^2 - \zhat^2) + M^4 \shat^2 \bigr] \\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gg \to \QQbaroctetPone g) |^2 &={5 (4\pi \alphas)^3 \over 6 M^3} \frac{1}{\bigl[(\shat-M^2)^4 (\shat M^2 + \zhat^2)^4 \bigr]}\\
+                                                                & \times M^2 \Bigl\{ 2(\shat^2-\zhat^2)^2 (\shat^6-4 \shat^4\zhat^2 + \shat^2 \zhat^4 - \zhat^6) \\
+                                                                & - M^2 \shat (2 \shat^2-\zhat^2) (5 \shat^6 - 17 \shat^4\zhat^2 + 9 \shat^2 \zhat^4 - \zhat^6 ) \\
+                                                                & + M^4 ( 21\shat^8 - 49 \shat^6 \zhat^2 + 21 \shat^4 \zhat^4 - 4 \shat^2 \zhat^6 + \zhat^8) \\
+                                                                & - M^6 \shat (24 \shat^6 - 30 \shat^4 \zhat^2 + 6 \shat^2 \zhat^4 - \zhat^6) \\
+                                                                & + M^8 \shat^2 (16 \shat^4 - 9 \shat^2 \zhat^2 + 2 \zhat^4)\\
+                                                                & - M^{10} \shat^3 (6 \shat^2 - \zhat^2) \\
+                                                                & + M^{12} \shat^4 \Bigr\} \\
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gg \to \QQbaroctetPtwo g) |^2  &={(4\pi \alphas)^3 \over 6 M^3} \frac{ \shat \zhat^2}{\bigl[(\shat-M^2)^6 (\shat M^2 + \zhat^2)^4 \bigr]}\\
+                                                               & \Bigl\{ \shat^2 (\shat^2-\zhat^2)^4 - M^2 \shat \zhat^2 (\shat^2-\zhat^2)^2(11 \shat^2+2 \zhat^2) \\
+                                                               & + M^4 \bigl[ \shat^8 - 12 \shat^6 \zhat^2 + 41 \shat^4 \zhat^4 - 20 \shat^2 \zhat^6 + \zhat^8 \bigr] \\
+                                                               & - M^6 \shat \bigl[ 4\shat^6 - 26 \shat^4 \zhat^2 - \shat^2 \zhat^4 - 5 \zhat^6 \bigr] \\
+                                                               & + M^8 \bigl[ 29 \shat^6 - 114 \shat^4 \zhat^2 + 108 \shat^2 \zhat^4 - 10 \zhat^6 \bigr] \\
+                                                               & - M^{10} \shat \bigl[ 65 \shat^4 - 104 \shat^2 \zhat^2 -33 \zhat^4 \bigr] \\
+                                                               & + M^{12} \bigl[ 54 \shat^4 - 20 \shat^2 \zhat^2 + 7 \zhat^4 \bigr] \\
+                                                               & - M^{14} \shat \bigl[23 \shat^2 + 5 \zhat^2\bigr]\\ 
+                                                               & + 7 M^{16} \shat^2 \Bigr\}\\
+\end{split}  
+\end{equation}
+
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gg \to \QQbaroctetPtwo g) |^2 &={(4\pi \alphas)^3 \over 2 M^3} \frac{M^2}{\bigl[(\shat-M^2)^6 (\shat M^2+\zhat^2)^4 \bigr]}\\
+                                                                 &  \times \Bigl\{2 \shat^2 (\shat^2-\zhat^2)^2 (\shat^6 - 4 \shat^4 \zhat^2 + \shat^2 \zhat^4 - \zhat^6) \\
+                                                                 & - M^2 \shat \bigl[ 10 \shat^{10} - 37 \shat^8 \zhat^2  + 19 \shat^6 \zhat^4 + 11 \shat^4 \zhat^6 - \shat^2 \zhat^8 - 4 \zhat^{10} \bigr] \\
+                                                                 & + M^4 \bigl[ 25 \shat^{10} - 61 \shat^8 \zhat^2  + 27 \shat^6  \zhat^4 - 34 \shat^4 \zhat^6 + 23 \shat^2 \zhat^8 - 2 \zhat^{10} \bigr] \\
+                                                                 & - M^6 \shat \bigl[ 42 \shat^8 - 77 \shat^6 \zhat^2 + 41 \shat^4 \zhat^4 - 22 \shat^2 \zhat^6 + 17 \zhat^8 \bigr] \\
+                                                                 & + M^8 \bigl[ 53 \shat^8 - 88 \shat^6 \zhat^2 + 69 \shat^4 \zhat^4 - 68 \shat^2 \zhat^6 + 3 \zhat^8 \bigr] \\
+                                                                 & - M^{10} \shat \bigl[ 54 \shat^6 - 85 \shat^4 \zhat^2 + 60 \shat^2 \zhat^4 - 9 \zhat^6 \bigr] \\
+                                                                 & + M^{12} \shat^2 \bigl[ 43 \shat^4 - 47 \shat^2 \zhat^2 + 20 \zhat^4 \bigr] \\
+                                                                 & - M^{14} \shat^3 \bigl[22 \shat^2 - 9 \zhat^2\bigr]\\ 
+                                                                 & + 5 M^{16} \shat^4 \Bigr\} \\ 
+\mathop{{\bar{\sum_{|h|=2}}}} | \CA(gg \to \QQbaroctetPtwo g) |^2 &={(4\pi \alphas)^3 \over 2 M^3}\frac{M^4}{\bigl[ \shat \zhat^2 (\shat-M^2)^6 (\shat M^2 + \zhat^2)^4 \bigr]}\\ 
+                                     & \times  \Bigl\{ 2 \shat^2 \bigl[ \shat^{12} - 8 \shat^{10} \zhat^2 + 22 \shat^8 \zhat^4 - 24 \shat^6  \zhat^6 + 10 \shat^4 \zhat^8 - 3 \shat^2 \zhat^{10} + \zhat^{12} \bigr] \\
+                                     & - M^2 \shat \bigl[ 16 \shat^{12} - 102 \shat^{10} \zhat^2  + 210 \shat^8 \zhat^4 - 153 \shat^6 \zhat^6 + 36 \shat^4 \zhat^8  - 6 \shat^2 \zhat^{10}  + 4 \zhat^{12} \bigr] \\
+                                     & + M^4 \bigl[ 60 \shat^{12} - 306 \shat^{10} \zhat^2  + 482 \shat^8 \zhat^4 - 271 \shat^6 \zhat^6 + 77 \shat^4 \zhat^8 - 18 \shat^2 \zhat^{10}  + 2 \zhat^{12} \bigr] \\
+                                     & - M^6 \shat \bigl[ 140 \shat^{10} - 573 \shat^8 \zhat^2 + 710 \shat^6 \zhat^4 - 344 \shat^4 \zhat^6 + 91 \shat^2 \zhat^8 - 18 \zhat^{10} \bigr] \\
+                                     & + M^8 \bigl[ 226 \shat^{10} - 741 \shat^8 \zhat^2 + 737 \shat^6 \zhat^4 - 310 \shat^4 \zhat^6 + 77 \shat^2 \zhat^8 - 4 \zhat^{10} \bigr] \\
+                                     & - M^{10} \shat \bigl[ 264 \shat^8 - 686 \shat^6 \zhat^2 + 541 \shat^4 \zhat^4 - 177 \shat^2 \zhat^6 + 25 \zhat^8 \bigr] \\
+                                     & + M^{12} \bigl[ 226 \shat^8 - 452 \shat^6 \zhat^2 + 261 \shat^4 \zhat^4 - 55 \shat^2 \zhat^6 + 2 \zhat^8 \bigr] \\
+                                     & - M^{14} \shat \bigl[ 140 \shat^6 - 201 \shat^4 \zhat^2 + 71 \shat^2 \zhat^4 - 6 \zhat^6 \bigr] \\
+                                     & + M^{16} \shat^2 \bigl[ 60 \shat^4 - 53 \shat^2 \zhat^2 + 8 \zhat^4 \bigr] \\
+                                     & - 2 M^{18} \shat^3 \bigl[ 8 \shat^2 - 3 \zhat^2 \bigr]\\
+                                     & + 2 M^{20} \shat^4 \Bigr\} \\
+\end{split}  
+\end{equation}
+
+\end{itemize}
+
+
+%\footnote{This is a footnote} 
+%The $gg \to \QQbaroctettripP\ g$ squared amplitudes are expressed in terms of the variables $\shat$ and $\zhat \equiv \sqrt{\that\uhat}$.}
+
 %\section{Summary}
  
  
