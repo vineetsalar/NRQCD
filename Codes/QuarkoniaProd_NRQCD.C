@@ -67,7 +67,8 @@ const Double_t R02 = 2.0*pi*1.2/(3.0*NC);  //GeV^3
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
 const Double_t OO_QQbar_1S0_8_JPsi=0.018;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0013;  //GeV^3
-const Double_t OO_QQbar_3P0_8_JPsi=0.018; //GeV^5   //not being used right now 
+
+const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC*mC; //GeV^5  
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
@@ -79,14 +80,13 @@ Int_t QQbarVar =2;
 const Double_t mC = 1.5;
 const Double_t mJPsi = 3.686109;
 
+//const Double_t OO_QQbar_3S1_1_JPsi=0.76; //GeV^3 
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*0.76/(3.0*NC);  //GeV^3 
-
-//const Double_t OO_QQbar_3S1_1_JPsi=0.76; //GeV^3 
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
-
 const Double_t OO_QQbar_1S0_8_JPsi=0.0080;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0033;  //GeV^3
+
 const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC*mC; //GeV^5 
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
@@ -110,7 +110,7 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.0;      //GeV^5
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*0.054*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
-const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
+const Double_t OO_QQbar_3S1_8_Chic=0.00187;  //GeV^3          
 */
 
 
@@ -161,16 +161,15 @@ const Double_t mJPsi = 9.46030;
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*10.9/(3.0*NC);  //GeV^3
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
-
 const Double_t OO_QQbar_3S1_8_JPsi=0.0477;  //GeV^3
 const Double_t OO_QQbar_1S0_8_JPsi=0.0121;   //GeV^3
-const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0121; //GeV^3   //not being used right now 
-
+const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0121*mC*mC; //GeV^5 
 
 //================ Faltu ===============//
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
 */
+
 
 /*
 // Y(2S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -182,10 +181,10 @@ const Double_t mJPsi = 10.02326;
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*4.5/(3.0*NC);  //GeV^3
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
-
 const Double_t OO_QQbar_3S1_8_JPsi=0.0224;  //GeV^3
 const Double_t OO_QQbar_1S0_8_JPsi=-0.0067;   //GeV^3
-const Double_t OO_QQbar_3P0_8_JPsi=-5.0*0.0067; //GeV^3   //not being used right now 
+
+const Double_t OO_QQbar_3P0_8_JPsi=-5.0*0.0067*mC*mC; //GeV^5   //not being used right now 
 
 //================ Faltu ===============//
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
@@ -205,7 +204,7 @@ const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for 
 
 const Double_t OO_QQbar_3S1_8_JPsi=0.0513;  //GeV^3
 const Double_t OO_QQbar_1S0_8_JPsi=0.0002;   //GeV^3
-const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0002; //GeV^3   //not being used right now 
+const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0002*mC*mC; //GeV^5 
 
 //================ Faltu ===============//
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
@@ -974,20 +973,25 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
   
   if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5 || QQbarVar == 9 || QQbarVar == 10 ) 
   { 
-    
-    Value_gq = DSigmaDt_IntX_Chi(Pt, Y,3,0) + DSigmaDt_IntX_Chi(Pt, Y,2,0) +   DSigmaDt_IntX_Chi(Pt, Y,1,0) 
-      + DSigmaDt_IntX_Chi(Pt, Y,0,3) + DSigmaDt_IntX_Chi(Pt, Y,0,2) +   DSigmaDt_IntX_Chi(Pt, Y,0,1);
-    
-    Value_qq = DSigmaDt_IntX_Chi(Pt, Y,3,-3) + DSigmaDt_IntX_Chi(Pt, Y,2,-2) + DSigmaDt_IntX_Chi(Pt, Y,1,-1);
-    
     Value_gg = DSigmaDt_IntX_Chi(Pt, Y, 0, 0);
+
+    Value_qq = DSigmaDt_IntX_Chi(Pt, Y,3,-3) + DSigmaDt_IntX_Chi(Pt, Y,2,-2) + DSigmaDt_IntX_Chi(Pt, Y,1,-1)+ DSigmaDt_IntX_Chi(Pt, Y,-3,3) + DSigmaDt_IntX_Chi(Pt, Y,-2,2) + DSigmaDt_IntX_Chi(Pt, Y,-1,1);
+
+    Value_gq = DSigmaDt_IntX_Chi(Pt, Y,3,0) + DSigmaDt_IntX_Chi(Pt, Y,2,0) +   DSigmaDt_IntX_Chi(Pt, Y,1,0) + DSigmaDt_IntX_Chi(Pt, Y,0,3) + DSigmaDt_IntX_Chi(Pt, Y,0,2) +   DSigmaDt_IntX_Chi(Pt, Y,0,1)
+      +DSigmaDt_IntX_Chi(Pt, Y,-3,0) + DSigmaDt_IntX_Chi(Pt, Y,-2,0) +   DSigmaDt_IntX_Chi(Pt, Y,-1,0) + DSigmaDt_IntX_Chi(Pt, Y,0,-3) + DSigmaDt_IntX_Chi(Pt, Y,0,-2) +   DSigmaDt_IntX_Chi(Pt, Y,0,-1);
+
+      ;
+    
+
+    
+
   
 
   }
 
-  //Value =  Value_gq + Value_qq + Value_gg;
+  Value =  Value_gq + Value_qq + Value_gg;
 
-  Value =  Value_gg;
+  //Value =  Value_gg;
 
   
   return Value;
@@ -2358,9 +2362,9 @@ Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y)
 
 
   Double_t AlphaS = GetAlphaS(Mt);
-  Double_t AlphaS2 = AlphaS*AlphaS;
-  
-  Double_t Term1 = 4.0*pi*AlphaS2*R02/(mJPsi3*SS*SS);
+  Double_t AlphaS3 = AlphaS*AlphaS;
+
+  Double_t Term1 = 4.0*pi*AlphaS3*R02/(mJPsi3*SS*SS);
   
   Double_t Term2 = 1.0/(QQ*TMath::Power(QQ-mJPsi2*PP,4));
   
