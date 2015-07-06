@@ -35,6 +35,14 @@
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TVectorFfwd.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TVectorDfwd.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TFitResultPtr.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TH1D.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TH2D.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TH2.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TMatrixFBasefwd.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TMatrixDBasefwd.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TH3D.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TH3.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TAtt3D.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TMath.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TError.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TLegend.h

@@ -11,6 +11,10 @@
 #include <fstream>
 #include <ctime>
 #include "TH1F.h"
+#include "TH1D.h"
+#include "TH2D.h"
+#include "TH3D.h"
+
 #include <TMath.h>
 #include <TLegend.h>
 #include "TCanvas.h"
@@ -26,6 +30,7 @@
 #include "TMath.h"
 #include "TRandom3.h"
 #include "TF1.h"
+
 #include "TGraph.h"
 #include "TCanvas.h"
 #include "TAxis.h"
@@ -53,13 +58,15 @@ const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
 const Double_t RootS = 7000.0;
 
-
+const Int_t NAX = 16200;
+Double_t AXa[NAX]={0.0};
 
 
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
 const Double_t mC = 1.4;
-const Double_t mJPsi = 3.096916;
+//const Double_t mJPsi = 3.096916;
+const Double_t mJPsi = 2.8;
 
 //const Double_t OO_QQbar_3S1_1_JPsi=1.2;   //GeV^3
 const Double_t NC = 3.0;        
@@ -272,13 +279,16 @@ const Double_t mJPsi20 = mJPsi10*mJPsi10;
 
 
 // For Parton Distribution Function
+Double_t XXMinPtY(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax);
+void XbXXPtY();
+
 Double_t GetAlphaS(Double_t Q);
 Double_t quark_function(int nf, Double_t x, Double_t Qsquare);
 Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDPtDy(Double_t Pt, Double_t Y);
 Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
 
-
+void Pal_JPsi_D2SigDPtDY_Y09_Pt(TLegend *lgd);
 //============================ qg ===================//
 Double_t Sum_qg_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t DSigmaDt_qg_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y);
@@ -421,8 +431,6 @@ void QuarkoniaProd_NRQCD()
   if(QQbarVar ==9){OutFile = new TFile("Chib0_1PCrossSection.root","Recreate");}
   if(QQbarVar ==10){OutFile = new TFile("Chib0_2PCrossSection.root","Recreate");}
 
-
-
   //export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/vineet/LHAPDF/lib
   //gSystem->Load("libLHAPDF.so");
   //.include /home/vineet/LHAPDF/include
@@ -455,29 +463,74 @@ void QuarkoniaProd_NRQCD()
 
   LHAPDF::initPDF(SUBSET);
 
+  //========================================================================================== //
+
+
+  
+  Double_t XMax[6]={0.00001,0.0001,0.001,0.01,0.1,1.0};
+  Double_t XMin[6]={0.000001,0.00001,0.0001,0.001,0.01,0.1};
+
+  Double_t X =0;
+  Double_t dX = 0.0;
+  
+  Int_t NX = 900; 
+
+  Int_t Count =0;
+
+  for(int j =0;j<=5;j++)
+    {
+      //cout<<"Diff: "<<XMax[j]-XMin[j]<<endl;
+      if(j>2) NX= 4500;
+
+      dX = (XMax[j] - XMin[j])/NX;
+
+      cout<<" step "<<dX<<endl;
+
+      for(int i =0;i<NX;i++)
+	{ Count = Count+1;
+
+	  X = XMin[j] + i*dX;
+	  AXa[Count]=X;
+	  cout<<j<<"  "<<i<<"   "<<Count<<"  "<<X<<endl;
+	}
+      
+      
+  }
+  
+  cout<<Count<<":"<<endl;
+  
+  //return;
+
+
+
+
+
   //return;
 
   // cout<<" value of d quark : "<<quark_function(1, 0.01, 100)<<endl;
 
   //============================ Graph of Gluon Diss Functions ==================//  
-  Double_t AXX[10000]={0.0};
+  Double_t AXX[100000]={0.0};
 
-  Double_t GluonDissFunc_Q1[10000]={0.0};
-  Double_t UpQuarkDissFunc_Q1[10000]={0.0};
-  Double_t DownQuarkDissFunc_Q1[10000]={0.0};
+  Double_t GluonDissFunc_Q1[100000]={0.0};
+  Double_t UpQuarkDissFunc_Q1[100000]={0.0};
+  Double_t DownQuarkDissFunc_Q1[100000]={0.0};
 
-  Double_t UpBarQuarkDissFunc_Q1[10000]={0.0};
+  Double_t UpBarQuarkDissFunc_Q1[100000]={0.0};
 
   Double_t XX =0.0;
-  Double_t XXMin = 0.0001;
+  Double_t XXMin = 0.000001;
   Double_t XXMax = 1.0;
+  
   Double_t XXStep = 0.001;
 
   Int_t NNXX = (XXMax-XXMin)/XXStep;
 
+  cout<<"NXX  "<<NNXX<<endl;
+
   for(Int_t i=0;i<NNXX;i++)
     {
-      XX=XXMin + i*XXStep;
+      XX = XXMin + i*XXStep;
       AXX[i]=XX;
       GluonDissFunc_Q1[i]=0.1*XX*quark_function(0, XX, mJPsi2);
       DownQuarkDissFunc_Q1[i]=XX*quark_function(1, XX, mJPsi2);
@@ -543,7 +596,7 @@ void QuarkoniaProd_NRQCD()
   gPad->SetLogx(1);
   gPad->SetLeftMargin(0.16);
   grGluonDissFunc_Q1->GetYaxis()->SetTitleOffset(1.6);
-  grGluonDissFunc_Q1->GetYaxis()->SetRangeUser(0.0,2.0);
+  grGluonDissFunc_Q1->GetYaxis()->SetRangeUser(0.0,4.0);
   grGluonDissFunc_Q1->Draw("AC");
   grUpQuarkDissFunc_Q1->Draw("CSame");
   grUpBarQuarkDissFunc_Q1->Draw("CSame");
@@ -558,14 +611,19 @@ void QuarkoniaProd_NRQCD()
   gPad->SetLogx(1);
   gPad->SetLeftMargin(0.16);
   grGluonDissFunc_Q1->GetYaxis()->SetTitleOffset(1.6);
-  grGluonDissFunc_Q1->GetYaxis()->SetRangeUser(0.0,2.0);
+  grGluonDissFunc_Q1->GetYaxis()->SetRangeUser(0.0,4.0);
   grGluonDissFunc_Q1->Draw("AC");
   grUpQuarkDissFunc_Q1->Draw("CSame");
   grUpBarQuarkDissFunc_Q1->SetLineColor(4);
   grUpBarQuarkDissFunc_Q1->Draw("CSame");
   lgd_diss->Draw("same");
 
-  //return;
+
+  //cout<<" calling XXMinPtY"<<endl;
+  XXMinPtY(5,70,-6,6);
+
+  XbXXPtY();
+  return;
 
   Double_t AQQ[10000]={0.0};
   Double_t AAlphaS[10000]={0.0};
@@ -622,11 +680,12 @@ void QuarkoniaProd_NRQCD()
   
   Double_t PtMin = 4.0;
   Double_t PtMax = 70.0;
-  Double_t PtStep = 0.5;
+  Double_t PtStep = 2.0;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
 
 
- 
+  //NNPt =2;
+
   cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   
 
@@ -648,7 +707,7 @@ void QuarkoniaProd_NRQCD()
 
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPtDy(Pt,0.1);
+	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPtDy(Pt,0.000001);
 	//DSigmaDPtDY_Pt[i] = DSigmaDPtDy(Pt,0.1);
       }
 
@@ -657,7 +716,7 @@ void QuarkoniaProd_NRQCD()
 	
 	//DSigmaDPtDY_Pt[i]= Upsilon2MuMu*1000000 * DSigmaDPtDy(Pt,1.0); // nb to fb conversion
 
-	DSigmaDPtDY_Pt[i]= 1000000 * DSigmaDPtDy(Pt,0.1); // nb to fb conversion
+	DSigmaDPtDY_Pt[i]= 1000000 * DSigmaDPtDy(Pt,0.2); // nb to fb conversion
       }
 
 
@@ -675,7 +734,7 @@ void QuarkoniaProd_NRQCD()
       }
 
 
-      cout<<APt[i]<<"    "<<DSigmaDt_GG_Pt[i]<<"    "<<DSigmaDt_qq_Pt[i]<<"    "<<DSigmaDt_qg_Pt[i]<<"    "<<DSigmaDPtDY_Pt[i]<<endl;
+      cout<<APt[i]<<"         "<<DSigmaDt_GG_Pt[i]<<"    "<<DSigmaDt_qq_Pt[i]<<"    "<<DSigmaDt_qg_Pt[i]<<"    "<<DSigmaDPtDY_Pt[i]<<endl;
     }
   
 
@@ -796,6 +855,9 @@ if(QQbarVar ==8){
 
   grDSigmaDPtDY_Pt->GetYaxis()->SetTitleOffset(1.6);
   grDSigmaDPtDY_Pt->Draw("Lsame");
+  
+  Pal_JPsi_D2SigDPtDY_Y09_Pt(lgd_DSigmaDPtDY_Pt);
+
   lgd_DSigmaDPtDY_Pt->Draw("same");
 
 
@@ -809,7 +871,7 @@ if(QQbarVar ==8){
   
   Double_t RapMin = -5.0;
   Double_t RapMax = 5.0;
-  Double_t RapStep = 0.1;
+  Double_t RapStep = 0.5;
   Int_t NNRap = (RapMax - RapMin)/RapStep;
 
 
@@ -830,7 +892,7 @@ if(QQbarVar ==8){
       Rap = RapMin + (i*RapStep);
       
       ARap[i]=Rap;
-      DSigmaDPtDY_Rap[i]=DSigmaDPtDy(4.0,Rap);
+      DSigmaDPtDY_Rap[i]=DSigmaDPtDy(5.0,Rap);
       
       if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 ){
 	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt(0.2,4.0,Rap);
@@ -1009,13 +1071,10 @@ Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2
   Double_t Gb = 0.0;
   
   Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
-  
   Double_t MuFSquare = Mt*Mt;
-
+  
   Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
-  
   Double_t XaMax = 1.0;
-  
   Double_t XaStep = 0.001;
 
   Int_t NNXa = (XaMax - XaMin)/XaStep;
@@ -1065,27 +1124,91 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
   Double_t Ga = 0.0;
   Double_t Gb = 0.0;
   
+
+  /*
+  const int NN = 55;
+  Double_t AXa[NN]={1.0e-06,2.0e-06,3.0e-06,4.0e-6,5.0e-6,6.0e-06,7.0e-06,8.0e-06,9.0e-6,
+     		    1.0e-05,2.0e-05,3.0e-05,4.0e-5,5.0e-5,6.0e-05,7.0e-05,8.0e-05,9.0e-5,
+		    1.0e-04,2.0e-04,3.0e-04,4.0e-4,5.0e-4,6.0e-04,7.0e-04,8.0e-04,9.0e-4,
+		    1.0e-03,2.0e-03,3.0e-03,4.0e-3,5.0e-3,6.0e-03,7.0e-03,8.0e-03,9.0e-3,
+		    1.0e-02,2.0e-02,3.0e-02,4.0e-2,5.0e-2,6.0e-02,7.0e-02,8.0e-02,9.0e-2,
+		    0.1, 0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0};
+  
+
+
+  double exStep = 0.010;
+  int Nstep = 1.0/exStep;
+  int NN = 3.0*Nstep;
+  Double_t AXa[10000];
+
+  for(int i=0; i<Nstep; i++)  AXa[i] = 0.000001 + (exStep*10.0 + exStep*i)*0.00001;
+  for(int i=0; i<Nstep; i++) { 
+    int j = Nstep+i;
+    AXa[j] = 0.000001 + (exStep + exStep*i)*0.0001;
+  }
+  for(int i=0; i<Nstep; i++) {
+    int j = 2*Nstep+i;
+    AXa[j] = 0.00001 + (exStep + exStep*i)*0.001;
+  }
+
+  cout << "Here" << endl;
+  for(int i=0; i<NN; i++) cout << i << "     "  << AXa[i] << endl;
+
+
+  return 0;
+  */
+
+  
+  const int NN = NAX;  
+
+  Double_t BXa[NN]={0.0};
+
   Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
   
   Double_t MuFSquare = Mt*Mt;
 
   Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
   
-  Double_t XaMax = 1.0;
-  
-  Double_t XaStep = 0.0001;
+  //cout<<"XaMin = " << XaMin<<endl;
 
-  Int_t NNXa = (XaMax - XaMin)/XaStep;
+  
+  
+  int m=0;
+
+  for(int i=0;i<NN-1;i++) {
+    if( XaMin >= AXa[i] && XaMin < AXa[i+1]){m=i+1;break;}
+  }
+
+  int n=0;
+  BXa[0] = XaMin;
+  //cout<< n <<"   "<<BXa[0]<<endl;    
+  
+  for(int i=m;i<NN;i++) {
+    n=n+1;
+    BXa[n] = AXa[i];
+    //cout<< n <<"    "<<BXa[n]<<endl;    
+  }
+
+
+
+  //  Double_t XaMax = 1.0;
+  
+  //  Double_t XaStep = 0.0001;
+  
+  Double_t XaStep = BXa[1]-BXa[0];
+  //  Int_t NNXa = (XaMax - XaMin)/XaStep;
+
 
   Double_t Val =0.0;
   Double_t Sum =0.0;
   Double_t SumDSigmaDt = 0.0;  
 
+  Int_t NNXa = n+1;
   for(Int_t i =0 ; i<NNXa; i++)
-    
     {
 
-      Xa = XaMin + (i*XaStep);
+      //      Xa = XaMin + (i*XaStep);
+      Xa = BXa[i];
 
       Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
 
@@ -1093,17 +1216,16 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
       Gb = quark_function(Parton2,Xb,MuFSquare);
       
       if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt(Xa,Pt,Y);} 
-      
-
       if( (Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt(Xa,Pt,Y);} 
-     
-
       if(Parton1 !=0 && Parton2 !=0){SumDSigmaDt = Sum_qq_DSigmaDt(Xa,Pt,Y);} 
 
-      Sum = Sum + Ga*Gb*SumDSigmaDt; 
+      if(i>0) XaStep = BXa[i]-BXa[i-1]; 
+
+
+      Sum = Sum + Ga*Gb*SumDSigmaDt*XaStep; 
+
 
       //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
-
 
     }
   
@@ -1111,7 +1233,7 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
   Val = Sum;
   
 
-  return Val*XaStep;
+  return Val;
 
 
 
@@ -2396,8 +2518,143 @@ Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y)
 
 
 
-
 //================ Test Functions ===========================//
+Double_t XXMinPtY(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax)
+{
+
+  //Double_t APt[1000] ={0.0};
+  //Double_t AYY[100000] ={0.0};
+
+  Double_t PtStep =1.0;
+  Double_t YYStep =0.1;
+  
+  Double_t Pt =0.0;
+  Double_t YY =0.0;
+ 
+  Double_t Mt =0.0;
+  Double_t XaMin =0.0;
+
+  Int_t NNPt = int(PtMax-PtMin)/PtStep;
+  
+  Int_t NNYY = int(YYMax-YYMin)/YYStep;
+
+  TH3D *hist_PtYYXmin = new TH3D("hist_PtYYXmin","hist_PtYYXmin",NNPt,PtMin,PtMax,NNYY,YYMin,YYMax,5000,0.000001,0.01);
+  
+    for(int i =0;i<NNPt;i++)
+    {
+      Pt = PtMin + i*PtStep;
+      //APt[i]=Pt;
+      
+      for(int j =0;j<NNYY;j++)
+	{
+	  YY = YYMin + j*YYStep; 
+	  //AYY[j]=YY;
+	  Mt = TMath::Sqrt(Pt*Pt + mJPsi2);
+	 
+	  XaMin =  (RootS*Mt*TMath::Exp(YY) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-YY)));
+	  
+	  //if(XaMin <0)  
+	  cout<<Pt<<"    "<<YY<<"    "<<XaMin<<endl;    
+ 
+	  hist_PtYYXmin->Fill(Pt,YY,XaMin);
+	
+	}
+      
+     
+
+    } 
+
+
+    new TCanvas;
+    hist_PtYYXmin->GetXaxis()->SetTitle("p_{T}");
+    hist_PtYYXmin->GetYaxis()->SetTitle("y");
+    hist_PtYYXmin->GetZaxis()->SetTitle("x_{min}");
+
+    gPad->SetLogz(1);
+    hist_PtYYXmin->Draw("colz");
+
+  return 0;
+
+
+}
+
+void XbXXPtY()
+{
+
+  //16200, AXa
+
+  Double_t YY[9]={4,-3,-2,-1,0,1,2,3,4};
+  Double_t Pt[11]={5,10,15,20,25,30,35,45,55,65,75};
+  
+  Double_t XXMin = 0.000001;
+  Double_t XXMax = 1.0;
+  Double_t XX =0;
+  //Double_t XStep = 0.0001;
+  Int_t NNX = 16200; 
+
+  TH3D *hist_PtXaXb = new TH3D("hist_PtXaXb","hist_PtXaXb",11,5,75,NNX,XXMin,XXMax,1000,0.0001,0.1);
+  hist_PtXaXb->GetXaxis()->SetTitle("p_{T}");
+  hist_PtXaXb->GetYaxis()->SetTitle("Xa");
+  hist_PtXaXb->GetZaxis()->SetTitle("xb");
+
+  Double_t Xb=0;
+  Double_t Mt =0.0;
+
+  Double_t XaMin =0.0;
+
+  for(int i =0;i<1;i++)
+    {
+      cout<<"Rap:  "<<YY[i]<<"  ====================== "<<endl;
+      for(int j =0;j<1;j++)
+	{
+	  Mt = TMath::Sqrt(mJPsi2+Pt[j]*Pt[j]);
+	  cout<<"Pt: "<<Pt[j]<<"  ====================== "<<endl;
+	  
+	  XaMin =  (RootS*Mt*TMath::Exp(YY[i]) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-YY[i])));
+
+	  cout<<XaMin<<" XaMin "<<endl;
+
+	  for(int k =0;k<NNX;k++)
+	    {
+	      
+	      XX = AXa[k];
+	      Xb = (XX*RootS*Mt*TMath::Exp(-YY[i])-mJPsi2)/(RootS*(XX*RootS - Mt*TMath::Exp(YY[i]))); 
+	      cout<<XX<<"          "<<Xb<<endl;	      
+	      //hist_PtXaXb->Fill(Pt[j],XX,Xb);
+	    }
+	}
+    
+      new TCanvas;
+      hist_PtXaXb->Draw();
+
+    }
+
+
+
+
+}
+
+
+
+void Pal_JPsi_D2SigDPtDY_Y09_Pt(TLegend *lgd)
+{
+  Double_t PT[20]={4.66, 6.47, 8.50, 11.28, 13.85, 17.26, 20.26, 23.46, 26.99, 30.51, 34.36, 38.21, 41.41, 44.83, 48.78, 52.52, 55.83, 59.68, 63.63, 67.05};
+  Double_t Sig[20]={240.66352, 55.27074, 15.02822, 4.09135, 1.49527, 0.57081, 0.25770, 0.13774, 0.07063, 0.03777, 0.02199, 0.01335, 0.00844, 0.00606, 
+		    0.00401, 0.00265, 0.00198, 0.00142, 0.00102, 0.00077};
+
+  TGraph *Grf_JPsi_D2SigDPtDY_Y09_Pt = new TGraph(20,PT,Sig);
+  Grf_JPsi_D2SigDPtDY_Y09_Pt->SetLineColor(4);
+  Grf_JPsi_D2SigDPtDY_Y09_Pt->SetLineWidth(2);
+  Grf_JPsi_D2SigDPtDY_Y09_Pt->SetLineStyle(8);
+
+
+  Grf_JPsi_D2SigDPtDY_Y09_Pt->Draw("Lsame");
+
+  lgd->AddEntry( Grf_JPsi_D2SigDPtDY_Y09_Pt,"Pal", "P");
+
+}
+
+
 
 Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y)
 {
@@ -2442,6 +2699,11 @@ Double_t GetAlphaS(Double_t Q)
 
 
 }
+
+
+
+
+
 
 //==============================================================================================//
 //=========================== DATA FUNCTIONS ===================================================//
