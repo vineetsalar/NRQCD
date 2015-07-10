@@ -14,7 +14,6 @@
 #include "TH1D.h"
 #include "TH2D.h"
 #include "TH3D.h"
-
 #include <TMath.h>
 #include <TLegend.h>
 #include "TCanvas.h"
@@ -49,6 +48,9 @@
 #include <vector>
 #include <map>
 
+# include "Math/GaussLegendreIntegrator.h"
+
+
 using namespace std;
 using namespace LHAPDF;
 
@@ -60,6 +62,53 @@ const Double_t RootS = 7000.0;
 
 const Int_t NAX = 16200;
 Double_t AXa[NAX]={0.0};
+
+
+const Int_t NNXXi = 150;
+Double_t XXi[NNXXi]={0.0};
+Double_t WWi[NNXXi]={0.0};
+
+/*
+Double_t XXi[NNXXi]={-0.0243502926634244, 0.0243502926634244, -0.0729931217877990, 0.0729931217877990, -0.1214628192961206, 0.1214628192961206, -0.1696444204239928, 0.1696444204239928, 
+		     -0.2174236437400071, 0.2174236437400071, -0.2646871622087674, 0.2646871622087674, -0.3113228719902110, 0.3113228719902110, -0.3572201583376681, 0.3572201583376681, 
+		     -0.4022701579639916, 0.4022701579639916, -0.4463660172534641, 0.4463660172534641, -0.4894031457070530, 0.4894031457070530, -0.5312794640198946, 0.5312794640198946, 
+		     -0.5718956462026340, 0.5718956462026340, -0.6111553551723933, 0.6111553551723933, -0.6489654712546573, 0.6489654712546573, -0.6852363130542333, 0.6852363130542333, 
+		     -0.7198818501716109, 0.7198818501716109, -0.7528199072605319, 0.7528199072605319, -0.7839723589433414, 0.7839723589433414, -0.8132653151227975, 0.8132653151227975, 
+		     -0.8406292962525803, 0.8406292962525803, -0.8659993981540928, 0.8659993981540928, -0.8893154459951141, 0.8893154459951141, -0.9105221370785028, 0.9105221370785028, 
+		     -0.9295691721319396, 0.9295691721319396, -0.9464113748584028, 0.9464113748584028, -0.9610087996520538, 0.9610087996520538, -0.9733268277899110, 0.9733268277899110, 
+		     -0.9833362538846260, 0.9833362538846260, -0.9910133714767443, 0.9910133714767443, -0.9963401167719553, 0.9963401167719553, -0.9993050417357722, 0.9993050417357722};
+
+
+Double_t WWi[NNXXi]={0.0486909570091397, 0.0486909570091397, 0.0485754674415034, 0.0485754674415034, 0.0483447622348030, 0.0483447622348030, 0.0479993885964583, 0.0479993885964583, 
+		     0.0475401657148303, 0.0475401657148303, 0.0469681828162100, 0.0469681828162100, 0.0462847965813144, 0.0462847965813144, 0.0454916279274181, 0.0454916279274181, 
+		     0.0445905581637566, 0.0445905581637566, 0.0435837245293235, 0.0435837245293235, 0.0424735151236536, 0.0424735151236536, 0.0412625632426235, 0.0412625632426235, 
+		     0.0399537411327203, 0.0399537411327203, 0.0385501531786156, 0.0385501531786156, 0.0370551285402400, 0.0370551285402400, 0.0354722132568824, 0.0354722132568824, 
+		     0.0338051618371416, 0.0338051618371416, 0.0320579283548516, 0.0320579283548516, 0.0302346570724025, 0.0302346570724025, 0.0283396726142595, 0.0283396726142595, 
+		     0.0263774697150547, 0.0263774697150547, 0.0243527025687109, 0.0243527025687109, 0.0222701738083833, 0.0222701738083833, 0.0201348231535302, 0.0201348231535302, 
+		     0.0179517157756973, 0.0179517157756973, 0.0157260304760247, 0.0157260304760247, 0.0134630478967186, 0.0134630478967186, 0.0111681394601311, 0.0111681394601311, 
+		     0.0088467598263639, 0.0088467598263639, 0.0065044579689784, 0.0065044579689784, 0.0041470332605625, 0.0041470332605625, 0.0017832807216964, 0.0017832807216964};
+
+
+
+
+const Int_t NNXXi = 16;
+
+Double_t XXi[NNXXi]={-0.0950125098376374, 0.0950125098376374, -0.2816035507792589, 0.2816035507792589, -0.4580167776572274, 0.4580167776572274, -0.6178762444026438,
+		     0.6178762444026438, -0.7554044083550030, 0.7554044083550030, -0.8656312023878318, 0.8656312023878318, -0.9445750230732326, 0.9445750230732326, 
+		     -0.9894009349916499, 0.9894009349916499};
+
+
+Double_t WWi[NNXXi]={0.1894506104550685, 0.1894506104550685, 0.1826034150449236, 0.1826034150449236, 0.1691565193950025, 0.1691565193950025, 0.1495959888165767,
+		     0.1495959888165767, 0.1246289712555339, 0.1246289712555339, 0.0951585116824928, 0.0951585116824928, 0.0622535239386479, 0.0622535239386479, 
+		     0.0271524594117541, 0.0271524594117541};
+
+*/
+
+
+
+
+
+
 
 
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -156,7 +205,6 @@ const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
-
 
 /*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -285,6 +333,10 @@ void XbXXPtY();
 Double_t GetAlphaS(Double_t Q);
 Double_t quark_function(int nf, Double_t x, Double_t Qsquare);
 Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y);
+
+
+Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax);
+Double_t DSigmaDPt(Double_t Pt, Double_t YMin, Double_t YMax);
 Double_t DSigmaDPtDy(Double_t Pt, Double_t Y);
 Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
 
@@ -484,28 +536,51 @@ void QuarkoniaProd_NRQCD()
 
       dX = (XMax[j] - XMin[j])/NX;
 
-      cout<<" step "<<dX<<endl;
+      //cout<<" step "<<dX<<endl;
 
       for(int i =0;i<NX;i++)
 	{ Count = Count+1;
 
 	  X = XMin[j] + i*dX;
 	  AXa[Count]=X;
-	  cout<<j<<"  "<<i<<"   "<<Count<<"  "<<X<<endl;
+	  //cout<<j<<"  "<<i<<"   "<<Count<<"  "<<X<<endl;
 	}
       
       
   }
   
-  cout<<Count<<":"<<endl;
+  cout<<Count<<" count:"<<endl;
   
-  //return;
+  
+  //========================= Filling Gauss Quadrathure arrays ==================//
+  //NNXXi XXi[NNXXi]={0.0}; WWi[NNXXi]
+
+  /*
+  ifstream fileX("Gauss/XValue_150.txt");
+  ifstream fileW("Gauss/WValue_150.txt");
+
+ for(int i=0; i<NNXXi; i++) 
+   {
+     fileX >> XXi[i];
+     fileW >> WWi[i];
+     cout<< i <<"   "<<XXi[i]<<"   "<<WWi[i]<<endl;
+      
+    }
+  */
+ //return;
+
+  ROOT::Math::GaussLegendreIntegrator *gi = new ROOT::Math::GaussLegendreIntegrator();
+  gi->SetNumberPoints(NNXXi);
+  gi->GetWeightVectors(XXi,WWi);
 
 
+  
+  Double_t Y = -4.5;
+  Double_t Mt = TMath::Sqrt( 95.0*95.0+ mJPsi2);
+  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
+  cout<<XaMin<<"  "<<(RootS*Mt*TMath::Exp(Y) - mJPsi2)<<"   "<<(RootS*(RootS - Mt*TMath::Exp(-Y)))<<endl;
 
 
-
-  //return;
 
   // cout<<" value of d quark : "<<quark_function(1, 0.01, 100)<<endl;
 
@@ -620,10 +695,11 @@ void QuarkoniaProd_NRQCD()
 
 
   //cout<<" calling XXMinPtY"<<endl;
-  XXMinPtY(5,70,-6,6);
+  //XXMinPtY(5,70,-6,6);
 
-  XbXXPtY();
-  return;
+  //XbXXPtY();
+  
+  //return;
 
   Double_t AQQ[10000]={0.0};
   Double_t AAlphaS[10000]={0.0};
@@ -678,16 +754,28 @@ void QuarkoniaProd_NRQCD()
 
   Double_t Pt = 0.0;
   
-  Double_t PtMin = 4.0;
-  Double_t PtMax = 70.0;
-  Double_t PtStep = 2.0;
+  Double_t PtMin = 5.0;
+  Double_t PtMax = 100.0;
+  Double_t PtStep = 5.0;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
 
 
-  //NNPt =2;
+  // NNPt =1;
 
   cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   
+
+
+
+
+
+  //  FillPtRapHist(PtMin, PtMax, YYMin, YYMax);
+  // new TCanvas;
+  //FillPtRapHist(5.0, 100.0, -5.0, 5.0);
+
+
+
+
 
   Double_t Psi2MuMu = 0.0;
   if(QQbarVar  ==1){Psi2MuMu = 0.0593;}
@@ -707,16 +795,20 @@ void QuarkoniaProd_NRQCD()
 
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPtDy(Pt,0.000001);
+	//DSigmaDPt(Double_t Pt, Double_t YMin, Double_t YMax);
+
+	//DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPtDy(Pt,0.000001);
+
+	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPt(Pt, -1.0, 1.0);
 	//DSigmaDPtDY_Pt[i] = DSigmaDPtDy(Pt,0.1);
       }
 
 
       if(QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 || QQbarVar ==9 || QQbarVar == 10){
 	
-	//DSigmaDPtDY_Pt[i]= Upsilon2MuMu*1000000 * DSigmaDPtDy(Pt,1.0); // nb to fb conversion
-
-	DSigmaDPtDY_Pt[i]= 1000000 * DSigmaDPtDy(Pt,0.2); // nb to fb conversion
+	//DSigmaDPtDY_Pt[i]= Upsilon2MuMu*1000000 * DSigmaDPtDy(Pt,0.00001); // nb to fb conversion
+	DSigmaDPtDY_Pt[i] = Upsilon2MuMu*1000000 *DSigmaDPt(Pt, -1.0, 1.0);
+	//DSigmaDPtDY_Pt[i]= 1000000 * DSigmaDPtDy(Pt,0.2); // nb to fb conversion
       }
 
 
@@ -759,8 +851,6 @@ void QuarkoniaProd_NRQCD()
 
 
 
-
-  
   TGraph *grDSigmaDt_GG_Pt = new TGraph(NNPt,APt,DSigmaDt_GG_Pt);
   grDSigmaDt_GG_Pt->SetName("grDSigmaDt_GG_Pt");
   grDSigmaDt_GG_Pt->SetTitle("grDSigmaDt_GG_Pt");
@@ -865,13 +955,12 @@ if(QQbarVar ==8){
 
  
 
-
-
   Double_t Rap = 0.0;
   
   Double_t RapMin = -5.0;
   Double_t RapMax = 5.0;
   Double_t RapStep = 0.5;
+
   Int_t NNRap = (RapMax - RapMin)/RapStep;
 
 
@@ -885,26 +974,29 @@ if(QQbarVar ==8){
 
   cout<<" Rap "<<"    "<<" SIgma Dt"<<"     "<<"DSigmaDPtDY_Rap"<<endl;
 
-
+  //NNRap=2.0;
 
   for(Int_t i =0;i<NNRap;i++)
     {
       Rap = RapMin + (i*RapStep);
       
       ARap[i]=Rap;
-      DSigmaDPtDY_Rap[i]=DSigmaDPtDy(5.0,Rap);
+
+      DSigmaDPtDY_Rap[i]=DSigmaDPtDy(10.0, ARap[i]);
       
+
+
       if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 ){
-	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt(0.2,4.0,Rap);
-	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt(0.2,4.0,Rap);
-	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt(0.2,4.0,Rap);
+	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt(0.2,95.0,Rap);
+	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt(0.2,95.0,Rap);
+	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt(0.2,95.0,Rap);
       }
 
       if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5  || QQbarVar == 9 || QQbarVar == 10){
 
-	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt_Chi(0.2,4.0,Rap);
-	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt_Chi(0.2,4.0,Rap);
-	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt_Chi(0.2,4.0,Rap);
+	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt_Chi(0.9,95.0,Rap);
+	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt_Chi(0.9,95.0,Rap);
+	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt_Chi(0.9,95.0,Rap);
     }
 
 
@@ -963,9 +1055,6 @@ if(QQbarVar ==8){
 
 
 
-
-
-
   TGraph *grDSigmaDPtDY_Rap = new TGraph(NNRap,ARap,DSigmaDPtDY_Rap);
   grDSigmaDPtDY_Rap->SetName("grDSigmaDPtDY_Rap");
   grDSigmaDPtDY_Rap->SetTitle("grDSigmaDPtDY_Rap");
@@ -1005,7 +1094,26 @@ if(QQbarVar ==8){
  
 }
   
-  
+Double_t DSigmaDPt(Double_t Pt, Double_t YMin, Double_t YMax)
+  {
+    Double_t YY =0.0;
+    Double_t YStep  = 0.1;
+    Int_t NN = int((YMax - YMin)/YStep);
+
+    Double_t Val =0.0;
+    Double_t Sum =0.0;
+
+    for(int i=0;i<NN;i++)
+      {
+	YY = YMin + i*YStep;
+	Sum = Sum + DSigmaDPtDy(Pt,YY);
+      }
+    
+    Val = Sum*YStep;
+
+    return Val;
+  }
+
 
 
 
@@ -1017,6 +1125,7 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
   Double_t Value = 0.0;   
  
   Double_t Value_gq =0.0;
+  Double_t Value_gqbar =0.0;
   Double_t Value_qq =0.0;
   Double_t Value_gg =0.0;
 
@@ -1027,36 +1136,36 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
     
     Value_qq = DSigmaDt_IntX(Pt, Y,3,-3) + DSigmaDt_IntX(Pt, Y,2,-2) + DSigmaDt_IntX(Pt, Y,1,-1) + DSigmaDt_IntX(Pt, Y,-3,3) + DSigmaDt_IntX(Pt, Y,-2,2) + DSigmaDt_IntX(Pt, Y,-1,1);
     
-    Value_gq = DSigmaDt_IntX(Pt, Y,3,0) + DSigmaDt_IntX(Pt, Y,2,0) +   DSigmaDt_IntX(Pt, Y,1,0) + DSigmaDt_IntX(Pt, Y,0,3) 
-      + DSigmaDt_IntX(Pt, Y,0,2) +   DSigmaDt_IntX(Pt, Y,0,1) + DSigmaDt_IntX(Pt, Y,-3,0) + DSigmaDt_IntX(Pt, Y,-2,0) +   
-      DSigmaDt_IntX(Pt, Y,-1,0) + DSigmaDt_IntX(Pt, Y,0,-3) + DSigmaDt_IntX(Pt, Y,0,-2) +   DSigmaDt_IntX(Pt, Y,0,-1);
+    Value_gq = DSigmaDt_IntX(Pt, Y,3,0) + DSigmaDt_IntX(Pt, Y,2,0) +   DSigmaDt_IntX(Pt, Y,1,0) + DSigmaDt_IntX(Pt, Y,0,3) + DSigmaDt_IntX(Pt, Y,0,2) +   DSigmaDt_IntX(Pt, Y,0,1);
+    
+    Value_gqbar = DSigmaDt_IntX(Pt, Y,-3,0) + DSigmaDt_IntX(Pt, Y,-2,0) +  DSigmaDt_IntX(Pt, Y,-1,0) + DSigmaDt_IntX(Pt, Y,0,-3) + DSigmaDt_IntX(Pt, Y,0,-2) +   DSigmaDt_IntX(Pt, Y,0,-1);
+
+   
   }
 
   
   if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5 || QQbarVar == 9 || QQbarVar == 10 ) 
   { 
     Value_gg = DSigmaDt_IntX_Chi(Pt, Y, 0, 0);
-
+    
     Value_qq = DSigmaDt_IntX_Chi(Pt, Y,3,-3) + DSigmaDt_IntX_Chi(Pt, Y,2,-2) + DSigmaDt_IntX_Chi(Pt, Y,1,-1)+ DSigmaDt_IntX_Chi(Pt, Y,-3,3) + DSigmaDt_IntX_Chi(Pt, Y,-2,2) + DSigmaDt_IntX_Chi(Pt, Y,-1,1);
 
-    Value_gq = DSigmaDt_IntX_Chi(Pt, Y,3,0) + DSigmaDt_IntX_Chi(Pt, Y,2,0) +   DSigmaDt_IntX_Chi(Pt, Y,1,0) + DSigmaDt_IntX_Chi(Pt, Y,0,3) + DSigmaDt_IntX_Chi(Pt, Y,0,2) +   DSigmaDt_IntX_Chi(Pt, Y,0,1)
-      +DSigmaDt_IntX_Chi(Pt, Y,-3,0) + DSigmaDt_IntX_Chi(Pt, Y,-2,0) +   DSigmaDt_IntX_Chi(Pt, Y,-1,0) + DSigmaDt_IntX_Chi(Pt, Y,0,-3) + DSigmaDt_IntX_Chi(Pt, Y,0,-2) +   DSigmaDt_IntX_Chi(Pt, Y,0,-1);
-
-      ;
-    
+    Value_gq = DSigmaDt_IntX_Chi(Pt, Y,3,0) + DSigmaDt_IntX_Chi(Pt, Y,2,0) +   DSigmaDt_IntX_Chi(Pt, Y,1,0) + DSigmaDt_IntX_Chi(Pt, Y,0,3) + DSigmaDt_IntX_Chi(Pt, Y,0,2) +   DSigmaDt_IntX_Chi(Pt, Y,0,1);
+      
+    Value_gqbar = DSigmaDt_IntX_Chi(Pt, Y,-3,0) + DSigmaDt_IntX_Chi(Pt, Y,-2,0) +   DSigmaDt_IntX_Chi(Pt, Y,-1,0) + DSigmaDt_IntX_Chi(Pt, Y,0,-3) + DSigmaDt_IntX_Chi(Pt, Y,0,-2) +   DSigmaDt_IntX_Chi(Pt, Y,0,-1);
 
     
-
-  
 
   }
 
-  Value =  Value_gq + Value_qq + Value_gg;
+  Value =  Value_gq + Value_qq + Value_gg + Value_gqbar;
 
-  //Value =  Value_gg;
+  // Value =  Value_gg ;
 
-  
+
   return Value;
+
+
 }
 
 
@@ -1065,8 +1174,6 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
 
 Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
 {
-  Double_t Xa = 0.0;
-  Double_t Xb = 0.0;
   Double_t Ga = 0.0;
   Double_t Gb = 0.0;
   
@@ -1075,47 +1182,101 @@ Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2
   
   Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
   Double_t XaMax = 1.0;
-  Double_t XaStep = 0.001;
+  
+  Double_t Const = 0.5*(XaMax - XaMin);
+  Double_t Const2 = 0.5*(XaMax + XaMin);
+  
+  //WWi XXi NNXXi
 
-  Int_t NNXa = (XaMax - XaMin)/XaStep;
+  Double_t YYa =0.0;
+  Double_t YYb =0.0;
 
   Double_t Val =0.0;
   Double_t Sum =0.0;
-  Double_t SumDSigmaDt = 0.0;  
+  Double_t SumDSigmaDt = 0.0;
 
-  for(Int_t i =0 ; i<NNXa; i++)
-    
+  for(Int_t i =0 ; i<NNXXi; i++)
     {
-
-      Xa = XaMin + (i*XaStep);
-
-      Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-      Ga = quark_function(Parton1,Xa,MuFSquare);
-      Gb = quark_function(Parton2,Xb,MuFSquare);
+      YYa = Const*XXi[i] + Const2;
+      YYb = (YYa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(YYa*RootS - Mt*TMath::Exp(Y)));
       
-      if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt_Chi(Xa,Pt,Y);} 
-      
-      if( (Parton1 ==0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt_Chi(Xa,Pt,Y);} 
-      
-      if( Parton1 != 0 && Parton2 !=0  ){SumDSigmaDt = Sum_qq_DSigmaDt_Chi(Xa,Pt,Y);} 
+      Ga = quark_function(Parton1,YYa,MuFSquare);
+      Gb = quark_function(Parton2,YYb,MuFSquare);
 
-      Sum = Sum + Ga*Gb*SumDSigmaDt; 
+      if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt_Chi(YYa,Pt,Y);} 
+      if( (Parton1 ==0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt_Chi(YYa,Pt,Y);} 
+      if( Parton1 != 0 && Parton2 !=0  ){SumDSigmaDt = Sum_qq_DSigmaDt_Chi(YYa,Pt,Y);} 
 
-      //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
+      Sum = Sum + WWi[i]*Ga*Gb*SumDSigmaDt;
     }
   
   
-  Val = Sum;
+  Val = Const*Sum;
+  return Val;
+}
+
+
+Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
+{
+
+  Double_t Ga = 0.0;
+  Double_t Gb = 0.0;
+    
+  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
+  Double_t MuFSquare = Mt*Mt;
   
-  return Val*XaStep;
+  
+  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
+  
+
+  Double_t XaMax = 1.0;
+  
+  Double_t Const = 0.5*(XaMax - XaMin);
+  Double_t Const2 = 0.5*(XaMax + XaMin);
+
+  
+  //cout<<"XaMin : "<<XaMin<<endl;
+
+  //WWi XXi NNXXi
+
+  Double_t YYa =0.0;
+  Double_t YYb =0.0;
+
+
+  Double_t Val =0.0;
+  Double_t Sum =0.0;
+  Double_t SumDSigmaDt = 0.0;
+
+  for(Int_t i =0 ; i<NNXXi; i++)
+    {
+      
+      YYa = Const*XXi[i] + Const2;
+      YYb = (YYa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(YYa*RootS - Mt*TMath::Exp(Y)));
+      
+      Ga = quark_function(Parton1,YYa,MuFSquare);
+      Gb = quark_function(Parton2,YYb,MuFSquare);
+      
+      if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt(YYa,Pt,Y);} 
+      if( (Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt(YYa,Pt,Y);} 
+      if(Parton1 !=0 && Parton2 !=0){SumDSigmaDt = Sum_qq_DSigmaDt(YYa,Pt,Y);} 
+      
+      Sum = Sum + WWi[i]*Ga*Gb*SumDSigmaDt;
+      
+      //cout<< WWi[i]<<"   "<<Ga<<"   "<<Gb<<"  "<<SumDSigmaDt<<endl;
+      
+      //cout<<YYa<<"  "<<Ga<<"  "<<YYb<<"  "<<Gb<<endl;
+
+    }
+
+
+  Val = Const*Sum;
+  return Val;
+  
 
 }
 
 
-
-
-
+/*
 Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
 {
 
@@ -1124,91 +1285,50 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
   Double_t Ga = 0.0;
   Double_t Gb = 0.0;
   
-
-  /*
-  const int NN = 55;
-  Double_t AXa[NN]={1.0e-06,2.0e-06,3.0e-06,4.0e-6,5.0e-6,6.0e-06,7.0e-06,8.0e-06,9.0e-6,
-     		    1.0e-05,2.0e-05,3.0e-05,4.0e-5,5.0e-5,6.0e-05,7.0e-05,8.0e-05,9.0e-5,
-		    1.0e-04,2.0e-04,3.0e-04,4.0e-4,5.0e-4,6.0e-04,7.0e-04,8.0e-04,9.0e-4,
-		    1.0e-03,2.0e-03,3.0e-03,4.0e-3,5.0e-3,6.0e-03,7.0e-03,8.0e-03,9.0e-3,
-		    1.0e-02,2.0e-02,3.0e-02,4.0e-2,5.0e-2,6.0e-02,7.0e-02,8.0e-02,9.0e-2,
-		    0.1, 0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0};
   
-
-
-  double exStep = 0.010;
-  int Nstep = 1.0/exStep;
-  int NN = 3.0*Nstep;
-  Double_t AXa[10000];
-
-  for(int i=0; i<Nstep; i++)  AXa[i] = 0.000001 + (exStep*10.0 + exStep*i)*0.00001;
-  for(int i=0; i<Nstep; i++) { 
-    int j = Nstep+i;
-    AXa[j] = 0.000001 + (exStep + exStep*i)*0.0001;
-  }
-  for(int i=0; i<Nstep; i++) {
-    int j = 2*Nstep+i;
-    AXa[j] = 0.00001 + (exStep + exStep*i)*0.001;
-  }
-
-  cout << "Here" << endl;
-  for(int i=0; i<NN; i++) cout << i << "     "  << AXa[i] << endl;
-
-
-  return 0;
-  */
-
-  
-  const int NN = NAX;  
-
-  Double_t BXa[NN]={0.0};
-
   Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
-  
   Double_t MuFSquare = Mt*Mt;
-
   Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
+
+
   
-  //cout<<"XaMin = " << XaMin<<endl;
-
   
+//  const int NN = NAX;  
+// Double_t BXa[NN]={0.0};
+//  int m=0;
+//  for(int i=0;i<NN-1;i++) {
+//    if( XaMin >= AXa[i] && XaMin < AXa[i+1]){m=i+1;break;}
+//  }
   
-  int m=0;
-
-  for(int i=0;i<NN-1;i++) {
-    if( XaMin >= AXa[i] && XaMin < AXa[i+1]){m=i+1;break;}
-  }
-
-  int n=0;
-  BXa[0] = XaMin;
-  //cout<< n <<"   "<<BXa[0]<<endl;    
+//  int n=0;
+//  BXa[0] = XaMin;
   
-  for(int i=m;i<NN;i++) {
-    n=n+1;
-    BXa[n] = AXa[i];
-    //cout<< n <<"    "<<BXa[n]<<endl;    
-  }
-
-
-
-  //  Double_t XaMax = 1.0;
+//  for(int i=m;i<NN;i++) {
+//    n=n+1;
+//    BXa[n] = AXa[i];
+//  }
   
-  //  Double_t XaStep = 0.0001;
-  
-  Double_t XaStep = BXa[1]-BXa[0];
-  //  Int_t NNXa = (XaMax - XaMin)/XaStep;
+ // //Double_t XaStep = BXa[1]-BXa[0];
 
+
+
+
+  Double_t XaMax = 1.0;
+  Double_t XaStep = 0.00001;
+  Int_t NNXa = (XaMax - XaMin)/XaStep;
 
   Double_t Val =0.0;
   Double_t Sum =0.0;
   Double_t SumDSigmaDt = 0.0;  
 
-  Int_t NNXa = n+1;
+  ////Int_t NNXa = n+1;
+  
   for(Int_t i =0 ; i<NNXa; i++)
     {
 
-      //      Xa = XaMin + (i*XaStep);
-      Xa = BXa[i];
+      Xa = XaMin + (i*XaStep);
+      
+      ////Xa = BXa[i];
 
       Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
 
@@ -1219,7 +1339,8 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
       if( (Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt(Xa,Pt,Y);} 
       if(Parton1 !=0 && Parton2 !=0){SumDSigmaDt = Sum_qq_DSigmaDt(Xa,Pt,Y);} 
 
-      if(i>0) XaStep = BXa[i]-BXa[i-1]; 
+      
+      //if(i>0) XaStep = BXa[i]-BXa[i-1]; 
 
 
       Sum = Sum + Ga*Gb*SumDSigmaDt*XaStep; 
@@ -1228,17 +1349,11 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
       //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
 
     }
-  
    
   Val = Sum;
-  
-
   return Val;
-
-
-
 }
-
+*/
 
 //===============================================================================
 // q+g --> QQbar + q partonic cross sections
@@ -1299,12 +1414,10 @@ Double_t Sum_qg_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
   //(OK)
   Double_t Term6 = DSigmaDt_qg_QQbar_3P2_8(Xa, Pt, Y)*5.0*OO_QQbar_3P0_8_JPsi;
   
-
-
   Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
 
   Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4+Term5 + Term6);
-   
+
   Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
    
   return Fac*Sum;
@@ -1362,7 +1475,6 @@ Double_t DSigmaDt_qg_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Term2 = (SS-mJPsi2)*(TT-mJPsi2)*(SS-mJPsi2)*(TT-mJPsi2);
 
   Double_t Amp_h0 = 2.0*Constt*Term1/Term2;
-
 
   Double_t Term3 =(SS2+UU2+2.0*mJPsi2*TT)*(SS-mJPsi2)*(SS-mJPsi2) - 2.0*mJPsi2*SS*TT*UU;
 
@@ -2505,6 +2617,56 @@ Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y)
   Value = Term1*Term2*(Term3 - Term4 - Term5 + Term6 + Term7);
  
   return Value; //GeV^{-4} if R02 is in GeV^5
+}
+
+//================ Test Functions ===========================//
+
+
+
+Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax)
+{
+
+  Double_t PtStep =1.0;
+  Double_t YYStep =0.1;
+  
+  Double_t Pt =0.0;
+  Double_t YY =0.0;
+ 
+  Int_t NNPt = int(PtMax-PtMin)/PtStep;
+  Int_t NNYY = int(YYMax-YYMin)/YYStep;
+
+  Double_t DSigmaDPtDyVal =0.0;
+
+  TH3D *hist_PtYYSigma = new TH3D("hist_PtYYSigma","hist_PtYYSigma", NNPt, PtMin,PtMax,NNYY,YYMin,YYMax,1000,0.0,1000.0);
+  
+    for(int i =0;i<NNPt;i++)
+    {
+      Pt = PtMin + i*PtStep;
+      
+      for(int j =0;j<NNYY;j++)
+	{
+	  YY = YYMin + j*YYStep; 
+	  
+	  DSigmaDPtDyVal = DSigmaDPtDy(Pt,YY);
+	  hist_PtYYSigma->Fill(Pt,YY,DSigmaDPtDyVal);
+	  
+	  cout<<Pt<<"   "<<YY<<"   "<< DSigmaDPtDyVal <<endl;
+
+
+	}
+    } 
+
+
+    new TCanvas;
+    hist_PtYYSigma->GetXaxis()->SetTitle("p_{T}(GeV/C)");
+    hist_PtYYSigma->GetYaxis()->SetTitle("y");
+    hist_PtYYSigma->GetZaxis()->SetTitle("d#sigma/dp_{T}dy(nb/GeV)");
+   
+    gPad->SetLogz(1);
+    hist_PtYYSigma->Draw("colz");
+    hist_PtYYSigma->Write();
+    
+    return 0;
 
 
 }
@@ -2518,7 +2680,16 @@ Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y)
 
 
 
-//================ Test Functions ===========================//
+
+
+
+
+
+
+
+
+
+
 Double_t XXMinPtY(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax)
 {
 
@@ -2641,6 +2812,11 @@ void Pal_JPsi_D2SigDPtDY_Y09_Pt(TLegend *lgd)
   Double_t PT[20]={4.66, 6.47, 8.50, 11.28, 13.85, 17.26, 20.26, 23.46, 26.99, 30.51, 34.36, 38.21, 41.41, 44.83, 48.78, 52.52, 55.83, 59.68, 63.63, 67.05};
   Double_t Sig[20]={240.66352, 55.27074, 15.02822, 4.09135, 1.49527, 0.57081, 0.25770, 0.13774, 0.07063, 0.03777, 0.02199, 0.01335, 0.00844, 0.00606, 
 		    0.00401, 0.00265, 0.00198, 0.00142, 0.00102, 0.00077};
+
+
+  for(int i=0;i<20;i++){Sig[i] = Sig[i]*0.0593;}
+
+
 
   TGraph *Grf_JPsi_D2SigDPtDY_Y09_Pt = new TGraph(20,PT,Sig);
   Grf_JPsi_D2SigDPtDY_Y09_Pt->SetLineColor(4);

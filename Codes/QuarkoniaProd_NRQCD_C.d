@@ -101,5 +101,13 @@
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/TText.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/LHAPDF/include/LHAPDF/LHAPDF.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/LHAPDF/include/LHAPDF/LHAPDFConfig.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/Math/GaussLegendreIntegrator.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/Math/GaussIntegrator.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/Math/IFunction.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/Math/IFunctionfwd.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/Math/VirtualIntegrator.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/Math/Error.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/Math/IntegratorOptions.h
+./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/Math/AllIntegrationTypes.h
 ./QuarkoniaProd_NRQCD_C.so: /home/vineet/root/include/cintdictversion.h /home/vineet/root/include/RVersion.h
 QuarkoniaProd_NRQCD_C__ROOTBUILDVERSION= 5.34/12
