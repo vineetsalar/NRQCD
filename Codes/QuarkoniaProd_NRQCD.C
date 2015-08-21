@@ -60,51 +60,16 @@ const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
 const Double_t RootS = 7000.0;
 
-const Int_t NAX = 16200;
-Double_t AXa[NAX]={0.0};
-
-
+//===== for gauss quadrature integration ========//
 const Int_t NNXXi = 150;
 Double_t XXi[NNXXi]={0.0};
 Double_t WWi[NNXXi]={0.0};
 
-/*
-Double_t XXi[NNXXi]={-0.0243502926634244, 0.0243502926634244, -0.0729931217877990, 0.0729931217877990, -0.1214628192961206, 0.1214628192961206, -0.1696444204239928, 0.1696444204239928, 
-		     -0.2174236437400071, 0.2174236437400071, -0.2646871622087674, 0.2646871622087674, -0.3113228719902110, 0.3113228719902110, -0.3572201583376681, 0.3572201583376681, 
-		     -0.4022701579639916, 0.4022701579639916, -0.4463660172534641, 0.4463660172534641, -0.4894031457070530, 0.4894031457070530, -0.5312794640198946, 0.5312794640198946, 
-		     -0.5718956462026340, 0.5718956462026340, -0.6111553551723933, 0.6111553551723933, -0.6489654712546573, 0.6489654712546573, -0.6852363130542333, 0.6852363130542333, 
-		     -0.7198818501716109, 0.7198818501716109, -0.7528199072605319, 0.7528199072605319, -0.7839723589433414, 0.7839723589433414, -0.8132653151227975, 0.8132653151227975, 
-		     -0.8406292962525803, 0.8406292962525803, -0.8659993981540928, 0.8659993981540928, -0.8893154459951141, 0.8893154459951141, -0.9105221370785028, 0.9105221370785028, 
-		     -0.9295691721319396, 0.9295691721319396, -0.9464113748584028, 0.9464113748584028, -0.9610087996520538, 0.9610087996520538, -0.9733268277899110, 0.9733268277899110, 
-		     -0.9833362538846260, 0.9833362538846260, -0.9910133714767443, 0.9910133714767443, -0.9963401167719553, 0.9963401167719553, -0.9993050417357722, 0.9993050417357722};
 
 
-Double_t WWi[NNXXi]={0.0486909570091397, 0.0486909570091397, 0.0485754674415034, 0.0485754674415034, 0.0483447622348030, 0.0483447622348030, 0.0479993885964583, 0.0479993885964583, 
-		     0.0475401657148303, 0.0475401657148303, 0.0469681828162100, 0.0469681828162100, 0.0462847965813144, 0.0462847965813144, 0.0454916279274181, 0.0454916279274181, 
-		     0.0445905581637566, 0.0445905581637566, 0.0435837245293235, 0.0435837245293235, 0.0424735151236536, 0.0424735151236536, 0.0412625632426235, 0.0412625632426235, 
-		     0.0399537411327203, 0.0399537411327203, 0.0385501531786156, 0.0385501531786156, 0.0370551285402400, 0.0370551285402400, 0.0354722132568824, 0.0354722132568824, 
-		     0.0338051618371416, 0.0338051618371416, 0.0320579283548516, 0.0320579283548516, 0.0302346570724025, 0.0302346570724025, 0.0283396726142595, 0.0283396726142595, 
-		     0.0263774697150547, 0.0263774697150547, 0.0243527025687109, 0.0243527025687109, 0.0222701738083833, 0.0222701738083833, 0.0201348231535302, 0.0201348231535302, 
-		     0.0179517157756973, 0.0179517157756973, 0.0157260304760247, 0.0157260304760247, 0.0134630478967186, 0.0134630478967186, 0.0111681394601311, 0.0111681394601311, 
-		     0.0088467598263639, 0.0088467598263639, 0.0065044579689784, 0.0065044579689784, 0.0041470332605625, 0.0041470332605625, 0.0017832807216964, 0.0017832807216964};
-
-
-
-
-const Int_t NNXXi = 16;
-
-Double_t XXi[NNXXi]={-0.0950125098376374, 0.0950125098376374, -0.2816035507792589, 0.2816035507792589, -0.4580167776572274, 0.4580167776572274, -0.6178762444026438,
-		     0.6178762444026438, -0.7554044083550030, 0.7554044083550030, -0.8656312023878318, 0.8656312023878318, -0.9445750230732326, 0.9445750230732326, 
-		     -0.9894009349916499, 0.9894009349916499};
-
-
-Double_t WWi[NNXXi]={0.1894506104550685, 0.1894506104550685, 0.1826034150449236, 0.1826034150449236, 0.1691565193950025, 0.1691565193950025, 0.1495959888165767,
-		     0.1495959888165767, 0.1246289712555339, 0.1246289712555339, 0.0951585116824928, 0.0951585116824928, 0.0622535239386479, 0.0622535239386479, 
-		     0.0271524594117541, 0.0271524594117541};
-
-*/
-
-
+const Int_t NNXXk = 16;
+Double_t XXk[NNXXk]={0.0};
+Double_t WWk[NNXXk]={0.0};
 
 
 
@@ -330,10 +295,28 @@ void XbXXPtY();
 Double_t GetAlphaS(Double_t Q);
 Double_t quark_function(int nf, Double_t x, Double_t Qsquare);
 Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y);
-
-
 Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax);
+
+
+
+
+
+
+///===============================================================//
+
+
+Double_t DSigmaDPt_Gauss(Double_t Pt, Double_t YMin, Double_t YMax);
+Double_t DSigmaDY_Gauss(Double_t YY, Double_t PtMin, Double_t PtMax);
+
+
 Double_t DSigmaDPt(Double_t Pt, Double_t YMin, Double_t YMax);
+Double_t DSigmaDY(Double_t YY, Double_t PtMin, Double_t PtMax);
+
+
+
+
+
+
 Double_t DSigmaDPtDy(Double_t Pt, Double_t Y);
 Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
 
@@ -512,56 +495,19 @@ void QuarkoniaProd_NRQCD()
 
   LHAPDF::initPDF(SUBSET);
 
-  
-  //========================================================================================== //
-  //Double_t XMax[6]={0.00001,0.0001,0.001,0.01,0.1,1.0};
-  //Double_t XMin[6]={0.000001,0.00001,0.0001,0.001,0.01,0.1};
-  //Double_t X =0;
-  //Double_t dX = 0.0;
-  //Int_t NX = 900; 
-  //Int_t Count =0;
-  //for(int j =0;j<=5;j++)
-  //{
-  //  //cout<<"Diff: "<<XMax[j]-XMin[j]<<endl;
-  //  if(j>2) NX= 4500;
-  //
-  //  dX = (XMax[j] - XMin[j])/NX;
-  //
-  //  //cout<<" step "<<dX<<endl;
-  //
-  //  for(int i =0;i<NX;i++)
-  //	{ Count = Count+1;
-  //
-  //	  X = XMin[j] + i*dX;
-  //	  AXa[Count]=X;
-  //	  //cout<<j<<"  "<<i<<"   "<<Count<<"  "<<X<<endl;
-  //	}
-  //}
-  
-  //cout<<Count<<" count:"<<endl;
-  
-  //========================= Filling Gauss Quadrathure arrays ==================//
-  //NNXXi XXi[NNXXi]={0.0}; WWi[NNXXi]
-  /*
-  ifstream fileX("Gauss/XValue_150.txt");
-  ifstream fileW("Gauss/WValue_150.txt");
-
- for(int i=0; i<NNXXi; i++) 
-   {
-     fileX >> XXi[i];
-     fileW >> WWi[i];
-     cout<< i <<"   "<<XXi[i]<<"   "<<WWi[i]<<endl;
-      
-    }
-  */
- //return;
-
+  //========= Filling Gauss Quadrature arrays ======================================//
   ROOT::Math::GaussLegendreIntegrator *gi = new ROOT::Math::GaussLegendreIntegrator();
   gi->SetNumberPoints(NNXXi);
   gi->GetWeightVectors(XXi,WWi);
 
+
+  gi->SetNumberPoints(NNXXk);
+  gi->GetWeightVectors(XXk,WWk);
+
   
-  // cout<<" value of d quark : "<<quark_function(1, 0.01, 100)<<endl;
+
+
+
 
   //============================ Graph of Gluon Diss Functions ==================//  
   Double_t AXX[100000]={0.0};
@@ -673,13 +619,6 @@ void QuarkoniaProd_NRQCD()
   lgd_diss->Draw("same");
 
 
-  //cout<<" calling XXMinPtY"<<endl;
-  //XXMinPtY(5,70,-6,6);
-
-  //XbXXPtY();
-  
-  //return;
-
   Double_t AQQ[10000]={0.0};
   Double_t AAlphaS[10000]={0.0};
  
@@ -715,25 +654,6 @@ void QuarkoniaProd_NRQCD()
   grAlphaSVsQ->Draw("AC");
 
 
-  //Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-  //========= -nan value for some extreme conditions ==========//
-  //======== Value of Xb is touching to one 
-  Double_t Y = 3.5;
-  Double_t PT = 95.0;
-  Double_t PT2 = PT*PT;
-
-  Double_t Mt = TMath::Sqrt(PT2+ mJPsi2);
-  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
-  Double_t XbMin = (XaMin*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(XaMin*RootS - Mt*TMath::Exp(Y))); 
-  
-  //  cout<<XaMin<<"  "<<XbMin<<"  "<<(RootS*Mt*TMath::Exp(Y) - mJPsi2)<<"   "<<(RootS*(RootS - Mt*TMath::Exp(-Y)))<<endl;
-  
-  //  cout<<" Sum_GG_DSigmaDt: "<< Sum_GG_DSigmaDt(XaMin,PT,Y)<<"    "<<Sum_GG_DSigmaDt(XbMin,PT,Y)<<endl;
-  
-  //return;
-
-
-  
 
   Double_t SPlusTPlusU[1000]={0.0};
 
@@ -746,26 +666,20 @@ void QuarkoniaProd_NRQCD()
   Double_t DSigmaDt_qq_Pt[1000]={0.0};
   Double_t DSigmaDt_qg_Pt[1000]={0.0};
 
+ 
+
   Double_t Pt = 0.0;
   
   Double_t PtMin = 5.0;
-  Double_t PtMax = 100.0;
-  Double_t PtStep = 5.0;
+  Double_t PtMax = 40.0;
+  Double_t PtStep = 0.1;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
-
-
-  NNPt =0;
 
   cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   
-
-
-  //  FillPtRapHist(PtMin, PtMax, YYMin, YYMax);
+  //FillPtRapHist(PtMin, PtMax, YYMin, YYMax);
   // new TCanvas;
   //FillPtRapHist(5.0, 100.0, -5.0, 5.0);
-
-
-
 
 
   Double_t Psi2MuMu = 0.0;
@@ -778,6 +692,8 @@ void QuarkoniaProd_NRQCD()
   if(QQbarVar  ==7){Upsilon2MuMu = 0.0248;}
   if(QQbarVar  ==8){Upsilon2MuMu = 0.0248;}
 
+  Double_t RapInt = 0;
+
   for(Int_t i =0;i<NNPt;i++)
     {
       Pt = PtMin+ (i*PtStep);
@@ -786,20 +702,22 @@ void QuarkoniaProd_NRQCD()
 
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	//DSigmaDPt(Double_t Pt, Double_t YMin, Double_t YMax);
-
-	//DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPtDy(Pt,0.000001);
-
-	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPt(Pt, -1.0, 1.0);
-	//DSigmaDPtDY_Pt[i] = DSigmaDPtDy(Pt,0.1);
+	Double_t YMax = 0.9; Double_t YMin = -0.9;
+	Double_t DeltaY = (YMax - YMin);
+	
+	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax);
+      	
+	RapInt = RapInt + DSigmaDPtDY_Pt[i];
+      
       }
 
 
       if(QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 || QQbarVar ==9 || QQbarVar == 10){
-	
-	//DSigmaDPtDY_Pt[i]= Upsilon2MuMu*1000000 * DSigmaDPtDy(Pt,0.00001); // nb to fb conversion
-	DSigmaDPtDY_Pt[i] = Upsilon2MuMu*1000000 *DSigmaDPt(Pt, -1.0, 1.0);
-	//DSigmaDPtDY_Pt[i]= 1000000 * DSigmaDPtDy(Pt,0.2); // nb to fb conversion
+	Double_t YMax =5.0; Double_t YMin = -5.0;
+	Double_t DeltaY = (YMax - YMin);
+	DSigmaDPtDY_Pt[i] = Upsilon2MuMu*1000000 *DSigmaDPt_Gauss(Pt, YMin, YMax)/DeltaY;
+	RapInt = RapInt + DSigmaDPtDY_Pt[i];
+
       }
 
 
@@ -820,7 +738,8 @@ void QuarkoniaProd_NRQCD()
       cout<<APt[i]<<"         "<<DSigmaDt_GG_Pt[i]<<"    "<<DSigmaDt_qq_Pt[i]<<"    "<<DSigmaDt_qg_Pt[i]<<"    "<<DSigmaDPtDY_Pt[i]<<endl;
     }
   
-
+  cout<<" ========================== "<<endl;
+  cout<<" Integration over Rapidity: "<<RapInt*PtStep<<endl;
 
 
   TGraph *grSPlusTPlusU = new TGraph(NNPt,APt,SPlusTPlusU);
@@ -947,7 +866,7 @@ if(QQbarVar ==8){
   
   Double_t RapMin = -5.0;
   Double_t RapMax = 5.0;
-  Double_t RapStep = 0.5;
+  Double_t RapStep = 0.25;
   
   Int_t NNRap = (RapMax - RapMin)/RapStep;
   
@@ -958,10 +877,8 @@ if(QQbarVar ==8){
   Double_t DSigmaDt_qq_Rap[1000]={0.0};
   Double_t DSigmaDt_qg_Rap[1000]={0.0};
 
-
-
-  cout<<"Rap "<<"     "<<"DSigmaDt_GG_Rap"<<"  "<<"DSigmaDt_qq_Rap"<<"   "<<"DSigmaDt_qg_Rap"<<"   "<<"DSigmaDPtDY_Rap"<<"   "<<endl; 
-  NNRap=1;
+  cout<<" Rap: "<<"     "<<" DSigmaDY_Rap "<<endl;
+  Double_t PtInt =0.0;
 
   for(Int_t i =0;i<NNRap;i++)
     {
@@ -969,30 +886,35 @@ if(QQbarVar ==8){
       Rap = RapMin + (i*RapStep);
       ARap[i]=Rap;
       
-      DSigmaDPtDY_Rap[i]= DSigmaDPtDy(100.0, ARap[i]);
+      Double_t PtMin = 5.0; Double_t PtMax = 40.0;
+      DSigmaDPtDY_Rap[i]= Psi2MuMu*DSigmaDY_Gauss(ARap[i],PtMin,PtMax);
+      PtInt = PtInt + DSigmaDPtDY_Rap[i];
       
-
-      /*      if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 ){
-	
-	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt(0.4,90.0,Rap);
-	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt(0.4,90.0,Rap);
-	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt(0.4,90.0,Rap);
+      /*
+      Double_t Pt = 40.0;
+      Double_t Mt = TMath::Sqrt(Pt*Pt + mJPsi2);
+      Double_t XaMin =  (RootS*Mt*TMath::Exp(Rap) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Rap))); 
+      if(XaMin <= 0.0 || XaMin >= 1.0 ){ XaMin = 0.99;};
+      if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 ){
+	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt(XaMin,Pt,Rap);
+	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt(XaMin,Pt,Rap);
+	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt(XaMin,Pt,Rap);
       }
-
+      
       if(QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5  || QQbarVar == 9 || QQbarVar == 10){
-
-	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt_Chi(0.2,50.0,Rap);
-	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt_Chi(0.2,50.0,Rap);
-	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt_Chi(0.2,50.0,Rap);
-    }
-
-     
+	
+	DSigmaDt_GG_Rap[i]=Sum_GG_DSigmaDt_Chi(XaMin,Pt,Rap);
+	DSigmaDt_qq_Rap[i]=Sum_qq_DSigmaDt_Chi(XaMin,Pt,Rap);
+	DSigmaDt_qg_Rap[i]=Sum_qg_DSigmaDt_Chi(XaMin,Pt,Rap);
+      }
       cout<<ARap[i]<<"     "<<DSigmaDt_GG_Rap[i]<<"  "<<DSigmaDt_qq_Rap[i]<<"   "<<DSigmaDt_qg_Rap[i]<<"   "<<DSigmaDPtDY_Rap[i]<<"   "<<endl;  
       */
 
-
+      cout<<ARap[i]<<"     "<< DSigmaDPtDY_Rap[i] <<endl;
     }
 
+  cout<<" =================== "<<endl;
+  cout<<" Integration over Pt: "<<PtInt*RapStep<<endl;
 
   TGraph *grDSigmaDt_GG_Rap = new TGraph(NNRap,ARap,DSigmaDt_GG_Rap);
   grDSigmaDt_GG_Rap->SetName("grDSigmaDt_Rap");
@@ -1051,6 +973,7 @@ if(QQbarVar ==8){
   grDSigmaDPtDY_Rap->SetLineColor(2);
   grDSigmaDPtDY_Rap->GetXaxis()->SetTitle("y");
   grDSigmaDPtDY_Rap->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+  //grDSigmaDPtDY_Rap->GetYaxis()->SetTitle("d#sigma/dy(nb/GeV)");
 
   new TCanvas; 
   gPad->SetTicks();
@@ -1083,6 +1006,74 @@ if(QQbarVar ==8){
  
 }
   
+
+Double_t DSigmaDY_Gauss(Double_t YY, Double_t PtMin, Double_t PtMax)
+{
+  
+  Double_t Const1 = 0.5*(PtMax - PtMin);
+  Double_t Const2 = 0.5*(PtMax + PtMin);
+  
+  Double_t Val =0.0;
+  Double_t Sum =0.0;
+  
+  for(int i=0;i<NNXXk ;i++)
+    {
+      Double_t Pt = Const1*XXk[i] + Const2;
+      Sum = Sum + WWk[i]*DSigmaDPtDy(Pt,YY);
+    }
+  
+  Val = Const1*Sum;
+  return Val;
+}
+
+
+
+Double_t DSigmaDPt_Gauss(Double_t Pt, Double_t YMin, Double_t YMax)
+{
+  
+  Double_t Const1 = 0.5*(YMax - YMin);
+  Double_t Const2 = 0.5*(YMax + YMin);
+  
+  Double_t Val =0.0;
+  Double_t Sum =0.0;
+  
+  for(int i=0;i<NNXXk ;i++)
+    {
+      Double_t YY = Const1*XXk[i] + Const2;
+      Sum = Sum + WWk[i]*DSigmaDPtDy(Pt,YY);
+    }
+  
+  Val = Const1*Sum;
+  return Val;
+}
+
+
+
+
+
+Double_t DSigmaDY(Double_t YY, Double_t PtMin, Double_t PtMax)
+  {
+   
+    Double_t PtStep  = 1.0;
+    Int_t NN = int((PtMax - PtMin)/PtStep);
+
+    Double_t Val =0.0;
+    Double_t Sum =0.0;
+
+    for(int i=0;i<NN;i++)
+      {
+	Double_t Pt = PtMin + i*PtStep;
+	Sum = Sum + DSigmaDPtDy(Pt,YY);
+      }
+    
+    Val = Sum*PtStep;
+
+    return Val;
+  }
+
+
+
+
 Double_t DSigmaDPt(Double_t Pt, Double_t YMin, Double_t YMax)
   {
     Double_t YY =0.0;
@@ -1121,14 +1112,13 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
   if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar ==6 || QQbarVar ==7 || QQbarVar ==8 ){ 
     
     Value_gg = DSigmaDt_IntX(Pt, Y, 0, 0);
-
-    /*    
+        
     Value_qq = DSigmaDt_IntX(Pt, Y,3,-3) + DSigmaDt_IntX(Pt, Y,2,-2) + DSigmaDt_IntX(Pt, Y,1,-1) + DSigmaDt_IntX(Pt, Y,-3,3) + DSigmaDt_IntX(Pt, Y,-2,2) + DSigmaDt_IntX(Pt, Y,-1,1);
     
     Value_gq = DSigmaDt_IntX(Pt, Y,3,0) + DSigmaDt_IntX(Pt, Y,2,0) +   DSigmaDt_IntX(Pt, Y,1,0) + DSigmaDt_IntX(Pt, Y,0,3) + DSigmaDt_IntX(Pt, Y,0,2) +   DSigmaDt_IntX(Pt, Y,0,1);
     
     Value_gqbar = DSigmaDt_IntX(Pt, Y,-3,0) + DSigmaDt_IntX(Pt, Y,-2,0) +  DSigmaDt_IntX(Pt, Y,-1,0) + DSigmaDt_IntX(Pt, Y,0,-3) + DSigmaDt_IntX(Pt, Y,0,-2) +   DSigmaDt_IntX(Pt, Y,0,-1);
-    */
+    
    
   }
 
@@ -1161,39 +1151,37 @@ Double_t DSigmaDPtDy(Double_t Pt, Double_t Y)
 
 Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
 {
-  Double_t Ga = 0.0;
-  Double_t Gb = 0.0;
-  
   Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
   Double_t MuFSquare = Mt*Mt;
   
   Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
   Double_t XaMax = 1.0;
   
+  Double_t Val =0.0;
+  if(XaMin <= 0.0 || XaMin > 1.0 ){ XaMin =1.0; return Val;} 
+
+
   Double_t Const = 0.5*(XaMax - XaMin);
   Double_t Const2 = 0.5*(XaMax + XaMin);
   
   //WWi XXi NNXXi
 
-  Double_t YYa =0.0;
-  Double_t YYb =0.0;
-
-  Double_t Val =0.0;
   Double_t Sum =0.0;
   Double_t SumDSigmaDt = 0.0;
 
   for(Int_t i =0 ; i<NNXXi; i++)
     {
-      YYa = Const*XXi[i] + Const2;
-      YYb = (YYa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(YYa*RootS - Mt*TMath::Exp(Y)));
       
-      Ga = quark_function(Parton1,YYa,MuFSquare);
-      Gb = quark_function(Parton2,YYb,MuFSquare);
+      Double_t YYa = Const*XXi[i] + Const2;
+      Double_t YYb = (YYa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(YYa*RootS - Mt*TMath::Exp(Y)));
+      
+      Double_t Ga = quark_function(Parton1,YYa,MuFSquare);
+      Double_t Gb = quark_function(Parton2,YYb,MuFSquare);
 
       if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt_Chi(YYa,Pt,Y);} 
       if( (Parton1 ==0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt_Chi(YYa,Pt,Y);} 
       if( Parton1 != 0 && Parton2 !=0  ){SumDSigmaDt = Sum_qq_DSigmaDt_Chi(YYa,Pt,Y);} 
-
+      
       Sum = Sum + WWi[i]*Ga*Gb*SumDSigmaDt;
     }
   
@@ -1206,50 +1194,35 @@ Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2
 Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
 {
 
-  Double_t Ga = 0.0;
-  Double_t Gb = 0.0;
-    
   Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
   Double_t MuFSquare = Mt*Mt;
   
   
   Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
 
-  cout << mJPsi2 << "  "  << Pt  << "    "  << Y << "  " << XaMin << " E: "<<Mt*TMath::CosH(Y)<<endl;  
-
-  cout << (RootS*Mt*TMath::Exp(Y) - mJPsi2)  << "  " << (RootS*(RootS - Mt*TMath::Exp(-Y))) << endl;
-
-
-
+  Double_t Val =0.0;
   
-
+ if(XaMin <= 0.0 || XaMin >= 1.0 ){ XaMin =1.0;  Val = 0.0;
+  return Val;} 
+ 
   Double_t XaMax = 1.0;
     
   Double_t Const = 0.5*(XaMax - XaMin);
   Double_t Const2 = 0.5*(XaMax + XaMin);
 
-  
-  //cout<<"XaMin : "<<XaMin<<endl;
-
-  //WWi XXi NNXXi
-
-  Double_t YYa =0.0;
-  Double_t YYb =0.0;
-
-
-  Double_t Val =0.0;
-  Double_t Sum =0.0;
+   
+  Double_t Sum =0.0; 
   Double_t SumDSigmaDt = 0.0;
 
   for(Int_t i =0 ; i<NNXXi; i++)
     {
       
-      YYa = Const*XXi[i] + Const2;
+      Double_t YYa = Const*XXi[i] + Const2;
 
-      YYb = (YYa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(YYa*RootS - Mt*TMath::Exp(Y)));
+      Double_t YYb = (YYa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(YYa*RootS - Mt*TMath::Exp(Y)));
       
-      Ga = quark_function(Parton1,YYa,MuFSquare);
-      Gb = quark_function(Parton2,YYb,MuFSquare);
+      Double_t Ga = quark_function(Parton1,YYa,MuFSquare);
+      Double_t Gb = quark_function(Parton2,YYb,MuFSquare);
       
       if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt(YYa,Pt,Y);} 
       if( (Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt(YYa,Pt,Y);} 
@@ -1257,13 +1230,7 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
       
       Sum = Sum + WWi[i]*Ga*Gb*SumDSigmaDt;
       
-      //cout<< WWi[i]<<"   "<<Ga<<"   "<<Gb<<"  "<<SumDSigmaDt<<endl;
-            
-      //      cout<<YYa<<"  "<<Ga<<"  "<<YYb<<"  "<<Gb<<"  "<<Sum_GG_DSigmaDt(YYa,Pt,Y)<<endl;
-
-      //      cout << XaMin << "   " << XaMax << "   " << XXi[i] << "   " << YYa << endl;
-      
-      
+           
 
     }
 
@@ -1274,85 +1241,6 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
 
 }
 
-
-/*
-Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
-{
-
-  Double_t Xa = 0.0;
-  Double_t Xb = 0.0;
-  Double_t Ga = 0.0;
-  Double_t Gb = 0.0;
-  
-  
-  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
-  Double_t MuFSquare = Mt*Mt;
-  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
-
-
-  
-  
-//  const int NN = NAX;  
-// Double_t BXa[NN]={0.0};
-//  int m=0;
-//  for(int i=0;i<NN-1;i++) {
-//    if( XaMin >= AXa[i] && XaMin < AXa[i+1]){m=i+1;break;}
-//  }
-  
-//  int n=0;
-//  BXa[0] = XaMin;
-  
-//  for(int i=m;i<NN;i++) {
-//    n=n+1;
-//    BXa[n] = AXa[i];
-//  }
-  
- // //Double_t XaStep = BXa[1]-BXa[0];
-
-
-
-
-  Double_t XaMax = 1.0;
-  Double_t XaStep = 0.00001;
-  Int_t NNXa = (XaMax - XaMin)/XaStep;
-
-  Double_t Val =0.0;
-  Double_t Sum =0.0;
-  Double_t SumDSigmaDt = 0.0;  
-
-  ////Int_t NNXa = n+1;
-  
-  for(Int_t i =0 ; i<NNXa; i++)
-    {
-
-      Xa = XaMin + (i*XaStep);
-      
-      ////Xa = BXa[i];
-
-      Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-      Ga = quark_function(Parton1,Xa,MuFSquare);
-      Gb = quark_function(Parton2,Xb,MuFSquare);
-      
-      if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt(Xa,Pt,Y);} 
-      if( (Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt(Xa,Pt,Y);} 
-      if(Parton1 !=0 && Parton2 !=0){SumDSigmaDt = Sum_qq_DSigmaDt(Xa,Pt,Y);} 
-
-      
-      //if(i>0) XaStep = BXa[i]-BXa[i-1]; 
-
-
-      Sum = Sum + Ga*Gb*SumDSigmaDt*XaStep; 
-
-
-      //cout<<Xa<<"   "<<Ga<<"   "<<Gb<<"    "<<endl;
-
-    }
-   
-  Val = Sum;
-  return Val;
-}
-*/
 
 //===============================================================================
 // q+g --> QQbar + q partonic cross sections
@@ -2542,14 +2430,10 @@ Double_t DSigmaDt_GG_QQbar_3P1_1(Double_t Xa, Double_t Pt, Double_t Y)
   
   Double_t PP = SS*TT + TT*UU + UU*SS;
   Double_t PP2 = PP*PP;
-  //Double_t PP3 = PP2*PP;
-  //Double_t PP4 = PP2*PP2;
-  
+    
   Double_t QQ = SS*TT*UU;
   Double_t QQ2 = QQ*QQ;
-  //Double_t QQ3 = QQ2*QQ;
-  //Double_t QQ4 = QQ2*QQ2;
-
+  
   Double_t AlphaS = GetAlphaS(Mt);
   Double_t AlphaS3 = AlphaS*AlphaS*AlphaS;
   
@@ -2630,7 +2514,7 @@ Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t 
 {
 
   Double_t PtStep =1.0;
-  Double_t YYStep =0.1;
+  Double_t YYStep =0.25;
   
   Double_t Pt =0.0;
   Double_t YY =0.0;
@@ -2673,9 +2557,6 @@ Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t 
 
 
 }
-
-
-
 
 
 
@@ -2756,7 +2637,7 @@ void XbXXPtY()
 {
 
   //16200, AXa
-
+  Double_t AXa[100]={0.0};
   Double_t YY[9]={4,-3,-2,-1,0,1,2,3,4};
   Double_t Pt[11]={5,10,15,20,25,30,35,45,55,65,75};
   
