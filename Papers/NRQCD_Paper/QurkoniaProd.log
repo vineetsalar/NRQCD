@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.12)  18 JUN 2015 19:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.12)  21 AUG 2015 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -474,26 +474,22 @@ cmm/m/it/12 < \OMS/cmsy/m/n/12 O[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n\OT1/cmr/m
 /n/12 ) \OML/cmm/m/it/12 >
  []
 
-[2] <Fig1a_JPsi_CMS_Y09_S7TeV.pdf, id=94, 569.12625pt x 548.0475pt>
-File: Fig1a_JPsi_CMS_Y09_S7TeV.pdf Graphic file (type pdf)
+[2] <Fig1b_JPsi_ATLAS_Y075_S7TeV.pdf, id=94, 569.12625pt x 548.0475pt>
+File: Fig1b_JPsi_ATLAS_Y075_S7TeV.pdf Graphic file (type pdf)
 
-<use Fig1a_JPsi_CMS_Y09_S7TeV.pdf>
-Package pdftex.def Info: Fig1a_JPsi_CMS_Y09_S7TeV.pdf used on input line 165.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-File: Fig1a_JPsi_CMS_Y09_S7TeV.pdf Graphic file (type pdf)
- <use Fig1a_JPsi_CMS_Y09_S7TeV.pdf>
-Package pdftex.def Info: Fig1a_JPsi_CMS_Y09_S7TeV.pdf used on input line 166.
+<use Fig1b_JPsi_ATLAS_Y075_S7TeV.pdf>
+Package pdftex.def Info: Fig1b_JPsi_ATLAS_Y075_S7TeV.pdf used on input line 165
+.
 (pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
 
+<Fig1a_JPsi_CMS_Y090_S7TeV.pdf, id=95, 569.12625pt x 548.0475pt>
+File: Fig1a_JPsi_CMS_Y090_S7TeV.pdf Graphic file (type pdf)
 
-Package natbib Warning: Citation `jhep02' on page 3 undefined on input line 168
-.
-
-
-Package natbib Warning: Citation `jhep02' on page 3 undefined on input line 168
-.
-
-[3] [4 <./Fig1a_JPsi_CMS_Y09_S7TeV.pdf, page is rotated 90 degrees>]
+<use Fig1a_JPsi_CMS_Y090_S7TeV.pdf>
+Package pdftex.def Info: Fig1a_JPsi_CMS_Y090_S7TeV.pdf used on input line 166.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+ [3] [4 <./Fig1b_JPsi_ATLAS_Y075_S7TeV.pdf, page is rotated 90 degrees> <./Fig1
+a_JPsi_CMS_Y090_S7TeV.pdf, page is rotated 90 degrees>]
 Overfull \hbox (45.55746pt too wide) in paragraph at lines 226--226
 [] 
  []
@@ -548,25 +544,22 @@ Overfull \hbox (30.0pt too wide) detected at line 747
 
 [16] [17] [18]
 No file QurkoniaProd.bbl.
-
-Package natbib Warning: There were undefined citations.
-
-[19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 954.
+[19] [20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 979.
  (./QurkoniaProd.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 954.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 954.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 979.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 979.
 Package rerunfilecheck Info: File `QurkoniaProd.out' has not changed.
 (rerunfilecheck)             Checksum: 3C7029AEA95148903C961095A11F7BF1;1001.
  ) 
 Here is how much of TeX's memory you used:
- 8804 strings out of 493304
- 123064 string characters out of 6139871
- 270664 words of memory out of 5000000
- 12070 multiletter control sequences out of 15000+600000
+ 8820 strings out of 493304
+ 123460 string characters out of 6139871
+ 270731 words of memory out of 5000000
+ 12082 multiletter control sequences out of 15000+600000
  18254 words of font info for 64 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,23n,35p,279b,508s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,23n,35p,334b,580s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -583,10 +576,10 @@ share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on QurkoniaProd.pdf (19 pages, 281295 bytes).
+Output written on QurkoniaProd.pdf (20 pages, 310603 bytes).
 PDF statistics:
- 371 PDF objects out of 1000 (max. 8388607)
- 302 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
- 110 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 425 PDF objects out of 1000 (max. 8388607)
+ 327 compressed objects within 4 object streams
+ 89 named destinations out of 1000 (max. 500000)
+ 115 words of extra memory for PDF output out of 10000 (max. 10000000)
 

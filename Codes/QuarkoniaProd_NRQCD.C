@@ -95,16 +95,18 @@ const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3
 /*
 //Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =2;
-const Double_t mC = 1.5;
-const Double_t mJPsi = 3.686109;
+const Double_t mC = 1.4;
+//const Double_t mJPsi = 3.686109;
+const Double_t mJPsi = 2.8;
 
 //const Double_t OO_QQbar_3S1_1_JPsi=0.76; //GeV^3 
 const Double_t NC = 3.0;        
+
 const Double_t R02 = 2.0*pi*0.76/(3.0*NC);  //GeV^3 
+
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
 const Double_t OO_QQbar_1S0_8_JPsi=0.0080;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0033;  //GeV^3
-
 const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC*mC; //GeV^5 
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
@@ -116,8 +118,9 @@ const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3
 /*
 // Chic0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 3;
-const Double_t mC = 1.5;
-const Double_t mJPsi = 3.41475;
+const Double_t mC = 1.4;
+//const Double_t mJPsi = 3.41475;
+const Double_t mJPsi = 2.8;
 
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
@@ -135,8 +138,9 @@ const Double_t OO_QQbar_3S1_8_Chic=0.00187;  //GeV^3
 /*
 // Chic1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 4;
-const Double_t mC = 1.5;
-const Double_t mJPsi = 3.51066;
+const Double_t mC = 1.4;
+//const Double_t mJPsi = 3.51066;
+const Double_t mJPsi = 2.8;
 
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
@@ -153,8 +157,9 @@ const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3
 /*
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
-const Double_t mC = 1.5;
-const Double_t mJPsi = 3.55620;
+const Double_t mC = 1.4;
+//const Double_t mJPsi = 3.55620;
+const Double_t mJPsi = 2.8;
 
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
@@ -299,9 +304,6 @@ Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t 
 
 
 
-
-
-
 ///===============================================================//
 
 
@@ -384,6 +386,7 @@ void Draw_CMS_DSigmaDPt_Upsilon2S_Y12_Pt(TLegend *lgd);
 void Draw_CMS_DSigmaDPt_Upsilon3S_Y12_Pt(TLegend *lgd);
 
 
+void Draw_CMS_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd);
 
 void QuarkoniaProd_NRQCD()
 {
@@ -433,7 +436,7 @@ void QuarkoniaProd_NRQCD()
 
   gStyle->SetMarkerStyle(20);
   gStyle->SetMarkerSize(1.3);
-
+  gStyle->SetPalette(1);
   
   gROOT->ForceStyle();
 
@@ -450,7 +453,9 @@ void QuarkoniaProd_NRQCD()
   //================ Out Root File ===================//
   TFile *OutFile;
 
-  if(QQbarVar ==1){OutFile = new TFile("JPsiCrossSection.root","Recreate");}
+  //if(QQbarVar ==1){OutFile = new TFile("JPsiCrossSection.root","Recreate");}
+  
+  if(QQbarVar ==1){OutFile = new TFile("Test_JPsiCrossSection.root","Recreate");}
   if(QQbarVar ==2){OutFile = new TFile("Psi2SCrossSection.root","Recreate");}
   if(QQbarVar ==3){OutFile = new TFile("Chic0_1PCrossSection.root","Recreate");}
   if(QQbarVar ==4){OutFile = new TFile("Chic1_1PCrossSection.root","Recreate");}
@@ -659,8 +664,20 @@ void QuarkoniaProd_NRQCD()
 
   Double_t APt[1000]={0.0};
 
+
+
   Double_t DSigmaDPtDY_Pt[1000]={0.0};
- 
+
+  
+  Double_t DSigmaDPtDY_ModY075_Pt[1000]={0.0};
+  Double_t DSigmaDPtDY_ModY090_Pt[1000]={0.0};
+  Double_t DSigmaDPtDY_ModY075To24_Pt[1000]={0.0};
+  Double_t DSigmaDPtDY_ModY090To24_Pt[1000]={0.0};
+  Double_t DSigmaDPtDY_Y2To45_Pt[1000]={0.0};
+  Double_t DSigmaDPtDY_Y25To40_Pt[1000]={0.0};
+
+
+
   
   Double_t DSigmaDt_GG_Pt[1000]={0.0};
   Double_t DSigmaDt_qq_Pt[1000]={0.0};
@@ -668,24 +685,29 @@ void QuarkoniaProd_NRQCD()
 
  
 
+ 
   Double_t Pt = 0.0;
   
   Double_t PtMin = 5.0;
-  Double_t PtMax = 40.0;
-  Double_t PtStep = 0.1;
+  Double_t PtMax = 75.0;
+  Double_t PtStep = 0.5;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
 
   cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   
-  //FillPtRapHist(PtMin, PtMax, YYMin, YYMax);
-  // new TCanvas;
-  //FillPtRapHist(5.0, 100.0, -5.0, 5.0);
+
+
+  FillPtRapHist(5.0, 75.0, -5.0, 5.0);
+  
+
 
 
   Double_t Psi2MuMu = 0.0;
   if(QQbarVar  ==1){Psi2MuMu = 0.0593;}
   if(QQbarVar  ==2){Psi2MuMu = 0.0079;}
-
+  if(QQbarVar  ==3){Psi2MuMu = 0.0079;}
+  if(QQbarVar  ==4){Psi2MuMu = 0.0079;}
+  if(QQbarVar  ==5){Psi2MuMu = 0.0079;}
 
   Double_t Upsilon2MuMu = 0.0;
   if(QQbarVar  ==6){Upsilon2MuMu = 0.0248;}
@@ -693,6 +715,8 @@ void QuarkoniaProd_NRQCD()
   if(QQbarVar  ==8){Upsilon2MuMu = 0.0248;}
 
   Double_t RapInt = 0;
+  
+  NNPt=2;
 
   for(Int_t i =0;i<NNPt;i++)
     {
@@ -702,18 +726,25 @@ void QuarkoniaProd_NRQCD()
 
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	Double_t YMax = 0.9; Double_t YMin = -0.9;
+	Double_t YMin = -1.2; Double_t YMax = 1.2; 
 	Double_t DeltaY = (YMax - YMin);
 	
 	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax);
       	
+	DSigmaDPtDY_ModY075_Pt[i]=DSigmaDPt_Gauss(Pt, -1.2, 1.2);
+	DSigmaDPtDY_ModY090_Pt[i]=DSigmaDPt_Gauss(Pt, -1.6, -1.2) + DSigmaDPt_Gauss(Pt, 1.2, 1.6);
+	DSigmaDPtDY_ModY075To24_Pt[i]=DSigmaDPt_Gauss(Pt, -2.4, -1.6) + DSigmaDPt_Gauss(Pt, 1.6, 2.4);
+	 
+	DSigmaDPtDY_ModY090To24_Pt[i]=DSigmaDPt_Gauss(Pt, -2.4, -0.90) + DSigmaDPt_Gauss(Pt, 0.90, 2.4);
+	DSigmaDPtDY_Y2To45_Pt[i]=DSigmaDPt_Gauss(Pt, 2.0, 4.5);
+	DSigmaDPtDY_Y25To40_Pt[i]=DSigmaDPt_Gauss(Pt, 2.5, 4.0);
+	
 	RapInt = RapInt + DSigmaDPtDY_Pt[i];
       
       }
 
-
       if(QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 || QQbarVar ==9 || QQbarVar == 10){
-	Double_t YMax =5.0; Double_t YMin = -5.0;
+	Double_t YMin = -5.0; Double_t YMax =5.0; 
 	Double_t DeltaY = (YMax - YMin);
 	DSigmaDPtDY_Pt[i] = Upsilon2MuMu*1000000 *DSigmaDPt_Gauss(Pt, YMin, YMax)/DeltaY;
 	RapInt = RapInt + DSigmaDPtDY_Pt[i];
@@ -736,6 +767,10 @@ void QuarkoniaProd_NRQCD()
 
 
       cout<<APt[i]<<"         "<<DSigmaDt_GG_Pt[i]<<"    "<<DSigmaDt_qq_Pt[i]<<"    "<<DSigmaDt_qg_Pt[i]<<"    "<<DSigmaDPtDY_Pt[i]<<endl;
+     
+      cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY075_Pt[i]<<"  "<<DSigmaDPtDY_ModY090_Pt[i]<<"  "<<DSigmaDPtDY_ModY075To24_Pt[i]<<endl;
+      cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY090To24_Pt[i]<<"  "<<DSigmaDPtDY_Y2To45_Pt[i]<<"  "<<DSigmaDPtDY_Y25To40_Pt[i]<<endl;
+
     }
   
   cout<<" ========================== "<<endl;
@@ -828,9 +863,14 @@ void QuarkoniaProd_NRQCD()
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   
-  if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar == 3 || QQbarVar ==4 || QQbarVar ==5 ){
+  if(QQbarVar ==1 || QQbarVar == 3 || QQbarVar ==4 || QQbarVar ==5 ){
     Draw_CMS_D2NDPtDy_PromptJPsi_Y0009_Pt(lgd_DSigmaDPtDY_Pt);
     lgd_DSigmaDPtDY_Pt->AddEntry(grDSigmaDPtDY_Pt,"NRQCD, prompt J/#psi","L");
+  }
+
+  if(QQbarVar ==2){
+    Draw_CMS_D2NDPtDy_PromptPsi2S_Y0012_Pt(lgd_DSigmaDPtDY_Pt);
+    lgd_DSigmaDPtDY_Pt->AddEntry(grDSigmaDPtDY_Pt,"NRQCD, prompt #psi(2S)","L");
   }
 
   if(QQbarVar == 6 || QQbarVar == 9 || QQbarVar == 10 ){
@@ -857,6 +897,132 @@ if(QQbarVar ==8){
 
   lgd_DSigmaDPtDY_Pt->Draw("same");
 
+
+  //====================================== DSigma/DPt.Dy graphs ================================//
+
+  TLatex *tb= new TLatex;
+  tb->SetNDC(); 
+  tb->SetTextAlign(12);
+  tb->SetTextColor(1);
+  tb->SetTextSize(0.040);
+  
+
+
+
+  TGraph *grDSigmaDPtDY_ModY075_Pt = new TGraph(NNPt,APt,DSigmaDPtDY_ModY075_Pt);
+  grDSigmaDPtDY_ModY075_Pt->SetName("grDSigmaDPtDY_ModY075_Pt");
+  grDSigmaDPtDY_ModY075_Pt->SetTitle("grDSigmaDPtDY_ModY075_Pt");
+  grDSigmaDPtDY_ModY075_Pt->SetLineWidth(2);
+  grDSigmaDPtDY_ModY075_Pt->SetLineColor(2);
+  grDSigmaDPtDY_ModY075_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_ModY075_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+  new TCanvas; 
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grDSigmaDPtDY_ModY075_Pt->GetYaxis()->SetTitleOffset(1.6);
+  grDSigmaDPtDY_ModY075_Pt->Draw("ALsame");
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"|y| #leq 0.75");
+
+
+
+
+  TGraph *grDSigmaDPtDY_ModY090_Pt = new TGraph(NNPt,APt,DSigmaDPtDY_ModY090_Pt);
+  grDSigmaDPtDY_ModY090_Pt->SetName("grDSigmaDPtDY_ModY090_Pt");
+  grDSigmaDPtDY_ModY090_Pt->SetTitle("grDSigmaDPtDY_ModY090_Pt");
+  grDSigmaDPtDY_ModY090_Pt->SetLineWidth(2);
+  grDSigmaDPtDY_ModY090_Pt->SetLineColor(2);
+  grDSigmaDPtDY_ModY090_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_ModY090_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+  new TCanvas; 
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grDSigmaDPtDY_ModY090_Pt->GetYaxis()->SetTitleOffset(1.6);
+  grDSigmaDPtDY_ModY090_Pt->Draw("ALsame");
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"|y| #leq 0.9");
+
+
+
+
+  TGraph *grDSigmaDPtDY_ModY075To24_Pt = new TGraph(NNPt,APt,DSigmaDPtDY_ModY075To24_Pt);
+  grDSigmaDPtDY_ModY075To24_Pt->SetName("grDSigmaDPtDY_ModY075To24_Pt");
+  grDSigmaDPtDY_ModY075To24_Pt->SetTitle("grDSigmaDPtDY_ModY075To24_Pt");
+  grDSigmaDPtDY_ModY075To24_Pt->SetLineWidth(2);
+  grDSigmaDPtDY_ModY075To24_Pt->SetLineColor(2);
+  grDSigmaDPtDY_ModY075To24_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_ModY075To24_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+  new TCanvas; 
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grDSigmaDPtDY_ModY075To24_Pt->GetYaxis()->SetTitleOffset(1.6);
+  grDSigmaDPtDY_ModY075To24_Pt->Draw("ALsame");
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"0.75 #leq |y| #leq 2.4");
+
+    
+  TGraph *grDSigmaDPtDY_ModY090To24_Pt = new TGraph(NNPt,APt,DSigmaDPtDY_ModY090To24_Pt);
+  grDSigmaDPtDY_ModY090To24_Pt->SetName("grDSigmaDPtDY_ModY090To24_Pt");
+  grDSigmaDPtDY_ModY090To24_Pt->SetTitle("grDSigmaDPtDY_ModY090To24_Pt");
+  grDSigmaDPtDY_ModY090To24_Pt->SetLineWidth(2);
+  grDSigmaDPtDY_ModY090To24_Pt->SetLineColor(2);
+  grDSigmaDPtDY_ModY090To24_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_ModY090To24_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+  new TCanvas; 
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grDSigmaDPtDY_ModY090To24_Pt->GetYaxis()->SetTitleOffset(1.6);
+  grDSigmaDPtDY_ModY090To24_Pt->Draw("ALsame");
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"0.9 #leq |y| #leq 2.4");
+
+
+
+  TGraph *grDSigmaDPtDY_Y2To45_Pt = new TGraph(NNPt,APt,DSigmaDPtDY_Y2To45_Pt);
+  grDSigmaDPtDY_Y2To45_Pt->SetName("grDSigmaDPtDY_Y2To45_Pt");
+  grDSigmaDPtDY_Y2To45_Pt->SetTitle("grDSigmaDPtDY_Y2To45_Pt");
+  grDSigmaDPtDY_Y2To45_Pt->SetLineWidth(2);
+  grDSigmaDPtDY_Y2To45_Pt->SetLineColor(2);
+  grDSigmaDPtDY_Y2To45_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Y2To45_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+  new TCanvas; 
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grDSigmaDPtDY_Y2To45_Pt->GetYaxis()->SetTitleOffset(1.6);
+  grDSigmaDPtDY_Y2To45_Pt->Draw("ALsame");
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"2.0 #leq y #leq 4.5");
+
+
+  TGraph *grDSigmaDPtDY_Y25To40_Pt = new TGraph(NNPt,APt,DSigmaDPtDY_Y25To40_Pt);
+  grDSigmaDPtDY_Y25To40_Pt->SetName("grDSigmaDPtDY_Y25To40_Pt");
+  grDSigmaDPtDY_Y25To40_Pt->SetTitle("grDSigmaDPtDY_Y25To40_Pt");
+  grDSigmaDPtDY_Y25To40_Pt->SetLineWidth(2);
+  grDSigmaDPtDY_Y25To40_Pt->SetLineColor(2);
+  grDSigmaDPtDY_Y25To40_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Y25To40_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+  new TCanvas; 
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grDSigmaDPtDY_Y25To40_Pt->GetYaxis()->SetTitleOffset(1.6);
+  grDSigmaDPtDY_Y25To40_Pt->Draw("ALsame");
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"2.5 #leq y #leq 4.0");
+
+
+  
 
   //return;
 
@@ -998,7 +1164,15 @@ if(QQbarVar ==8){
   grDSigmaDt_qq_Rap->Write();
   grDSigmaDt_qg_Rap->Write();
   grDSigmaDPtDY_Rap->Write();
-  
+
+  grDSigmaDPtDY_ModY075_Pt->Write();
+  grDSigmaDPtDY_ModY090_Pt->Write();
+  grDSigmaDPtDY_ModY075To24_Pt->Write();
+  grDSigmaDPtDY_ModY090To24_Pt->Write();
+  grDSigmaDPtDY_ModY090To24_Pt->Write();
+  grDSigmaDPtDY_Y2To45_Pt->Write();
+  grDSigmaDPtDY_Y25To40_Pt->Write();
+
   OutFile->Close();
 
   return;
@@ -1006,6 +1180,18 @@ if(QQbarVar ==8){
  
 }
   
+
+//Double_t DSigmaDPt_Hist(Double_t YMin, Double_t YMax, TH2D *DSigmaDPtDy)
+//{
+//}
+
+
+
+
+
+
+
+
 
 Double_t DSigmaDY_Gauss(Double_t YY, Double_t PtMin, Double_t PtMax)
 {
@@ -2512,48 +2698,63 @@ Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y)
 
 Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax)
 {
+  
+  //PtMin = 5.0;
+  //PtMax = 75.0;
+  
+  //YYMin = -5.0;
+  //YYMax = 5.0;
 
-  Double_t PtStep =1.0;
+
+  Double_t PtStep =0.25;
   Double_t YYStep =0.25;
   
   Double_t Pt =0.0;
   Double_t YY =0.0;
  
-  Int_t NNPt = int(PtMax-PtMin)/PtStep;
-  Int_t NNYY = int(YYMax-YYMin)/YYStep;
+  //Int_t NNPt = int(PtMax-PtMin)/PtStep;
+  //Int_t NNYY = int(YYMax-YYMin)/YYStep;
+
+
+  Int_t NNPt = 280;
+  Int_t NNYY = 40;
+
+
 
   Double_t DSigmaDPtDyVal =0.0;
-
-  TH3D *hist_PtYYSigma = new TH3D("hist_PtYYSigma","hist_PtYYSigma", NNPt, PtMin,PtMax,NNYY,YYMin,YYMax,1000,0.0,1000.0);
   
-    for(int i =0;i<NNPt;i++)
+  TH2D *hist_PtYYSigma = new TH2D("hist_PtYYSigma","hist_PtYYSigma", NNPt, PtMin,PtMax, NNYY, YYMin,YYMax);
+  
+  for(int i =0;i<NNPt;i++)
     {
       Pt = PtMin + i*PtStep;
       
       for(int j =0;j<NNYY;j++)
 	{
+	  
 	  YY = YYMin + j*YYStep; 
 	  
 	  DSigmaDPtDyVal = DSigmaDPtDy(Pt,YY);
+	  
 	  hist_PtYYSigma->Fill(Pt,YY,DSigmaDPtDyVal);
 	  
-	  cout<<Pt<<"   "<<YY<<"   "<< DSigmaDPtDyVal <<endl;
+	  if(j%10 ==0){cout<<Pt<<"   "<<YY<<"   "<< DSigmaDPtDyVal <<endl;}
 
 
 	}
     } 
 
+  
+  new TCanvas;
+  hist_PtYYSigma->GetXaxis()->SetTitle("p_{T}(GeV/C)");
+  hist_PtYYSigma->GetYaxis()->SetTitle("y");
+  hist_PtYYSigma->GetZaxis()->SetTitle("DSigmaDPtDy");
 
-    new TCanvas;
-    hist_PtYYSigma->GetXaxis()->SetTitle("p_{T}(GeV/C)");
-    hist_PtYYSigma->GetYaxis()->SetTitle("y");
-    hist_PtYYSigma->GetZaxis()->SetTitle("d#sigma/dp_{T}dy(nb/GeV)");
-   
-    gPad->SetLogz(1);
-    hist_PtYYSigma->Draw("colz");
-    hist_PtYYSigma->Write();
-    
-    return 0;
+  gPad->SetLogz(1);
+  hist_PtYYSigma->Draw("colz");
+  hist_PtYYSigma->Write();
+  
+  return 0;
 
 
 }
@@ -3145,6 +3346,71 @@ void Draw_CMS_DSigmaDPt_Upsilon3S_Y12_Pt(TLegend *lgd)
   tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
   
   lgd->AddEntry(Grf_CMS_DSigmaDPt_Upsilon3S_Y12_Pt,"CMS #varUpsilon(3S)", "P");
+  
+  
+  
+}
+
+
+void Draw_CMS_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
+{
+  const int NN = 9;
+
+  Double_t p8319_d1x1y1_xval[NN] = {7.6, 8.54, 9.5, 10.5, 11.48, 12.72, 14.23, 16.3, 21.92};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {1.0999999999999996, 0.5399999999999991, 0.5, 0.5, 0.4800000000000004, 0.7200000000000006, 0.7300000000000004, 1.3000000000000007, 3.9200000000000017};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.40000000000000036, 0.46000000000000085, 0.5, 0.5, 0.5199999999999996, 0.7799999999999994, 0.7699999999999996, 1.6999999999999993, 8.079999999999998};
+  
+  
+  Double_t p8319_d1x1y1_yval[NN] = {0.148, 0.083, 0.061, 0.0368, 0.0217, 0.0141, 0.0077, 0.00368, 6.6E-4};
+  Double_t p8319_d1x1y1_yerrminus[NN] = {0.03573513677041128, 0.010440306508910549, 0.00670820393249937, 0.004141255848169731, 0.0030430248109405878, 0.0016031219541881396, 
+					 9.695359714832658E-4, 3.760319135392633E-4, 7.681145747868608E-5};
+  Double_t p8319_d1x1y1_yerrplus[NN] = {0.03573513677041128, 0.010440306508910549, 0.00670820393249937, 0.004141255848169731, 0.0030430248109405878, 0.0016031219541881396, 
+					9.695359714832658E-4, 3.760319135392633E-4, 7.681145747868608E-5};
+
+  Double_t p8319_d1x1y1_ystatminus[NN] = {0.029, 0.008, 0.005, 0.0031, 0.0019, 0.0011, 7.0E-4, 3.0E-4, 5.0E-5};
+  Double_t p8319_d1x1y1_ystatplus[NN] = {0.029, 0.008, 0.005, 0.0031, 0.0019, 0.0011, 7.0E-4, 3.0E-4, 5.0E-5};
+
+
+  TGraphAsymmErrors *Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+										  p8319_d1x1y1_xerrplus, p8319_d1x1y1_yerrminus, p8319_d1x1y1_yerrplus);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerStyle(20);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerColor(kBlack+0);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerSize(1.6);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetRangeUser(0.000001,10000.0);
+  
+  TAxis *Xaxis1 = Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+   
+
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetXaxis()->SetTitle("p_{T}[GeV/c]");
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
+  
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->Draw("AP");
+
+  
+  TBox *SystErr[NN];
+ 
+  for(int j=0;j<NN;j++){
+    SystErr[j] = new TBox(p8319_d1x1y1_xval[j]-0.5, p8319_d1x1y1_yval[j]-p8319_d1x1y1_ystatminus[j], p8319_d1x1y1_xval[j]+0.5, p8319_d1x1y1_yval[j]+p8319_d1x1y1_ystatplus[j]);
+  }
+  for(int j=0;j<NN;j++){
+    SystErr[j]->SetFillStyle(9001);
+    SystErr[j]->SetLineColor(kBlack);
+    SystErr[j]->Draw("same"); 
+  }
+  
+
+
+  TLatex *tb= new TLatex;
+  tb->SetNDC(); 
+  tb->SetTextAlign(12);
+  tb->SetTextColor(1);
+  tb->SetTextSize(0.040);
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
+ 
+  lgd->AddEntry(Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt,"CMS prompt J/#psi", "P");
   
   
   
