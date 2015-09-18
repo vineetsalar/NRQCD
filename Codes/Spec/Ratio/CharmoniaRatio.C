@@ -34,10 +34,7 @@
 #include "TGraphAsymmErrors.h"
 
 
-void Draw_CMS_PromptPsi2S_PromptJPsi_Ratio_Y0012_Pt(TLegend *lgd);
-void Draw_CMS_PromptPsi2S_PromptJPsi_Ratio_Y1216_Pt(TLegend *lgd);
-void Draw_CMS_PromptPsi2S_PromptJPsi_Ratio_Y1624_Pt(TLegend *lgd);
-
+void Draw_CMS_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt(TLegend *lgd);
 
 void CharmoniaRatio()
 {
@@ -110,95 +107,94 @@ void CharmoniaRatio()
   Double_t BR_JPsiToMuMu = 0.0593;
   Double_t BR_Psi2SToMuMu = 0.0078;
 
-  Double_t BR_Psi2SToJPsi = 0.595;
-  Double_t BR_ChiC0ToJPsi = 0.0116;
-  Double_t BR_ChiC1ToJPsi = 0.344;
-  Double_t BR_ChiC2ToJPsi = 0.195;
+  
+  TFile *file_JPsiCrossSection =  new TFile("TotalJPsiCrossSection.root","R");
+  
+
+  TGraph *TotalJPsi_grDSigmaDPtDY_ModY075_Pt =(TGraph*)file_JPsiCrossSection->Get("TotalJPsi_grDSigmaDPtDY_ModY075_Pt");
+  TotalJPsi_grDSigmaDPtDY_ModY075_Pt->SetName("TotalJPsi_grDSigmaDPtDY_ModY075_Pt");
+  TotalJPsi_grDSigmaDPtDY_ModY075_Pt->SetTitle("TotalJPsi_grDSigmaDPtDY_ModY075_Pt");
+  TotalJPsi_grDSigmaDPtDY_ModY075_Pt->SetLineWidth(2);
+  TotalJPsi_grDSigmaDPtDY_ModY075_Pt->SetLineColor(4);
+  TotalJPsi_grDSigmaDPtDY_ModY075_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  TotalJPsi_grDSigmaDPtDY_ModY075_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+  
+
 
   
-  TFile *file_JPsiCrossSection =  new TFile("JPsiCrossSection.root","R");
-  
-  TGraph *JPsi_grDSigmaDPtDY_ModY090_Pt =(TGraph*)file_JPsiCrossSection->Get("grDSigmaDPtDY_ModY090_Pt");
-  JPsi_grDSigmaDPtDY_ModY090_Pt->SetName("JPsi_grDSigmaDPtDY_ModY090_Pt");
-  JPsi_grDSigmaDPtDY_ModY090_Pt->SetTitle("JPsi_grDSigmaDPtDY_ModY090_Pt");
-  JPsi_grDSigmaDPtDY_ModY090_Pt->SetLineWidth(2);
-  JPsi_grDSigmaDPtDY_ModY090_Pt->SetLineColor(4);
-  JPsi_grDSigmaDPtDY_ModY090_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
-  JPsi_grDSigmaDPtDY_ModY090_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
-  
-  
-  TGraph *TotalJPsi_grDSigmaDPtDY_ModY090_Pt=(TGraph*)JPsi_grDSigmaDPtDY_ModY090_Pt->Clone();
-  TotalJPsi_grDSigmaDPtDY_ModY090_Pt->SetName("JPsi_grDSigmaDPtDY_ModY090_Pt");
-  TotalJPsi_grDSigmaDPtDY_ModY090_Pt->SetTitle("JPsi_grDSigmaDPtDY_ModY090_Pt");
-  TotalJPsi_grDSigmaDPtDY_ModY090_Pt->SetLineWidth(2);
-  TotalJPsi_grDSigmaDPtDY_ModY090_Pt->SetLineColor(2);
-  TotalJPsi_grDSigmaDPtDY_ModY090_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
-  TotalJPsi_grDSigmaDPtDY_ModY090_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+  TGraph *RatioJPsi_grDSigmaDPtDY_ModY075_Pt=(TGraph*)TotalJPsi_grDSigmaDPtDY_ModY075_Pt->Clone();
+  RatioJPsi_grDSigmaDPtDY_ModY075_Pt->SetName("RatioJPsi_grDSigmaDPtDY_ModY075_Pt");
+  RatioJPsi_grDSigmaDPtDY_ModY075_Pt->SetTitle("RatioJPsi_grDSigmaDPtDY_ModY075_Pt");
+  RatioJPsi_grDSigmaDPtDY_ModY075_Pt->SetLineWidth(2);
+  RatioJPsi_grDSigmaDPtDY_ModY075_Pt->SetLineColor(2);
+  RatioJPsi_grDSigmaDPtDY_ModY075_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  RatioJPsi_grDSigmaDPtDY_ModY075_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy^{#psi(2S)}/d^{2}#sigma/dp_{T}dy^{J/#psi}");
 
   
+  
+
+  TFile *file_Psi2SCrossSection =  new TFile("TotalPsi2SCrossSection.root","R");
+  
+
+  TGraph *TotalPsi2S_grDSigmaDPtDY_ModY075_Pt =(TGraph*)file_Psi2SCrossSection->Get("TotalPsi2S_grDSigmaDPtDY_ModY075_Pt");
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->SetName("TotalPsi2S_grDSigmaDPtDY_ModY075_Pt");
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->SetTitle("TotalPsi2S_grDSigmaDPtDY_ModY075_Pt");
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->SetLineWidth(2);
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->SetLineColor(4);
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+  
+
+
   
 
   //==========================================================================================================//
   //======================================= Plot 1 ==========================================================//
   //========================================================================================================//
 
-  for (int j=0; j < JPsi_grDSigmaDPtDY_ModY090_Pt->GetN();++j){
+  for (int j=0; j < TotalJPsi_grDSigmaDPtDY_ModY075_Pt->GetN();++j){
     
-    Double_t Pt, DirectJPsi,DirectPsi2S,DirectChiC0, DirectChiC1,DirectChiC2;
-    Double_t TotalJPsi;
     
-    JPsi_grDSigmaDPtDY_ModY090_Pt->GetPoint(j,Pt,DirectJPsi);
-    Psi2S_grDSigmaDPtDY_ModY090_Pt->GetPoint(j,Pt,DirectPsi2S);
+    Double_t Pt, TotalJPsi, TotalPsi2S;
+    
+    Double_t RatioJPsi;
+    
+    TotalJPsi_grDSigmaDPtDY_ModY075_Pt->GetPoint(j,Pt,TotalJPsi);
+    TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->GetPoint(j,Pt,TotalPsi2S);
 
-    ChiC0_grDSigmaDPtDY_ModY090_Pt->GetPoint(j,Pt,DirectChiC0);
-    ChiC1_grDSigmaDPtDY_ModY090_Pt->GetPoint(j,Pt,DirectChiC1);
-    ChiC2_grDSigmaDPtDY_ModY090_Pt->GetPoint(j,Pt,DirectChiC2);
+    RatioJPsi = (TotalPsi2S)/(TotalJPsi);
+    
+    Double_t AbsToPercent = 100.0;
+    RatioJPsi =RatioJPsi*AbsToPercent;
 
-    Double_t DY = 1.8;
-    TotalJPsi = (DirectJPsi*BR_JPsiToMuMu + DirectPsi2S*BR_Psi2SToJPsi*BR_JPsiToMuMu + DirectChiC0*BR_ChiC0ToJPsi*BR_JPsiToMuMu 
-		 + DirectChiC1*BR_ChiC1ToJPsi*BR_JPsiToMuMu+DirectChiC2*BR_ChiC2ToJPsi*BR_JPsiToMuMu)/DY;
-    
-    TotalJPsi_grDSigmaDPtDY_ModY090_Pt->SetPoint(j,Pt,TotalJPsi);
-    
-    JPsi_grDSigmaDPtDY_ModY090_Pt->SetPoint(j,Pt,DirectJPsi*BR_JPsiToMuMu/DY);
-    Psi2S_grDSigmaDPtDY_ModY090_Pt->SetPoint(j,Pt,DirectPsi2S*BR_Psi2SToJPsi*BR_JPsiToMuMu/DY);
-    
-    ChiC0_grDSigmaDPtDY_ModY090_Pt->SetPoint(j,Pt,DirectChiC0*BR_ChiC0ToJPsi*BR_JPsiToMuMu/DY);
-    ChiC1_grDSigmaDPtDY_ModY090_Pt->SetPoint(j,Pt,DirectChiC1*BR_ChiC1ToJPsi*BR_JPsiToMuMu/DY);
-    ChiC2_grDSigmaDPtDY_ModY090_Pt->SetPoint(j,Pt,DirectChiC2*BR_ChiC2ToJPsi*BR_JPsiToMuMu/DY);
-  }
+    RatioJPsi_grDSigmaDPtDY_ModY075_Pt->SetPoint(j,Pt,RatioJPsi);
+  
 
-  TLegend *lgd_DSigmaDPtDY_ModY090_Pt = new TLegend(0.40,0.60,0.90,0.92);
-  lgd_DSigmaDPtDY_ModY090_Pt->SetBorderSize(0);
-  lgd_DSigmaDPtDY_ModY090_Pt->SetFillStyle(0);
-  lgd_DSigmaDPtDY_ModY090_Pt->SetFillColor(0);
-  lgd_DSigmaDPtDY_ModY090_Pt->SetTextSize(0.03);
+    cout<<Pt<<"   "<<(TotalPsi2S)<<"   "<<(TotalJPsi)<<endl;
+}
+
+  TLegend *lgd_DSigmaDPtDY_ModY075_Pt = new TLegend(0.24,0.79,0.87,0.91);
+  lgd_DSigmaDPtDY_ModY075_Pt->SetBorderSize(0);
+  lgd_DSigmaDPtDY_ModY075_Pt->SetFillStyle(0);
+  lgd_DSigmaDPtDY_ModY075_Pt->SetFillColor(0);
+  lgd_DSigmaDPtDY_ModY075_Pt->SetTextSize(0.03);
   
   new TCanvas; 
   gPad->SetTicks();
-  gPad->SetLogy(1);
+  //gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
-  Draw_CMS_D2NDPtDy_PromptJPsi_Y0009_Pt(lgd_DSigmaDPtDY_ModY090_Pt);
-
-  lgd_DSigmaDPtDY_ModY090_Pt->AddEntry(TotalJPsi_grDSigmaDPtDY_ModY090_Pt,"NRQCD, Prompt J/#psi","L");
-  lgd_DSigmaDPtDY_ModY090_Pt->AddEntry(JPsi_grDSigmaDPtDY_ModY090_Pt,"NRQCD, Direct J/#psi","L");
-  lgd_DSigmaDPtDY_ModY090_Pt->AddEntry(Psi2S_grDSigmaDPtDY_ModY090_Pt,"NRQCD, J/#psi from #psi(2S)","L");
-  lgd_DSigmaDPtDY_ModY090_Pt->AddEntry(ChiC0_grDSigmaDPtDY_ModY090_Pt,"NRQCD, J/#psi from #chi_{c0}","L");
-  lgd_DSigmaDPtDY_ModY090_Pt->AddEntry(ChiC1_grDSigmaDPtDY_ModY090_Pt,"NRQCD, J/#psi from #chi_{c1}","L");
-  lgd_DSigmaDPtDY_ModY090_Pt->AddEntry(ChiC2_grDSigmaDPtDY_ModY090_Pt,"NRQCD, J/#psi from #chi_{c2}","L");
-
-
-  TotalJPsi_grDSigmaDPtDY_ModY090_Pt->GetYaxis()->SetTitleOffset(1.6);
-   
-  TotalJPsi_grDSigmaDPtDY_ModY090_Pt->Draw("Csame");
-  JPsi_grDSigmaDPtDY_ModY090_Pt->Draw("Csame");
-  Psi2S_grDSigmaDPtDY_ModY090_Pt->Draw("Csame");
   
-  ChiC0_grDSigmaDPtDY_ModY090_Pt->Draw("Csame");
-  ChiC1_grDSigmaDPtDY_ModY090_Pt->Draw("Csame");
-  ChiC2_grDSigmaDPtDY_ModY090_Pt->Draw("Csame");
-  lgd_DSigmaDPtDY_ModY090_Pt->Draw("same");
-  gPad->SaveAs("Fig1a_JPsi_CMS_Y090_S7TeV.pdf");
+  Draw_CMS_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt(lgd_DSigmaDPtDY_ModY075_Pt);
+
+  lgd_DSigmaDPtDY_ModY075_Pt->AddEntry(RatioJPsi_grDSigmaDPtDY_ModY075_Pt,"NRQCD, Prompt #psi(2S)/ Prompt J/#psi","L");
+  
+
+
+  RatioJPsi_grDSigmaDPtDY_ModY075_Pt->GetYaxis()->SetTitleOffset(1.6);
+   
+  RatioJPsi_grDSigmaDPtDY_ModY075_Pt->Draw("Csame");
+  lgd_DSigmaDPtDY_ModY075_Pt->Draw("same");
+  gPad->SaveAs("Fig3_RatioJPsi_CMS_Y0012_S7TeV.pdf");
 
 
 
@@ -248,14 +244,16 @@ void Draw_CMS_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt(TLegend *lgd)
   Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->SetMarkerColor(kBlack+0);
   Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->SetMarkerSize(1.6);
   Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->GetYaxis()->SetTitleOffset(1.6);
-  Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->GetYaxis()->SetRangeUser(0.000001,15.0);
+  Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->GetYaxis()->SetRangeUser(0.01,15.0);
   
   TAxis *Xaxis1 = Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->GetXaxis();
   Xaxis1->SetLimits(0.0,100.0);
    
 
   Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->GetXaxis()->SetTitle("p_{T}[GeV/c]");
-  Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
+  //Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
+
+  Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->GetYaxis()->SetTitle("[B #sigma(#psi(2S))]/[B #sigma(J/#psi)][%]");
   
   Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt->Draw("AP");
 
@@ -278,10 +276,10 @@ void Draw_CMS_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt(TLegend *lgd)
   tb->SetTextAlign(12);
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
-  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
-  tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
+  //tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  //tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
  
-  lgd->AddEntry(Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt,"CMS prompt J/#psi", "P");
+  lgd->AddEntry(Grf_Ratio_PromptPsi2S_PromptJPsi_Y0012_Pt,"CMS Prompt #psi(2S)/ Prompt J/#psi", "P");
   
   
   

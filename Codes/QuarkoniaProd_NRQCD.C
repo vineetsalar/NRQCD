@@ -72,12 +72,12 @@ Double_t XXk[NNXXk]={0.0};
 Double_t WWk[NNXXk]={0.0};
 
 
-
+/*
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
-const Double_t mC = 1.4;
+const Double_t mC = 1.6;
 //const Double_t mJPsi = 3.096916;
-const Double_t mJPsi = 2.8;
+const Double_t mJPsi = 3.2;
 
 //const Double_t OO_QQbar_3S1_1_JPsi=1.2;   //GeV^3
 const Double_t NC = 3.0;        
@@ -90,37 +90,42 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC*mC; //GeV^5
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
+*/
 
 
-/*
 //Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =2;
-const Double_t mC = 1.4;
+
+const Double_t mC = 1.6;
+const Double_t mJPsi = 3.2;
+
 //const Double_t mJPsi = 3.686109;
-const Double_t mJPsi = 2.8;
+
+//const Double_t mC = 1.6;
+//const Double_t mJPsi = 3.2;
 
 //const Double_t OO_QQbar_3S1_1_JPsi=0.76; //GeV^3 
 const Double_t NC = 3.0;        
 
 const Double_t R02 = 2.0*pi*0.76/(3.0*NC);  //GeV^3 
-
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
+
 const Double_t OO_QQbar_1S0_8_JPsi=0.0080;   //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0033;  //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC*mC; //GeV^5 
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
-*/
+
 
 
 
 /*
 // Chic0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 3;
-const Double_t mC = 1.4;
+const Double_t mC = 1.6;
 //const Double_t mJPsi = 3.41475;
-const Double_t mJPsi = 2.8;
+const Double_t mJPsi = 3.2;
 
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
@@ -138,9 +143,9 @@ const Double_t OO_QQbar_3S1_8_Chic=0.00187;  //GeV^3
 /*
 // Chic1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 4;
-const Double_t mC = 1.4;
+const Double_t mC = 1.6;
 //const Double_t mJPsi = 3.51066;
-const Double_t mJPsi = 2.8;
+const Double_t mJPsi = 3.2;
 
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
@@ -157,9 +162,9 @@ const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3
 /*
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
-const Double_t mC = 1.4;
+const Double_t mC = 1.6;
 //const Double_t mJPsi = 3.55620;
-const Double_t mJPsi = 2.8;
+const Double_t mJPsi = 3.2;
 
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
@@ -379,6 +384,10 @@ Double_t Sum_qg_DSigmaDt_Chi(Double_t Xa, Double_t Pt, Double_t Y);
 
 
 //========= Data Functions ============================//
+void Draw_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd);
+void Draw_CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt(TLegend *lgd);
+
+
 void Draw_CMS_D2NDPtDy_PromptJPsi_Y0009_Pt(TLegend *lgd);
 void Draw_CMS_D2NDPtDy_PromptJPsi_Y0912_Pt(TLegend *lgd);
 void Draw_CMS_DSigmaDPt_Upsilon1S_Y12_Pt(TLegend *lgd);
@@ -453,9 +462,9 @@ void QuarkoniaProd_NRQCD()
   //================ Out Root File ===================//
   TFile *OutFile;
 
-  //if(QQbarVar ==1){OutFile = new TFile("JPsiCrossSection.root","Recreate");}
+  //if(QQbarVar ==1){OutFile = new TFile("Test_JPsiCrossSection.root","Recreate");}
   
-  if(QQbarVar ==1){OutFile = new TFile("Test_JPsiCrossSection.root","Recreate");}
+  if(QQbarVar ==1){OutFile = new TFile("JPsiCrossSection.root","Recreate");}
   if(QQbarVar ==2){OutFile = new TFile("Psi2SCrossSection.root","Recreate");}
   if(QQbarVar ==3){OutFile = new TFile("Chic0_1PCrossSection.root","Recreate");}
   if(QQbarVar ==4){OutFile = new TFile("Chic1_1PCrossSection.root","Recreate");}
@@ -669,6 +678,7 @@ void QuarkoniaProd_NRQCD()
   Double_t DSigmaDPtDY_Pt[1000]={0.0};
 
   
+  Double_t DSigmaDPtDY_ModY012_Pt[1000]={0.0};
   Double_t DSigmaDPtDY_ModY075_Pt[1000]={0.0};
   Double_t DSigmaDPtDY_ModY090_Pt[1000]={0.0};
   Double_t DSigmaDPtDY_ModY075To24_Pt[1000]={0.0};
@@ -684,27 +694,22 @@ void QuarkoniaProd_NRQCD()
   Double_t DSigmaDt_qg_Pt[1000]={0.0};
 
  
-
- 
+  
+  //Experimental
   Double_t Pt = 0.0;
-  
   Double_t PtMin = 5.0;
-  Double_t PtMax = 75.0;
-  Double_t PtStep = 0.5;
+  Double_t PtMax = 100.0;
+  Double_t PtStep = 1.0;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
-
-  cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
-  
-
-
-  FillPtRapHist(5.0, 75.0, -5.0, 5.0);
+  //cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
+  //FillPtRapHist(5.0, 75.0, -5.0, 5.0);
   
 
 
 
   Double_t Psi2MuMu = 0.0;
   if(QQbarVar  ==1){Psi2MuMu = 0.0593;}
-  if(QQbarVar  ==2){Psi2MuMu = 0.0079;}
+  if(QQbarVar  ==2){Psi2MuMu = 0.0078;}
   if(QQbarVar  ==3){Psi2MuMu = 0.0079;}
   if(QQbarVar  ==4){Psi2MuMu = 0.0079;}
   if(QQbarVar  ==5){Psi2MuMu = 0.0079;}
@@ -716,7 +721,7 @@ void QuarkoniaProd_NRQCD()
 
   Double_t RapInt = 0;
   
-  NNPt=2;
+  //NNPt=2;
 
   for(Int_t i =0;i<NNPt;i++)
     {
@@ -726,18 +731,18 @@ void QuarkoniaProd_NRQCD()
 
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	Double_t YMin = -1.2; Double_t YMax = 1.2; 
+
+	Double_t YMin = -2.4; Double_t YMax = 2.4; 
 	Double_t DeltaY = (YMax - YMin);
-	
-	DSigmaDPtDY_Pt[i] = Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax);
+
+	DSigmaDPtDY_Pt[i] = (Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax))/DeltaY;
       	
 	DSigmaDPtDY_ModY075_Pt[i]=DSigmaDPt_Gauss(Pt, -1.2, 1.2);
-	DSigmaDPtDY_ModY090_Pt[i]=DSigmaDPt_Gauss(Pt, -1.6, -1.2) + DSigmaDPt_Gauss(Pt, 1.2, 1.6);
-	DSigmaDPtDY_ModY075To24_Pt[i]=DSigmaDPt_Gauss(Pt, -2.4, -1.6) + DSigmaDPt_Gauss(Pt, 1.6, 2.4);
-	 
-	DSigmaDPtDY_ModY090To24_Pt[i]=DSigmaDPt_Gauss(Pt, -2.4, -0.90) + DSigmaDPt_Gauss(Pt, 0.90, 2.4);
-	DSigmaDPtDY_Y2To45_Pt[i]=DSigmaDPt_Gauss(Pt, 2.0, 4.5);
-	DSigmaDPtDY_Y25To40_Pt[i]=DSigmaDPt_Gauss(Pt, 2.5, 4.0);
+	//DSigmaDPtDY_ModY090_Pt[i]=DSigmaDPt_Gauss(Pt, -1.6, -1.2) + DSigmaDPt_Gauss(Pt, 1.2, 1.6);
+	//DSigmaDPtDY_ModY075To24_Pt[i]=DSigmaDPt_Gauss(Pt, -2.4, -1.6) + DSigmaDPt_Gauss(Pt, 1.6, 2.4);
+	//DSigmaDPtDY_ModY090To24_Pt[i]=DSigmaDPt_Gauss(Pt, -2.4, -0.90) + DSigmaDPt_Gauss(Pt, 0.90, 2.4);
+	//DSigmaDPtDY_Y2To45_Pt[i]=DSigmaDPt_Gauss(Pt, 2.0, 4.5);
+	//DSigmaDPtDY_Y25To40_Pt[i]=DSigmaDPt_Gauss(Pt, 2.5, 4.0);
 	
 	RapInt = RapInt + DSigmaDPtDY_Pt[i];
       
@@ -768,8 +773,8 @@ void QuarkoniaProd_NRQCD()
 
       cout<<APt[i]<<"         "<<DSigmaDt_GG_Pt[i]<<"    "<<DSigmaDt_qq_Pt[i]<<"    "<<DSigmaDt_qg_Pt[i]<<"    "<<DSigmaDPtDY_Pt[i]<<endl;
      
-      cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY075_Pt[i]<<"  "<<DSigmaDPtDY_ModY090_Pt[i]<<"  "<<DSigmaDPtDY_ModY075To24_Pt[i]<<endl;
-      cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY090To24_Pt[i]<<"  "<<DSigmaDPtDY_Y2To45_Pt[i]<<"  "<<DSigmaDPtDY_Y25To40_Pt[i]<<endl;
+      //cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY075_Pt[i]<<"  "<<DSigmaDPtDY_ModY090_Pt[i]<<"  "<<DSigmaDPtDY_ModY075To24_Pt[i]<<endl;
+      //cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY090To24_Pt[i]<<"  "<<DSigmaDPtDY_Y2To45_Pt[i]<<"  "<<DSigmaDPtDY_Y25To40_Pt[i]<<endl;
 
     }
   
@@ -862,14 +867,17 @@ void QuarkoniaProd_NRQCD()
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
-  
+
+
   if(QQbarVar ==1 || QQbarVar == 3 || QQbarVar ==4 || QQbarVar ==5 ){
-    Draw_CMS_D2NDPtDy_PromptJPsi_Y0009_Pt(lgd_DSigmaDPtDY_Pt);
+    Draw_CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt(lgd_DSigmaDPtDY_Pt);
+    //Draw_CMS_D2NDPtDy_PromptJPsi_Y0009_Pt(lgd_DSigmaDPtDY_Pt);
     lgd_DSigmaDPtDY_Pt->AddEntry(grDSigmaDPtDY_Pt,"NRQCD, prompt J/#psi","L");
   }
 
   if(QQbarVar ==2){
-    Draw_CMS_D2NDPtDy_PromptPsi2S_Y0012_Pt(lgd_DSigmaDPtDY_Pt);
+    Draw_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt(lgd_DSigmaDPtDY_Pt);
+    //Draw_CMS_D2NDPtDy_PromptPsi2S_Y0012_Pt(lgd_DSigmaDPtDY_Pt);
     lgd_DSigmaDPtDY_Pt->AddEntry(grDSigmaDPtDY_Pt,"NRQCD, prompt #psi(2S)","L");
   }
 
@@ -1045,7 +1053,7 @@ if(QQbarVar ==8){
 
   cout<<" Rap: "<<"     "<<" DSigmaDY_Rap "<<endl;
   Double_t PtInt =0.0;
-
+  NNRap=1;
   for(Int_t i =0;i<NNRap;i++)
     {
       
@@ -2969,6 +2977,130 @@ Double_t GetAlphaS(Double_t Q)
 //=============================================================================================//
 
 
+void Draw_CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt(TLegend *lgd)
+{
+  
+  const int NN = 31;
+
+  Double_t p8319_d1x1y1_xval[NN] = {10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 
+    19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 
+    29.5, 30.9, 32.9, 35.0, 37.0, 39.8, 43.8, 47.9, 54.2, 66.0, 
+    82.9, 104.1};
+  
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+					 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+					 0.5, 0.8999999999999986, 0.8999999999999986, 1.0, 1.0, 1.7999999999999972, 1.7999999999999972, 
+					 1.8999999999999986, 4.200000000000003, 6.0, 7.900000000000006, 9.099999999999994};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+					0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+					0.5, 1.1000000000000014, 1.1000000000000014, 1.0, 1.0, 2.200000000000003, 2.200000000000003, 
+					2.1000000000000014, 5.799999999999997, 9.0, 12.099999999999994, 15.900000000000006};
+  Double_t p8319_d1x1y1_yval[NN] = {1010.0, 609.0, 382.0, 247.0, 165.0, 114.0, 78.4, 56.6, 41.3, 
+				    30.5, 23.0, 17.6, 13.5, 10.5, 8.35, 6.75, 5.35, 4.31, 3.57, 
+				    2.86, 2.21, 1.55, 1.11, 0.822, 0.533, 0.302, 0.186, 0.0875, 0.0278, 
+				    0.00797, 0.00196};
+
+  Double_t p8319_d1x1y1_yerrminus[NN] = {83.06172403700756, 38.142674316308764, 20.962204655045234, 12.820285332238125, 8.348539033866944, 5.632643784227794, 
+					 3.8344751922525195, 2.7562730271146947, 2.003614982974524, 1.4864753613834305, 1.1239555151339398, 0.8612573424941004, 
+					 0.6607900120310536, 0.5179313564556601, 0.4131646645104104, 0.33393107073167055, 0.26628526057594704, 0.21565678751200948, 
+					 0.1795763347437518, 0.1456978036896919, 0.11152506444741468, 0.0792367339054305, 0.05773603727309314, 0.05766064515768099, 
+					 0.03728996647893371, 0.021372678821336366, 0.013454887587787569, 0.009870830765442188, 0.003266365717429694, 
+					 0.0010090956347145695, 3.093777787753995E-4 };
+  Double_t p8319_d1x1y1_yerrplus[NN] = {83.06172403700756, 38.142674316308764, 20.962204655045234, 12.820285332238125, 8.348539033866944, 5.632643784227794, 3.8344751922525195, 
+					2.7562730271146947, 2.003614982974524, 1.4864753613834305, 1.1239555151339398, 0.8612573424941004, 0.6607900120310536, 0.5179313564556601, 
+					0.4131646645104104, 0.33393107073167055, 0.26628526057594704, 0.21565678751200948, 0.1795763347437518,0.1456978036896919, 0.11152506444741468, 
+					0.0792367339054305, 0.05773603727309314, 0.05766064515768099, 0.03728996647893371, 0.021372678821336366, 0.013454887587787569, 0.009870830765442188, 
+					0.003266365717429694, 0.0010090956347145695, 3.093777787753995E-4};
+  Double_t p8319_d1x1y1_ystatminus[NN] = {1.4, 0.902, 0.618, 0.454, 0.348, 0.274, 0.22, 0.179, 0.147, 
+					  0.125, 0.106, 0.0911, 0.0788, 0.0683, 0.0602, 0.0536, 0.0472, 0.0422, 0.0379, 
+					  0.0338, 0.0208, 0.0173, 0.0146, 0.0125, 0.00704, 0.00533, 0.00424, 0.00187, 8.99E-4, 
+					  4.32E-4, 2.09E-4 };
+  Double_t p8319_d1x1y1_ystatplus[NN] = {1.4, 0.902, 0.618, 0.454, 0.348, 0.274, 0.22, 0.179, 0.147, 
+					 0.125, 0.106, 0.0911, 0.0788, 0.0683, 0.0602, 0.0536, 0.0472, 0.0422, 0.0379, 
+					 0.0338, 0.0208, 0.0173, 0.0146, 0.0125, 0.00704, 0.00533, 0.00424, 0.00187, 8.99E-4, 
+					 4.32E-4, 2.09E-4};
+  Double_t pbTonb =1.0/1000.0;
+
+
+  for(int j=0;j<NN;j++){
+    p8319_d1x1y1_yval[j] = p8319_d1x1y1_yval[j]*pbTonb;
+    p8319_d1x1y1_yerrminus[j]= p8319_d1x1y1_yerrminus[j]*pbTonb;
+    p8319_d1x1y1_yerrplus[j]=p8319_d1x1y1_yerrplus[j]*pbTonb;
+    p8319_d1x1y1_ystatminus[j]= p8319_d1x1y1_ystatminus[j]*pbTonb;
+    p8319_d1x1y1_ystatplus[j]=p8319_d1x1y1_ystatplus[j]*pbTonb;
+  }
+
+
+
+
+
+
+  TGraphAsymmErrors *Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+										  p8319_d1x1y1_xerrplus, p8319_d1x1y1_yerrminus, p8319_d1x1y1_yerrplus);
+  Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->SetMarkerStyle(20);
+  Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->SetMarkerColor(kBlack+0);
+  Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->SetMarkerSize(1.6);
+  Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->GetYaxis()->SetRangeUser(0.000001,10000.0);
+  
+  TAxis *Xaxis1 = Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+   
+
+  Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->GetXaxis()->SetTitle("p_{T}[GeV/c]");
+  Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
+  
+  Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt->Draw("AP");
+
+  
+  TBox *SystErr[NN];
+ 
+  for(int j=0;j<NN;j++){
+    SystErr[j] = new TBox(p8319_d1x1y1_xval[j]-0.5, p8319_d1x1y1_yval[j]-p8319_d1x1y1_ystatminus[j], p8319_d1x1y1_xval[j]+0.5, p8319_d1x1y1_yval[j]+p8319_d1x1y1_ystatplus[j]);
+  }
+  for(int j=0;j<NN;j++){
+    SystErr[j]->SetFillStyle(9001);
+    SystErr[j]->SetLineColor(kBlack);
+    SystErr[j]->Draw("same"); 
+  }
+  
+
+
+  TLatex *tb= new TLatex;
+  tb->SetNDC(); 
+  tb->SetTextAlign(12);
+  tb->SetTextColor(1);
+  tb->SetTextSize(0.040);
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
+ 
+  lgd->AddEntry(Grf_CMS_D2NDPtDy_PromptJPsi_Y0012_Pt,"CMS prompt J/#psi", "P");
+  
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void Draw_CMS_D2NDPtDy_PromptJPsi_Y0009_Pt(TLegend *lgd)
 {
   
@@ -3415,3 +3547,98 @@ void Draw_CMS_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
   
   
 }
+
+
+
+
+
+void Draw_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
+{
+  //
+  const int NN = 19;
+
+  Double_t p8319_d1x1y1_xval[NN] = {10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 
+    19.5, 21.1, 23.6, 26.1, 28.7, 32.2, 37.2, 45.5, 62.4, 84.1};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+					 0.5, 1.1000000000000014, 1.1000000000000014, 1.1000000000000014, 1.1999999999999993, 2.200000000000003, 
+					 2.200000000000003, 5.5, 7.399999999999999, 9.099999999999994};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+					0.5, 1.3999999999999986, 1.3999999999999986, 1.3999999999999986, 1.3000000000000007, 2.799999999999997, 2.799999999999997, 
+					9.5, 12.600000000000001, 15.900000000000006};
+  
+  
+  Double_t p8319_d1x1y1_yval[NN] = {38.0, 24.1, 15.4, 10.2, 7.15, 4.79, 3.48, 2.52, 1.87, 
+    1.34, 0.857, 0.461, 0.269, 0.165, 0.0842, 0.0347, 0.0102, 0.00235, 5.62E-4};
+  Double_t p8319_d1x1y1_yerrminus[NN] = {2.994346673316234, 1.4998589933723767, 0.872326773634743, 0.5494606446325342, 0.38020278799609036, 0.26125627265196905, 
+					 0.18547174987043175, 0.13869340287122528, 0.1012699856818396, 0.07589519088848778, 0.049967989753441154, 
+					 0.027793704323101662, 0.018381689258607326, 0.011822664674260198, 0.006161671851048221, 0.0034377709347773594, 
+					 0.0010926362615253074, 4.183390490977384E-4, 1.5471069775552045E-4};
+  Double_t p8319_d1x1y1_yerrplus[NN] = {2.994346673316234, 1.4998589933723767, 0.872326773634743, 0.5494606446325342, 0.38020278799609036, 0.26125627265196905, 
+					0.18547174987043175, 0.13869340287122528, 0.1012699856818396, 0.07589519088848778, 0.049967989753441154, 0.027793704323101662, 
+					0.018381689258607326, 0.011822664674260198, 0.006161671851048221, 0.0034377709347773594, 0.0010926362615253074, 4.183390490977384E-4, 
+					1.5471069775552045E-4};
+
+  Double_t p8319_d1x1y1_ystatminus[NN] = {0.296, 0.194, 0.137, 0.101, 0.0796, 0.0622, 0.0511, 0.0419, 0.0352, 
+					  0.0294, 0.0144, 0.0102, 0.00772, 0.00607, 0.00299, 0.002, 6.66E-4, 2.99E-4, 1.37E-4};
+  Double_t p8319_d1x1y1_ystatplus[NN] = { 0.296, 0.194, 0.137, 0.101, 0.0796, 0.0622, 0.0511, 0.0419, 0.0352, 
+					  0.0294, 0.0144, 0.0102, 0.00772, 0.00607, 0.00299, 0.002, 6.66E-4, 2.99E-4, 1.37E-4};
+
+  Double_t pbTonb =1.0/1000.0;
+
+
+for(int j=0;j<NN;j++){
+    p8319_d1x1y1_yval[j] = p8319_d1x1y1_yval[j]*pbTonb;
+    p8319_d1x1y1_yerrminus[j]= p8319_d1x1y1_yerrminus[j]*pbTonb;
+    p8319_d1x1y1_yerrplus[j]=p8319_d1x1y1_yerrplus[j]*pbTonb;
+    p8319_d1x1y1_ystatminus[j]= p8319_d1x1y1_ystatminus[j]*pbTonb;
+    p8319_d1x1y1_ystatplus[j]=p8319_d1x1y1_ystatplus[j]*pbTonb;
+  }
+
+
+
+  TGraphAsymmErrors *Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+										  p8319_d1x1y1_xerrplus, p8319_d1x1y1_yerrminus, p8319_d1x1y1_yerrplus);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerStyle(21);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerColor(kBlue+0);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerSize(1.6);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetRangeUser(0.00000001,10000.0);
+  
+  TAxis *Xaxis1 = Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,100.0);
+   
+
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetXaxis()->SetTitle("p_{T}[GeV/c]");
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
+  
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->Draw("AzP");
+
+  
+  TBox *SystErr[NN];
+ 
+  for(int j=0;j<NN;j++){
+    SystErr[j] = new TBox(p8319_d1x1y1_xval[j]-0.5, p8319_d1x1y1_yval[j]-p8319_d1x1y1_ystatminus[j], p8319_d1x1y1_xval[j]+0.5, p8319_d1x1y1_yval[j]+p8319_d1x1y1_ystatplus[j]);
+  }
+  for(int j=0;j<NN;j++){
+    SystErr[j]->SetFillStyle(9001);
+    SystErr[j]->SetLineColor(kBlack);
+    SystErr[j]->Draw("same"); 
+  }
+  
+
+
+  TLatex *tb= new TLatex;
+  tb->SetNDC(); 
+  tb->SetTextAlign(12);
+  tb->SetTextColor(1);
+  tb->SetTextSize(0.040);
+  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
+ 
+  lgd->AddEntry(Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt,"CMS prompt #psi(2S)", "P");
+  
+  
+  
+}
+
+
