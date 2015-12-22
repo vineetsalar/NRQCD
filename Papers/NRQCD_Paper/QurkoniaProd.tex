@@ -11,7 +11,7 @@
 \usepackage{epsfig}
 \usepackage{hyperref}
 \usepackage{ulem}
-
+\usepackage{appendix}
 \begin{document}
 
 \newcommand{\Jpsi}{J/\psi}
@@ -116,60 +116,102 @@ suppression
 In this section we describe the production of quarkonia at high transverse
 momenta in p$+$p collisions. The factorization formalism of the NRQCD  provides a theoretical 
 framework for studying the heavy quarkonium production and decay. 
-According to the NRQCD factorization  formalism, the cross-section for direct production of a resonance $H$ in a collision of 
-particle $A$ and $B$ can be expressed as 
+Under NRQCD the cross-section for direct production of a resonance $H$ in a collision of particle $A$ and $B$ can 
+be expressed in factorized form 
 \begin{equation}
-  d\sigma_{A+B\rightarrow H+X} = \sum_{a,b,n}\int dx_a dx_b  G_{a/A}(x_a,\,\mu^{2}_{F}) 
-  G_{b/B}(x_b,\,\mu^{2}_{F})\times d\sigma(a+b\rightarrow Q\bar Q(n) +X)<\mathcal{O}^H(n)>
+  \begin{split}
+    E\frac{d^{3}\sigma^{ab\rightarrow cd}}{d^{3}p}(^{(2S+1)}L_{J}) = &\sum_{a,b}\int \int dx_a\,dx_b 
+    G_{a/A}(x_a,\mu_{F}^{2}) G_{b/B}(x_b,\mu_{F}^{2})\frac{\hat s}{\pi}\frac{d\sigma}{d\hat t}\\
+    &(ab\rightarrow^{(2S+1)}L_{J}c) \otimes \delta(\hat s + \hat t + \hat u -M^{2}) 
+\end{split}
+\label{eqn:cross}
 \end{equation}
-where, $G_{a/A}(G_{b/B})$ is the parton distribution function (PDF) of the incoming parton $a(b)$ in the incident hadron $A(B)$, which depends on 
-the momentum fraction $x_a(x_b)$ and the factorization scale $\mu_F$ as well as on the renormalization scale $\mu_R$. However, 
-as we have chosen $\mu_F$ = $\mu_R$, in our case PDFs are function of $x$ and $\mu_F$ only. The tranverse mass of the 
-resonance $H$ is $m_T = \sqrt{p_T^2 + m_H^2}$, where $m_H\sim2m_Q$ is the mass of resonance $H$. The short distance 
-contribution $d\sigma(a+b\rightarrow Q\bar Q(n) +X)$ can be calculated within the framework of perturbative QCD (pQCD). 
-On the other hand, $<\mathcal{O}^H(n)>$ (the state $n=^{2S+1}L^{[i]}_J$) are nonperturbative LDMEs and can be estimated on the basis of 
-the comparison with experimental measurements. 
+where, $G_{a/A}(G_{b/B})$ is the parton distribution function (PDF) of the incoming parton $a(b)$ in the 
+incident hadron $A(B)$, which depends on the momentum fraction $x_a(x_b)$ and the factorization 
+scale $\mu_F$ as well as on the renormalization scale $\mu_R$. However, 
+as we have chosen $\mu_F$ = $\mu_R$, in our case PDFs are function of $x$ and $\mu_F$ only. 
+The short distance contribution $d\sigma/d\hat t$ can be calculated within the framework of perturbative 
+QCD (pQCD). $(ab\rightarrow^{(2S+1)}L_{J}c)$ are the nonperturbative LDMEs and can be estimated by comparison 
+with experimental measurements. 
 
+Using the invariant relation 
+\begin{equation}
+    E\frac{d^{3}\sigma}{d^{3}p} = \frac{d^{2}\sigma}{2\pi p_{T} dp_{T}dy} 
+\end{equation}
+the cross section shown in eq.~\ref{eqn:cross} can be written in the 
+terms of resonance transeverse momentum and rapidity 
+\begin{equation}
+  \begin{split}
+    \frac{d^{2}\sigma^{ab\rightarrow cd}}{dp_{T}dy}(^{(2S+1)}L_{J}) = &\sum_{a,b}\int \int dx_a\,dx_b 
+    G_{a/A}(x_a,\mu_{F}^{2}) G_{b/B}(x_b,\mu_{F}^{2}) \times 2{\hat s} p_{T} \frac{d\sigma}{d\hat t}\\
+    &(ab\rightarrow^{(2S+1)}L_{J}c) \otimes \delta(\hat s + \hat t + \hat u -M^{2}) 
+\end{split}
+\end{equation}
+At this stage, the integration upon $x_b$ can be performed using the properties delta function. 
+To solve the integration we have to express the ${\hat s}$, ${\hat t}$, and ${\hat u}$
+in terms of $x_a$, $x_b$, resonance transeverse momentum $p_{T}$ and rapidity $y$. 
 The dominant processes in evaluating the differential 
 yields of heavy mesons as a function of $p_T$ are the $2\rightarrow 2$
 processes of the kind $g+q\rightarrow H+q$, $q+\bar{q}\rightarrow H+g$ and
 $g+g\rightarrow H+g$, where $H$ refers to the heavy meson. We label the process
 generically as $a+b\rightarrow c+d$, where $a$ and $b$ are light incident
-partons, $c$ refers to $H$ and $d$ is a light final-state parton. The differential cross-section 
-for the short distance contribution i.e. the heavy quark pair production 
-from the reaction of the type $a\,+\,b\,\rightarrow\,c\,+\,d$ can be written as~\cite{Owens:1986mp}
-
+partons, $c$ refers to $H$ and $d$ is a light final-state parton. 
+For these kind processes following are the relations between ${\hat s}$, ${\hat t}$, ${\hat u}$ and meson variables  
 \begin{equation}
-  \frac{{d\sigma}^{ab\rightarrow cd}}{dp_T\,dy} = \int dx_a\, G_{a/A}(x_a,\,\mu^{2}_{F})\, G_{b/B}(x_b,\,\mu^{2}_{F})\times 
-  2p_T \frac{x_a\,x_b}{x_a-\frac{m_T}{\sqrt{s}}e^y}\frac{d\sigma}{d\hat t}(ab\rightarrow cd),
+\begin{split}
+\cs = \,&x_{a}\,x_{b}\,s \\
+\ct = \,&M^{2} - x_{a}\,\sqrt{s}\,m_{T}\,e^{-y}\\
+\cu = \,&M^{2} - x_{b}\,\sqrt{s}\,m_{T}\,e^{y}\\
+ \end{split}  
 \end{equation}
-
-where, $\sqrt{s}$ being the total energy in the centre-of-mass and $y$ is the rapidity of 
-the $Q\bar Q$ pair. In our numerical computation, we use CTEQ6M~\cite{Lai:2010vv} for the parton 
-distribution functions. The invariant differential cross-section is given by
-\begin{equation}
-\frac{d\sigma}{d\hat t} = \frac{|\mathcal{M}|^2}{16\pi{\hat s}^2},
-\end{equation}
-where $\hat s$ and $\hat t$ are the parton level Mandelstam variables. $\mathcal{M}$ is the 
-feynman amplitude for the process. Energy momentum conservation fixes value of the momentum 
-fraction $x_b$ as,
+Writing down $ \hat s + \hat t + \hat u -M^{2} $ and solving for $x_{b}$ we obtain
 \begin{equation}
 x_b = \frac{1}{\sqrt{s}}\frac{x_a\,\sqrt{s}\,m_T\,e^{-y}-m^2_H}{x_a\,\sqrt{s}-m_T\,e^y}.
 \end{equation}
 
-The minimum value of $x_a$ is 
+The double differential cross-section upon $p_{T}$ and y takes the following form
+%\begin{equation}
+%  d\sigma_{A+B\rightarrow H+X} = \sum_{a,b,n}\int dx_a dx_b  G_{a/A}(x_a,\,\mu^{2}_{F}) 
+%  G_{b/B}(x_b,\,\mu^{2}_{F})\times d\sigma(a+b\rightarrow Q\bar Q(n) +X)<\mathcal{O}^H(n)>
+%\end{equation}
+%where, $G_{a/A}(G_{b/B})$ is the parton distribution function (PDF) of the incoming parton $a(b)$ in the incident hadron $A(B)$, which depends on 
+%the momentum fraction $x_a(x_b)$ and the factorization scale $\mu_F$ as well as on the renormalization scale $\mu_R$. However, 
+%as we have chosen $\mu_F$ = $\mu_R$, in our case PDFs are function of $x$ and $\mu_F$ only. The tranverse mass of the 
+%resonance $H$ is $m_T = \sqrt{p_T^2 + m_H^2}$, where $m_H\sim2m_Q$ is the mass of resonance $H$. The short distance 
+%contribution $d\sigma(a+b\rightarrow Q\bar Q(n) +X)$ can be calculated within the framework of perturbative QCD (pQCD). 
+%On the other hand, $<\mathcal{O}^H(n)>$ (the state $n=^{2S+1}L^{[i]}_J$) are nonperturbative LDMEs and can be estimated on the basis of 
+%the comparison with experimental measurements. 
+%The dominant processes in evaluating the differential 
+%yields of heavy mesons as a function of $p_T$ are the $2\rightarrow 2$
+%processes of the kind $g+q\rightarrow H+q$, $q+\bar{q}\rightarrow H+g$ and
+%$g+g\rightarrow H+g$, where $H$ refers to the heavy meson. We label the process
+%generically as $a+b\rightarrow c+d$, where $a$ and $b$ are light incident
+%partons, $c$ refers to $H$ and $d$ is a light final-state parton. The differential cross-section 
+%for the short distance contribution i.e. the heavy quark pair production 
+%from the reaction of the type $a\,+\,b\,\rightarrow\,c\,+\,d$ can be written as~\cite{Owens:1986mp}
+\begin{equation}
+  \frac{{d^{2}\sigma}^{ab\rightarrow cd}}{dp_T\,dy} = \int_{x_{a}^{min}}^{1} dx_a\, G_{a/A}(x_a,\,\mu^{2}_{F})\, G_{b/B}(x_b,\,\mu^{2}_{F})\times 
+  2p_T \frac{x_a\,x_b}{x_a-\frac{m_T}{\sqrt{s}}e^y}\frac{d\sigma}{d\hat t}(ab\rightarrow cd),
+\end{equation}
+
+where, $\sqrt{s}$ being the total energy in the centre-of-mass and $y$ is the rapidity of 
+the $Q\bar Q$ pair. The minimum value of $x_a$ is 
 \begin{equation}
 x_{a\rm min} = \frac{1}{\sqrt{s}}\frac{\sqrt{s}\,m_T\,e^{y}-m^2_H}{\sqrt{s}-m_T\,e^{-y}}.
 \end{equation}
+The invariant differential cross-section is given by
+\begin{equation}
+\frac{d\sigma}{d\hat t} = \frac{|\mathcal{M}|^2}{16\pi{\hat s}^2},
+\end{equation}
+where $\hat s$ and $\hat t$ are the parton level Mandelstam variables. $|\mathcal{M}|^2$ is the 
+feynman squared amplitude, averaged on the initial spin and color degrees of freedom and summed over the
+final ones. In our numerical computation, we use CTEQ6M~\cite{Lai:2010vv} for the parton distribution functions. 
 
-\begin{figure}
-\includegraphics[width=0.49\textwidth]{Fig1b_JPsi_ATLAS_Y075_S7TeV.pdf}
-\includegraphics[width=0.49\textwidth]{Fig1a_JPsi_CMS_Y090_S7TeV.pdf}
-\caption{(Color online) Differential production cross-section of $J/\psi$ as a function of $p_{T}$ compared 
-  with the ATLAS~\cite{Aad:2011sp} and CMS~\cite{Chatrchyan:2011kc} data.}
-\label{fig:TauVsTemp}
-\end{figure}
-
+%feynman amplitude for the process. Energy momentum conservation fixes value of the momentum 
+%fraction $x_b$ as,
+%\begin{equation}
+%x_b = \frac{1}{\sqrt{s}}\frac{x_a\,\sqrt{s}\,m_T\,e^{-y}-m^2_H}{x_a\,\sqrt{s}-m_T\,e^y}.
+%\end{equation}
 
 The LDMEs are predicted to scale with a definite power of the relative velocity $v$ of the heavy constituents inside $Q\bar Q$ bound states. 
 In the limit $v<<1$, the production of quarkonium is based on the $^3S_1^{[1]}$ and $^3P_J^{[1]}$ ($J$ = 0,1,2) CS states 
@@ -517,9 +559,56 @@ For a more sophisticated fitting of the color-octet matrix elements including
 NLO effects, see~\cite{Butenschoen:2010rq, Butenschoen:Long,
 Butenschoen:polarised}.
 
-\subsection{Short distance pQCD cross sections for quarkonia production}
-\label{section:pqcd}
 
+
+\begin{figure}
+\includegraphics[width=0.49\textwidth]{Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf}
+\includegraphics[width=0.49\textwidth]{Fig1b_Psi2S_CMS_Y012_S7TeV.pdf}
+\caption{(Color online) Differential production cross-section of $J/\psi$ and $\psi$(2S) as a function of $p_{T}$ compared 
+  with the CMS~\cite{Chatrchyan:2011kc,Khachatryan:2015rra} data.}
+\label{Fig:SigmaPsi}
+\end{figure}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Result and Discussion}
+Figure~\ref{Fig:SigmaPsi} (a) shows the differential production cross-section of 
+prompt J/$\psi$ as a function of transeverse momentum ($p_{T}$) compared with the 
+CMS measurements~\cite{Khachatryan:2015rra}. We have calculated differential production cross-sections 
+for all the relevant resonances. These cross sections are then appropriately scaled with proper branching 
+fractions and total cross section for prompt J/$\psi$ is calculated and shown in Fig.~\ref{Fig:SigmaPsi} (a). 
+The $\psi$(2S) has largest contribution at high $p_{T}$ while at low $p_{T}$ contribution 
+from  $\chi_{c1}$ and $\chi_{c2}$ exceed the $\psi$(2S) contribution. After adding all the contributions, the $p_T$ 
+dependence of prompt J/$\psi$ differential production cross-section are described reasonably well by 
+our calculations. The $\psi(2S)$ has no significant feed-down contributions from higher mass states. We call this 
+direct contribution as "prompt $\psi$(2S)" to be consistent with the J/$\psi$ calculations. 
+Figure~\ref{Fig:SigmaPsi}(b) shows the differential production cross-section of prompt $\psi$(2S) as a function 
+of $p_{T}$ compared with the CMS measurements~\cite{Khachatryan:2015rra}. Here also our calculations qualitatively
+reproduced the mesaured cross section.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}
+We have calculated the differential production cross-section of prompt J/$\psi$ and prompt $\psi$(2S)
+as a function of transverse momentum. For the J/$\psi$ meson all the relevent contributions 
+from higher mass states are estimated. The $\psi$(2S) meson does not have significant contributions
+from higher mass states. The calculations for  prompt J/$\psi$ and prompt $\psi$(2S) are compared with
+the measured data at LHC. A fairly good agreement between measured data and calculations is observed
+in low $p_{T}$ range. The reevaluation of LDME is in progress using latest data from LHC to achieve good
+description of data in the whole $p_{T}$ range. 
+
+
+
+
+\newpage
+\appendix
+
+%\begin{appendices}
+
+
+\section{Short distance pQCD cross sections for quarkonia production}
+\label{section:pqcd}
 Here we list the lowest order QCD cross sections for the resonance production used 
 in our calculations. We write the formulas in terms of the invariants $\cs$,$\ct$,$\cu$.
 where $\cs^2 + \ct^2 + \cu^2 = M^2$ and $M$ is the mass of the resonance considered.
@@ -545,6 +634,7 @@ use these corss sections in our calculations.
 To order $\alpha_{s}^{3}$, on the other hand, one has typically
 two-by-two scattering processes. The relevant cross
 sections are given below:
+
 \subsubsection{Color Singlet PQCD cross sections}
 \begin{itemize}
 \item g q $\rightarrow {\rm ^{(2S+1)}L_{J}}$ q or (q$\rightarrow \bar{\rm q})$
@@ -750,20 +840,14 @@ elements.
 \end{itemize}
 
 
-%\footnote{This is a footnote} 
-%The $gg \to \QQbaroctettripP\ g$ squared amplitudes are expressed in terms of the variables $\shat$ and $\zhat \equiv \sqrt{\that\uhat}$.}
 
-%\section{Summary}
- 
- 
+%\section{Acknowledgement}
+%  The authors thank their CMS colleagues for the fruitful discussions, 
+%help and comments. Many of these results were presented at WHEPP and we acknowledge discussions 
+%with the participants of the meeting, in particular with D. Das, S. Datta, R. Gavai, S. Gupta
+%and R. Sharma. The work of RV was performed under the auspices of the US Department of Energy, 
+%Lawrence Livermore National Laboratory, Contract DE-AC52-07NA27344.
 
-
- \section{Acknowledgement}
-  The authors thank their CMS colleagues for the fruitful discussions, 
-help and comments. Many of these results were presented at WHEPP and we acknowledge discussions 
-with the participants of the meeting, in particular with D. Das, S. Datta, R. Gavai, S. Gupta
-and R. Sharma. The work of RV was performed under the auspices of the US Department of Energy, 
-Lawrence Livermore National Laboratory, Contract DE-AC52-07NA27344.
 
 
 \noindent
@@ -804,13 +888,14 @@ Lawrence Livermore National Laboratory, Contract DE-AC52-07NA27344.
   Phys.\ Lett.\ B {\bf 571}, 36 (2003).
  % [nucl-th/0303036].
 
-%\cite{Owens:1986mp}
-\bibitem{Owens:1986mp} 
-  J.~F.~Owens,
-  ``Large Momentum Transfer Production of Direct Photons, Jets, and Particles,''
-  Rev.\ Mod.\ Phys.\  {\bf 59}, 465 (1987).
-  %%CITATION = RMPHA,59,465;%%
-  %531 citations counted in INSPIRE as of 16 Jun 2015
+
+%%\cite{Owens:1986mp}
+%\bibitem{Owens:1986mp} 
+%  J.~F.~Owens,
+%  ``Large Momentum Transfer Production of Direct Photons, Jets, and Particles,''
+%  Rev.\ Mod.\ Phys.\  {\bf 59}, 465 (1987).
+%  %%CITATION = RMPHA,59,465;%%
+%  %531 citations counted in INSPIRE as of 16 Jun 2015
 
 %\cite{Lai:2010vv}
 \bibitem{Lai:2010vv} 
@@ -823,12 +908,12 @@ Lawrence Livermore National Laboratory, Contract DE-AC52-07NA27344.
 
 %%% Figure ref 
 %\cite{Aad:2011sp}
-\bibitem{Aad:2011sp} 
-  G.~Aad {\it et al.} [ATLAS Collaboration],
-  ``Measurement of the differential cross-sections of inclusive, prompt and non-prompt $J/\psi$ production in proton-proton 
-  collisions at $\sqrt{s}=7$ TeV,'', 
-  Nucl.\ Phys.\ B {\bf 850}, 387 (2011),  
-  [arXiv:1104.3038 [hep-ex]].
+%\bibitem{Aad:2011sp} 
+%  G.~Aad {\it et al.} [ATLAS Collaboration],
+%  ``Measurement of the differential cross-sections of inclusive, prompt and non-prompt $J/\psi$ production in proton-proton 
+%  collisions at $\sqrt{s}=7$ TeV,'', 
+%  Nucl.\ Phys.\ B {\bf 850}, 387 (2011),  
+%  [arXiv:1104.3038 [hep-ex]].
   
 
 
@@ -842,6 +927,11 @@ Lawrence Livermore National Laboratory, Contract DE-AC52-07NA27344.
   %104 citations counted in INSPIRE as of 21 août 2015
 
 
+\bibitem{Khachatryan:2015rra} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Measurement of J/$\psi$ and $\psi$(2S) Prompt Double-Differential Cross Sections in pp Collisions at $\sqrt{s}$=7  TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, no. 19, 191802 (2015),
+  [arXiv:1502.04155 [hep-ex]].
 
 
 
