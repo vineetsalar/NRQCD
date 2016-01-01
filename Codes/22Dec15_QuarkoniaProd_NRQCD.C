@@ -50,6 +50,7 @@
 
 # include "Math/GaussLegendreIntegrator.h"
 
+
 using namespace std;
 using namespace LHAPDF;
 
@@ -63,7 +64,6 @@ const Double_t RootS = 7000.0;
 const Int_t NNXXi = 150;
 Double_t XXi[NNXXi]={0.0};
 Double_t WWi[NNXXi]={0.0};
-
 
 
 const Int_t NNXXk = 16;
@@ -115,6 +115,7 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC*mC; //GeV^5
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
+
 
 
 
