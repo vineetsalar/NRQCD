@@ -307,14 +307,18 @@ Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax);
 
 ///================ Fitting =======================================//
-Double_t DSigmaDPt_Gauss_Fit(Double_t *x, Double_t *par);
-//Double_t DSigmaDPt_Gauss_Fit(Double_t Pt, Double_t YMin, Double_t YMax, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8);
-Double_t DSigmaDPt_Fit(Double_t Pt, Double_t YMin, Double_t YMax, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8);
-Double_t DSigmaDPtDy_Fit(Double_t Pt, Double_t Y, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8);
-Double_t DSigmaDt_IntX_Fit(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8);
-Double_t Sum_qq_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8);
-Double_t Sum_GG_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8);
-Double_t Sum_qg_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8);
+Double_t DSigmaDPt_Gauss_Fit(Double_t Pt, Double_t YMin, Double_t YMax, Int_t Par);
+Double_t DSigmaDPtDy_Fit(Double_t Pt, Double_t Y, Int_t Par);
+Double_t DSigmaDt_IntX_Fit(Double_t Pt, Double_t Y, Int_t Par, Int_t Parton1, Int_t Parton2);
+
+Double_t qcd_3S1_1_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
+Double_t qcd_1S0_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
+Double_t qcd_3S1_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
+Double_t qcd_3P0_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
+Double_t qcd_3P1_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
+Double_t qcd_3P2_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2);
+
+
 
 
 ///===============================================================//
@@ -674,7 +678,13 @@ void QuarkoniaProd_NRQCD()
 
 
   Double_t DSigmaDPtDY_Pt[1000]={0.0};
-  Double_t DSigmaDPtDY_Pt_Fit[1000]={0.0};
+
+  Double_t DSigmaDPtDY_Pt_3S1_1_Fit[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_1S0_8_Fit[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3S1_8_Fit[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P0_8_Fit[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P1_8_Fit[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P2_8_Fit[1000]={0.0};
   
   Double_t DSigmaDPtDY_ModY012_Pt[1000]={0.0};
   Double_t DSigmaDPtDY_ModY075_Pt[1000]={0.0};
@@ -719,9 +729,7 @@ void QuarkoniaProd_NRQCD()
 
   Double_t RapInt = 0;
   
-  NNPt=2;
-
-
+  //NNPt=2;
 
   for(Int_t i =0;i<NNPt;i++)
     {
@@ -737,7 +745,15 @@ void QuarkoniaProd_NRQCD()
 
 	DSigmaDPtDY_Pt[i] = (Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax))/DeltaY;
 	
-	//DSigmaDPtDY_Pt_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,OO_QQbar_3S1_1_JPsi,OO_QQbar_1S0_8_JPsi,OO_QQbar_3S1_8_JPsi,OO_QQbar_3P0_8_JPsi))/DeltaY;
+	DSigmaDPtDY_Pt_3S1_1_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;
+	DSigmaDPtDY_Pt_1S0_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
+	DSigmaDPtDY_Pt_3S1_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,3))/DeltaY;
+	
+	DSigmaDPtDY_Pt_3P0_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,4))/DeltaY;
+	DSigmaDPtDY_Pt_3P1_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,5))/DeltaY;
+	DSigmaDPtDY_Pt_3P2_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,6))/DeltaY;
+
+
 
 	DSigmaDPtDY_ModY075_Pt[i]=DSigmaDPt_Gauss(Pt, -1.2, 1.2);
 	//DSigmaDPtDY_ModY090_Pt[i]=DSigmaDPt_Gauss(Pt, -1.6, -1.2) + DSigmaDPt_Gauss(Pt, 1.2, 1.6);
@@ -778,7 +794,7 @@ void QuarkoniaProd_NRQCD()
       //cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY090To24_Pt[i]<<"  "<<DSigmaDPtDY_Y2To45_Pt[i]<<"  "<<DSigmaDPtDY_Y25To40_Pt[i]<<endl;
 
     
-      cout<<APt[i]<<"    "<<DSigmaDPtDY_Pt[i]<<"    "<<DSigmaDPtDY_Pt_Fit[i]<<endl;
+      cout<<APt[i]<<"    "<< DSigmaDPtDY_Pt_3S1_1_Fit[i]<<"    "<< DSigmaDPtDY_Pt_1S0_8_Fit[i] <<endl;
       
     }
   
@@ -867,13 +883,75 @@ void QuarkoniaProd_NRQCD()
   lgd_DSigmaDPtDY_Pt->SetTextSize(0.03);
 
   
-  TGraph *grDSigmaDPtDY_Pt_Fit = new TGraph(NNPt,APt,DSigmaDPtDY_Pt);
-  grDSigmaDPtDY_Pt_Fit->SetName("grDSigmaDPtDY_Pt");
-  grDSigmaDPtDY_Pt_Fit->SetTitle("grDSigmaDPtDY_Pt");
-  grDSigmaDPtDY_Pt_Fit->SetLineWidth(2);
-  grDSigmaDPtDY_Pt_Fit->SetLineColor(1);
-  grDSigmaDPtDY_Pt_Fit->GetXaxis()->SetTitle("p_{T}(GeV/c)");
-  grDSigmaDPtDY_Pt_Fit->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+  TLegend *lgd_DSigmaDPtDY_Pt_Fit = new TLegend(0.55,0.60,0.88,0.93);
+  lgd_DSigmaDPtDY_Pt_Fit->SetBorderSize(0);
+  lgd_DSigmaDPtDY_Pt_Fit->SetFillStyle(0);
+  lgd_DSigmaDPtDY_Pt_Fit->SetFillColor(0);
+  lgd_DSigmaDPtDY_Pt_Fit->SetTextSize(0.03);
+
+  TGraph *grDSigmaDPtDY_Pt_3S1_1_Fit = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3S1_1_Fit);
+  grDSigmaDPtDY_Pt_3S1_1_Fit->SetName("grDSigmaDPtDY_Pt_3S1_1_Fit");
+  grDSigmaDPtDY_Pt_3S1_1_Fit->SetTitle("grDSigmaDPtDY_Pt_3S1_1_Fit");
+  grDSigmaDPtDY_Pt_3S1_1_Fit->SetLineWidth(2);
+  grDSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  grDSigmaDPtDY_Pt_3S1_1_Fit->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Pt_3S1_1_Fit->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+
+  TGraph *grDSigmaDPtDY_Pt_1S0_8_Fit = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_1S0_8_Fit);
+  grDSigmaDPtDY_Pt_1S0_8_Fit->SetName("grDSigmaDPtDY_Pt_1S0_8_Fit");
+  grDSigmaDPtDY_Pt_1S0_8_Fit->SetTitle("grDSigmaDPtDY_Pt_1S0_8_Fit");
+  grDSigmaDPtDY_Pt_1S0_8_Fit->SetLineWidth(2);
+  grDSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(2);
+  grDSigmaDPtDY_Pt_1S0_8_Fit->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Pt_1S0_8_Fit->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+
+  TGraph *grDSigmaDPtDY_Pt_3S1_8_Fit = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3S1_8_Fit);
+  grDSigmaDPtDY_Pt_3S1_8_Fit->SetName("grDSigmaDPtDY_Pt_3S1_8_Fit");
+  grDSigmaDPtDY_Pt_3S1_8_Fit->SetTitle("grDSigmaDPtDY_Pt_3S1_8_Fit");
+  grDSigmaDPtDY_Pt_3S1_8_Fit->SetLineWidth(2);
+  grDSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(4);
+  grDSigmaDPtDY_Pt_3S1_8_Fit->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Pt_3S1_8_Fit->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+
+
+  TGraph *grDSigmaDPtDY_Pt_3P0_8_Fit = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P0_8_Fit);
+  grDSigmaDPtDY_Pt_3P0_8_Fit->SetName("grDSigmaDPtDY_Pt_3P0_8_Fit");
+  grDSigmaDPtDY_Pt_3P0_8_Fit->SetTitle("grDSigmaDPtDY_Pt_3P0_8_Fit");
+  grDSigmaDPtDY_Pt_3P0_8_Fit->SetLineWidth(2);
+  grDSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(6);
+  grDSigmaDPtDY_Pt_3P0_8_Fit->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Pt_3P0_8_Fit->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+
+  TGraph *grDSigmaDPtDY_Pt_3P1_8_Fit = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P1_8_Fit);
+  grDSigmaDPtDY_Pt_3P1_8_Fit->SetName("grDSigmaDPtDY_Pt_3P1_8_Fit");
+  grDSigmaDPtDY_Pt_3P1_8_Fit->SetTitle("grDSigmaDPtDY_Pt_3P1_8_Fit");
+  grDSigmaDPtDY_Pt_3P1_8_Fit->SetLineWidth(2);
+  grDSigmaDPtDY_Pt_3P1_8_Fit->SetLineColor(8);
+  grDSigmaDPtDY_Pt_3P1_8_Fit->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Pt_3P1_8_Fit->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+
+
+  TGraph *grDSigmaDPtDY_Pt_3P2_8_Fit = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P2_8_Fit);
+  grDSigmaDPtDY_Pt_3P2_8_Fit->SetName("grDSigmaDPtDY_Pt_3P2_8_Fit");
+  grDSigmaDPtDY_Pt_3P2_8_Fit->SetTitle("grDSigmaDPtDY_Pt_3P2_8_Fit");
+  grDSigmaDPtDY_Pt_3P2_8_Fit->SetLineWidth(2);
+  grDSigmaDPtDY_Pt_3P2_8_Fit->SetLineColor(8);
+  grDSigmaDPtDY_Pt_3P2_8_Fit->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grDSigmaDPtDY_Pt_3P2_8_Fit->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
+
+  lgd_DSigmaDPtDY_Pt_Fit->AddEntry(grDSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  lgd_DSigmaDPtDY_Pt_Fit->AddEntry(grDSigmaDPtDY_Pt_1S0_8_Fit,"^{1}S_{0}^{[8]}","L");
+  lgd_DSigmaDPtDY_Pt_Fit->AddEntry(grDSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  lgd_DSigmaDPtDY_Pt_Fit->AddEntry(grDSigmaDPtDY_Pt_3P0_8_Fit,"^{3}P_{0}^{[8]}","L");
+  lgd_DSigmaDPtDY_Pt_Fit->AddEntry(grDSigmaDPtDY_Pt_3P1_8_Fit,"^{3}P_{1}^{[8]}","L");
+  lgd_DSigmaDPtDY_Pt_Fit->AddEntry(grDSigmaDPtDY_Pt_3P2_8_Fit,"^{3}P_{2}^{[8]}","L");
+
 
 
   new TCanvas; 
@@ -910,7 +988,6 @@ if(QQbarVar ==8){
     lgd_DSigmaDPtDY_Pt->AddEntry(grDSigmaDPtDY_Pt,"NRQCD, #varUpsilon(3S)","L");
   }
 
-
   grDSigmaDPtDY_Pt->GetYaxis()->SetTitleOffset(1.6);
   grDSigmaDPtDY_Pt->Draw("Lsame");
   
@@ -925,33 +1002,30 @@ if(QQbarVar ==8){
   gPad->SetLeftMargin(0.18);
   grDSigmaDPtDY_Pt->GetYaxis()->SetTitleOffset(1.6);
   grDSigmaDPtDY_Pt->Draw("AP");
-  grDSigmaDPtDY_Pt_Fit->Draw("Lsame");
 
   cout<<" getting Data Graph : "<<endl;
   TGraphAsymmErrors *data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt=new TGraphAsymmErrors();
   data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt=Data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt();
 
-  TF1 *FitLDME_data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt = new TF1("FitLDME_data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt", DSigmaDPt_Gauss_Fit, 5, 100, 4);
-  FitLDME_data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt->SetLineColor(2);
-  FitLDME_data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt->SetParameters(OO_QQbar_3S1_1_JPsi,OO_QQbar_1S0_8_JPsi,OO_QQbar_3S1_8_JPsi,OO_QQbar_3P0_8_JPsi);
-
-  cout<<" Fitting : "<<endl;
-
-  data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt->Fit("FitLDME_data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt","","", 10, 20);
-
-
-
+  
   new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt->GetYaxis()->SetTitleOffset(1.6);
   data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt->Draw("AP");
-  FitLDME_data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt->Draw("same");
+  grDSigmaDPtDY_Pt_3S1_1_Fit->Draw("LSame");
+  grDSigmaDPtDY_Pt_1S0_8_Fit->Draw("LSame");
+  grDSigmaDPtDY_Pt_3S1_8_Fit->Draw("LSame");
+  grDSigmaDPtDY_Pt_3P0_8_Fit->Draw("LSame");
+  grDSigmaDPtDY_Pt_3P1_8_Fit->Draw("LSame");
+  grDSigmaDPtDY_Pt_3P2_8_Fit->Draw("LSame");
+  lgd_DSigmaDPtDY_Pt_Fit->Draw("Same");
 
-  //histMass->Fit("fitFunction","Q0","MER", 20, 120);
 
 
 
-  return;
-
-
+ 
   //====================================== DSigma/DPt.Dy graphs ================================//
 
   TLatex *tb= new TLatex;
@@ -1227,6 +1301,18 @@ if(QQbarVar ==8){
   grDSigmaDPtDY_Y2To45_Pt->Write();
   grDSigmaDPtDY_Y25To40_Pt->Write();
 
+  grDSigmaDPtDY_Pt_3S1_1_Fit->Write();
+  grDSigmaDPtDY_Pt_1S0_8_Fit->Write();
+  grDSigmaDPtDY_Pt_3S1_8_Fit->Write();
+  grDSigmaDPtDY_Pt_3P0_8_Fit->Write();
+  grDSigmaDPtDY_Pt_3P1_8_Fit->Write();
+  grDSigmaDPtDY_Pt_3P2_8_Fit->Write();
+
+
+
+
+
+
   OutFile->Close();
 
   return;
@@ -1311,119 +1397,8 @@ Double_t DSigmaDY(Double_t YY, Double_t PtMin, Double_t PtMax)
     return Val;
   }
 
-// 1263
-
-//Double_t DSigmaDPt_Gauss_Fit(Double_t *x, Double_t *par)
-//Double_t DSigmaDPt(Double_t Pt, Double_t YMin, Double_t YMax,Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-//Double_t DSigmaDPtDy_Fit(Double_t Pt, Double_t Y, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-//Double_t DSigmaDt_IntX_Fit(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-//Double_t Sum_qq_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-//Double_t Sum_GG_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-//Double_t Sum_qg_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
 
 
-
-
-//Double_t DSigmaDPt_Gauss_Fit(Double_t Pt, Double_t YMin, Double_t YMax, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-
-Double_t DSigmaDPt_Gauss_Fit(Double_t *x, Double_t *par)
-{
-  
-  cout<<" Entering Fit Function "<<endl;
-  Double_t Pt=x[0];
-
-  Double_t LDME_3S1_1=par[0];
-  Double_t LDME_1S0_8=par[1];
-  Double_t LDME_3S1_8=par[2];
-  Double_t LDME_3P0_8=par[3];
-
-  Double_t YMin=-1.2; 
-  Double_t YMax=1.2;
-  Double_t DeltaY=YMax-YMin;
-  Double_t Psi2SToMuMu=0.0078;
-
-  Double_t Const1 = 0.5*(YMax - YMin);
-  Double_t Const2 = 0.5*(YMax + YMin);
-  
-  Double_t Val =0.0;
-  Double_t Sum =0.0;
-  
-  for(int i=0;i<NNXXk ;i++)
-    {
-      Double_t YY = Const1*XXk[i] + Const2;
-      Sum = Sum + WWk[i]*DSigmaDPtDy_Fit(Pt,YY,LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);
-    }
-  
-  Val = (Const1*Sum*Psi2SToMuMu)/DeltaY;
-  cout<<Pt<<"   "<<par[0]<<"  "<<Val<<endl;
-
-  return Val;
-}
-
-
-
-
-
-Double_t DSigmaDPt_Fit(Double_t Pt, Double_t YMin, Double_t YMax, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-  {
-    Double_t YY =0.0;
-    Double_t YStep  = 0.1;
-    Int_t NN = int((YMax - YMin)/YStep);
-
-    Double_t Val =0.0;
-    Double_t Sum =0.0;
-
-    for(int i=0;i<NN;i++)
-      {
-	YY = YMin + i*YStep;
-	Sum = Sum + DSigmaDPtDy_Fit(Pt,YY,LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);
-      }
-    
-    Val = Sum*YStep;
-
-    return Val;
-  }
-
-
-
-Double_t DSigmaDPtDy_Fit(Double_t Pt, Double_t Y, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-{
-  
-  Double_t Value = 0.0;   
-  
-  Double_t Value_gq =0.0;
-  Double_t Value_gqbar =0.0;
-  Double_t Value_qq =0.0;
-  Double_t Value_gg =0.0;
-
-
-  if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar ==6 || QQbarVar ==7 || QQbarVar ==8 ){ 
-    
-    Value_gg = DSigmaDt_IntX_Fit(Pt, Y, 0, 0, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);
-        
-    Value_qq = DSigmaDt_IntX_Fit(Pt, Y,3,-3, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) + DSigmaDt_IntX_Fit(Pt, Y,2,-2, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) 
-      + DSigmaDt_IntX_Fit(Pt, Y,1,-1, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) + DSigmaDt_IntX_Fit(Pt, Y,-3,3, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) 
-      + DSigmaDt_IntX_Fit(Pt, Y,-2,2, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) + DSigmaDt_IntX_Fit(Pt, Y,-1,1, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);
-    
-    Value_gq = DSigmaDt_IntX_Fit(Pt, Y,3,0, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) + DSigmaDt_IntX_Fit(Pt, Y,2,0, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) 
-      + DSigmaDt_IntX_Fit(Pt, Y,1,0, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) + DSigmaDt_IntX_Fit(Pt, Y,0,3, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) 
-      + DSigmaDt_IntX_Fit(Pt, Y,0,2, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) +   DSigmaDt_IntX_Fit(Pt, Y,0,1, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);
-    
-    Value_gqbar = DSigmaDt_IntX_Fit(Pt, Y,-3,0, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) + DSigmaDt_IntX_Fit(Pt, Y,-2,0, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) 
-      + DSigmaDt_IntX_Fit(Pt, Y,-1,0, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) + DSigmaDt_IntX_Fit(Pt, Y,0,-3, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) 
-      + DSigmaDt_IntX_Fit(Pt, Y,0,-2, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8) +   DSigmaDt_IntX_Fit(Pt, Y,0,-1, LDME_3S1_1, LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);
-    
-  }
-  
-  
-  
-  Value =  Value_gq + Value_qq + Value_gg + Value_gqbar;
-
-  //  cout<< Value_gq <<"  "<< Value_qq <<"  "<< Value_gg <<"  "<< Value_gqbar<<endl;
-  return Value;
-
-
-}
 
 Double_t DSigmaDPt(Double_t Pt, Double_t YMin, Double_t YMax)
   {
@@ -1542,45 +1517,17 @@ Double_t DSigmaDt_IntX_Chi(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2
 
 
 
-Double_t DSigmaDt_IntX_Fit(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-{
+//Double_t DSigmaDt_qg_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
-  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
-  Double_t MuFSquare = Mt*Mt;
-  
-  
-  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
 
-  Double_t Val =0.0;
-  
-  if(XaMin <= 0.0 || XaMin >= 1.0 ){ XaMin =1.0;  Val = 0.0; return Val;} 
- 
-  Double_t XaMax = 1.0;
-    
-  Double_t Const = 0.5*(XaMax - XaMin);
-  Double_t Const2 = 0.5*(XaMax + XaMin);
 
-   
-  Double_t Sum =0.0; 
-  Double_t SumDSigmaDt = 0.0;
-  
-  for(Int_t i =0 ; i<NNXXi; i++)
-    {
-      Double_t YYa = Const*XXi[i] + Const2;
-      Double_t YYb = (YYa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(YYa*RootS - Mt*TMath::Exp(Y)));
-      Double_t Ga = quark_function(Parton1,YYa,MuFSquare);
-      Double_t Gb = quark_function(Parton2,YYb,MuFSquare);
-      
-      if(Parton1 ==0 && Parton2 ==0){SumDSigmaDt = Sum_GG_DSigmaDt_Fit(YYa,Pt,Y,LDME_3S1_1,LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);} 
-      
-      if( (Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){SumDSigmaDt = Sum_qg_DSigmaDt_Fit(YYa,Pt,Y,LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);} 
-      
-      if(Parton1 !=0 && Parton2 !=0){SumDSigmaDt = Sum_qq_DSigmaDt_Fit(YYa,Pt,Y,LDME_1S0_8,LDME_3S1_8,LDME_3P0_8);} 
-      Sum = Sum + WWi[i]*Ga*Gb*SumDSigmaDt;
-    }
-  Val = Const*Sum;
-  return Val;
-}
+
+
+
+
+
+
+
 
 
 Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
@@ -1622,6 +1569,236 @@ Double_t DSigmaDt_IntX(Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
   Val = Const*Sum;
   return Val;
 }
+
+
+//=========================================================================================================//
+//===================================== Summing Singlet and Octet contributions ==========================//
+//========================================================================================================//
+
+
+Double_t DSigmaDPt_Gauss_Fit(Double_t Pt, Double_t YMin, Double_t YMax, Int_t Par)
+{
+  
+  Double_t Const1 = 0.5*(YMax - YMin);
+  Double_t Const2 = 0.5*(YMax + YMin);
+  
+  Double_t Val =0.0;
+  Double_t Sum =0.0;
+  
+  for(int i=0;i<NNXXk ;i++)
+    {
+      Double_t YY = Const1*XXk[i] + Const2;
+      Sum = Sum + WWk[i]*DSigmaDPtDy_Fit(Pt,YY,Par);
+
+    }
+  
+  Val = Const1*Sum;
+  
+  return Val;
+}
+
+
+
+
+
+
+
+
+Double_t DSigmaDPtDy_Fit(Double_t Pt, Double_t Y, Int_t Par)
+{
+  
+  Double_t Value = 0.0;   
+  
+   
+  Double_t Value_gg =0.0;
+  Double_t Value_qqbar =0.0;
+  Double_t Value_gq =0.0;
+  Double_t Value_gqbar =0.0;
+
+
+  
+  if(Par ==1){Value_gg = DSigmaDt_IntX_Fit(Pt, Y, 1, 0,0); Value_qqbar =0.0;Value_gq =0.0;Value_gqbar =0.0;}
+  
+  if(Par ==2 || Par ==3 || Par ==4 || Par ==5 || Par ==6){
+    
+    Value_gg = DSigmaDt_IntX_Fit(Pt, Y, Par, 0,0);
+    
+    Value_qqbar = DSigmaDt_IntX_Fit(Pt, Y, Par, 3,-3) + DSigmaDt_IntX_Fit(Pt, Y, Par, 2,-2) + DSigmaDt_IntX_Fit(Pt, Y, Par, 1,-1) + 
+      DSigmaDt_IntX_Fit(Pt, Y, Par, -3,3) + DSigmaDt_IntX_Fit(Pt, Y, Par, -2,2) + DSigmaDt_IntX_Fit(Pt, Y, Par, -1,1); 
+
+    Value_gq = DSigmaDt_IntX_Fit(Pt, Y, Par, 3,0) + DSigmaDt_IntX_Fit(Pt, Y, Par, 2,0) + DSigmaDt_IntX_Fit(Pt, Y, Par, 1,0) + 
+      DSigmaDt_IntX_Fit(Pt, Y, Par, 0,3) + DSigmaDt_IntX_Fit(Pt, Y, Par, 0,2) + DSigmaDt_IntX_Fit(Pt, Y, Par, 0,1); 
+   
+    Value_gqbar = DSigmaDt_IntX_Fit(Pt, Y, Par, -3,0) + DSigmaDt_IntX_Fit(Pt, Y, Par, -2,0) + DSigmaDt_IntX_Fit(Pt, Y, Par, -1,0) + 
+      DSigmaDt_IntX_Fit(Pt, Y, Par, 0,-3) + DSigmaDt_IntX_Fit(Pt, Y, Par, 0,-2) + DSigmaDt_IntX_Fit(Pt, Y, Par, 0,-1); 
+     
+  }      
+        
+     
+  Value =  Value_gg + Value_qqbar + Value_gq + Value_gqbar;
+  //  cout<< Value_gq <<"  "<< Value_qq <<"  "<< Value_gg <<"  "<< Value_gqbar<<endl;
+  return Value;
+
+
+}
+
+
+
+
+Double_t DSigmaDt_IntX_Fit(Double_t Pt, Double_t Y, Int_t Par, Int_t Parton1, Int_t Parton2)
+{
+
+  Double_t Mt = TMath::Sqrt( Pt*Pt + mJPsi2);
+  Double_t MuFSquare = Mt*Mt;
+  
+  
+  Double_t XaMin =  (RootS*Mt*TMath::Exp(Y) - mJPsi2)/(RootS*(RootS - Mt*TMath::Exp(-Y))); 
+
+  Double_t Val =0.0;
+  
+  if(XaMin <= 0.0 || XaMin >= 1.0 ){ XaMin =1.0;  Val = 0.0; return Val;} 
+ 
+  Double_t XaMax = 1.0;
+    
+  Double_t Const = 0.5*(XaMax - XaMin);
+  Double_t Const2 = 0.5*(XaMax + XaMin);
+
+   
+  Double_t Sum =0.0; 
+  Double_t SumDSigmaDt = 0.0;
+  
+  for(Int_t i =0 ; i<NNXXi; i++)
+    {
+      Double_t YYa = Const*XXi[i] + Const2;
+      Double_t YYb = (YYa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(YYa*RootS - Mt*TMath::Exp(Y)));
+      
+      Double_t Ga = quark_function(Parton1,YYa,MuFSquare);
+      Double_t Gb = quark_function(Parton2,YYb,MuFSquare);
+      
+      if(Par==1){SumDSigmaDt = qcd_3S1_1_DSigmaDt(YYa,Pt,Y, Parton1, Parton2);} 
+      if(Par==2){SumDSigmaDt = qcd_1S0_8_DSigmaDt(YYa,Pt,Y, Parton1, Parton2);}      
+      if(Par==3){SumDSigmaDt = qcd_3S1_8_DSigmaDt(YYa,Pt,Y, Parton1, Parton2);}
+      if(Par==4){SumDSigmaDt = qcd_3P0_8_DSigmaDt(YYa,Pt,Y, Parton1, Parton2);}
+      if(Par==5){SumDSigmaDt = qcd_3P1_8_DSigmaDt(YYa,Pt,Y, Parton1, Parton2);}
+      if(Par==6){SumDSigmaDt = qcd_3P2_8_DSigmaDt(YYa,Pt,Y, Parton1, Parton2);}
+
+      Sum = Sum + WWi[i]*Ga*Gb*SumDSigmaDt;
+    }
+  Val = Const*Sum;
+  return Val;
+}
+
+
+
+
+Double_t qcd_3S1_1_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  Double_t Term =  0.0;
+
+  if(Parton1 ==0 && Parton2 ==0){ Term =  DSigmaDt_GG_QQbar_3S1_1(Xa, Pt, Y); }
+
+  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
+  Double_t Sum = 2.0*Pt*MtTerm*Term;
+  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
+  return Fac*Sum;
+}
+
+//Double_t DSigmaDt_qg_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y)
+//Double_t DSigmaDt_qq_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y)
+
+Double_t qcd_1S0_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  Double_t Term =  0.0;
+  
+  if(Parton1 ==0 && Parton2 ==0){ Term =  DSigmaDt_GG_QQbar_1S0_8(Xa, Pt, Y); }
+  if(Parton1 !=0 && Parton2 !=0){ Term =  DSigmaDt_qq_QQbar_1S0_8(Xa, Pt, Y); }
+  if((Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){ Term =  DSigmaDt_qg_QQbar_1S0_8(Xa, Pt, Y); }
+
+  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
+  Double_t Sum = 2.0*Pt*MtTerm*Term;
+  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
+  return Fac*Sum;
+}
+
+Double_t qcd_3S1_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  Double_t Term =  0.0;
+  
+  if(Parton1 ==0 && Parton2 ==0){ Term =  DSigmaDt_GG_QQbar_3S1_8(Xa, Pt, Y); }
+  if(Parton1 !=0 && Parton2 !=0){ Term =  DSigmaDt_qq_QQbar_3S1_8(Xa, Pt, Y); }
+  if((Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){ Term =  DSigmaDt_qg_QQbar_3S1_8(Xa, Pt, Y); }
+
+  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
+  Double_t Sum = 2.0*Pt*MtTerm*Term;
+  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
+  return Fac*Sum;
+}
+
+
+
+Double_t qcd_3P0_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  Double_t Term =  0.0;
+  
+  if(Parton1 ==0 && Parton2 ==0){ Term =  DSigmaDt_GG_QQbar_3P0_8(Xa, Pt, Y); }
+  if(Parton1 !=0 && Parton2 !=0){ Term =  DSigmaDt_qq_QQbar_3P0_8(Xa, Pt, Y); }
+  if((Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){Term =  DSigmaDt_qg_QQbar_3P0_8(Xa, Pt, Y); }
+
+  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
+  Double_t Sum = 2.0*Pt*MtTerm*Term;
+  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
+  return Fac*Sum;
+}
+
+Double_t qcd_3P1_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  Double_t Term =  0.0;
+  
+  if(Parton1 ==0 && Parton2 ==0){ Term =  DSigmaDt_GG_QQbar_3P1_8(Xa, Pt, Y); }
+  if(Parton1 !=0 && Parton2 !=0){ Term =  DSigmaDt_qq_QQbar_3P1_8(Xa, Pt, Y); }
+  if((Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){Term =  DSigmaDt_qg_QQbar_3P1_8(Xa, Pt, Y); }
+
+  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
+  Double_t Sum = 2.0*Pt*MtTerm*Term;
+  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
+  return Fac*Sum;
+}
+
+Double_t qcd_3P2_8_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y, Int_t Parton1, Int_t Parton2)
+{
+
+  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
+  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
+  Double_t Term =  0.0;
+  
+  if(Parton1 ==0 && Parton2 ==0){ Term =  DSigmaDt_GG_QQbar_3P2_8(Xa, Pt, Y); }
+  if(Parton1 !=0 && Parton2 !=0){ Term =  DSigmaDt_qq_QQbar_3P2_8(Xa, Pt, Y); }
+  if((Parton1 == 0 || Parton2 ==0) && (Parton1 != Parton2) ){Term =  DSigmaDt_qg_QQbar_3P2_8(Xa, Pt, Y); }
+
+  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
+  Double_t Sum = 2.0*Pt*MtTerm*Term;
+  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
+  return Fac*Sum;
+}
+
+
+
+
 
 
 
@@ -1667,37 +1844,7 @@ Double_t Sum_qg_DSigmaDt_Chi(Double_t Xa, Double_t Pt, Double_t Y)
 
 
 
-Double_t Sum_qg_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-{
 
-  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
-  
-  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-  //Double_t Term1 = DSigmaDt_qg_QQbar_3S1_1(Xa, Pt, Y)*OO_QQbar_3S1_1_JPsi;
-
-  Double_t Term2 = DSigmaDt_qg_QQbar_1S0_8(Xa, Pt, Y)*LDME_1S0_8;
-
-  Double_t Term3 = DSigmaDt_qg_QQbar_3S1_8(Xa, Pt, Y)*LDME_3S1_8;
-
-  //OK
-  Double_t Term4 = DSigmaDt_qg_QQbar_3P0_8(Xa, Pt, Y)*LDME_3P0_8;
-  
-  //OK
-  Double_t Term5 = DSigmaDt_qg_QQbar_3P1_8(Xa, Pt, Y)*3.0*LDME_3P0_8;
-
-  //(OK)
-  Double_t Term6 = DSigmaDt_qg_QQbar_3P2_8(Xa, Pt, Y)*5.0*LDME_3P0_8;
-  
-  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
-
-  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4+Term5 + Term6);
-
-  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
-   
-  return Fac*Sum;
-
-}
 
 
 Double_t Sum_qg_DSigmaDt(Double_t Xa, Double_t Pt, Double_t Y)
@@ -2028,42 +2175,6 @@ Double_t Sum_qq_DSigmaDt_Chi(Double_t Xa, Double_t Pt, Double_t Y)
   return Fac*Sum;
 
 }
-
-
-
-Double_t Sum_qq_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-{
-
-  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
-  
-  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-  //Double_t Term1 = DSigmaDt_GG_QQbar_3S1_1(Xa, Pt, Y)*OO_QQbar_3S1_1_JPsi;
-
-  Double_t Term2 = DSigmaDt_qq_QQbar_1S0_8(Xa, Pt, Y)*LDME_1S0_8;
-
-  Double_t Term3 = DSigmaDt_qq_QQbar_3S1_8(Xa, Pt, Y)*LDME_3S1_8;
-
-  //OK
-  Double_t Term4 = DSigmaDt_qq_QQbar_3P0_8(Xa, Pt, Y)*LDME_3P0_8;
-  
-  //OK
-  Double_t Term5 = DSigmaDt_qq_QQbar_3P1_8(Xa, Pt, Y)*3.0*LDME_3P0_8;
-
-  //OK
-  Double_t Term6 = DSigmaDt_qq_QQbar_3P2_8(Xa, Pt, Y)*5.0*LDME_3P0_8;
-
-  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
-
-  Double_t Sum = 2.0*Pt*MtTerm*(Term2+Term3+Term4 + Term5 + Term6);
-
-  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
-   
-  return Fac*Sum;
-
-}
-
-
 
 
 
@@ -2413,47 +2524,6 @@ Double_t Sum_GG_DSigmaDt_Chi(Double_t Xa, Double_t Pt, Double_t Y)
   return Fac*Sum;
 
 }
-
-
-
-Double_t Sum_GG_DSigmaDt_Fit(Double_t Xa, Double_t Pt, Double_t Y, Double_t LDME_3S1_1, Double_t LDME_1S0_8, Double_t LDME_3S1_8, Double_t LDME_3P0_8)
-{
-
-  Double_t Mt = TMath::Sqrt(mJPsi2 + Pt*Pt);
-  
-  Double_t Xb = (Xa*RootS*Mt*TMath::Exp(-Y)-mJPsi2)/(RootS*(Xa*RootS - Mt*TMath::Exp(Y))); 
-
-
-  Double_t Term1 = DSigmaDt_GG_QQbar_3S1_1(Xa, Pt, Y)*LDME_3S1_1;
-
-
-
-  Double_t Term2 = DSigmaDt_GG_QQbar_1S0_8(Xa, Pt, Y)*LDME_1S0_8;
-
-  Double_t Term3 = DSigmaDt_GG_QQbar_3S1_8(Xa, Pt, Y)*LDME_3S1_8;
-  
-  //OK
-  Double_t Term4 = DSigmaDt_GG_QQbar_3P0_8(Xa, Pt, Y)*LDME_3P0_8;
-  
-  //OK
-  Double_t Term5 = DSigmaDt_GG_QQbar_3P1_8(Xa, Pt, Y)*3.0*LDME_3P0_8;
-  
-  //OK
-  Double_t Term6 = DSigmaDt_GG_QQbar_3P2_8(Xa, Pt, Y)*5.0*LDME_3P0_8;
-  
-  Double_t MtTerm = Xa*Xb/(Xa - (Mt*TMath::Exp(Y)/RootS));
-
-  Double_t Sum = 2.0*Pt*MtTerm*(Term1+Term2+Term3+Term4+Term5+Term6);
- 
-  Double_t Fac = hbarc2*10000000.0; //GeV^{-3} to nb/GeV
-   
-
-  //cout<<Term1<<"   "<<Term2<<"  "<<Term3<<"  "<<Term4<<"  "<<Term5<<"  "<<Term6<<endl;
-
-  return Fac*Sum;
-
-}
-
 
 
 
