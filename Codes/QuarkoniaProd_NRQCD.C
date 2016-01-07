@@ -705,9 +705,9 @@ void QuarkoniaProd_NRQCD()
   
   //Experimental
   Double_t Pt = 0.0;
-  Double_t PtMin = 5.0;
+  Double_t PtMin = 2.0;
   Double_t PtMax = 100.0;
-  Double_t PtStep = 1.0;
+  Double_t PtStep = 0.5;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
   //cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   //FillPtRapHist(5.0, 75.0, -5.0, 5.0);
@@ -740,7 +740,7 @@ void QuarkoniaProd_NRQCD()
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
 
-	Double_t YMin = -2.4; Double_t YMax = 2.4; 
+	Double_t YMin = 2.0; Double_t YMax = 4.5; 
 	Double_t DeltaY = (YMax - YMin);
 
 	DSigmaDPtDY_Pt[i] = (Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax))/DeltaY;
@@ -941,7 +941,7 @@ void QuarkoniaProd_NRQCD()
   grDSigmaDPtDY_Pt_3P2_8_Fit->SetName("grDSigmaDPtDY_Pt_3P2_8_Fit");
   grDSigmaDPtDY_Pt_3P2_8_Fit->SetTitle("grDSigmaDPtDY_Pt_3P2_8_Fit");
   grDSigmaDPtDY_Pt_3P2_8_Fit->SetLineWidth(2);
-  grDSigmaDPtDY_Pt_3P2_8_Fit->SetLineColor(8);
+  grDSigmaDPtDY_Pt_3P2_8_Fit->SetLineColor(9);
   grDSigmaDPtDY_Pt_3P2_8_Fit->GetXaxis()->SetTitle("p_{T}(GeV/c)");
   grDSigmaDPtDY_Pt_3P2_8_Fit->GetYaxis()->SetTitle("d^{2}#sigma/dp_{T}dy(nb/GeV)");
 
