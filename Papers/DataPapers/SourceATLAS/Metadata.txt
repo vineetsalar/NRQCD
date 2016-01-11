@@ -1,0 +1,26 @@
+a:
+Title
+Measurement of the differential cross-sections of prompt and non-prompt production of $J/\psi$ and $\psi(2\mathrm{S})$ in $pp$ collisions at $\sqrt{s} = 7$ and $8$ TeV with the ATLAS detector
+
+Abstract
+The production rates of prompt and non-prompt $J/\psi$ and $\psi(2\mathrm{S})$ mesons are measured using 2.1 $fb^{-1}$ and 11.4 $fb^{-1}$ of data collected with the ATLAS experiment at the LHC, in proton-proton collisions at $\sqrt{s}=7$ and 8 TeV respectively. Production cross-sections for both prompt and non-prompt production sources, ratios of $\psi(2\mathrm{S})$ to $J/\psi$ production, and fractions of non-prompt to inclusive production for $J/\psi$ and $\psi(2\mathrm{S})$ are measured double-differentially as a function of meson $p_{T}$ and rapidity. These measurements are made in a restricted fiducial volume and also corrected for geometrical acceptance after which they are compared to a variety of theoretical predictions.
+
+
+
+b:
+EPJC Format:
+
+Title
+Measurement of the relative and absolute production cross-sections of prompt and non-prompt J/ψ and ψ(2S) production in pp collisions at s√=7 and 8 TeV
+
+Abstract
+The production rates of prompt and non-prompt J/ψ and ψ(2S) mesons are measured using 2.1 fb <sup> -1 </sup> and 11.4 fb <sup> -1 </sup> of data collected with the ATLAS experiment at the LHC, in proton-proton collisions at s√=7 and 8 TeV respectively. Production cross-sections for both prompt and non-prompt production sources, ratios of ψ(2S) to J/ψ production, and fractions of non-prompt to inclusive production for J/ψ and ψ(2S) are measured double-differentially as a function of meson p<sub>T</sub> and rapidity. These measurements are made in a restricted fiducial volume and also corrected for geometrical acceptance after which they are compared to a variety of theoretical predictions.
+
+
+c:
+Comments: 42 pages plus author list + cover pages (60 pages total), 13 figures, 3 tables, submitted to Eur. Phys. J. C., All figures including auxiliary figures are available at http://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/BPHY-2012-02/ 
+
+d:
+CERN-PH-EP-2015-292
+
+To be submitted to: Eur. Phys. J. C.

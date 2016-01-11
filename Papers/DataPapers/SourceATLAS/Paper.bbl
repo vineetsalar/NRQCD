@@ -1,0 +1,1792 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{FONLL_2001}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Cacciari}{C.}%
+     {Matteo}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Frixione}{F.}%
+     {Stefano}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Nason}{N.}%
+     {Paolo}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CMFSNP1}
+  \strng{fullhash}{CMFSNP1}
+  \verb{doi}
+  \verb 10.1088/1126-6708/2001/03/006
+  \endverb
+  \verb{eprint}
+  \verb hep-ph/0102134
+  \endverb
+  \field{pages}{006}
+  \field{title}{{The $p_{\rm T}$ spectrum in heavy-flavour photoproduction}}
+  \field{volume}{0103}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2001}
+\endentry
+
+\entry{Cacciari:2012ny}{article}{}
+  \true{moreauthor}
+  \name{author}{1}{}{%
+    {{}%
+     {Cacciari}{C.}%
+     {Matteo}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CM+1}
+  \strng{fullhash}{CM+1}
+  \verb{doi}
+  \verb 10.1007/JHEP10(2012)137
+  \endverb
+  \verb{eprint}
+  \verb 1205.6344
+  \endverb
+  \field{pages}{137}
+  \field{title}{{Theoretical predictions for charm and bottom production at the
+  LHC}}
+  \field{volume}{1210}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2012}
+\endentry
+
+\entry{CDFjpsianomaly1}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CDF Collaboration, F. Abe et al.}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C3}
+  \strng{fullhash}{C3}
+  \verb{doi}
+  \verb 10.1103/PhysRevLett.79.572
+  \endverb
+  \field{pages}{572\bibrangedash 577}
+  \field{title}{{$J/\psi$ and $\psi(2S)$ production in $p\bar{p}$ collisions at
+  $\sqrt{s} = 1.8$ TeV}}
+  \field{volume}{79}
+  \field{journaltitle}{Phys.\ Rev.\ Lett.}
+  \field{year}{1997}
+\endentry
+
+\entry{Abulencia:2007us}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CDF Collaboration, A Abulencia et al.}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C1}
+  \strng{fullhash}{C1}
+  \verb{doi}
+  \verb 10.1103/PhysRevLett.99.132001
+  \endverb
+  \verb{eprint}
+  \verb 0704.0638
+  \endverb
+  \field{pages}{132001}
+  \field{title}{{Polarization of $J/\psi$ and $\psi(2S)$ mesons produced in
+  $p\bar{p}$ collisions at $\sqrt{s}$ = 1.96~TeV}}
+  \field{volume}{99}
+  \field{journaltitle}{Phys.\ Rev.\ Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2007}
+\endentry
+
+\entry{Abelev:2014qha}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ALICE Collaboration, B. Abelev et al.}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A1}
+  \strng{fullhash}{A1}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-014-2974-4
+  \endverb
+  \verb{eprint}
+  \verb 1403.3648
+  \endverb
+  \field{pages}{2974}
+  \field{title}{{Measurement of quarkonium production at forward rapidity in
+  $pp$ collisions at $\sqrt{s} = 7$ TeV}}
+  \field{volume}{C74}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{nucl-ex}
+  \field{year}{2014}
+\endentry
+
+\entry{Chatrchyan:2011kc}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CMS Collaboration}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C4}
+  \strng{fullhash}{C4}
+  \verb{doi}
+  \verb 10.1007/JHEP02(2012)011
+  \endverb
+  \verb{eprint}
+  \verb 1111.1557
+  \endverb
+  \field{pages}{011}
+  \field{title}{{$J/\psi$ and $\psi(2S)$ production in $pp$ collisions at
+  $\sqrt{s}=7$ TeV}}
+  \field{volume}{1202}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{Chatrchyan:2013cla}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CMS Collaboration}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C4}
+  \strng{fullhash}{C4}
+  \verb{doi}
+  \verb 10.1016/j.physletb.2013.10.055
+  \endverb
+  \verb{eprint}
+  \verb 1307.6070
+  \endverb
+  \field{pages}{381\bibrangedash 402}
+  \field{title}{{Measurement of the prompt $J/\psi$ and $\psi$(2S)
+  polarizations in $pp$ collisions at $\sqrt{s}$ = 7 TeV}}
+  \field{volume}{B727}
+  \field{journaltitle}{Phys.\ Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2013}
+\endentry
+
+\entry{Aaij:2012ag}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-012-2100-4
+  \endverb
+  \verb{eprint}
+  \verb 1204.1258
+  \endverb
+  \field{pages}{2100}
+  \field{title}{{Measurement of $\psi(2S)$ meson production in $pp$ collisions
+  at $\sqrt{s}=7$~TeV}}
+  \field{volume}{C72}
+  \field{journaltitle}{Eur.\ Phys.\ J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{Aad:2014fpa}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1007/JHEP09(2014)079
+  \endverb
+  \verb{eprint}
+  \verb 1407.5532
+  \endverb
+  \field{pages}{79}
+  \field{title}{{Measurement of the production cross-section of $\psi(2S) \to
+  J/\psi ( \to \mu^{+} \mu^{-}) \pi^{+} \pi^{-}$ in pp collisions at $ \sqrt{s}
+  $ = 7 TeV at ATLAS}}
+  \field{volume}{1409}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2014}
+\endentry
+
+\entry{Aaij:2013jxj}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1088/0954-3899/40/4/045001
+  \endverb
+  \verb{eprint}
+  \verb 1301.7084
+  \endverb
+  \field{pages}{045001}
+  \field{title}{{Exclusive $J/\psi$ and $\psi$(2S) production in pp collisions
+  at $ \sqrt{s} = 7$ TeV}}
+  \field{volume}{G40}
+  \field{journaltitle}{J.Phys.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2013}
+\endentry
+
+\entry{Khachatryan:2015rra}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CMS Collaboration}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C4}
+  \strng{fullhash}{C4}
+  \verb{doi}
+  \verb 10.1103/PhysRevLett.114.191802
+  \endverb
+  \verb{eprint}
+  \verb 1502.04155
+  \endverb
+  \field{pages}{191802}
+  \field{title}{{Measurement of $J/\psi$ and $\psi(2S$) prompt
+  double-differential cross sections in pp collisions at $\sqrt(s)$ = 7 TeV}}
+  \field{volume}{114}
+  \field{journaltitle}{Phys. Rev. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2015}
+\endentry
+
+\entry{Aaij:2013yaa}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1007/JHEP06(2013)064
+  \endverb
+  \verb{eprint}
+  \verb 1304.6977
+  \endverb
+  \field{pages}{064}
+  \field{title}{{Production of $J/\psi$ and $\Upsilon$ mesons in $pp$
+  collisions at $\sqrt{s} = 8$ TeV}}
+  \field{volume}{1306}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2013}
+\endentry
+
+\entry{CDFjpsianomaly2}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CDF Collaboration, F. Abe et al.}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C3}
+  \strng{fullhash}{C3}
+  \verb{doi}
+  \verb 10.1103/PhysRevLett.79.578
+  \endverb
+  \field{pages}{578\bibrangedash 583}
+  \field{title}{{Production of $J/\psi$ mesons from $\chi_c$ meson decays in
+  $p\bar{p}$ collisions at $\sqrt{s} = 1.8$ TeV}}
+  \field{volume}{79}
+  \field{journaltitle}{Phys.\ Rev.\ Lett.}
+  \field{year}{1997}
+\endentry
+
+\entry{ATLAS:2014ala}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1007/JHEP07(2014)154
+  \endverb
+  \verb{eprint}
+  \verb 1404.7035
+  \endverb
+  \field{pages}{154}
+  \field{title}{{Measurement of $\chi_{c_1}$ and $\chi_{c_2}$ production with
+  $\sqrt{s}$ = 7 TeV $pp$ collisions at ATLAS}}
+  \field{volume}{1407}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2014}
+\endentry
+
+\entry{Chatrchyan:2012ub}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CMS Collaboration}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C4}
+  \strng{fullhash}{C4}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-012-2251-3
+  \endverb
+  \verb{eprint}
+  \verb 1210.0875
+  \endverb
+  \field{pages}{2251}
+  \field{title}{{Measurement of the relative prompt production rate of
+  $\chi_{c_2}$ and $\chi_{c_1}$ in $pp$ collisions at $\sqrt{s}=7$ TeV}}
+  \field{volume}{C72}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{Aaij:2013dja}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1007/JHEP10(2013)115
+  \endverb
+  \verb{eprint}
+  \verb 1307.4285
+  \endverb
+  \field{pages}{115}
+  \field{title}{{Measurement of the relative rate of prompt $\chi_{c0}$,
+  $\chi_{c1}$ and $\chi_{c2}$ production at $\sqrt{s}=7$ TeV}}
+  \field{volume}{1310}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2013}
+\endentry
+
+\entry{LHCb:2012ac}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1016/j.physletb.2012.06.077
+  \endverb
+  \verb{eprint}
+  \verb 1202.1080
+  \endverb
+  \field{pages}{215\bibrangedash 223}
+  \field{title}{{Measurement of the cross-section ratio
+  $\sigma(\chi_{c2})/\sigma(\chi_{c1})$ for prompt $\chi_c$ production at
+  $\sqrt{s}=7$ TeV}}
+  \field{volume}{B714}
+  \field{journaltitle}{Phys. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{Aad:2011sp}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1016/j.nuclphysb.2011.05.015
+  \endverb
+  \verb{eprint}
+  \verb 1104.3038
+  \endverb
+  \field{pages}{387\bibrangedash 444}
+  \field{title}{{Measurement of the differential cross-sections of inclusive,
+  prompt and non-prompt $J/\psi$ production in proton-proton collisions at
+  $\sqrt{s}=7$ TeV}}
+  \field{volume}{B850}
+  \field{journaltitle}{Nucl. Phys.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2011}
+\endentry
+
+\entry{Aaij:2011jh}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-011-1645-y
+  \endverb
+  \verb{eprint}
+  \verb 1103.0423
+  \endverb
+  \field{pages}{1645}
+  \field{title}{{Measurement of $J/\psi$ production in $pp$ collisions at
+  $\sqrt{s}=7~\rm{TeV}$}}
+  \field{volume}{C71}
+  \field{journaltitle}{Eur.\ Phys.\ J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2011}
+\endentry
+
+\entry{Abelev:2012gx}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ALICE Collaboration, B. Abelev et al.}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A1}
+  \strng{fullhash}{A1}
+  \verb{doi}
+  \verb 10.1007/JHEP11(2012)065
+  \endverb
+  \verb{eprint}
+  \verb 1205.5880
+  \endverb
+  \field{pages}{065}
+  \field{title}{{Measurement of prompt $J/\psi$ and beauty hadron production
+  cross sections at mid-rapidity in $pp$ collisions at $\sqrt{s} = 7$ TeV}}
+  \field{volume}{1211}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{CDFjpsianomaly3}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CDF Collaboration, D. Acosta et al.}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C2}
+  \strng{fullhash}{C2}
+  \verb{doi}
+  \verb 10.1103/PhysRevD.71.032001
+  \endverb
+  \verb{eprint}
+  \verb hep-ex/0412071
+  \endverb
+  \field{pages}{032001}
+  \field{title}{{Measurement of the $J/\psi$ meson and $b-$hadron production
+  cross sections in $p\bar{p}$ collisions at $\sqrt{s} = 1960$ GeV}}
+  \field{volume}{D71}
+  \field{journaltitle}{Phys.\ Rev.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2005}
+\endentry
+
+\entry{D0jpsi1}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{D0 Collaboration, S. Abachi et al.}}{D.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{D2}
+  \strng{fullhash}{D2}
+  \verb{doi}
+  \verb 10.1016/0370-2693(96)00067-6
+  \endverb
+  \field{pages}{239\bibrangedash 248}
+  \field{title}{{$J/\psi$ production in $p \bar{p}$ collisions at $\sqrt{s}$ =
+  1.8 TeV}}
+  \field{volume}{B370}
+  \field{journaltitle}{Phys.\ Lett.}
+  \field{year}{1996}
+\endentry
+
+\entry{D0jpsi2}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{D0 Collaboration, B. Abbott et al.}}{D.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{D1}
+  \strng{fullhash}{D1}
+  \verb{doi}
+  \verb 10.1103/PhysRevLett.82.35
+  \endverb
+  \verb{eprint}
+  \verb hep-ex/9807029
+  \endverb
+  \field{pages}{35\bibrangedash 40}
+  \field{title}{{Small angle $J/\psi$ production in $p\bar{p}$ collisions at
+  $\sqrt{s} = 1.8$ TeV}}
+  \field{volume}{82}
+  \field{journaltitle}{Phys.\ Rev.\ Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{1999}
+\endentry
+
+\entry{LHCb:2012af}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1016/j.physletb.2012.10.068
+  \endverb
+  \verb{eprint}
+  \verb 1204.1462
+  \endverb
+  \field{pages}{431\bibrangedash 440}
+  \field{title}{{Measurement of the ratio of prompt $\chi_{c}$ to $J/\psi$
+  production in $pp$ collisions at $\sqrt{s}=7$ TeV}}
+  \field{volume}{B718}
+  \field{journaltitle}{Phys. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{CSM1}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{Owens, J.F. and Reya, E. and Gl{\"{u}}ck, M.}}{O.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{O1}
+  \strng{fullhash}{O1}
+  \verb{doi}
+  \verb 10.1103/PhysRevD.18.1501
+  \endverb
+  \field{pages}{1501}
+  \field{title}{{Detailed quantum chromodynamic predictions for high-$p_{\rm
+  T}$ processes}}
+  \field{volume}{D18}
+  \field{journaltitle}{Phys.\ Rev.}
+  \field{year}{1978}
+\endentry
+
+\entry{CSM2}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Kartvelishvili}{K.}%
+     {V.G.}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Likhoded}{L.}%
+     {A.K.}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Slabospitsky}{S.}%
+     {S.R.}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KVLASS1}
+  \strng{fullhash}{KVLASS1}
+  \field{pages}{678}
+  \field{title}{{$D$ meson and $\psi$ meson production in hadronic
+  interactions}}
+  \field{volume}{28}
+  \field{journaltitle}{Sov. J. Nucl. Phys.}
+  \field{year}{1978}
+\endentry
+
+\entry{CSM3}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Barger}{B.}%
+     {Vernon~D.}{V.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Keung}{K.}%
+     {Wai-Yee}{W.-Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Phillips}{P.}%
+     {R.J.N.}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BVDKWYPR1}
+  \strng{fullhash}{BVDKWYPR1}
+  \verb{doi}
+  \verb 10.1016/0370-2693(80)90444-X
+  \endverb
+  \field{pages}{253}
+  \field{title}{{On \psi and $\Upsilon$ production via gluons}}
+  \field{volume}{B91}
+  \field{journaltitle}{Phys.\ Lett.}
+  \field{year}{1980}
+\endentry
+
+\entry{CSM4}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Chang}{C.}%
+     {Chao-Hsi}{C.-H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{CCH1}
+  \strng{fullhash}{CCH1}
+  \verb{doi}
+  \verb 10.1016/0550-3213(80)90175-3
+  \endverb
+  \field{pages}{425\bibrangedash 434}
+  \field{title}{{Hadronic production of $J/\psi$ associated with a gluon}}
+  \field{volume}{B172}
+  \field{journaltitle}{Nucl.\ Phys.}
+  \field{year}{1980}
+\endentry
+
+\entry{CSM5}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Berger}{B.}%
+     {Edmond~L.}{E.~L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Jones}{J.}%
+     {Daniel~L.}{D.~L.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BELJDL1}
+  \strng{fullhash}{BELJDL1}
+  \verb{doi}
+  \verb 10.1103/PhysRevD.23.1521
+  \endverb
+  \field{pages}{1521\bibrangedash 1530}
+  \field{title}{{Inelastic photoproduction of $J/\psi$ and $\Upsilon$ by
+  gluons}}
+  \field{volume}{D23}
+  \field{journaltitle}{Phys.\ Rev.}
+  \field{year}{1981}
+\endentry
+
+\entry{CSM7}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Baier}{B.}%
+     {R.}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ruckl}{R.}%
+     {R.}{R.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BRRR1}
+  \strng{fullhash}{BRRR1}
+  \verb{doi}
+  \verb 10.1007/BF01572254
+  \endverb
+  \field{pages}{251}
+  \field{title}{{Hadronic collisions: a quarkonium factory}}
+  \field{volume}{C19}
+  \field{journaltitle}{Z. Phys.}
+  \field{year}{1983}
+\endentry
+
+\entry{CEM1}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Fritzsch}{F.}%
+     {Harald}{H.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FH1}
+  \strng{fullhash}{FH1}
+  \verb{doi}
+  \verb 10.1016/0370-2693(77)90108-3
+  \endverb
+  \field{pages}{217}
+  \field{title}{{Producing Heavy Quark Flavors in Hadronic Collisions: a Test
+  of Quantum Chromodynamics}}
+  \field{volume}{B67}
+  \field{journaltitle}{{Phys.\ Lett.\ }}
+  \field{year}{1977}
+\endentry
+
+\entry{CEM2}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Halzen}{H.}%
+     {F.}{F.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HF1}
+  \strng{fullhash}{HF1}
+  \verb{doi}
+  \verb 10.1016/0370-2693(77)90144-7
+  \endverb
+  \field{pages}{105}
+  \field{title}{{CVC for Gluons and Hadroproduction of Quark Flavors}}
+  \field{volume}{B69}
+  \field{journaltitle}{{Phys.\ Lett.\ }}
+  \field{year}{1977}
+\endentry
+
+\entry{Lansberg:2008gk}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Lansberg}{L.}%
+     {J.P.}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LJ1}
+  \strng{fullhash}{LJ1}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-008-0826-9
+  \endverb
+  \verb{eprint}
+  \verb 0811.4005
+  \endverb
+  \field{pages}{693\bibrangedash 703}
+  \field{title}{{On the mechanisms of heavy-quarkonium hadroproduction}}
+  \field{volume}{C61}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2009}
+\endentry
+
+\entry{Aad2012dlq}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1103/PhysRevD.87.052004
+  \endverb
+  \verb{eprint}
+  \verb 1211.7255
+  \endverb
+  \field{pages}{052004}
+  \field{title}{{Measurement of $\Upsilon$ production in $7\,\mathrm{TeV}$ $pp$
+  collisions at ATLAS}}
+  \field{volume}{D 87}
+  \field{journaltitle}{Phys. Rev.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2013}
+\endentry
+
+\entry{Bodwin:1994jh}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Bodwin}{B.}%
+     {Geoffrey~T.}{G.~T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Braaten}{B.}%
+     {Eric}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lepage}{L.}%
+     {G.~Peter}{G.~P.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BGTBELGP1}
+  \strng{fullhash}{BGTBELGP1}
+  \verb{doi}
+  \verb 10.1103/PhysRevD.55.5853, 10.1103/PhysRevD.51.1125
+  \endverb
+  \verb{eprint}
+  \verb hep-ph/9407339
+  \endverb
+  \field{pages}{1125}
+  \field{title}{{Rigorous QCD analysis of inclusive annihilation and production
+  of heavy quarkonium}}
+  \field{volume}{D 51}
+  \field{journaltitle}{Phys. Rev.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{1995}
+\endentry
+
+\entry{CO_LDME1}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Butenschoen}{B.}%
+     {Mathias}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kniehl}{K.}%
+     {Bernd~A.}{B.~A.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BMKBA1}
+  \strng{fullhash}{BMKBA1}
+  \verb{doi}
+  \verb 10.1016/j.nuclphysbps.2012.03.016
+  \endverb
+  \verb{eprint}
+  \verb 1201.3862
+  \endverb
+  \field{pages}{151\bibrangedash 161}
+  \field{title}{{J/$\psi$ production in NRQCD: A global analysis of yield and
+  polarization}}
+  \field{volume}{222-224}
+  \field{journaltitle}{Nucl. Phys. Proc. Suppl.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2012}
+\endentry
+
+\entry{Gong:2012ug}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Gong}{G.}%
+     {Bin}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wan}{W.}%
+     {Lu-Ping}{L.-P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Jian-Xiong}{J.-X.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhang}{Z.}%
+     {Hong-Fei}{H.-F.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GB+1}
+  \strng{fullhash}{GBWLPWJXZHF1}
+  \verb{doi}
+  \verb 10.1103/PhysRevLett.110.042002
+  \endverb
+  \verb{eprint}
+  \verb 1205.6682
+  \endverb
+  \field{pages}{042002}
+  \field{title}{{Polarization for prompt $J/\psi$ and $\psi(2S)$ production at
+  the Tevatron and LHC}}
+  \field{volume}{110}
+  \field{journaltitle}{Phys. Rev. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2013}
+\endentry
+
+\entry{Faccioli:2014cqa}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Faccioli}{F.}%
+     {Pietro}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Knuenz}{K.}%
+     {Valentin}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lourenco}{L.}%
+     {Carlos}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Seixas}{S.}%
+     {Joao}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Woehri}{W.}%
+     {Hermine~K.}{H.~K.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FP+1}
+  \strng{fullhash}{FPKVLCSJWHK1}
+  \verb{doi}
+  \verb 10.1016/j.physletb.2014.07.006
+  \endverb
+  \verb{eprint}
+  \verb 1403.3970
+  \endverb
+  \field{pages}{98\bibrangedash 109}
+  \field{title}{{Quarkonium production in the LHC era: a polarized
+  perspective}}
+  \field{volume}{B736}
+  \field{journaltitle}{Phys. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2014}
+\endentry
+
+\entry{Aad:2014rua}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1007/JHEP04(2014)172
+  \endverb
+  \verb{eprint}
+  \verb 1401.2831
+  \endverb
+  \field{pages}{172}
+  \field{title}{{Measurement of the production cross section of prompt $J/\psi$
+  mesons in association with a $W^\pm$ boson in $pp$ collisions at $\sqrt{s} =$
+  7 TeV with the ATLAS detector}}
+  \field{volume}{1404}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2014}
+\endentry
+
+\entry{Aad:2014kba}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-015-3406-9
+  \endverb
+  \verb{eprint}
+  \verb 1412.6428
+  \endverb
+  \field{pages}{229}
+  \field{title}{{Observation and measurements of the production of prompt and
+  non-prompt $J/\psi$ mesons in association with a $Z$ boson in $pp$ collisions
+  at $\sqrt{s}$ = 8 TeV with the ATLAS detector}}
+  \field{volume}{C75}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2015}
+\endentry
+
+\entry{Li:2010hc}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Li}{L.}%
+     {Gang}{G.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Song}{S.}%
+     {Mao}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhang}{Z.}%
+     {Ren-You}{R.-Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ma}{M.}%
+     {Wen-Gan}{W.-G.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LG+1}
+  \strng{fullhash}{LGSMZRYMWG1}
+  \verb{doi}
+  \verb 10.1103/PhysRevD.83.014001
+  \endverb
+  \verb{eprint}
+  \verb 1012.3798
+  \endverb
+  \field{pages}{014001}
+  \field{title}{{QCD corrections to $J/\psi$ production in association with a
+  $W$-boson at the LHC}}
+  \field{volume}{D83}
+  \field{journaltitle}{Phys. Rev.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2011}
+\endentry
+
+\entry{Lansberg:2013wva}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Lansberg}{L.}%
+     {J.P.}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lorce}{L.}%
+     {C.}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LJLC1}
+  \strng{fullhash}{LJLC1}
+  \verb{doi}
+  \verb 10.1016/j.physletb.2013.07.059, 10.1016/j.physletb.2014.10.015
+  \endverb
+  \verb{eprint}
+  \verb 1303.5327
+  \endverb
+  \field{pages}{218\bibrangedash 222}
+  \field{title}{{Reassessing the importance of the colour-singlet contributions
+  to direct $J/\psi + W$ production at the LHC and the Tevatron}}
+  \field{volume}{B726}
+  \field{journaltitle}{Phys. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2013}
+\endentry
+
+\entry{Gong:2012ah}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Gong}{G.}%
+     {Bin}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lansberg}{L.}%
+     {Jean-Philippe}{J.-P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lorce}{L.}%
+     {Cedric}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Jianxiong}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{GB+1}
+  \strng{fullhash}{GBLJPLCWJ1}
+  \verb{doi}
+  \verb 10.1007/JHEP03(2013)115
+  \endverb
+  \verb{eprint}
+  \verb 1210.2430
+  \endverb
+  \field{pages}{115}
+  \field{title}{{Next-to-leading-order QCD corrections to the yields and
+  polarisations of $J/\psi$ and $\Upsilon$ directly produced in association
+  with a Z boson at the LHC}}
+  \field{volume}{1303}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2013}
+\endentry
+
+\entry{Mao:2011kf}{article}{}
+  \name{author}{5}{}{%
+    {{}%
+     {Mao}{M.}%
+     {Song}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wen-Gan}{W.-G.}%
+     {Ma}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gang}{G.}%
+     {Li}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ren-You}{R.-Y.}%
+     {Zhang}{Z.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lei}{L.}%
+     {Guo}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MS+1}
+  \strng{fullhash}{MSWGMGLRYZLG1}
+  \verb{doi}
+  \verb 10.1007/JHEP12(2012)010, 10.1007/JHEP02(2011)071
+  \endverb
+  \verb{eprint}
+  \verb 1102.0398
+  \endverb
+  \field{pages}{071}
+  \field{title}{{QCD corrections to $J/\psi$ plus $Z^0$-boson production at the
+  LHC}}
+  \field{volume}{1102}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2011}
+\endentry
+
+\entry{Khachatryan:2010yr}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CMS Collaboration}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C4}
+  \strng{fullhash}{C4}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-011-1575-8
+  \endverb
+  \verb{eprint}
+  \verb 1011.4193
+  \endverb
+  \field{pages}{1575}
+  \field{title}{{Prompt and non-prompt $J/\psi$ production in $pp$ collisions
+  at $\sqrt{s}=7$ TeV}}
+  \field{volume}{C71}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2011}
+\endentry
+
+\entry{CMS}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{CMS Collaboration}}{C.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{C4}
+  \strng{fullhash}{C4}
+  \verb{doi}
+  \verb 10.1007/JHEP02(2012)011
+  \endverb
+  \verb{eprint}
+  \verb 1111.1557
+  \endverb
+  \field{pages}{011}
+  \field{title}{{$J/\psi$ and $\psi(2S)$ production in $pp$ collisions at
+  $\sqrt{s}=7$ TeV}}
+  \field{volume}{1202}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{Aaij:2012asz}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1007/JHEP02(2013)041
+  \endverb
+  \verb{eprint}
+  \verb 1212.1045
+  \endverb
+  \field{pages}{041}
+  \field{title}{{Measurement of $J/\psi$ production in $pp$ collisions at
+  $\sqrt{s}=2.76$ TeV}}
+  \field{volume}{1302}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2013}
+\endentry
+
+\entry{Aaij:2013nlm}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-013-2631-3
+  \endverb
+  \verb{eprint}
+  \verb 1307.6379
+  \endverb
+  \field{pages}{2631}
+  \field{title}{{Measurement of $J/\psi$ polarization in $pp$ collisions at
+  $\sqrt{s}=7$ TeV}}
+  \field{volume}{C73}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2013}
+\endentry
+
+\entry{Aaij:2014qea}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{LHCb Collaboration, R Aaij et al.}}{L.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{L1}
+  \strng{fullhash}{L1}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-014-2872-9
+  \endverb
+  \verb{eprint}
+  \verb 1403.1339
+  \endverb
+  \field{pages}{2872}
+  \field{title}{{Measurement of $\psi(2S)$ polarisation in $pp$ collisions at
+  $\sqrt{s}=7$ TeV}}
+  \field{volume}{C74}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2014}
+\endentry
+
+\entry{Abelev:2011md}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ALICE Collaboration, B. Abelev et al.}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A1}
+  \strng{fullhash}{A1}
+  \verb{doi}
+  \verb 10.1103/PhysRevLett.108.082001
+  \endverb
+  \verb{eprint}
+  \verb 1111.1630
+  \endverb
+  \field{pages}{082001}
+  \field{title}{{$J/\psi$ polarization in $pp$ collisions at $\sqrt{s}=7$ TeV}}
+  \field{volume}{108}
+  \field{journaltitle}{Phys. Rev. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{Aamodt:2011gj}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ALICE Collaboration, K. Aamodt et al.}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A2}
+  \strng{fullhash}{A2}
+  \verb{doi}
+  \verb 10.1016/j.physletb.2011.09.054, 10.1016/j.physletb.2012.10.060
+  \endverb
+  \verb{eprint}
+  \verb 1105.0380
+  \endverb
+  \field{pages}{442\bibrangedash 455}
+  \field{title}{{Rapidity and transverse momentum dependence of inclusive
+  $J/\psi$ production in $pp$ collisions at $\sqrt{s} = 7$ TeV}}
+  \field{volume}{B704}
+  \field{journaltitle}{Phys. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2011}
+\endentry
+
+\entry{ATLASdetector}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1088/1748-0221/3/08/S08003
+  \endverb
+  \field{pages}{S08003}
+  \field{title}{{The ATLAS Experiment at the CERN Large Hadron Collider}}
+  \field{volume}{3}
+  \field{journaltitle}{JINST}
+  \field{year}{2008}
+\endentry
+
+\entry{ATLAS:trig}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-015-3325-9
+  \endverb
+  \verb{eprint}
+  \verb 1408.3179
+  \endverb
+  \field{pages}{120}
+  \field{title}{{Performance of the ATLAS muon trigger in pp collisions at
+  $\sqrt{s}=8$ TeV}}
+  \field{volume}{C75}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2015}
+\endentry
+
+\entry{ATLAS:2010kba}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \field{title}{{Performance of the ATLAS Muon Trigger in p-p collisions at
+  $\sqrt{s} = 7$ TeV}}
+  \verb{url}
+  \verb http://cds.cern.ch/record/1299573
+  \endverb
+  \field{journaltitle}{ATLAS-CONF-2010-095}
+  \field{year}{2010}
+\endentry
+
+\entry{muons}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-014-3130-x
+  \endverb
+  \verb{eprint}
+  \verb 1407.3935
+  \endverb
+  \field{pages}{3130}
+  \field{title}{{Measurement of the muon reconstruction performance of the
+  ATLAS detector using 2011 and 2012 LHC proton–proton collision data}}
+  \field{volume}{C74}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2014}
+\endentry
+
+\entry{BJpsiPhi}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1007/JHEP12(2012)072
+  \endverb
+  \verb{eprint}
+  \verb 1208.0572
+  \endverb
+  \field{pages}{072}
+  \field{title}{{Time-dependent angular analysis of the decay $B_s\to
+  J/\psi\phi$ and extraction of $\Delta\Gamma_s$ and the CP-violating weak
+  phase $\phi_s$ by ATLAS}}
+  \field{volume}{1212}
+  \field{journaltitle}{JHEP}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2012}
+\endentry
+
+\entry{Faccioli:2010kd}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Faccioli}{F.}%
+     {Pietro}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lourenco}{L.}%
+     {Carlos}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Seixas}{S.}%
+     {Joao}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wohri}{W.}%
+     {Hermine~K.}{H.~K.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FP+1}
+  \strng{fullhash}{FPLCSJWHK1}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-010-1420-5
+  \endverb
+  \verb{eprint}
+  \verb 1006.2738
+  \endverb
+  \field{pages}{657\bibrangedash 673}
+  \field{title}{{Towards the experimental clarification of quarkonium
+  polarization}}
+  \field{volume}{C69}
+  \field{journaltitle}{Eur.\ Phys.\ J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2010}
+\endentry
+
+\entry{CB1}{thesis}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Oreglia}{O.}%
+     {M.}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{OM1}
+  \strng{fullhash}{OM1}
+  \field{note}{SLAC-R-0236}
+  \field{title}{{\em A Study of the Reactions $\psi^\prime \to \gamma \gamma
+  \psi$}}
+  \field{type}{phdthesis}
+  \field{year}{1980}
+\endentry
+
+\entry{Aad:2013ucp}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1140/epjc/s10052-013-2518-3
+  \endverb
+  \verb{eprint}
+  \verb 1302.4393
+  \endverb
+  \field{pages}{2518}
+  \field{title}{{Improved luminosity determination in pp collisions at sqrt(s)
+  = 7 TeV using the ATLAS detector at the LHC}}
+  \field{volume}{C73}
+  \field{journaltitle}{Eur. Phys. J.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2013}
+\endentry
+
+\entry{Aad:2014cqa}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {{ATLAS Collaboration}}{A.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{A3}
+  \strng{fullhash}{A3}
+  \verb{doi}
+  \verb 10.1103/PhysRevD.90.052007
+  \endverb
+  \verb{eprint}
+  \verb 1407.1796
+  \endverb
+  \field{pages}{052007}
+  \field{title}{{Flavor tagged time-dependent angular analysis of the $B_s
+  \rightarrow J/\psi \phi$ decay and extraction of $\Delta\Gamma$s and the weak
+  phase $\phi_s$ in ATLAS}}
+  \field{volume}{D90}
+  \field{journaltitle}{Phys. Rev.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ex}
+  \field{year}{2014}
+\endentry
+
+\entry{Shao:2012iz}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Shao}{S.}%
+     {Hua-Sheng}{H.-S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SHS1}
+  \strng{fullhash}{SHS1}
+  \verb{doi}
+  \verb 10.1016/j.cpc.2013.05.023
+  \endverb
+  \verb{eprint}
+  \verb 1212.5293
+  \endverb
+  \field{pages}{2562\bibrangedash 2570}
+  \field{title}{{HELAC-Onia: An automatic matrix element generator for heavy
+  quarkonium physics}}
+  \field{volume}{184}
+  \field{journaltitle}{Comput. Phys. Commun.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2013}
+\endentry
+
+\entry{NRQCD1}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Ma}{M.}%
+     {Yan-Qing}{Y.-Q.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Kai}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chao}{C.}%
+     {Kuang-Ta}{K.-T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MYQWKCKT1}
+  \strng{fullhash}{MYQWKCKT1}
+  \verb{doi}
+  \verb 10.1103/PhysRevLett.106.042002
+  \endverb
+  \verb{eprint}
+  \verb 1009.3655
+  \endverb
+  \field{pages}{042002}
+  \field{title}{{$J/\psi (\psi^\prime)$ production at the Tevatron and LHC at
+  ${\cal O}(\alpha_s^4v^4)$ in nonrelativistic QCD}}
+  \field{volume}{106}
+  \field{journaltitle}{Phys. Rev. Lett.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2011}
+\endentry
+
+\entry{Ma:2010vd}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Ma}{M.}%
+     {Yan-Qing}{Y.-Q.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wang}{W.}%
+     {Kai}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chao}{C.}%
+     {Kuang-Ta}{K.-T.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{MYQWKCKT1}
+  \strng{fullhash}{MYQWKCKT1}
+  \verb{doi}
+  \verb 10.1103/PhysRevD.83.111503
+  \endverb
+  \verb{eprint}
+  \verb 1002.3987
+  \endverb
+  \field{pages}{111503}
+  \field{title}{{QCD radiative corrections to $\chi_{cJ}$ production at hadron
+  colliders}}
+  \field{volume}{D83}
+  \field{journaltitle}{Phys. Rev.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2011}
+\endentry
+
+\entry{Kanaki:2000ey}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Kanaki}{K.}%
+     {Aggeliki}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Papadopoulos}{P.}%
+     {Costas~G.}{C.~G.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{KAPCG1}
+  \strng{fullhash}{KAPCG1}
+  \verb{doi}
+  \verb 10.1016/S0010-4655(00)00151-X
+  \endverb
+  \verb{eprint}
+  \verb hep-ph/0002082
+  \endverb
+  \field{pages}{306\bibrangedash 315}
+  \field{title}{{HELAC: A Package to compute electroweak helicity amplitudes}}
+  \field{volume}{132}
+  \field{journaltitle}{Comput. Phys. Commun.}
+  \field{eprinttype}{arXiv}
+  \field{eprintclass}{hep-ph}
+  \field{year}{2000}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

@@ -522,9 +522,6 @@ void QuarkoniaProd_NRQCD()
   gi->SetNumberPoints(NNXXk);
   gi->GetWeightVectors(XXk,WWk);
 
-  
-
-
   //============================ Graph of Gluon Diss Functions ==================//  
   Double_t AXX[100000]={0.0};
 
@@ -733,26 +730,41 @@ void QuarkoniaProd_NRQCD()
 
   for(Int_t i =0;i<NNPt;i++)
     {
+
+
       Pt = PtMin+ (i*PtStep);
       APt[i]=Pt;
       SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0)/mJPsi2;
 
-
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-
-	Double_t YMin = 2.0; Double_t YMax = 4.5; 
+	Double_t YMin = -0.25; Double_t YMax = 0.25; 
 	Double_t DeltaY = (YMax - YMin);
+	/*
+	Double_t LDME_3S1_1 = 1.0;
+	Double_t LDME_1S0_8 = 0.0080;
+	Double_t LDME_3S1_8 = 0.0033;
+	Double_t LDME_3P0_8 = LDME_1S0_8*mC2;
+	Double_t LDME_3P1_8 = 3.0*LDME_3P0_8;
+	Double_t LDME_3P2_8 = 5.0*LDME_3P0_8;
+	*/
+	
+	Double_t LDME_3S1_1 = 1.0;
+	Double_t LDME_1S0_8 = 1.0;
+	Double_t LDME_3S1_8 = 1.0;
+	Double_t LDME_3P0_8 = 1.0;
+	Double_t LDME_3P1_8 = 1.0;
+	Double_t LDME_3P2_8 = 1.0;
+	
 
 	DSigmaDPtDY_Pt[i] = (Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax))/DeltaY;
 	
-	DSigmaDPtDY_Pt_3S1_1_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;
-	DSigmaDPtDY_Pt_1S0_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
-	DSigmaDPtDY_Pt_3S1_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,3))/DeltaY;
+	DSigmaDPtDY_Pt_3S1_1_Fit[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;
+	DSigmaDPtDY_Pt_1S0_8_Fit[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
+	DSigmaDPtDY_Pt_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,3))/DeltaY;
 	
-	DSigmaDPtDY_Pt_3P0_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,4))/DeltaY;
-	DSigmaDPtDY_Pt_3P1_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,5))/DeltaY;
-	DSigmaDPtDY_Pt_3P2_8_Fit[i] = (Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,6))/DeltaY;
-
+	DSigmaDPtDY_Pt_3P0_8_Fit[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,4))/DeltaY;
+	DSigmaDPtDY_Pt_3P1_8_Fit[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,5))/DeltaY;
+	DSigmaDPtDY_Pt_3P2_8_Fit[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,6))/DeltaY;
 
 
 	DSigmaDPtDY_ModY075_Pt[i]=DSigmaDPt_Gauss(Pt, -1.2, 1.2);
@@ -794,7 +806,10 @@ void QuarkoniaProd_NRQCD()
       //cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY090To24_Pt[i]<<"  "<<DSigmaDPtDY_Y2To45_Pt[i]<<"  "<<DSigmaDPtDY_Y25To40_Pt[i]<<endl;
 
     
-      cout<<APt[i]<<"    "<< DSigmaDPtDY_Pt_3S1_1_Fit[i]<<"    "<< DSigmaDPtDY_Pt_1S0_8_Fit[i] <<endl;
+      Double_t Total = DSigmaDPtDY_Pt_3S1_1_Fit[i] + DSigmaDPtDY_Pt_1S0_8_Fit[i] + DSigmaDPtDY_Pt_3S1_8_Fit[i] + DSigmaDPtDY_Pt_3P0_8_Fit[i] +
+	DSigmaDPtDY_Pt_3P1_8_Fit[i] + DSigmaDPtDY_Pt_3P2_8_Fit[i];
+
+      cout<<APt[i]<<"    "<< DSigmaDPtDY_Pt[i]<<"   "<<Total<<"    "<<(100*(Total-DSigmaDPtDY_Pt[i]))/Total<<"% "<<endl;
       
     }
   
@@ -1151,11 +1166,9 @@ if(QQbarVar ==8){
 
 
   
-
   //return;
 
  
-
   Double_t Rap = 0.0;
   
   Double_t RapMin = -5.0;
@@ -1173,14 +1186,16 @@ if(QQbarVar ==8){
 
   cout<<" Rap: "<<"     "<<" DSigmaDY_Rap "<<endl;
   Double_t PtInt =0.0;
-  NNRap=1;
+
+   NNRap=1;
+
   for(Int_t i =0;i<NNRap;i++)
     {
       
       Rap = RapMin + (i*RapStep);
       ARap[i]=Rap;
       
-      Double_t PtMin = 5.0; Double_t PtMax = 40.0;
+      Double_t PtMin = 5.0; Double_t PtMax = 100.0;
       DSigmaDPtDY_Rap[i]= Psi2MuMu*DSigmaDY_Gauss(ARap[i],PtMin,PtMax);
       PtInt = PtInt + DSigmaDPtDY_Rap[i];
       

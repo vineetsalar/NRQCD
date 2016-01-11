@@ -1,0 +1,99 @@
+\newcommand*{\ATLASLATEXPATH}{latex/}
+%\pdfoutput=1
+\documentclass[cernpreprint,texlive=2011,txfonts,UKenglish]{\ATLASLATEXPATH atlasdoc}
+
+\usepackage[full]{\ATLASLATEXPATH atlaspackage}
+\usepackage{\ATLASLATEXPATH atlasbiblatex}
+
+\usepackage{\ATLASLATEXPATH atlascontribute}
+
+\usepackage{\ATLASLATEXPATH atlasphysics}
+\addbibresource{Paper.bib}
+\addbibresource{jpsipipi_JHEP.bib}
+\DeclareFieldFormat[phdthesis]{citetitle}{#1}
+\DeclareFieldFormat[phdthesis]{title}{#1} 
+
+
+\graphicspath{{logos/}{figures/}}
+
+ 
+\usepackage{enumitem}
+\usepackage{epstopdf}
+
+\def\ttbar {\mbox {$t\bar{t}$}}
+\def\ipb {\mbox {$~{\rm pb}^{-1}$}}
+\def\ifb {\mbox {$~{\rm fb}^{-1}$}}
+\def\lumiA{\mbox{$2.1\ifb$}}
+\def\lumierrA{\mbox{$2.09 \pm 0.04 \ifb$}}
+\def\lumiB{\mbox{$11.4\ifb$}}
+\def\lumierrB{\mbox{$11.4 \pm 0.3 \ifb$}}
+\def\mt{\mbox{$m_{\text{T}}$}}
+\def\pt{\mbox{$p_{\text{T}}$}}
+\def\et{\mbox{$E_{\text{T}}$}}
+\def\kt{\mbox{$k_t$}}
+\newcommand{\psiprime}{\ensuremath{\psi(2\mathrm{S})}}
+\newcommand{\pjpsi}{prompt \ensuremath{\,\Jpsi}}
+\newcommand{\npjpsi}{non-prompt \ensuremath{\,\Jpsi}}
+\newcommand{\apsi}{\ensuremath{\psi}}
+
+\hypersetup{pdftitle={Measurement of the differential cross-sections of prompt and non-prompt production of $\jpsi$ and $\psiprime$ in $pp$ collisions at $\sqrt{s} = 7$ and $8$~TeV with the ATLAS detector},pdfauthor={The ATLAS Collaboration}}
+\input{Paper-metadata}
+
+\AtlasTitle{Measurement of the differential cross-sections of prompt and non-prompt production of $\jpsi$ and $\psiprime$ in $pp$ collisions at $\sqrt{s} = 7$ and $8$~\TeV\ with the ATLAS detector}
+\AtlasNote{ATL-COM-PHYS-2015-161}
+\AtlasJournal{Eur.\ Phys.\ J.\ C.}
+\PreprintIdNumber{CERN-PH-EP-2015-292}
+\AtlasAbstract{The production rates of prompt and non-prompt \jpsi\ and \psiprime\ mesons in their dimuon decay modes are measured using \lumiA\ and \lumiB\ of data collected 
+with the ATLAS experiment at the Large Hadron Collider, in proton--proton collisions at
+$\sqrt{s}=7$ and $8$~\TeV\ respectively. Production cross-sections for prompt as well as non-prompt sources, ratios of \psiprime\ to \jpsi\ production, 
+and the fractions of non-prompt production for \jpsi\ and \psiprime\
+are measured as a function of meson transverse momentum and rapidity. 
+The measurements are compared to theoretical predictions.}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage
+
+\input{Introduction}
+
+\input{ATLAS}
+
+
+\input{DataMC}
+
+
+\input{Methodology}
+
+
+\input{Systematics}
+
+
+\input{Results}
+
+\FloatBarrier
+
+
+\input{Conclusions}
+
+
+\section*{Acknowledgements}
+\input{Acknowledgements}
+
+\clearpage
+\printbibliography
+\clearpage
+\appendix
+\part*{Appendix}
+\addcontentsline{toc}{part}{Appendix}
+\input{SpinAlignmentFactors}
+
+
+\newpage 
+\input{atlas_authlist}
+
+
+\end{document}

@@ -1,0 +1,35 @@
+\section{The ATLAS detector}
+\label{sec:atlas}
+
+The ATLAS experiment~\cite{ATLASdetector} is a general-purpose detector consisting of an inner tracker, a calorimeter and a muon spectrometer. 
+The inner detector (ID) directly surrounds the interaction point; 
+it consists of a silicon pixel detector, a semiconductor tracker and a transition radiation tracker, and is embedded in an axial~$2$ T magnetic field.
+The ID covers the pseudorapidity\footnote{ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP) 
+in the centre of the detector and the $z$-axis along the beam pipe.
+The $x$-axis points from the IP to the centre of the LHC ring, and the $y$-axis points upward. Cylindrical 
+coordinates $(r,\phi)$ are used in the transverse plane,
+$\phi$ being the azimuthal angle around the beam pipe. The pseudorapidity $\eta$ is defined in terms of the 
+polar angle $\theta$ as $\eta=-\ln\tan(\theta/2)$ and the
+transverse momentum $p_{\rm T}$ is defined as $p_{\rm T}=p\sin\theta$. The rapidity is defined as 
+$y=0.5\ln\left[\left( E + p_z \right)/ \left( E - p_z \right)\right]$,
+where $E$ and $p_z$ refer to energy and longitudinal momentum, respectively. The $\eta$--$\phi$ distance 
+between two particles is defined as
+ $\Delta R=\sqrt{(\Delta\eta)^2 + (\Delta\phi)^2}$.}
+range $|\eta| = $ 2.5 and is enclosed by a calorimeter system containing
+electromagnetic and hadronic sections.
+The calorimeter is surrounded by a large muon spectrometer (MS) in a toroidal magnet system.
+The MS consists of monitored drift tubes and cathode strip chambers, designed to provide
+precise position measurements in the bending plane in the range $|\eta| <$ 2.7.
+Momentum measurements in the muon spectrometer are based on track segments formed in at least two of the three precision chamber planes.
+
+The ATLAS trigger system \cite{ATLAS:trig} is separated into three levels: the hardware-based Level-1 trigger
+and the two-stage High Level Trigger (HLT), comprising the Level-2 trigger and Event
+Filter, which reduce the 20~MHz proton--proton collision rate to several-hundred Hz of events of interest for data recording to mass storage. 
+At Level-1, the muon trigger searches for patterns of hits satisfying different transverse momentum thresholds with a coarse 
+position resolution but a fast response time using resistive-plate chambers and thin-gap chambers in the ranges $|\eta| <$ 1.05 and $1.05 <|\eta| < 2.4$, respectively.
+Around these Level-1 hit patterns ``Regions-of-Interest'' (RoI) are defined that
+serve as seeds for the HLT muon reconstruction. 
+The HLT uses dedicated algorithms to incorporate information from both the 
+MS and the ID, achieving position and momentum resolution close to that provided by the offline muon reconstruction.
+
+
