@@ -58,7 +58,7 @@ using namespace LHAPDF;
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 7000.0;
+const Double_t RootS = 1800.0;
 
 //===== for gauss quadrature integration ========//
 const Int_t NNXXi = 150;
@@ -737,7 +737,7 @@ void QuarkoniaProd_NRQCD()
       SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0)/mJPsi2;
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	Double_t YMin = -0.25; Double_t YMax = 0.25; 
+	Double_t YMin = -0.6; Double_t YMax = 0.6; 
 	Double_t DeltaY = (YMax - YMin);
 	/*
 	Double_t LDME_3S1_1 = 1.0;
