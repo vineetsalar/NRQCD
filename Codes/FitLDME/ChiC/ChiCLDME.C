@@ -48,23 +48,24 @@
 //================== CDF: 1.8 TeV  Chic0 calculated root file ===========================================//
 TFile *file_CDF_Chic0_RootS180TeV_CrossSection =  new TFile("CDF_Chic0_RootS180TeV_Chic0_1PCrossSection.root","R");
 //================ Get All the graphs ===============================//
-TGraph *grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_CDF_Chic0_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
 TGraph *grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3P0_1_Fit =(TGraph*)file_CDF_Chic0_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3P0_1_Fit");
+TGraph *grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_CDF_Chic0_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+
 
 
 //================== CDF: 1.8 TeV  Chic1 calculated root file ===========================================//
 TFile *file_CDF_Chic1_RootS180TeV_CrossSection =  new TFile("CDF_Chic1_RootS180TeV_Chic1_1PCrossSection.root","R");
 //================ Get All the graphs ===============================//
-TGraph *grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_CDF_Chic1_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
 TGraph *grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit =(TGraph*)file_CDF_Chic1_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3P1_1_Fit");
+TGraph *grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_CDF_Chic1_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+
 
 
 //================== CDF: 1.8 TeV  Chic2 calculated root file ===========================================//
 TFile *file_CDF_Chic2_RootS180TeV_CrossSection =  new TFile("CDF_Chic2_RootS180TeV_Chic2_1PCrossSection.root","R");
 //================ Get All the graphs ===============================//
-TGraph *grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_CDF_Chic2_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
 TGraph *grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P2_1_Fit =(TGraph*)file_CDF_Chic2_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3P2_1_Fit");
-
+TGraph *grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_CDF_Chic2_RootS180TeV_CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
 
 
 
@@ -143,16 +144,16 @@ void ChiCLDME()
   TGraphAsymmErrors *grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt=new TGraphAsymmErrors();
   grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt=Data_CDF_180_D2NDPtDy_Chic1Chic2ToJPsi_Y0006_Pt();
   
-  //TF1 *CDF_180_Chic0_FitFunctionLDME = new TF1("CDF_180_Chic0_FitFunctionLDME", CDF_180_Chic0_FitLDME, 5.0, 20, 2);
+  TF1 *CDF_180_Chic0_FitFunctionLDME = new TF1("CDF_180_Chic0_FitFunctionLDME", CDF_180_Chic0_FitLDME, 5.0, 20, 2);
 
-  TF1 *CDF_180_Chic0_FitFunctionLDME = new TF1("CDF_180_Chic0_FitFunctionLDME", CDF_180_Chic1Chic2_FitLDME, 5.0, 20, 3);
+  //TF1 *CDF_180_Chic0_FitFunctionLDME = new TF1("CDF_180_Chic0_FitFunctionLDME", CDF_180_Chic1Chic2_FitLDME, 5.0, 20, 3);
   
 
   CDF_180_Chic0_FitFunctionLDME->SetLineColor(2);
   CDF_180_Chic0_FitFunctionLDME->FixParameter(0,1.0);     
   CDF_180_Chic0_FitFunctionLDME->FixParameter(2,1.0);     
 
-  grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->Fit("CDF_180_Chic0_FitFunctionLDME","Q0","MER", 5.0, 20.0);
+  grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->Fit("CDF_180_Chic0_FitFunctionLDME","Q0","MER", 7.0, 18.0);
   
   Double_t CDF_180_Chic0_Chi2 = CDF_180_Chic0_FitFunctionLDME->GetChisquare();
   Double_t CDF_180_Chic0_NDF =  CDF_180_Chic0_FitFunctionLDME->GetNDF();
@@ -179,7 +180,7 @@ void ChiCLDME()
   TGraph *Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3P0_1_Fit=Scale_QCDSigma(grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3P0_1_Fit,CDF_180_Chic0_LDME_3P0_1);
   Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3P0_1_Fit->SetLineColor(6);
 
-  TGraph *Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3P0_1_Fit,CDF_180_Chic0_LDME_3S1_8);
+  TGraph *Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,CDF_180_Chic0_LDME_3S1_8);
   Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(8);
   
   TLegend *lgd_DSigmaDPtDY_CDF_180_Chic0 = new TLegend(0.64,0.78,0.87,0.92);
@@ -201,6 +202,70 @@ void ChiCLDME()
   Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3P0_1_Fit->Draw("Lsame");
   Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   lgd_DSigmaDPtDY_CDF_180_Chic0->Draw("same");
+  
+  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+  cout<<" ============= FITTING CDF RootS 1.8 TeV DATA FOR LDME (Chic1 & Chic2)=========="<<endl;
+  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+  
+   
+  TF1 *CDF_180_Chic1Chic2_FitFunctionLDME = new TF1("CDF_180_Chic1Chic2_FitFunctionLDME", CDF_180_Chic1Chic2_FitLDME, 5.0, 20, 3);
+  
+  CDF_180_Chic1Chic2_FitFunctionLDME->SetLineColor(2);
+  CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(0,1.0);     
+  CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(1,0.002);     
+  CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(2,1.0);     
+
+  //CDF_180_Chic1Chic2_FitFunctionLDME->SetParLimits(1,0.0,10.0);     
+
+
+  grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->Fit("CDF_180_Chic1Chic2_FitFunctionLDME","Q0","MER", 7.0, 18.0);
+  
+  Double_t CDF_180_Chic1Chic2_Chi2 = CDF_180_Chic1Chic2_FitFunctionLDME->GetChisquare();
+  Double_t CDF_180_Chic1Chic2_NDF =  CDF_180_Chic1Chic2_FitFunctionLDME->GetNDF();
+  Double_t CDF_180_Chic1Chic2_Prob = CDF_180_Chic1Chic2_FitFunctionLDME->GetProb();
+  Double_t CDF_180_Chic1Chic2_LDME_3P1_1 = CDF_180_Chic1Chic2_FitFunctionLDME->GetParameter(0);
+  Double_t CDF_180_Chic1Chic2_LDME_3S1_8 = CDF_180_Chic1Chic2_FitFunctionLDME->GetParameter(1);
+  Double_t CDF_180_Chic1Chic2_LDME_3P2_1 = CDF_180_Chic1Chic2_FitFunctionLDME->GetParameter(2);
+
+  cout<<"LDME : 3P1_1 "<<CDF_180_Chic1Chic2_LDME_3P1_1<<endl;
+  cout<<"LDME : 3S1_8 "<<CDF_180_Chic1Chic2_LDME_3S1_8<<endl;
+  cout<<"LDME : 3P2_1 "<<CDF_180_Chic1Chic2_LDME_3P2_1<<endl;
+  
+  cout<<"Chi2/NDF : "<<CDF_180_Chic1Chic2_Chi2<<"/"<<CDF_180_Chic1Chic2_NDF<<" Prob: "<<CDF_180_Chic1Chic2_Prob<<endl<<endl;
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->Draw("zAP");
+  CDF_180_Chic1Chic2_FitFunctionLDME->Draw("same");
+
+
+  TGraph *Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit=Scale_QCDSigma(grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P2_1_Fit,CDF_180_Chic1Chic2_LDME_3P1_1);
+  Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit->SetLineColor(6);
+
+  TGraph *Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,CDF_180_Chic1Chic2_LDME_3S1_8);
+  Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(8);
+  
+  TLegend *lgd_DSigmaDPtDY_CDF_180_Chic1Chic2 = new TLegend(0.64,0.78,0.87,0.92);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetBorderSize(0);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetFillStyle(0);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetFillColor(0);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetTextSize(0.03);
+  
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit,"^{3}P_{0}^{[1]}","L");  
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+    
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->Draw("zAP");
+  CDF_180_Chic1Chic2_FitFunctionLDME->Draw("same");
+  Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit->Draw("Lsame");
+  Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->Draw("same");
   
 
 
@@ -230,13 +295,10 @@ Double_t CDF_180_Chic1Chic2_FitLDME(Double_t *x, Double_t *par)
   Double_t LDME_3S1_8 = par[1];
   Double_t LDME_3P2_1 = par[2];
   
-  Double_t Sigma = LDME_3P1_1*grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit->Eval(x[0]) + LDME_3S1_8*grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) 
-    + LDME_3P2_1*grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P2_1_Fit->Eval(x[0]) + LDME_3S1_8*grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]);
+  Double_t Sigma = //LDME_3P1_1*grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit->Eval(x[0]) + LDME_3S1_8*grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) 
+    LDME_3P2_1*grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P2_1_Fit->Eval(x[0]) + LDME_3S1_8*grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]);
   return Sigma;
 }
-
-
-
 
 
 

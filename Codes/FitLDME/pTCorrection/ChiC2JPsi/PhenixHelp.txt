@@ -1,0 +1,97 @@
+!  Cr�� le        : Mon Jan 13 15:48:42 2003
+!  Auteur         : Fr�d�ric
+!  Modifi� le     : Time-stamp: <03/02/18 09:52:40 fleuret> 
+!  Status         : for pythia6205
+!============= CONTROL DATA CARDS FOR PYTHIA INITIALIZATION ===========*
+!
+'MSEL=0'                        ! turn OFF global process selection
+'MSTP(51)=4'                    ! structure function for GRV94 L
+'MSUB(86)=1'                    ! g+g -> J/psi+g  turned ON
+'MSUB(106)=1'	                ! g+g -> J/psi+gamma turned ON
+'MSUB(107)=1'                   ! g+gamma -> J/psi+g turned ON
+'MSUB(108)=1'                   ! gamma+gamma->J/psi+gamma turned ON
+'MSUB(87)=1'                    ! g+g -> chi0_c+g turned ON
+'MSUB(88)=1'                    ! g+g -> chi1_c+g turned ON
+'MSUB(89)=1'                    ! g+g -> chi2_c+g turned ON
+'MSUB(104)=1'                   ! g+g -> chi0_c
+'MSUB(105)=1'                   ! g+g -> chi2_c
+'MDME(858,1)=0'                 ! J/psi -> ee turned OFF
+'MDME(859,1)=1'                 ! J/psi -> mumu turned ON
+'MDME(860,1)=0'                 ! J/psi -> random turned OFF
+'MDME(1619,1)=1'                ! chi_0c -> J/psi+gamma turned ON
+'MDME(1620,1)=0'                ! chi_0c -> rndmflav+rndmflavbar turned OFF 
+'MDME(1673,1)=1'                ! chi_1c -> J/psi+gamma turned ON
+'MDME(1674,1)=0'                ! chi_1c -> rndmflav+rndmflavbar turned OFF        
+'MDME(979,1)=1'                 ! chi_2c -> J/psi+gamma turned ON
+'MDME(980,1)=0'                 ! chi_2c -> rndmflav+rndmflavbar turned OFF          
+'MRPY(1)=35476291'              ! starting random number
+!
+!=================== CONTROL DATA CARDS FOR PYTHIA ==================*
+! tnumevt    = number of generated events
+! sqrts      = center of mass energy
+!====================================================================*
+ $pyth_par
+  tnumevt = 10 
+  sqrts   = 200.
+ $end
+!
+!================ CONTROL DATA CARDS FOR GEOMETRICAL SELECTION =======*
+! Selection cuts: keep events with SIGNAL particles (at least 2) 
+                  within acceptance
+! thmi_no = north theta min : north object if theta.GE.thmi_no (deg)
+! thma_no = north theta max : north object if theta.LE.thma_no (deg)
+! no_on   = if .true., switch north detector on
+! thmi_su = south theta min : south object if theta.GE.thmi_su (deg)
+! thma_su = south theta max : south object if theta.LE.thma_su (deg)
+! su_on   = if .true., switch south detector on
+!=====================================================================*
+ $nmlglo
+  thmi_no = 9.
+  thma_no = 37.
+  no_on   = .false.
+  thmi_su = 143.
+  thma_su = 171.
+  su_on   = .true.
+ $end
+!
+!================ CONTROL DATA FOR SIGNAL DESCRIPTION ================*
+! isig1  = particle parent's ID (443=J/psi)
+! iprod1 = particle ID (13=mu-)
+! nprod1 = number [min,max] of iprod1 (coming from isig1) particles
+! p1mima = momentum [min,max] of iprod1 particles
+! isig2  = particle parent's ID (443=J/psi)
+! iprod2 = particle ID (-13=mu+)
+! nprod2 = number [min,max] of iprod2 (coming from isig2) particles 
+! p1mima = momentum [min,max] of iprod2 particles
+! Mi     = invariant mass (min,max) of the iprod1, iprod2 system (nprod1 & nprod2 must be=1)
+! note : if isig1=iprod1=isig2=iprod2=0 no ID selection applied.
+!        if isig1=isig2=0 no parent's ID selection applied.
+!=====================================================================*
+ $nmlsig
+  isig1   = 443
+  iprod1  = 13
+  nprod1  = 1,1
+  p1mima  = 0,1000
+  isig2   = 443
+  iprod2  = -13
+  nprod2  = 1,1
+  p2mima  = 0,1000
+  mi      = 0.,100.
+ $end
+!
+!================ CONTROL DATA CARDS FOR OUTPUTS SELECTION ===========*
+! verb      = verbose mode 
+! wriflag   = if .true. write (in pythia.dat) particle from signal 
+!             selection only. If .false. write all particles from
+!             selected events.
+! h_file    = ntuple file name
+! do1       = if .TRUE. produce ntuple before selection
+! do2       = if .TRUE. produce ntuple after selection
+!=====================================================================*
+ $nmlwri
+  verb    = .true.
+  wriflag = .true.
+  h_file  = 'pythia.hist'
+  do1   = .true.
+  do2   = .true.
+ $end
