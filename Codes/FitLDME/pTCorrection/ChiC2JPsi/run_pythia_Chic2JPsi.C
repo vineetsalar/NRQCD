@@ -26,35 +26,11 @@ using namespace std;
 
 bool IsAccept(Double_t pt, Double_t eta);
 
-int run_pythia_Chic2JPsi(int numberEvents = 5000, TString OutFile = "oscar.input")
+int run_pythia_Chic2JPsi(int numberEvents = 100000)
 {
-  //TROOT root("pythia","run pythia");
-  //  gROOT->Reset();
-  //  gSystem->Load("libEG");
-  //  gSystem->Load("libPythia6");
-  //  gSystem->Load("libEGPythia6"); 
-  
-  ofstream foutd(OutFile);
-  foutd<<"# OSC1999A"<<endl;
-  foutd<<"# final_id_p_x"<<endl;
-  foutd<<"# EXODUS event generator in full event mode"<<endl;
-  foutd<<"#"<<endl;
-  
-  const int MAXDIM = 10000; // No. of particles in an event.
-  
-  int pid[10000],ppid[10000],gppid[10000];
-  double px[10000], py[10000], pz[10000], energy[10000], mass[10000];
-  double vx[10000], vy[10000], vz[10000], time[10000]; 
-  double aBpt[10000], aBeta[10000], avertex[10000], apt[10000],aetat[10000],aBrap[10000];
-  double ajpt[10000], ajeta[10000], ajrap[10000];
-  
-  const double mm_to_fm = 1e12;
-  
   // CREATE PYTHIA OBJECT
   // =====================
-  
   TPythia6 pythia;
-  
   // ================================================================
   // INITIALIZATION SECTION: SET ANY PYTHIA INPUT PARAMETERS HERE 
   // ================================================================
@@ -71,12 +47,12 @@ int run_pythia_Chic2JPsi(int numberEvents = 5000, TString OutFile = "oscar.input
   pythia.SetPARP(91,2.0);                  // set width of kT gaussian 1.5 !Default=2!
   pythia.SetPARP(93,5.0);                  // Kt cut off  5 !Default=5!
   pythia.SetCKIN(3,0);                     // min Pt  0 !Default=0!
-
   
   // Switching On the processes to generate
   pythia.SetMSEL(0);                             // Global process turned off{run is in full user control}
-  pythia.SetMSUB(81,1);                       // Turn On subprocess qqbar->Q Qbar
-  pythia.SetMSUB(82,1);                          // Turn On subprocess gg->Q Qbar 
+  
+  pythia.SetMSUB(81,0);                       // Turn On subprocess qqbar->Q Qbar
+  pythia.SetMSUB(82,0);                          // Turn On subprocess gg->Q Qbar 
   
   pythia.SetMSUB(87,1);                          //g+g-->Chic0+g
   pythia.SetMSUB(88,1);                          //g+g-->Chic1+g 
@@ -87,26 +63,30 @@ int run_pythia_Chic2JPsi(int numberEvents = 5000, TString OutFile = "oscar.input
 
 // pythia.SetMSUB(96,0);                      // Turn OFF subprocess 
   pythia.SetMSTP(7,4);                           // 4 is for charm quark  
-  pythia.SetPMAS(pythia.Pycomp(4),1,1.6);  // Set charm quark mass to 1.6 GeV
+  //pythia.SetPMAS(pythia.Pycomp(4),1,1.6);  // Set charm quark mass to 1.6 GeV
   
   //Turn off all decay channels 
-  for (Int_t idc=1; idc<=4285; idc++){pythia.SetMDME(idc,1,0);}
+  //for (Int_t idc=1; idc<=4285; idc++){pythia.SetMDME(idc,1,0);}
 
 
   //Chic decay channels 
-  pythia.SetMDME(1619,1,1);          //Chic0 --> J/psi + gamma    
-  pythia.SetMDME(1620,1,0);          //Chic0 --> randm + randm 
+  //pythia.SetMDME(1501,1,1);          //Chic0 --> J/psi + gamma    
+  //pythia.SetMDME(1502,1,0);          //Chic0 --> randm + randm 
 
-  pythia.SetMDME(1673,1,1);          //Chic1 --> J/psi + gamma    
-  pythia.SetMDME(1674,1,0);          //Chic1 --> randm + randm 
+  //pythia.SetBRAT(1501,1.0);   // 
+  //pythia.SetBRAT(1502,0.0);   // 
 
-  pythia.SetMDME(979,1,1);           //Chic2 --> J/psi + gamma    
-  pythia.SetMDME(980,1,0);          //Chic2 --> randm + randm
+  pythia.SetMDME(1555,1,1);          //Chic1 --> J/psi + gamma    
+  pythia.SetMDME(1556,1,0);          //Chic1 --> randm + randm 
+
+  pythia.SetMDME(861,1,1);           //Chic2 --> J/psi + gamma    
+  pythia.SetMDME(862,1,0);          //Chic2 --> randm + randm
 
   // Force J/Psi decays to mumu 
   pythia.SetMDME(858,1,0);                  // Truned OFF J/psi -->e+ + e-
   pythia.SetMDME(859,1,1);                  // Truned ON J/psi -->mu+ + mu-
   pythia.SetMDME(860,1,0);                  // Truned OFF J/psi -->ranflv +ranflv
+
 
   //,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
   // Projectile, Target and center of mass energy
@@ -136,6 +116,7 @@ int run_pythia_Chic2JPsi(int numberEvents = 5000, TString OutFile = "oscar.input
   // If you want to see the list of all decay channels
   //pythia.Pylist(12);
 
+  
   //Define styles
 
   gStyle->SetCanvasDefH(600);
@@ -166,13 +147,69 @@ int run_pythia_Chic2JPsi(int numberEvents = 5000, TString OutFile = "oscar.input
   TH1D *Chic0_Pt = new TH1D("Chic0_Pt","Chic0_Pt",200,0.0,20.0);  
   Chic0_Pt->GetXaxis()->SetTitle("#chi_{c0} p_{T} (GeV/c)");
   Chic0_Pt->GetYaxis()->SetTitle("Entries");
+  Chic0_Pt->SetName("Chic0_Pt");
+  Chic0_Pt->SetTitle("Chic0_Pt");
+
+  TH1D *Chic0JPsi_Pt = new TH1D("Chic0JPsi_Pt","Chic0JPsi_Pt",200,0.0,20.0);  
+  Chic0JPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
+  Chic0JPsi_Pt->GetYaxis()->SetTitle("Entries");
+  Chic0JPsi_Pt->SetName("Chic0JPsi_Pt");
+  Chic0JPsi_Pt->SetTitle("Chic0JPsi_Pt");
+
+  TH2D *Chic0VsJPsi_Pt = new TH2D("Chic0VsJPsi_Pt","Chic0VsJPsi_Pt",200,0.0,20.0,200,0.0,20.0);  
+  Chic0VsJPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
+  Chic0VsJPsi_Pt->GetYaxis()->SetTitle("#chi_{c0} p_{T} (GeV/c)");
+  Chic0VsJPsi_Pt->SetName("Chic0VsJPsi_Pt");
+  Chic0VsJPsi_Pt->SetName("Chic0VsJPsi_Pt");
+  
+  
+
+  // Define Histograms here
+  TH1D *Chic1_Pt = new TH1D("Chic1_Pt","Chic1_Pt",200,0.0,20.0);  
+  Chic1_Pt->GetXaxis()->SetTitle("#chi_{c0} p_{T} (GeV/c)");
+  Chic1_Pt->GetYaxis()->SetTitle("Entries");
+  Chic1_Pt->SetName("Chic1_Pt");
+  Chic1_Pt->SetTitle("Chic1_Pt");
+
+  TH1D *Chic1JPsi_Pt = new TH1D("Chic1JPsi_Pt","Chic1JPsi_Pt",200,0.0,20.0);  
+  Chic1JPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
+  Chic1JPsi_Pt->GetYaxis()->SetTitle("Entries");
+  Chic1JPsi_Pt->SetName("Chic1JPsi_Pt");
+  Chic1JPsi_Pt->SetTitle("Chic1JPsi_Pt");
+
+  TH2D *Chic1VsJPsi_Pt = new TH2D("Chic1VsJPsi_Pt","Chic1VsJPsi_Pt",200,0.0,20.0,200,0.0,20.0);  
+  Chic1VsJPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
+  Chic1VsJPsi_Pt->GetYaxis()->SetTitle("#chi_{c1} p_{T} (GeV/c)");
+  Chic1VsJPsi_Pt->SetName("Chic1VsJPsi_Pt");
+  Chic1VsJPsi_Pt->SetName("Chic1VsJPsi_Pt");
+
+  
+  // Define Histograms here
+  TH1D *Chic2_Pt = new TH1D("Chic2_Pt","Chic2_Pt",200,0.0,20.0);  
+  Chic2_Pt->GetXaxis()->SetTitle("#chi_{c0} p_{T} (GeV/c)");
+  Chic2_Pt->GetYaxis()->SetTitle("Entries");
+  Chic2_Pt->SetName("Chic2_Pt");
+  Chic2_Pt->SetTitle("Chic2_Pt");
+
+  TH1D *Chic2JPsi_Pt = new TH1D("Chic2JPsi_Pt","Chic2JPsi_Pt",200,0.0,20.0);  
+  Chic2JPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
+  Chic2JPsi_Pt->GetYaxis()->SetTitle("Entries");
+  Chic2JPsi_Pt->SetName("Chic2JPsi_Pt");
+  Chic2JPsi_Pt->SetTitle("Chic2JPsi_Pt");
+
+  TH2D *Chic2VsJPsi_Pt = new TH2D("Chic2VsJPsi_Pt","Chic2VsJPsi_Pt",200,0.0,20.0,200,0.0,20.0);  
+  Chic2VsJPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
+  Chic2VsJPsi_Pt->GetYaxis()->SetTitle("#chi_{c2} p_{T} (GeV/c)");
+  Chic2VsJPsi_Pt->SetName("Chic2VsJPsi_Pt");
+  Chic2VsJPsi_Pt->SetName("Chic2VsJPsi_Pt");
+
+
 
 
   // Define Histograms here
-  TH1D *JPsi_Pt = new TH1D("JPsi_Pt","JPsi_Pt",200,0.0,20.0);  
-  JPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
-  JPsi_Pt->GetYaxis()->SetTitle("Entries");
-
+  TH1D *Mu_Pt = new TH1D("Mu_Pt","Mu_Pt",200,0.0,20.0);  
+  Mu_Pt->GetXaxis()->SetTitle("Mu p_{T} (GeV/c)");
+  Mu_Pt->GetYaxis()->SetTitle("Entries");
 
   
   float RadtoDeg = 180/(TMath::ATan(1)*4);
@@ -181,6 +218,7 @@ int run_pythia_Chic2JPsi(int numberEvents = 5000, TString OutFile = "oscar.input
   // CREATE ROOT OUTPUT FILE AND DEFINE T TREE
   // ===========================================
   TFile *rootfile = new TFile("pythia.root", "recreate");
+  
   TClonesArray *particleArray = new TClonesArray();
   TMCParticle  *particle = new TMCParticle();
   
@@ -189,278 +227,289 @@ int run_pythia_Chic2JPsi(int numberEvents = 5000, TString OutFile = "oscar.input
   evTree->Branch("particle", "TMCParticle", &particle);
   evTree->Branch("evt", &eventNo, "evt/I"); 
   
-  TMCParticle *Chic0;   //parent particle
-  TMCParticle *JPsi;   //particle
-  TMCParticle *Mu1;    //MuPlus
-  TMCParticle *Mu2;   //MuMinus
+  TMCParticle *Parent;      //parent particle
+  TMCParticle *Particle;   //particle
+  TMCParticle *Dau1;      //daughter1
+  TMCParticle *Dau2;     //daughter2
  
-  int pdgcode, pdgcodexp, idparent, parentPDG, idgparent, gparentPDG,Dpdg1,Dpdg2,idgdaughter1,idgdaughter2,mode=0;
-  float px1, py1, pz1, ener1, vx1, vy1, vz1, pt1, vertex1, fcharge,jvx,jvy,jvz,jv,jvt,jpx,jpy,jpz,jpt,jeta, jRap;
-  float px2, py2, pz2, ener2, vx2, vy2, vz2, pt2, vertex2, charge;
-  float BRap,Bpx,Bpy,Bpz,Bpt,Beta,Bvx,Bvy,Bvz,Ben;
-  
-  int nTpart = 0;
-  int nDeventsEX =0;
-  
-  int paracc[10000];
-  
-  // START THE MAIN EVENT LOOP
-  // ==========================
-  int event;
-  
-  for(event=1; eventNo <numberEvents;event++) {
-    
-    //Real
-    TObjArray muPlus;
-    TObjArray muMinus;
-    
-    // Real + Background
-    TObjArray BmuPlus;
-    TObjArray BmuMinus;
-    
-    int dimuon_count = 0;
-    bool isSignal = 0;
-    int nplus =0;
-    int nminus =0;
-    int nJpsi =0;
-    int parentStatus=0;
-    double etaPlus, pTplus, etaMinus,pTMinus;
 
+  Int_t parent_position,dau1_position,dau2_position;
+  Int_t id,  parent_id, dau1_id, dau2_id;
+  Int_t mode=0;
+  
+  
+  Double_t P, Px, Py, Pz, E, Pt, Rapidity, Eta;
+  Double_t Par_P, Par_Px, Par_Py, Par_Pz, Par_E,Par_Pt, Par_Rapidity, Par_Eta;
+  
+  Double_t Dau1_P, Dau1_Px, Dau1_Py, Dau1_Pz, Dau1_E, Dau1_Pt, Dau1_Rapidity, Dau1_Eta;
+  Double_t Dau2_P, Dau2_Px, Dau2_Py, Dau2_Pz, Dau2_E, Dau2_Pt, Dau2_Rapidity, Dau2_Eta;
+    
+   
+  // ==========================
+  Int_t event;
+
+  Int_t CountChic0 = 0;
+  Int_t CountChic1 = 0;
+  Int_t CountChic2 = 0;
+
+  for(event=1; eventNo < numberEvents ; event++) {
+   
 
     //////// Generate Event ///////
     pythia.GenerateEvent();
     // Store only final state charged particles
     //pythia.Pylist(1); // 1->Event history
-                       // 12->A list of decay channels with current IDC
+    // 12->A list of decay channels with current IDC
     //pythia.Pyedit(4); // 4->Stores only charged particles
-    
+
     // Get list of particle and global event information
     particleArray = (TClonesArray *)pythia.ImportParticles();
     Int_t numParticles = particleArray->GetEntries();        // get number of generated particles
-    //cout<<"  numParticles  "<<numParticles<<endl;
     
-
+    if(event%1000==0){cout<<" Total "<< numParticles <<"  particles are produced in  event "<< event<<endl;}
     //hard code to start from 2,so as to remove the first two input protons
-    for (Int_t i=2; i<numParticles; i++) {
-      if(dimuon_count>=MAXDIM) {cout<<"Reaching maximum dimension!"<<endl; break;}
-      
-      particle = (TMCParticle *)particleArray->At(i);     // get the particle information
-      pdgcode = particle->GetKF();
-      
-      if(pdgcode == 443) {
-	jvx = particle->GetVx(); 
-	jvy = particle->GetVy(); 
-	jvz = particle->GetVz();    
-	jv  = TMath::Sqrt(jvx*jvx +jvy*jvy +jvz*jvz);
-	jvt = TMath::Sqrt(jvx*jvx +jvy*jvy );
-	
-	jpx = particle->GetPx();
-	jpy = particle->GetPy();
-	jpz = particle->GetPz();
-	jpt = TMath::Sqrt(jpx*jpx+jpy*jpy);
-      }
-      
-      // Parent
-      //cout<<" pdgcode   "<<pdgcode<<endl;
-      //cout<<"========================="<<i<<"========================"<<endl;
-
-      // Parent ID
-      idparent = particle->GetParent()-1;
-      if(idparent <0) idparent =0;
-      pB = (TMCParticle *)particleArray->At(idparent);
-      parentPDG = 0;
-      parentPDG = pB->GetKF();
-      
-      int Ppdg = parentPDG;
-      bool parentB = 0;
-      Bpt = -100;
-      Beta = -100;
-      if(fabs(Ppdg)==511 || fabs(Ppdg) ==521 || fabs(Ppdg) == 531 || fabs(Ppdg) == 541 || Ppdg == 20443){parentB=1;}
-     
-      if(pdgcode == 443 && parentB){
-	Bpx = pB->GetPx();
-	Bpy = pB->GetPy();
-	Bpz = pB->GetPz();
-	Bpt = TMath::Sqrt(Bpx*Bpx+Bpy*Bpy);
-	Bvx = pB->GetVx();
-	Bvy = pB->GetVy();
-	Bvz = pB->GetVz();
-	Ben = pB->GetEnergy();
-	TParticle *tparticleB = new TParticle(parentPDG, 1,0, 0, 0, 0, Bpx,Bpy,Bpz,Ben,Bvx,Bvy,Bvz,pB->GetTime()); 
-	Beta =tparticleB->Eta();
-	BRap=tparticleB->Y();
-	delete tparticleB;
-      }
-
-      //cout<<"----------------------------------------------------"<<endl;
-      //pJpsi->Print();
-      //cout<<"----------------------------------------------------"<<endl;
-      //cout<<"----------------------------------------------------"<<endl;
-      //if(parentPDG == 443 && gparentB) {
-      //if((fabs(pdgcode) == 13) && parentPDG == 443) {
-      
-      if(pdgcode == 443  && parentB) {
-	BpTransv->Fill(Bpt);
-	JpTransv->Fill(jpt);
-	JpTBpT->Fill(jpt,Bpt);
-      }
-	
-      // Daughter ID
-      //if(pdgcode == 443 && parentB){
-      idgdaughter1 = particle->GetFirstChild()-1;
-      if(idgdaughter1 <0) idgdaughter1 =0;
-      Mu1 = (TMCParticle *)particleArray->At(idgdaughter1);
-      Dpdg1=0;
-      Dpdg1 = Mu1->GetKF();
-
-      idgdaughter2 = particle->GetLastChild()-1;
-      if(idgdaughter2 <0) idgdaughter2 =0;
-      Mu2 = (TMCParticle *)particleArray->At(idgdaughter2);
-      Dpdg2=0;
-      Dpdg2 = Mu2->GetKF();
-            
-      //cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-      //pB->Print();
-      // cout<<" Dpdg1 "<<Dpdg1<<"  Dpdg2  "<<Dpdg2<<endl;
-      //cout<<" pdgcode   "<<gparentPDG<<endl;
-      
-      TParticle *t1particle;
-      TParticlePDG  *t1particlepdg;
-      TParticle *t2particle;
-      TParticlePDG  *t2particlepdg;
-
-      bool stable =0,fstable=0,PosIn=0,NegIn=0;
-
-      px1 = Mu1->GetPx();
-      py1 = Mu1->GetPy();
-      pz1 = Mu1->GetPz();
-      ener1 = Mu1->GetEnergy(); 
-      pt1 = sqrt(px1*px1 + py1*py1);
-      vx1 = Mu1->GetVx();
-      vy1 = Mu1->GetVy();
-      vz1 = Mu1->GetVz();
-      vertex1 = sqrt(vx1*vx1 + vy1*vy1 + vz1*vz1);
-
-      px2 = Mu2->GetPx();
-      py2 = Mu2->GetPy();
-      pz2 = Mu2->GetPz();
-      ener2 = Mu2->GetEnergy(); 
-      pt2 = sqrt(px2*px2 + py2*py2);
-      vx2 = Mu2->GetVx();
-      vy2 = Mu2->GetVy();
-      vz2 = Mu2->GetVz();
-      vertex2 = sqrt(vx2*vx2 + vy2*vy2 + vz2*vz2);
-
-      //tparticle = new TParticle(pdgcode, 1, parentPDG, 0, 0, 0, pxx, pyy, pzz, ener, vxx, vyy, vzz, particle->GetTime());
-      t1particle = new TParticle(Dpdg1, 1, pdgcode, 0, 0, 0, px1, py1, pz1, ener1, vx1, vy1, vz1, Mu1->GetTime());
-      t2particle = new TParticle(Dpdg2, 1, pdgcode, 0, 0, 0, px2, py2, pz2, ener2, vx2, vy2, vz2, Mu2->GetTime());
-      t1particlepdg = t1particle->GetPDG(mode);
-      t2particlepdg = t2particle->GetPDG(mode);
-      
-      if(fabs(Dpdg1) == 13 && pdgcode== 443 && parentB){
-	etaPlus = t1particle->Eta();
-	pTplus = pt1;
-	nplus++;
-      }
-
-      if(fabs(Dpdg2) == 13 && pdgcode==443 && parentB){
-	etaMinus = t2particle->Eta();
-	pTMinus = pt2;
-	nminus++;
-      }
-      
-      if(IsAccept(pTplus,etaPlus)) {PosIn=1;}
-      if(IsAccept(pTMinus,etaMinus)) {NegIn=1;}
-      
-      // Get Charge and stability of the particle	
-      if(pdgcode == 443 && parentB) {
-	fcharge =t1particlepdg->Charge()/3.0;
-	charge =t2particlepdg->Charge()/3.0;
-	fstable=t1particlepdg->Stable();
-	stable=t2particlepdg->Stable();
-
-	//cout<<"================================================="<<endl;
-	//cout<<" pdgcode   "<<pdgcode<<endl;
-	//cout<<" idparent  "<<idparent<<endl;
-	//cout<<" parentpdg   "<<parentPDG<<endl;
-      }
-      
-      delete t1particle;
-      delete t2particle;
-      
-      if(fabs(pdgcode) < 1000) // base cuts
-	if(stable && (charge == -1 || charge ==1) && (PosIn==1 && NegIn==1)) isSignal = 1;
-      if(isSignal && pdgcode == 443  && parentB)
-	{ 
-	  BPtAccept->Fill(Bpt);
-	  JPtAccept->Fill(jpt);
-	  JpTBpTAccpt->Fill(jpt,Bpt);
-	}//Acceptance cut 
-    }// end of loop on particles in event
     
-    //nTpart = nTpart + dimuon_count;
-    //cout<<"================================================="<<endl;
-    //cout<<" nTpart   "<<nTpart<<" dimuon_count  "<<dimuon_count<<endl;
+    CountChic0 = 0;
+    CountChic1 = 0;
+    CountChic2 = 0;
     
-    if(nplus == nminus) {eventNo++;}
+    for (Int_t i=2; i<numParticles; i++) 
+      {
+	
+	Particle = (TMCParticle *)particleArray->At(i);
+	id = Particle->GetKF();
+	
+	//=================== Get Particle Variables ===========================//
+	Px = Particle->GetPx();
+	Py = Particle->GetPy();
+	Pz = Particle->GetPz();
+	E = Particle->GetEnergy();
 
-    if(event%10 == 0){
-      cout<<"number of events trials: "<<event << "  Selected events:  " << eventNo <<endl;
+	P = TMath::Sqrt(Px*Px + Py*Py + Pz*Pz);
+	Pt = TMath::Sqrt(Px*Px + Py*Py);
+	Rapidity = 0.5*TMath::Log((E + Pz)/(E - Pz));
+	Eta =  0.5*TMath::Log((P + Pz)/(P - Pz));
+
+	//=================== Get Parent Variables ===========================//
+	//Get parent of particle
+        parent_position = Particle->GetParent()-1;
+	if(parent_position<0) parent_position =0;
+	Parent = (TMCParticle *)particleArray->At(parent_position);
+	parent_id = Parent->GetKF();
+	
+	Par_Px = Parent->GetPx();
+	Par_Py = Parent->GetPy();
+	Par_Pz = Parent->GetPz();
+	Par_E = Parent->GetEnergy();
+	
+	Par_P = TMath::Sqrt(Par_Px*Par_Px + Par_Py*Par_Py + Par_Pz*Par_Pz);
+	Par_Pt = TMath::Sqrt(Par_Px*Par_Px + Par_Py*Par_Py);
+	Par_Rapidity = 0.5*TMath::Log((Par_E + Par_Pz)/(Par_E - Par_Pz));
+	Par_Eta =  0.5*TMath::Log((Par_P + Par_Pz)/(Par_P - Par_Pz));
+
+	//=================== Get Daughters Variables ===========================//
+	//Get first daughter of the particle
+	dau1_position = Particle->GetFirstChild()-1;
+	if(dau1_position<0) dau1_position=0;
+	Dau1 = (TMCParticle *)particleArray->At(dau1_position);
+	dau1_id= Dau1->GetKF();
+	Dau1_Px = Dau1->GetPx();
+	Dau1_Py = Dau1->GetPy();
+	Dau1_Pz = Dau1->GetPz();
+	Dau1_E = Dau1->GetEnergy();
+	Dau1_Pt = TMath::Sqrt( Dau1_Px*Dau1_Px + Dau1_Py*Dau1_Py );
+	Dau1_P  = TMath::Sqrt( Dau1_Px*Dau1_Px + Dau1_Py*Dau1_Py + Dau1_Pz*Dau1_Pz );
+	Dau1_Rapidity =  0.5*TMath::Log((Dau1_E + Dau1_Pz)/(Dau1_E - Dau1_Pz));
+	Dau1_Eta =  0.5*TMath::Log((Dau1_P + Dau1_Pz)/(Dau1_P - Dau1_Pz));
+	//Get second daughter of the particle
+	dau2_position = Particle->GetLastChild()-1;
+	if(dau2_position<0) dau2_position=0;
+	Dau2 = (TMCParticle *)particleArray->At(dau2_position);
+	dau2_id = Dau2->GetKF();
+	Dau2_Px = Dau2->GetPx();
+	Dau2_Py = Dau2->GetPy();
+	Dau2_Pz = Dau2->GetPz();
+	Dau2_E = Dau2->GetEnergy();
+	Dau2_Pt = TMath::Sqrt( Dau2_Px*Dau2_Px + Dau2_Py*Dau2_Py );
+	Dau2_P  = TMath::Sqrt( Dau2_Px*Dau2_Px + Dau2_Py*Dau2_Py + Dau2_Pz*Dau2_Pz );
+	Dau2_Rapidity =  0.5*TMath::Log((Dau2_E + Dau2_Pz)/(Dau2_E - Dau2_Pz));
+	Dau2_Eta =  0.5*TMath::Log((Dau2_P + Dau2_Pz)/(Dau2_P - Dau2_Pz));
+
+	//=============================== Make Signal ======================================//
+	Int_t Dau1_Accept = 0;
+	Int_t Dau2_Accept = 0;
+	Int_t IsSignal = 0;	
+	
+	Int_t PDG_JPsi = 443;
+
+	Int_t PDG_Chic0 = 10441;
+	Int_t PDG_Chic1 = 20443;
+	Int_t PDG_Chic2 = 445;
+
+	Int_t PDG_MuPlus = -13;
+	Int_t PDG_MuMinus = 13;
+ 
+
+
+
+	//Fill the histograms
+
+	//if( (TMath::Abs(dau1_id) == 13 && TMath::Abs(dau2_id) == 13) &&  id == PDG_JPsi && parent_id == PDG_Chic0) 
+	//if( id == PDG_JPsi && parent_id == PDG_Chic0) 
+
+	//Chic0;
+	if( id == PDG_JPsi && parent_id == PDG_Chic0) 
+	  {
+	    
+	    if(IsAccept(Dau1_Pt, Dau1_Eta)==1){Dau1_Accept =1;}
+	    if(IsAccept(Dau2_Pt, Dau2_Eta)==1){Dau2_Accept =1;}
+	    if(Dau1_Accept == 1 && Dau2_Accept == 1){IsSignal =1;}
+	    
+	    IsSignal =1;
+	    if(IsSignal ==1){Chic0JPsi_Pt->Fill(Pt);}
+	    if(IsSignal ==1){Chic0_Pt->Fill(Par_Pt);}
+	    if(IsSignal ==1){Chic0VsJPsi_Pt->Fill(Pt,Par_Pt);}
+	    if(IsSignal ==1){CountChic0=1;}
+	  }
+
+	IsSignal =0;
+	//Chic1;
+	if( id == PDG_JPsi && parent_id == PDG_Chic1) 
+	  {
+	    
+	    if(IsAccept(Dau1_Pt, Dau1_Eta)==1){Dau1_Accept =1;}
+	    if(IsAccept(Dau2_Pt, Dau2_Eta)==1){Dau2_Accept =1;}
+	    if(Dau1_Accept == 1 && Dau2_Accept == 1){IsSignal =1;}
+	    
+	    IsSignal =1;
+	    if(IsSignal ==1){Chic1JPsi_Pt->Fill(Pt);}
+	    if(IsSignal ==1){Chic1_Pt->Fill(Par_Pt);}
+	    if(IsSignal ==1){Chic1VsJPsi_Pt->Fill(Pt,Par_Pt);}
+	    if(IsSignal ==1){CountChic1=1;}
+	  }
+
+
+	IsSignal =0;
+	//Chic1;
+	if( id == PDG_JPsi && parent_id == PDG_Chic2) 
+	  {
+	    
+	    if(IsAccept(Dau1_Pt, Dau1_Eta)==1){Dau1_Accept =1;}
+	    if(IsAccept(Dau2_Pt, Dau2_Eta)==1){Dau2_Accept =1;}
+	    if(Dau1_Accept == 1 && Dau2_Accept == 1){IsSignal =1;}
+	    
+	    IsSignal =1;
+	    if(IsSignal ==1){Chic2JPsi_Pt->Fill(Pt);}
+	    if(IsSignal ==1){Chic2_Pt->Fill(Par_Pt);}
+	    if(IsSignal ==1){Chic2VsJPsi_Pt->Fill(Pt,Par_Pt);}
+	    if(IsSignal ==1){CountChic2=1;}
+	  }
+
+
+
+      } // Particle loop
+
+    if(CountChic1==1) {eventNo++;}
+    if(event%1000 == 0){
+      cout<<"number of events trials: "<< event << "  Selected events:  " << eventNo <<endl;
     }
-    
-  }//event loop
+
+  }  //Event loop
+
+
+
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Chic0JPsi_Pt->Draw();
   
-  //evTree->Write();
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Chic0_Pt->Draw();
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLeftMargin(0.18);
+  Chic0VsJPsi_Pt->Draw("colz");
+
+ 
+ 
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Chic1JPsi_Pt->Draw();
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Chic1_Pt->Draw();
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLeftMargin(0.18);
+  Chic1VsJPsi_Pt->Draw("colz");
+
+ 
+ 
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Chic2JPsi_Pt->Draw();
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Chic2_Pt->Draw();
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLeftMargin(0.18);
+  Chic2VsJPsi_Pt->Draw("colz");
+
+ 
+
+  Chic0JPsi_Pt->Write();
+  Chic0_Pt->Write();
+  Chic0VsJPsi_Pt->Write();
+  
+  Chic1JPsi_Pt->Write();
+  Chic1_Pt->Write();
+  Chic1VsJPsi_Pt->Write();
+  
+  Chic2JPsi_Pt->Write();
+  Chic2_Pt->Write();
+  Chic2VsJPsi_Pt->Write();
+
+
   rootfile->Close();
-  
-  TFile *histfile = new TFile("hist1.root", "recreate");
-   
-
-  TCanvas *BpT = new TCanvas("BpT","BpT",600,600);
-  BpTransv->Draw();
-  gPad->Print("ptb.gif");
-  
-  TCanvas *JpT = new TCanvas("JpT","JpT",600,600);
-  JpTransv->Draw();
-  gPad->Write("JpT");
-  
-  TCanvas *JBpT = new TCanvas("JBpT","JBpT",600,600);
-  JpTBpT->Draw("colz");
-
-  TCanvas *BpTAcc = new TCanvas("BpTAcc","BpTAcc",600,600);
-  BPtAccept->Draw();
-  gPad->Print("ptb.gif");
-  
-  TCanvas *JpTAcc = new TCanvas("JpTAcc","JpTAcc",600,600);
-  JPtAccept->Draw();
-  gPad->Write("JpT");
-  
-  TCanvas *JBpTAcc = new TCanvas("JBpTAcc","JBpTAcc",600,600);
-  JpTBpTAccpt->Draw("colz");
 
 
-  BpTransv->Write();
-  JpTransv->Write();
-  JpTBpT->Write();
-  RapB->Write();
-  JpTBpTAccpt->Write();
 
 
-  histfile->Close();
-  
-  cout << " Total particles = " << nTpart << endl;
-  cout << " Total Number of trials = " << event -1 << endl;  
-  cout << " Total Number of events = " << eventNo << endl;
 
   return 0;
 }
 
+
 bool IsAccept(Double_t pt, Double_t eta)
 {
-  //return (fabs(eta) < 2.4); 
-  return (fabs(eta) < 2.4 &&
-  	  (    ( fabs(eta) < 1.0 && pt >= 3.4 ) ||
-  	       (  1.0 <= fabs(eta) && fabs(eta) < 1.5 && pt >= 5.8-2.4*fabs(eta) ) ||
-  	       (  1.5 <= fabs(eta) && pt >= 3.3667 - 7.0/9.0*fabs(eta)) ));
+  
+  return ( fabs(eta) < 0.6 && pt > 0.0);
 }
 
+
+
+
+//TMCParticle to TParticle conversion
+//Particle::TParticle(pdg,status,mother1,mother2,daughter1,daughter2,px,py,pz,etot,vx,vy,vz,time) 
+//TParticle *tparticleB = new TParticle(parentPDG, 1,0, 0, 0, 0, Bpx,Bpy,Bpz,Ben,Bvx,Bvy,Bvz,pB->GetTime());

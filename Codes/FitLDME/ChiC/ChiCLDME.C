@@ -79,6 +79,8 @@ Double_t CDF_180_Chic0_FitLDME(Double_t *x, Double_t *par);
 TGraph *Scale_QCDSigma(TGraph *InGraph, Double_t LDME);
 TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4);
 
+Double_t Scale_Pt(Double_t JPsiPt, Int_t Par);
+
 const Double_t mC = 1.6;
 
 void ChiCLDME()
@@ -212,7 +214,7 @@ void ChiCLDME()
   
   CDF_180_Chic1Chic2_FitFunctionLDME->SetLineColor(2);
   CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(0,1.0);     
-  CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(1,0.002);     
+  // CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(1,0.002);     
   CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(2,1.0);     
 
   //CDF_180_Chic1Chic2_FitFunctionLDME->SetParLimits(1,0.0,10.0);     
@@ -294,9 +296,17 @@ Double_t CDF_180_Chic1Chic2_FitLDME(Double_t *x, Double_t *par)
   Double_t LDME_3P1_1 = par[0];
   Double_t LDME_3S1_8 = par[1];
   Double_t LDME_3P2_1 = par[2];
-  
-  Double_t Sigma = //LDME_3P1_1*grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit->Eval(x[0]) + LDME_3S1_8*grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) 
-    LDME_3P2_1*grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P2_1_Fit->Eval(x[0]) + LDME_3S1_8*grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]);
+
+  //Double_t Scale_Pt(Double_t ChiPt, Int_t Par)
+  Double_t Pt = x[0];
+  Double_t Pt1 =0.0;
+  Double_t Pt2 =0.0;
+
+  Pt1 = Scale_Pt(Pt,1);
+  Pt2 = Scale_Pt(Pt,2);
+
+  Double_t Sigma = LDME_3P1_1*grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit->Eval(Pt1) + LDME_3S1_8*grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(Pt1)+ 
+    LDME_3P2_1*grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P2_1_Fit->Eval(Pt2) + LDME_3S1_8*grCDF_Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(Pt2);
   return Sigma;
 }
 
@@ -359,7 +369,24 @@ TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph
 
 }
 
+Double_t Scale_Pt(Double_t JPsiPt, Int_t Par)
+{
 
+  Double_t ChiPt;
+  Double_t MM = 0.0;
+  Double_t CC = 0.0;
+
+
+  if(Par ==0){MM=1.075; CC = 0.113;}
+  if(Par ==1){MM=1.067; CC = 0.181;}
+  if(Par ==2){MM=1.113; CC = 0.137;}
+
+  ChiPt  = MM * JPsiPt + CC;
+
+  return ChiPt;
+
+
+}
 
 
 
