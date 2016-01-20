@@ -1,0 +1,482 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <iomanip>
+#include <fstream>
+#include <ctime>
+//ROOT
+#include "TSystem.h"
+#include "TH1F.h"
+#include "TH2F.h"
+#include "TFile.h"
+#include "TRandom.h"
+#include "TObjArray.h"
+#include "TClonesArray.h"
+#include "TTree.h"
+#include "TLorentzVector.h"
+#include "TStyle.h"
+#include "TCanvas.h"
+#include "TPad.h"
+#include "TParticle.h"
+#include "TMCParticle.h"
+#include "TParticlePDG.h"
+#include "/home/vineet/root/include/TPythia6.h"
+using namespace std;
+
+bool IsAccept(Double_t pt, Double_t eta);
+
+int run_pythia_Psi2S2JPsi(int numberEvents = 500000)
+{
+  // CREATE PYTHIA OBJECT
+  // =====================
+  TPythia6 pythia;
+  // ================================================================
+  // INITIALIZATION SECTION: SET ANY PYTHIA INPUT PARAMETERS HERE 
+  // ================================================================
+  
+  Char_t  targ[10] = "p";        // target 
+  Char_t  proj[10] = "p";	 // projectile
+  double rootS = 7000;            // center of mass energy at CDF
+  
+  pythia.SetMSTP(51,7);
+  pythia.SetMSTJ(11,3); //Choice of the fragmentation function
+  pythia.SetMSTJ(22,2); //Decay those unstable particles
+  pythia.SetPARJ(71,10);  // for which ctau  10 mm
+  pythia.SetMSTP(2,1);    // which order running alphaS
+  pythia.SetMSTP(33,0);   // no K factors in hard cross sections
+  pythia.SetMSTP(51,7);//structure function chosen (external PDF CTEQ6L1)
+  pythia.SetMSTP(52,1);   // work with LHAPDF
+  pythia.SetMSTP(81,1);   // multiple parton interactions 1 is Pythia default
+  pythia.SetMSTP(82,4);   // Defines the multi-parton model
+  pythia.SetMSTU(21,1);   // Check on possible errors during program execution
+  pythia.SetPARP(82,1.8387); // pt cutoff for multiparton interactions
+  pythia.SetPARP(89,1960.);//sqrts for which PARP82 is set
+  pythia.SetPARP(83,0.5); // Multiple interactions: matter distrbn parameter
+  pythia.SetPARP(84,0.4); // Multiple interactions: matter distribution parameter
+  pythia.SetPARP(90,0.16);// Multiple interactions: rescaling power
+  pythia.SetPARP(67,2.5);  // amount of initial-state radiation
+  pythia.SetPARP(85,1.0);// gluon prod. mechanism in MI
+  pythia.SetPARP(86,1.0);// gluon prod. mechanism in MI
+  pythia.SetPARP(62,1.25); // 
+  pythia.SetPARP(64,0.2);  // 
+  pythia.SetMSTP(91,1);    //
+  pythia.SetPARP(91,2.1); // kt distribution
+  pythia.SetPARP(93,15.0);
+   
+    // Switching On the processes to generate
+
+  pythia.SetMSEL(61);          // Quarkonia
+
+  //pythia.SetKFPR(421,1,100443);    // change 421 to Psi(2S) + g
+  //pythia.SetKFPR(421,1);    // change 421 to Psi(2S) + g
+ 
+  pythia.SetPMAS(362,1,3.70000);   // change cc~ mass larger than Psi(2S) 3.68600
+  pythia.SetPMAS(363,1,3.70000);   // change cc~ mass larger than Psi(2S) 3.68600
+  pythia.SetPMAS(364,1,3.70000);   // change cc~ mass larger than Psi(2S) 3.68600
+  pythia.SetKFDP(4211,1,100443);    // cc~ -> Psi(2S)
+  pythia.SetKFDP(4212,1,100443);    // cc~ -> Psi(2S)
+  pythia.SetKFDP(4213,1,100443);    // cc~ -> Psi(2S)
+  pythia.SetPARP(141,0.76);   // New values for COM matrix elements
+  pythia.SetPARP(142,0.0050); // New values for COM matrix elements
+  pythia.SetPARP(143,0.0042); // New values for COM matrix elements
+  pythia.SetPARP(144,0.0042); // New values for COM matrix elements
+  pythia.SetPARP(145,0);      // New values for COM matrix elements
+  
+  pythia.SetMDME(1567,1,0); // 0.008300    e-              e+
+  pythia.SetMDME(1568,1,0); // 0.008300    mu-             mu+
+  pythia.SetMDME(1569,1,0); // 0.186600    rndmflav        rndmflavbar
+  pythia.SetMDME(1570,1,1); // 0.324000    J/psi           pi+             pi-
+  pythia.SetMDME(1571,1,1); // 0.184000    J/psi           pi0             pi0
+  pythia.SetMDME(1572,1,1); // 0.027000    J/psi           eta
+  pythia.SetMDME(1573,1,1); // 0.001000    J/psi           pi0
+ 
+  pythia.SetMDME(1574,1,1); // 0.093000    chi_0c          gamma
+  pythia.SetMDME(1575,1,1); // 0.087000    chi_1c          gamma
+  pythia.SetMDME(1576,1,1); // 0.078000    chi_2c          gamma
+  
+  pythia.SetMDME(1577,1,0); // 0.002800    eta_c           gamma
+  
+  // Force J/Psi decays to mumu 
+  pythia.SetMDME(858,1,0);                  // Truned OFF J/psi -->e+ + e-
+  pythia.SetMDME(859,1,1);                  // Truned ON J/psi -->mu+ + mu-
+  pythia.SetMDME(860,1,0);                  // Truned OFF J/psi -->ranflv +ranflv
+  
+  //pythia.SetMSTP(142,2);      // turns on the PYEVWT Pt re-weighting routine
+  pythia.SetPARJ(13,0.750);   // probability that a c or b meson has S=1
+  pythia.SetPARJ(14,0.162);   // probability that a meson with S=0 is produced with L=1, J=1
+  pythia.SetPARJ(15,0.018);   // probability that a meson with S=1 is produced with L=1, J=0
+  pythia.SetPARJ(16,0.054);   // probability that a meson with S=1 is produced with L=1, J=1
+  pythia.SetMSTP(145,0);      // choice of polarization
+  pythia.SetMSTP(146,0);      // choice of polarization frame ONLY when mstp(145)=1
+  pythia.SetMSTP(147,0);      // particular helicity or density matrix component when mstp(145)=1
+  pythia.SetMSTP(148,1);      // possibility to allow for final-state shower evolution, extreme case !
+
+  //,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  // Projectile, Target and center of mass energy
+  
+  pythia.Initialize("CMS", targ, proj,rootS);   // simulates CDF energies
+  
+  // ===========================================
+  // END OF THE INITIALIZATION SECTION
+  // ===========================================
+  
+  //  set the random seed
+  //  Int_t seed = (Int_t)(time(NULL)/3);
+
+  //  Int_t seed = 2345678;
+  Int_t seed = 123456782;
+
+  if ( (seed>=0) && (seed<=900000000) ) {
+    pythia.SetMRPY(1, seed);			// set seed
+    pythia.SetMRPY(2, 0);			// use new seed
+  }
+  else {
+    cout << "error: time " << seed << " is not valid" << endl;
+    exit(2);
+  }
+  
+
+  // If you want to see the list of all decay channels
+  //pythia.Pylist(12);
+
+  
+  //Define styles
+
+  gStyle->SetCanvasDefH(600);
+  gStyle->SetCanvasDefW(600);
+
+  gStyle->SetOptDate(0);
+  gStyle->SetOptTitle(0);
+  //  gStyle->SetOptStat(0);
+  gStyle->SetCanvasColor(0);
+
+  gStyle->SetPadBorderMode(0);
+  gStyle->SetPadColor(0);  
+
+  gStyle->SetPadLeftMargin(0.13);
+  gStyle->SetPadBottomMargin(0.10);
+  gStyle->SetPadTopMargin(0.03);
+  gStyle->SetPadRightMargin(0.04);
+
+  gStyle->SetTitleOffset(1.2,"x");
+  gStyle->SetTitleOffset(1.3,"y");
+  gStyle->SetTitleOffset(1.3,"z");
+
+  gStyle->SetTitleSize(.04, "xyz");
+
+  gStyle->SetPalette(1);
+
+  
+  // Define Histograms here
+  TH1D *Psi2S_Pt = new TH1D("Psi2S_Pt","Psi2S_Pt",400,0.0,40.0);  
+  Psi2S_Pt->GetXaxis()->SetTitle("#psi(2S) p_{T} (GeV/c)");
+  Psi2S_Pt->GetYaxis()->SetTitle("Entries");
+  Psi2S_Pt->SetName("Psi2S_Pt");
+  Psi2S_Pt->SetTitle("Psi2S_Pt");
+
+  TH1D *Psi2SJPsi_Pt = new TH1D("Psi2SJPsi_Pt","Psi2SJPsi_Pt",400,0.0,40.0);  
+  Psi2SJPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
+  Psi2SJPsi_Pt->GetYaxis()->SetTitle("Entries");
+  Psi2SJPsi_Pt->SetName("Psi2SJPsi_Pt");
+  Psi2SJPsi_Pt->SetTitle("Psi2SJPsi_Pt");
+
+  TH2D *Psi2SVsJPsi_Pt = new TH2D("Psi2SVsJPsi_Pt","Psi2SVsJPsi_Pt",400,0.0,40.0,400,0.0,40.0);  
+  Psi2SVsJPsi_Pt->GetXaxis()->SetTitle("J/#psi p_{T} (GeV/c)");
+  Psi2SVsJPsi_Pt->GetYaxis()->SetTitle("#psi(2S) p_{T} (GeV/c)");
+  Psi2SVsJPsi_Pt->SetName("Psi2SVsJPsi_Pt");
+  Psi2SVsJPsi_Pt->SetName("Psi2SVsJPsi_Pt");
+
+
+  TH2D *Psi2SVsChic0_Pt = new TH2D("Psi2SVsChic0_Pt","Psi2SVsChic0_Pt",400,0.0,40.0,400,0.0,40.0);  
+  Psi2SVsChic0_Pt->GetXaxis()->SetTitle("#chi_{c0} p_{T} (GeV/c)");
+  Psi2SVsChic0_Pt->GetYaxis()->SetTitle("#psi(2S) p_{T} (GeV/c)");
+  Psi2SVsChic0_Pt->SetName("Psi2SVsChic0_Pt");
+  Psi2SVsChic0_Pt->SetName("Psi2SVsChic0_Pt");
+
+
+  TH2D *Psi2SVsChic1_Pt = new TH2D("Psi2SVsChic1_Pt","Psi2SVsChic1_Pt",400,0.0,40.0,400,0.0,40.0);  
+  Psi2SVsChic1_Pt->GetXaxis()->SetTitle("#chi_{c1} p_{T} (GeV/c)");
+  Psi2SVsChic1_Pt->GetYaxis()->SetTitle("#psi(2S) p_{T} (GeV/c)");
+  Psi2SVsChic1_Pt->SetName("Psi2SVsChic1_Pt");
+  Psi2SVsChic1_Pt->SetName("Psi2SVsChic1_Pt");
+
+
+
+  TH2D *Psi2SVsChic2_Pt = new TH2D("Psi2SVsChic2_Pt","Psi2SVsChic2_Pt",400,0.0,40.0,400,0.0,40.0);  
+  Psi2SVsChic2_Pt->GetXaxis()->SetTitle("#chi_{c2} p_{T} (GeV/c)");
+  Psi2SVsChic2_Pt->GetYaxis()->SetTitle("#psi(2S) p_{T} (GeV/c)");
+  Psi2SVsChic2_Pt->SetName("Psi2SVsChic2_Pt");
+  Psi2SVsChic2_Pt->SetName("Psi2SVsChic2_Pt");
+  
+
+
+
+  // Define Histograms here
+  TH1D *Mu_Pt = new TH1D("Mu_Pt","Mu_Pt",200,0.0,20.0);  
+  Mu_Pt->GetXaxis()->SetTitle("Mu p_{T} (GeV/c)");
+  Mu_Pt->GetYaxis()->SetTitle("Entries");
+
+  
+  float RadtoDeg = 180/(TMath::ATan(1)*4);
+  
+  // ===========================================
+  // CREATE ROOT OUTPUT FILE AND DEFINE T TREE
+  // ===========================================
+  TFile *rootfile = new TFile("pythia.root", "recreate");
+  
+  TClonesArray *particleArray = new TClonesArray();
+  TMCParticle  *particle = new TMCParticle();
+  
+  int eventNo =0;
+  TTree *evTree = new TTree("evTree", "Event tree");
+  evTree->Branch("particle", "TMCParticle", &particle);
+  evTree->Branch("evt", &eventNo, "evt/I"); 
+  
+  TMCParticle *Parent;      //parent particle
+  TMCParticle *Particle;   //particle
+  TMCParticle *Dau1;      //daughter1
+  TMCParticle *Dau2;     //daughter2
+ 
+
+  Int_t parent_position,dau1_position,dau2_position;
+  Int_t id,  parent_id, dau1_id, dau2_id;
+  Int_t mode=0;
+  
+  
+  Double_t P, Px, Py, Pz, E, Pt, Rapidity, Eta;
+  Double_t Par_P, Par_Px, Par_Py, Par_Pz, Par_E,Par_Pt, Par_Rapidity, Par_Eta;
+  
+  Double_t Dau1_P, Dau1_Px, Dau1_Py, Dau1_Pz, Dau1_E, Dau1_Pt, Dau1_Rapidity, Dau1_Eta;
+  Double_t Dau2_P, Dau2_Px, Dau2_Py, Dau2_Pz, Dau2_E, Dau2_Pt, Dau2_Rapidity, Dau2_Eta;
+    
+   
+  // ==========================
+  Int_t event;
+
+  Int_t CountPsi2S = 0;
+  
+
+  for(event=1; eventNo < numberEvents ; event++) {
+  
+  //for(event=1; event < numberEvents; event++) {
+   
+
+    //////// Generate Event ///////
+    pythia.GenerateEvent();
+    // Store only final state charged particles
+    //pythia.Pylist(1); // 1->Event history
+    // 12->A list of decay channels with current IDC
+    //pythia.Pyedit(4); // 4->Stores only charged particles
+
+    // Get list of particle and global event information
+    particleArray = (TClonesArray *)pythia.ImportParticles();
+    Int_t numParticles = particleArray->GetEntries();        // get number of generated particles
+    
+    if(event%1000==0){cout<<" Total "<< numParticles <<"  particles are produced in  event "<< event<<endl;}
+    //hard code to start from 2,so as to remove the first two input protons
+    
+    CountPsi2S = 0;
+       
+    for (Int_t i=2; i<numParticles; i++) 
+      {
+	
+	Particle = (TMCParticle *)particleArray->At(i);
+	id = Particle->GetKF();
+	
+	//=================== Get Particle Variables ===========================//
+	Px = Particle->GetPx();
+	Py = Particle->GetPy();
+	Pz = Particle->GetPz();
+	E = Particle->GetEnergy();
+
+	P = TMath::Sqrt(Px*Px + Py*Py + Pz*Pz);
+	Pt = TMath::Sqrt(Px*Px + Py*Py);
+	Rapidity = 0.5*TMath::Log((E + Pz)/(E - Pz));
+	Eta =  0.5*TMath::Log((P + Pz)/(P - Pz));
+
+	//=================== Get Parent Variables ===========================//
+	//Get parent of particle
+        parent_position = Particle->GetParent()-1;
+	if(parent_position<0) parent_position =0;
+	Parent = (TMCParticle *)particleArray->At(parent_position);
+	parent_id = Parent->GetKF();
+	
+	Par_Px = Parent->GetPx();
+	Par_Py = Parent->GetPy();
+	Par_Pz = Parent->GetPz();
+	Par_E = Parent->GetEnergy();
+	
+	Par_P = TMath::Sqrt(Par_Px*Par_Px + Par_Py*Par_Py + Par_Pz*Par_Pz);
+	Par_Pt = TMath::Sqrt(Par_Px*Par_Px + Par_Py*Par_Py);
+	Par_Rapidity = 0.5*TMath::Log((Par_E + Par_Pz)/(Par_E - Par_Pz));
+	Par_Eta =  0.5*TMath::Log((Par_P + Par_Pz)/(Par_P - Par_Pz));
+
+	//=================== Get Daughters Variables ===========================//
+	//Get first daughter of the particle
+	dau1_position = Particle->GetFirstChild()-1;
+	if(dau1_position<0) dau1_position=0;
+	Dau1 = (TMCParticle *)particleArray->At(dau1_position);
+	dau1_id= Dau1->GetKF();
+	Dau1_Px = Dau1->GetPx();
+	Dau1_Py = Dau1->GetPy();
+	Dau1_Pz = Dau1->GetPz();
+	Dau1_E = Dau1->GetEnergy();
+	Dau1_Pt = TMath::Sqrt( Dau1_Px*Dau1_Px + Dau1_Py*Dau1_Py );
+	Dau1_P  = TMath::Sqrt( Dau1_Px*Dau1_Px + Dau1_Py*Dau1_Py + Dau1_Pz*Dau1_Pz );
+	Dau1_Rapidity =  0.5*TMath::Log((Dau1_E + Dau1_Pz)/(Dau1_E - Dau1_Pz));
+	Dau1_Eta =  0.5*TMath::Log((Dau1_P + Dau1_Pz)/(Dau1_P - Dau1_Pz));
+	//Get second daughter of the particle
+	dau2_position = Particle->GetLastChild()-1;
+	if(dau2_position<0) dau2_position=0;
+	Dau2 = (TMCParticle *)particleArray->At(dau2_position);
+	dau2_id = Dau2->GetKF();
+	Dau2_Px = Dau2->GetPx();
+	Dau2_Py = Dau2->GetPy();
+	Dau2_Pz = Dau2->GetPz();
+	Dau2_E = Dau2->GetEnergy();
+	Dau2_Pt = TMath::Sqrt( Dau2_Px*Dau2_Px + Dau2_Py*Dau2_Py );
+	Dau2_P  = TMath::Sqrt( Dau2_Px*Dau2_Px + Dau2_Py*Dau2_Py + Dau2_Pz*Dau2_Pz );
+	Dau2_Rapidity =  0.5*TMath::Log((Dau2_E + Dau2_Pz)/(Dau2_E - Dau2_Pz));
+	Dau2_Eta =  0.5*TMath::Log((Dau2_P + Dau2_Pz)/(Dau2_P - Dau2_Pz));
+
+	//=============================== Make Signal ======================================//
+	Int_t Dau1_Accept = 0;
+	Int_t Dau2_Accept = 0;
+	Int_t IsSignal = 0;	
+	
+	Int_t PDG_JPsi = 443;
+	Int_t PDG_Psi2S = 100443;
+
+	Int_t PDG_Chic0 = 10441;
+	Int_t PDG_Chic1 = 20443;
+	Int_t PDG_Chic2 = 445;
+
+	Int_t PDG_MuPlus = -13;
+	Int_t PDG_MuMinus = 13;
+ 
+
+
+
+	//Fill the histograms
+
+	//if( (TMath::Abs(dau1_id) == 13 && TMath::Abs(dau2_id) == 13) &&  id == PDG_JPsi && parent_id == PDG_Chic0) 
+	//if( id == PDG_JPsi && parent_id == PDG_Chic0) 
+
+	if( id == PDG_JPsi && parent_id == PDG_Psi2S) 
+	  {
+	    
+	    if(IsAccept(Dau1_Pt, Dau1_Eta)==1){Dau1_Accept =1;}
+	    if(IsAccept(Dau2_Pt, Dau2_Eta)==1){Dau2_Accept =1;}
+	    if(Dau1_Accept == 1 && Dau2_Accept == 1){IsSignal =1;}
+	    
+	    IsSignal =1;
+
+	    if(IsSignal ==1){Psi2SJPsi_Pt->Fill(Pt);}
+	    if(IsSignal ==1){Psi2S_Pt->Fill(Par_Pt);}
+	    if(IsSignal ==1){Psi2SVsJPsi_Pt->Fill(Pt,Par_Pt);}
+	    if(IsSignal ==1){CountPsi2S=1;}
+	  }
+
+
+	if( id == PDG_Chic0 && parent_id == PDG_Psi2S) 
+	  {
+	    Psi2SVsChic0_Pt->Fill(Pt,Par_Pt);
+	  }
+
+
+	if( id == PDG_Chic1 && parent_id == PDG_Psi2S) 
+	  {
+	    Psi2SVsChic1_Pt->Fill(Pt,Par_Pt);
+	  }
+
+
+	if( id == PDG_Chic2 && parent_id == PDG_Psi2S) 
+	  {
+	    Psi2SVsChic2_Pt->Fill(Pt,Par_Pt);
+	  }
+
+
+
+
+
+
+      } // Particle loop
+
+    if(CountPsi2S==1) {eventNo++;}
+    if(event%1000 == 0){
+      cout<<"number of events trials: "<< event << "  Selected events:  " << eventNo <<endl;
+    }
+
+  }  //Event loop
+
+
+
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Psi2SJPsi_Pt->Draw();
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Psi2S_Pt->Draw();
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLeftMargin(0.18);
+  Psi2SVsJPsi_Pt->Draw("colz");
+
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLeftMargin(0.18);
+  Psi2SVsChic0_Pt->Draw("colz");
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLeftMargin(0.18);
+  Psi2SVsChic1_Pt->Draw("colz");
+
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLeftMargin(0.18);
+  Psi2SVsChic2_Pt->Draw("colz");
+
+
+ 
+  Psi2SJPsi_Pt->Write();
+  Psi2S_Pt->Write();
+  Psi2SVsJPsi_Pt->Write();
+
+  Psi2SVsChic0_Pt->Write();
+  Psi2SVsChic1_Pt->Write();
+  Psi2SVsChic2_Pt->Write();
+  
+
+  rootfile->Close();
+
+
+
+
+
+  return 0;
+}
+
+
+bool IsAccept(Double_t pt, Double_t eta)
+{
+  
+  return ( fabs(eta) < 0.6 && pt > 0.0);
+}
+
+
+
+
+//TMCParticle to TParticle conversion
+//Particle::TParticle(pdg,status,mother1,mother2,daughter1,daughter2,px,py,pz,etot,vx,vy,vz,time) 
+//TParticle *tparticleB = new TParticle(parentPDG, 1,0, 0, 0, 0, Bpx,Bpy,Bpz,Ben,Bvx,Bvy,Bvz,pB->GetTime());

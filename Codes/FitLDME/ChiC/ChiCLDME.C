@@ -42,7 +42,7 @@
 #include "TMultiGraph.h"
 #include "TLegend.h"
 #include "TMath.h"
-
+#include <TFitResult.h>
 
 
 //================== CDF: 1.8 TeV  Chic0 calculated root file ===========================================//
@@ -80,6 +80,20 @@ TGraph *Scale_QCDSigma(TGraph *InGraph, Double_t LDME);
 TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4);
 
 Double_t Scale_Pt(Double_t JPsiPt, Int_t Par);
+
+TGraphAsymmErrors *gr0;
+Double_t fcn0(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
+void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag);
+
+
+
+
+
+
+
+
+
+
 
 const Double_t mC = 1.6;
 
@@ -214,23 +228,28 @@ void ChiCLDME()
   
   CDF_180_Chic1Chic2_FitFunctionLDME->SetLineColor(2);
   CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(0,1.0);     
-  // CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(1,0.002);     
   CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(2,1.0);     
 
   //CDF_180_Chic1Chic2_FitFunctionLDME->SetParLimits(1,0.0,10.0);     
-
-
-  grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->Fit("CDF_180_Chic1Chic2_FitFunctionLDME","Q0","MER", 7.0, 18.0);
+  TFitResultPtr r = grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->Fit("CDF_180_Chic1Chic2_FitFunctionLDME","0S","MER", 7.0, 18.0);
   
+  //double p0err_low = r->LowerError(1); 
+  //double p0err_up = r->UpperError(1);
+  //cout<<p0err_low<<"   "<<p0err_up<<endl;
+
+
   Double_t CDF_180_Chic1Chic2_Chi2 = CDF_180_Chic1Chic2_FitFunctionLDME->GetChisquare();
   Double_t CDF_180_Chic1Chic2_NDF =  CDF_180_Chic1Chic2_FitFunctionLDME->GetNDF();
   Double_t CDF_180_Chic1Chic2_Prob = CDF_180_Chic1Chic2_FitFunctionLDME->GetProb();
   Double_t CDF_180_Chic1Chic2_LDME_3P1_1 = CDF_180_Chic1Chic2_FitFunctionLDME->GetParameter(0);
+  
   Double_t CDF_180_Chic1Chic2_LDME_3S1_8 = CDF_180_Chic1Chic2_FitFunctionLDME->GetParameter(1);
+  Double_t Err_CDF_180_Chic1Chic2_LDME_3S1_8 = CDF_180_Chic1Chic2_FitFunctionLDME->GetParError(1);
+  
   Double_t CDF_180_Chic1Chic2_LDME_3P2_1 = CDF_180_Chic1Chic2_FitFunctionLDME->GetParameter(2);
 
   cout<<"LDME : 3P1_1 "<<CDF_180_Chic1Chic2_LDME_3P1_1<<endl;
-  cout<<"LDME : 3S1_8 "<<CDF_180_Chic1Chic2_LDME_3S1_8<<endl;
+  cout<<"LDME : 3S1_8 "<<CDF_180_Chic1Chic2_LDME_3S1_8<<" pm: "<<Err_CDF_180_Chic1Chic2_LDME_3S1_8<<endl;
   cout<<"LDME : 3P2_1 "<<CDF_180_Chic1Chic2_LDME_3P2_1<<endl;
   
   cout<<"Chi2/NDF : "<<CDF_180_Chic1Chic2_Chi2<<"/"<<CDF_180_Chic1Chic2_NDF<<" Prob: "<<CDF_180_Chic1Chic2_Prob<<endl<<endl;
@@ -269,6 +288,86 @@ void ChiCLDME()
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->Draw("same");
   
+  //==================================== Fit with TMiniut ========================//
+  gr0=new TGraphAsymmErrors();
+  gr0=Data_CDF_180_D2NDPtDy_Chic1Chic2ToJPsi_Y0006_Pt();
+
+  
+ //---------------------------------------------------------------------
+  //     Blocks for fitting procedure
+  //---------------------------------------------------------------------
+  const Int_t npars = 3;
+  TMinuit *gMinuit = new TMinuit(npars);  //initialize TMinuit with a maximum of 3 params
+  gMinuit->SetFCN(fcn);
+  
+  Double_t arglist[10];
+  Int_t ierflg = 0;
+  arglist[0] = 1;
+  gMinuit->mnexcm("SET ERR", arglist, 1, ierflg);
+  
+  // Set starting values and step sizes for parameters
+  static Double_t vstart[] = {1.0,0.0010,1.0};
+  static Double_t step[]   = {0.1,0.0001,0.1};
+
+  gMinuit->mnparm(0, "3P1_1", vstart[0], step[0], 0, 0, ierflg);
+  gMinuit->mnparm(1, "3S1_8", vstart[1], step[1], 0, 0, ierflg);
+  gMinuit->mnparm(2, "3P2_1", vstart[2], step[2], 0, 0, ierflg);
+  
+  gMinuit->FixParameter(0);
+  gMinuit->FixParameter(2);
+ 
+  //This is where the delta chi2 is defined
+  //This is critical to getting the correct error estimates
+  arglist[0] = 1.0;
+  if (arglist[0]) gMinuit->mnexcm("SET ERR", arglist, 1, ierflg);
+  
+  // Now ready for minimization step
+  arglist[0] = 500; //max 500
+  arglist[1] = 0.01; // tolerance = 0.1
+  gMinuit->mnexcm("MIGRAD", arglist, 2, ierflg);
+  
+  // Print results
+  Double_t amin,edm,errdef;
+  Int_t nvpar,nparx,icstat;
+  gMinuit->mnstat(amin,edm,errdef,nvpar,nparx,icstat);
+
+  Int_t iuext;
+  TString chnam;   // The name of the parameter
+  Double_t val;    // The current (external) value of the parameter 
+  Double_t errl[npars] = {0};   // The current estimate of the parameter uncertainty  
+  Double_t xlolim; // The lower bound (or zero if no limits)
+  Double_t xuplim; // The upper bound (or zero if no limits)
+  Int_t iuint;     // The internal parameter number 
+ 
+  Int_t i = 0;
+  Double_t currentPar[npars] = {0};
+  for (i=0; i< npars;i++) {
+    gMinuit->mnpout(i, chnam, currentPar[i], errl[i], xlolim, xuplim, iuint);
+  }
+  
+  TF1 *fun_0=new TF1("fun_0",CDF_180_Chic1Chic2_FitLDME, 5.0, 20, 3); 	
+  fun_0->SetParameters(currentPar);
+  fun_0->SetLineColor(kBlack);
+  fun_0->SetLineStyle(1);
+  fun_0->SetLineWidth(2);
+
+  cout<<endl<<endl;
+  cout<<" TMiniut fitting perameters "<<endl;
+  cout<<"LDME : 3P1_1 "<<currentPar[0]<<" pm  "<<errl[0]<<endl;
+  cout<<"LDME : 3S1_8 "<<currentPar[1]<<" pm  "<<errl[1]<<endl;
+  cout<<"LDME : 3P2_1 "<<currentPar[2]<<" pm  "<<errl[2]<<endl<<endl;
+
+
+  gr0->Fit("fun_0","Q0","MER", 5, 20);
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  gr0->Draw("AP");
+  fun_0->Draw("same");
+
+
 
 
 
@@ -436,10 +535,36 @@ TGraphAsymmErrors *Data_CDF_180_D2NDPtDy_Chic1Chic2ToJPsi_Y0006_Pt()
 
 
 
+Double_t fcn0(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
+{
+  const Int_t nbins = gr0->GetN();
+  Int_t i;
+  Double_t xx0[nbins];
+  Double_t yy0[nbins];
+  Double_t erryy0[nbins];
+    
+  for (Int_t j=0;j<nbins; j++) 
+    {
+      gr0->GetPoint(j,xx0[j],yy0[j]);
+      erryy0[j]= gr0->GetErrorY(j);
+    }
+
+  //calculate chisquare
+  Double_t chisq = 0;
+  for (i=0;i<  nbins; i++) {
+    Double_t delta  = (yy0[i]-CDF_180_Chic1Chic2_FitLDME(&xx0[i],par))/erryy0[i];
+    chisq += delta*delta;
+  }
+  return chisq;
+}
 
 
+void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
+{
+  f = fcn0(npar,gin,par, iflag);
 
-
+  
+}
 
 
 

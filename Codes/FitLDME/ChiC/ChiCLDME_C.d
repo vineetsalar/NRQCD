@@ -102,5 +102,14 @@
 ./ChiCLDME_C.so: /home/vineet/root/include/TGraphAsymmErrors.h
 ./ChiCLDME_C.so: /home/vineet/root/include/TMinuit.h
 ./ChiCLDME_C.so: /home/vineet/root/include/TMethodCall.h
+./ChiCLDME_C.so: /home/vineet/root/include/TFitResult.h
+./ChiCLDME_C.so: /home/vineet/root/include/Fit/FitResult.h
+./ChiCLDME_C.so: /home/vineet/root/include/Math/IFunctionfwd.h
+./ChiCLDME_C.so: /home/vineet/root/include/Math/IParamFunctionfwd.h
+./ChiCLDME_C.so: /home/vineet/root/include/TMatrixDSym.h
+./ChiCLDME_C.so: /home/vineet/root/include/TMatrixTSym.h
+./ChiCLDME_C.so: /home/vineet/root/include/TMatrixDSymfwd.h
+./ChiCLDME_C.so: /home/vineet/root/include/TMatrixDUtils.h
+./ChiCLDME_C.so: /home/vineet/root/include/TMatrixDUtilsfwd.h
 ./ChiCLDME_C.so: /home/vineet/root/include/cintdictversion.h /home/vineet/root/include/RVersion.h
 ChiCLDME_C__ROOTBUILDVERSION= 5.34/12

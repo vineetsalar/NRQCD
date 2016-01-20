@@ -2867,9 +2867,7 @@ Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t H0_Amp = Constt*Term1*Term2;
 
-
   Double_t Term3 = (SS2*(TMath::Power((SS-mJPsi2),4) + TT2*TT2 + UU2*UU2 + 2.0*mJPsi4*TMath::Power((TT*UU/SS),2)))/TMath::Power((SS-mJPsi2),2);
-  
  
   Double_t H1_Amp = Constt*Term3*Term2;
 

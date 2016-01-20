@@ -216,6 +216,11 @@ void Psi2SLDME()
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
 
+  //============================ Open a output text file ====================================//
+  char OutTextFile[100];
+  sprintf(OutTextFile,"LDME_Psi2S.txt");
+  ofstream dataFile(Form(OutTextFile),ios::app);
+
 
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== FITTING CMS DATA FOR LDME ================================"<<endl;
@@ -261,12 +266,10 @@ void Psi2SLDME()
 
   mg->Fit("CMSFitFunctionLDME","Q0","MER", 5, 100);
   
-
-
   Double_t CMS_Chi2 = CMSFitFunctionLDME->GetChisquare();
   Double_t CMS_NDF = CMSFitFunctionLDME->GetNDF();
   Double_t CMS_Prob = CMSFitFunctionLDME->GetProb();
-
+  
   Double_t CMS_LDME_3S1_1 = CMSFitFunctionLDME->GetParameter(0);
   Double_t CMS_LDME_1S0_8 = CMSFitFunctionLDME->GetParameter(1);
   Double_t CMS_LDME_3S1_8 = CMSFitFunctionLDME->GetParameter(2);
@@ -282,6 +285,18 @@ void Psi2SLDME()
   cout<<"LDME : 3P1_8 "<<CMS_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<CMS_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<CMS_Chi2<<"/"<<CMS_NDF<<" Prob: "<<CMS_Prob<<endl<<endl;
+
+  dataFile<<"Fitting CMS Data"<<endl;
+  dataFile<<"LDME : 3S1_1 "<<CMS_LDME_3S1_1<<endl;
+  dataFile<<"LDME : 1S0_8 "<<CMS_LDME_1S0_8<<endl;
+  dataFile<<"LDME : 3S1_8 "<<CMS_LDME_3S1_8<<endl;
+  dataFile<<"LDME : 3P0_8 "<<CMS_LDME_3P0_8<<endl;
+  dataFile<<"LDME : 3P1_8 "<<CMS_LDME_3P1_8<<endl;
+  dataFile<<"LDME : 3P2_8 "<<CMS_LDME_3P2_8<<endl<<endl;
+  dataFile<<"Chi2/NDF : "<<CMS_Chi2<<"/"<<CMS_NDF<<" Prob: "<<CMS_Prob<<endl<<endl;
+
+
+
 
 
   TGraph *Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, CMS_LDME_3S1_1);
@@ -309,7 +324,6 @@ void Psi2SLDME()
   lgd_DSigmaDPtDY_Pt->AddEntry(Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit,"^{3}P_{0}^{[8]}","L");
   lgd_DSigmaDPtDY_Pt->AddEntry(Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit,"^{3}P_{1}^{[8]}","L");
   lgd_DSigmaDPtDY_Pt->AddEntry(Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit,"^{3}P_{2}^{[8]}","L");
-
 
   new TCanvas;
   gPad->SetTicks();
@@ -407,6 +421,25 @@ void Psi2SLDME()
   cout<<"LDME : 3P1_8 "<<ATLAS_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<ATLAS_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<ATLAS_Chi2<<"/"<<ATLAS_NDF<<" Prob: "<<ATLAS_Prob<<endl<<endl;
+
+
+
+  dataFile<<"Fitting ATLAS 7 TeV Data"<<endl;
+  dataFile<<"LDME : 3S1_1 "<<ATLAS_LDME_3S1_1<<endl;
+  dataFile<<"LDME : 1S0_8 "<<ATLAS_LDME_1S0_8<<endl;
+  dataFile<<"LDME : 3S1_8 "<<ATLAS_LDME_3S1_8<<endl;
+  dataFile<<"LDME : 3P0_8 "<<ATLAS_LDME_3P0_8<<endl;
+  dataFile<<"LDME : 3P1_8 "<<ATLAS_LDME_3P1_8<<endl;
+  dataFile<<"LDME : 3P2_8 "<<ATLAS_LDME_3P2_8<<endl<<endl;
+  dataFile<<"Chi2/NDF : "<<ATLAS_Chi2<<"/"<<ATLAS_NDF<<" Prob: "<<ATLAS_Prob<<endl<<endl;
+
+
+
+
+
+
+
+
 
 
   TGraph *Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, ATLAS_LDME_3S1_1);
@@ -517,7 +550,16 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   cout<<"LDME : 3P2_8 "<<ATLAS8TeV_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<ATLAS8TeV_Chi2<<"/"<<ATLAS8TeV_NDF<<" Prob: "<<ATLAS8TeV_Prob<<endl<<endl;
   
-  
+  dataFile<<"Fitting ATLAS 8 TeV Data"<<endl;
+  dataFile<<"LDME : 3S1_1 "<<ATLAS8TeV_LDME_3S1_1<<endl;
+  dataFile<<"LDME : 1S0_8 "<<ATLAS8TeV_LDME_1S0_8<<endl;
+  dataFile<<"LDME : 3S1_8 "<<ATLAS8TeV_LDME_3S1_8<<endl;
+  dataFile<<"LDME : 3P0_8 "<<ATLAS8TeV_LDME_3P0_8<<endl;
+  dataFile<<"LDME : 3P1_8 "<<ATLAS8TeV_LDME_3P1_8<<endl;
+  dataFile<<"LDME : 3P2_8 "<<ATLAS8TeV_LDME_3P2_8<<endl<<endl;
+  dataFile<<"Chi2/NDF : "<<ATLAS8TeV_Chi2<<"/"<<ATLAS8TeV_NDF<<" Prob: "<<ATLAS8TeV_Prob<<endl<<endl;
+
+
 
   TGraph *Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit, ATLAS8TeV_LDME_3S1_1);
   Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
@@ -594,9 +636,6 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   //return;
 
 
-
-
- 
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== FITTING CDF DATA FOR LDME ================================"<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
@@ -632,10 +671,16 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   cout<<"LDME : 3P2_8 "<<CDF_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<CDF_Chi2<<"/"<<CDF_NDF<<" Prob: "<<CDF_Prob<<endl<<endl;
 
+  dataFile<<"Fitting CDF 1.96 TeV Data"<<endl;
+  dataFile<<"LDME : 3S1_1 "<<CDF_LDME_3S1_1<<endl;
+  dataFile<<"LDME : 1S0_8 "<<CDF_LDME_1S0_8<<endl;
+  dataFile<<"LDME : 3S1_8 "<<CDF_LDME_3S1_8<<endl;
+  dataFile<<"LDME : 3P0_8 "<<CDF_LDME_3P0_8<<endl;
+  dataFile<<"LDME : 3P1_8 "<<CDF_LDME_3P1_8<<endl;
+  dataFile<<"LDME : 3P2_8 "<<CDF_LDME_3P2_8<<endl<<endl;
+  dataFile<<"Chi2/NDF : "<<CDF_Chi2<<"/"<<CDF_NDF<<" Prob: "<<CDF_Prob<<endl<<endl;
 
 
-
-  
   TGraph *Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit, CDF_LDME_3S1_1);
   Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
   TGraph *Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit, CDF_LDME_1S0_8);
@@ -695,7 +740,6 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   lgd_DSigmaDPtDY_Pt3->AddEntry(Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
   lgd_DSigmaDPtDY_Pt3->AddEntry(Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
 
-
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -706,9 +750,6 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   lgd_DSigmaDPtDY_Pt3->Draw("same");
-
-
-
 
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== FITTING CDF RootS 1.8 TeV DATA FOR LDME ================="<<endl;
@@ -748,6 +789,19 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   cout<<"Chi2/NDF : "<<CDF_180_Chi2<<"/"<<CDF_180_NDF<<" Prob: "<<CDF_180_Prob<<endl<<endl;
 
   
+  dataFile<<"Fitting CDF 1.8 TeV Data"<<endl;
+
+  dataFile<<"LDME : 3S1_1 "<<CDF_180_LDME_3S1_1<<endl;
+  dataFile<<"LDME : 1S0_8 "<<CDF_180_LDME_1S0_8<<endl;
+  dataFile<<"LDME : 3S1_8 "<<CDF_180_LDME_3S1_8<<endl;
+  dataFile<<"LDME : 3P0_8 "<<CDF_180_LDME_3P0_8<<endl;
+  dataFile<<"LDME : 3P1_8 "<<CDF_180_LDME_3P1_8<<endl;
+  dataFile<<"LDME : 3P2_8 "<<CDF_180_LDME_3P2_8<<endl<<endl;
+  dataFile<<"Chi2/NDF : "<<CDF_180_Chi2<<"/"<<CDF_180_NDF<<" Prob: "<<CDF_180_Prob<<endl<<endl;
+
+
+
+
   TGraph *Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit, CDF_180_LDME_3S1_1);
   Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
   TGraph *Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit, CDF_180_LDME_1S0_8);
@@ -829,16 +883,12 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   grfData_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt->Draw("zAP");
   grfData_CDF_180_D2NDPtDy_PromptPsi2S_Y0006_Pt->Draw("zPsame");
   
-
-
-
   //return;
 
-  
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== FITTING LHCb DATA FOR LDME ================================"<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-
+  
   cout<<" getting LHCbData Graph : "<<endl;
   TGraphAsymmErrors *grfData_LHCb_D2NDPtDy_PromptPsi2S_Y2045_Pt=new TGraphAsymmErrors();
   grfData_LHCb_D2NDPtDy_PromptPsi2S_Y2045_Pt=Data_LHCb_D2NDPtDy_PromptPsi2S_Y2045_Pt();
@@ -875,6 +925,24 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   cout<<"LDME : 3P1_8 "<<LHCb_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<LHCb_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<LHCb_Chi2<<"/"<<LHCb_NDF<<" Prob: "<<LHCb_Prob<<endl<<endl;
+
+
+
+  dataFile<<"Fitting LHCb 7 TeV Data"<<endl;
+
+  dataFile<<"LDME : 3S1_1 "<<LHCb_LDME_3S1_1<<endl;
+  dataFile<<"LDME : 1S0_8 "<<LHCb_LDME_1S0_8<<endl;
+  dataFile<<"LDME : 3S1_8 "<<LHCb_LDME_3S1_8<<endl;
+  dataFile<<"LDME : 3P0_8 "<<LHCb_LDME_3P0_8<<endl;
+  dataFile<<"LDME : 3P1_8 "<<LHCb_LDME_3P1_8<<endl;
+  dataFile<<"LDME : 3P2_8 "<<LHCb_LDME_3P2_8<<endl<<endl;
+  dataFile<<"Chi2/NDF : "<<LHCb_Chi2<<"/"<<LHCb_NDF<<" Prob: "<<LHCb_Prob<<endl<<endl;
+
+
+
+
+
+
 
 
   TGraph *Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, LHCb_LDME_3S1_1);
@@ -1017,7 +1085,7 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Int_t iuext;
   TString chnam;   // The name of the parameter
   Double_t val;    // The current (external) value of the parameter 
-  Double_t errl;   // The current estimate of the parameter uncertainty  
+  Double_t errl[npars]={0};   // The current estimate of the parameter uncertainty  
   Double_t xlolim; // The lower bound (or zero if no limits)
   Double_t xuplim; // The upper bound (or zero if no limits)
   Int_t iuint;     // The internal parameter number 
@@ -1025,7 +1093,7 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  Int_t i = 0;
   Double_t currentPar[npars] = {0};
   for (i=0; i< npars;i++) {
-    gMinuit->mnpout(i, chnam, currentPar[i], errl, xlolim, xuplim, iuint);
+    gMinuit->mnpout(i, chnam, currentPar[i], errl[i], xlolim, xuplim, iuint);
   }
 
   TMultiGraph *gl_mg = new TMultiGraph();
@@ -1085,12 +1153,29 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   fun_2->Draw("same");
   //fun_3->Draw("same");
 
-
   cout<<endl<<endl;
   cout<<" combined fitting perameters "<<endl;
-  cout<<"LDME : 3S1_1 "<<currentPar[0]<<endl;
-  cout<<"LDME : 1S0_8 "<<currentPar[1]<<endl;
-  cout<<"LDME : 3S1_8 "<<currentPar[2]<<endl<<endl;
+  cout<<"LDME : 3S1_1 "<<currentPar[0]<<" \\pm "<<errl[0]<<endl;
+  cout<<"LDME : 1S0_8 "<<currentPar[1]<<" \\pm "<<errl[1]<<endl;
+  cout<<"LDME : 3S1_8 "<<currentPar[2]<<" \\pm "<<errl[2]<<endl;
+  cout<<"LDME : 3P0_1 "<<currentPar[1]*mC*mC<<"\\pm"<<errl[1]*mC*mC<<endl;
+  cout<<"LDME : 3P1_1 "<<3.0*currentPar[1]*mC*mC<<"\\pm"<<3.0*errl[1]*mC*mC<<endl;
+  cout<<"LDME : 3P1_2 "<<5.0*currentPar[1]*mC*mC<<"\\pm"<<5.0*errl[1]*mC*mC<<endl<<endl;
+  
+  
+  dataFile<<endl<<endl;
+  dataFile<<" combined fitting perameters "<<endl;
+  dataFile<<"LDME : 3S1_1 "<<currentPar[0]<<"\\pm"<<errl[0]<<endl;
+  dataFile<<"LDME : 1S0_8 "<<currentPar[1]<<"\\pm"<<errl[1]<<endl;
+  dataFile<<"LDME : 3S1_8 "<<currentPar[2]<<"\\pm"<<errl[2]<<endl;
+  dataFile<<"LDME : 3P0_1 "<<currentPar[1]*mC*mC<<"\\pm"<<errl[1]*mC*mC<<endl;
+  dataFile<<"LDME : 3P1_1 "<<3.0*currentPar[1]*mC*mC<<"\\pm"<<3.0*errl[1]*mC*mC<<endl;
+  dataFile<<"LDME : 3P1_2 "<<5.0*currentPar[1]*mC*mC<<"\\pm"<<5.0*errl[1]*mC*mC<<endl<<endl;
+
+
+
+
+
   
   //============================ Calculate Chi2 For Combined fitting =====================//
 
@@ -1479,16 +1564,13 @@ Double_t fcn5(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
 //______________________________________________________________________________
 void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
 {
-  f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag);
+  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag);
 
-  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)
-  //+ fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
+  f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)
+    + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
 
 
 }
-
-
-
 
 
 
