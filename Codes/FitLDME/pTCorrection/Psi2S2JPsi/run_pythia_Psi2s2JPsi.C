@@ -26,7 +26,7 @@ using namespace std;
 
 bool IsAccept(Double_t pt, Double_t eta);
 
-int run_pythia_Psi2S2JPsi(int numberEvents = 500000)
+int run_pythia_Psi2S2JPsi(int numberEvents = 10000)
 {
   // CREATE PYTHIA OBJECT
   // =====================
@@ -186,6 +186,14 @@ int run_pythia_Psi2S2JPsi(int numberEvents = 500000)
   Psi2SVsJPsi_Pt->GetYaxis()->SetTitle("#psi(2S) p_{T} (GeV/c)");
   Psi2SVsJPsi_Pt->SetName("Psi2SVsJPsi_Pt");
   Psi2SVsJPsi_Pt->SetName("Psi2SVsJPsi_Pt");
+
+  
+  TH2D *Psi2SVsJPsi_Rap = new TH2D("Psi2SVsJPsi_Rap","Psi2SVsJPsi_Rap",100,-5.0,5.0,100,-5.0,5.0);  
+  Psi2SVsJPsi_Rap->GetXaxis()->SetTitle("J/#psi y");
+  Psi2SVsJPsi_Rap->GetYaxis()->SetTitle("#psi(2S) y");
+  Psi2SVsJPsi_Rap->SetName("Psi2SVsJPsi_Rap");
+  Psi2SVsJPsi_Rap->SetName("Psi2SVsJPsi_Rap");
+
 
 
   TH2D *Psi2SVsChic0_Pt = new TH2D("Psi2SVsChic0_Pt","Psi2SVsChic0_Pt",400,0.0,40.0,400,0.0,40.0);  
@@ -376,6 +384,8 @@ int run_pythia_Psi2S2JPsi(int numberEvents = 500000)
 	    if(IsSignal ==1){Psi2S_Pt->Fill(Par_Pt);}
 	    if(IsSignal ==1){Psi2SVsJPsi_Pt->Fill(Pt,Par_Pt);}
 	    if(IsSignal ==1){CountPsi2S=1;}
+
+	    Psi2SVsJPsi_Rap->Fill(Rapidity,Par_Rapidity);
 	  }
 
 
@@ -429,6 +439,12 @@ int run_pythia_Psi2S2JPsi(int numberEvents = 500000)
   gPad->SetTicks();
   gPad->SetLeftMargin(0.18);
   Psi2SVsJPsi_Pt->Draw("colz");
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLeftMargin(0.18);
+  Psi2SVsJPsi_Rap->Draw("colz");
+
 
 
   new TCanvas;

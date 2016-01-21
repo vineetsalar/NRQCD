@@ -59,13 +59,14 @@ void Find_JPsiPt()
 
   char namePt[500];
   
-  TFile *fpT = new TFile("Psi2s5M_pythia.root");
-  
-  //
-  //TH2D *JPt_BPt = (TH2D*)fpT->Get("Chic1VsJPsi_Pt");
+  //TFile *fpT = new TFile("Psi2s5M_pythia.root");
   //TH2D *JPt_BPt = (TH2D*)fpT->Get("Psi2SVsJPsi_Pt");
-  TH2D *JPt_BPt = (TH2D*)fpT->Get("Psi2SVsChic0_Pt");
+  //TH2D *JPt_BPt = (TH2D*)fpT->Get("Psi2SVsChic0_Pt");
 
+  TFile *fpT = new TFile("Psi2S1M_pythia.root");
+  //TH2D *JPt_BPt = (TH2D*)fpT->Get("Psi2SVsChic1_Pt");
+  TH2D *JPt_BPt = (TH2D*)fpT->Get("Psi2SVsChic2_Pt");
+  
   new TCanvas;
   JPt_BPt->Draw("colz");
 

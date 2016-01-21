@@ -58,7 +58,7 @@ using namespace LHAPDF;
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 1800.0;
+const Double_t RootS = 7000.0;
 
 //===== for gauss quadrature integration ========//
 const Int_t NNXXi = 150;
@@ -71,7 +71,7 @@ Double_t XXk[NNXXk]={0.0};
 Double_t WWk[NNXXk]={0.0};
 
 
-/*
+
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
 const Double_t mC = 1.6;
@@ -89,7 +89,7 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC*mC; //GeV^5
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
-*/
+
 
 /*
 //Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -156,7 +156,7 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
 
-
+/*
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
 const Double_t mC = 1.6;
@@ -173,7 +173,7 @@ const Double_t NC = 3.0;
 const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
-
+*/
 
 /*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -715,14 +715,12 @@ void QuarkoniaProd_NRQCD()
   //Experimental
   Double_t Pt = 0.0;
   Double_t PtMin = 2.0;
-  Double_t PtMax = 100.0;
+  Double_t PtMax = 120.0;
   Double_t PtStep = 0.5;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
   //cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   //FillPtRapHist(5.0, 75.0, -5.0, 5.0);
   
-
-
 
   Double_t Psi2MuMu = 0.0;
   if(QQbarVar  ==1){Psi2MuMu = 0.0593;}
@@ -758,7 +756,7 @@ void QuarkoniaProd_NRQCD()
       SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0)/mJPsi2;
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	Double_t YMin = -0.6; Double_t YMax = 0.6; 
+	Double_t YMin = -1.2; Double_t YMax = 1.2; 
 	Double_t DeltaY = (YMax - YMin);
 	/*
 	Double_t LDME_3S1_1 = 1.0;
