@@ -43,7 +43,6 @@
 #include <iterator>
 #include <iostream>
 #include <cstdlib>
-
 #include <string>
 #include <vector>
 #include <map>
@@ -71,7 +70,7 @@ Double_t XXk[NNXXk]={0.0};
 Double_t WWk[NNXXk]={0.0};
 
 
-
+/*
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
 const Double_t mC = 1.6;
@@ -89,7 +88,7 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC*mC; //GeV^5
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
-
+*/
 
 /*
 //Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -156,7 +155,7 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
 
-/*
+
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
 const Double_t mC = 1.6;
@@ -173,7 +172,7 @@ const Double_t NC = 3.0;
 const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
-*/
+
 
 /*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -720,24 +719,25 @@ void QuarkoniaProd_NRQCD()
   Int_t NNPt = (PtMax - PtMin)/PtStep;
   //cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   //FillPtRapHist(5.0, 75.0, -5.0, 5.0);
-  
 
   Double_t Psi2MuMu = 0.0;
   if(QQbarVar  ==1){Psi2MuMu = 0.0593;}
-  if(QQbarVar  ==2){Psi2MuMu = 0.0078;}
   
   //for fitting (take care of this for cross section calculations)
+  //if(QQbarVar  ==2){Psi2MuMu = 0.0078;}
   //if(QQbarVar  ==3){Psi2MuMu = 0.0079;}
   //if(QQbarVar  ==4){Psi2MuMu = 0.0079;}
   //if(QQbarVar  ==5){Psi2MuMu = 0.0079;}
   
+  Double_t BRPsi2SToJPsi = 0.0;
   Double_t BRChicToJPsi = 0.0; 
   Double_t BRJPsiToMuMu = 0.0;
   
+  if(QQbarVar  ==2){BRPsi2SToJPsi=0.595; BRJPsiToMuMu=0.0593; Psi2MuMu = BRPsi2SToJPsi*BRJPsiToMuMu;}
   if(QQbarVar  ==3){BRChicToJPsi=0.0116; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
   if(QQbarVar  ==4){BRChicToJPsi=0.3440; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
   if(QQbarVar  ==5){BRChicToJPsi=0.1950; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
-
+  
   Double_t Upsilon2MuMu = 0.0;
   if(QQbarVar  ==6){Upsilon2MuMu = 0.0248;}
   if(QQbarVar  ==7){Upsilon2MuMu = 0.0248;}
@@ -756,7 +756,7 @@ void QuarkoniaProd_NRQCD()
       SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0)/mJPsi2;
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	Double_t YMin = -1.2; Double_t YMax = 1.2; 
+	Double_t YMin = -0.9; Double_t YMax = 0.9; 
 	Double_t DeltaY = (YMax - YMin);
 	/*
 	Double_t LDME_3S1_1 = 1.0;
