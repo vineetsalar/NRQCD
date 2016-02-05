@@ -136,6 +136,7 @@ TGraphAsymmErrors *gr2;
 TGraphAsymmErrors *gr3;
 TGraphAsymmErrors *gr4;
 TGraphAsymmErrors *gr5;
+TGraphAsymmErrors *gr6;
 
 Double_t fcn0(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
 Double_t fcn1(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
@@ -147,6 +148,7 @@ void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag);
 
 TGraph *Scale_QCDSigma(TGraph *InGraph, Double_t LDME);
 TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4);
+TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin);
 
 const Double_t mC = 1.6;
 
@@ -629,18 +631,15 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   cout<<" ===================== FITTING CDF DATA FOR LDME ================================"<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
 
-  cout<<" getting CDF Data Graph : "<<endl;
+  cout<<" getting CDF Data Graph Root S = 1.96 TeV "<<endl;
   TGraphAsymmErrors *grfData_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt=new TGraphAsymmErrors();
   grfData_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt=Data_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt();
   
-  TF1 *CDFFitFunctionLDME = new TF1("CDFFitFunctionLDME", CDF_FitLDME, 5.0, 100, 3);
+  TF1 *CDFFitFunctionLDME = new TF1("CDFFitFunctionLDME", CDF_FitLDME, 5.0, 30, 3);
   CDFFitFunctionLDME->SetLineColor(2);
   CDFFitFunctionLDME->FixParameter(0,1.0);     
-
   
-  grfData_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt->Fit("CDFFitFunctionLDME","Q0","MER", 5.0, 100.0);
-  
-
+  grfData_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt->Fit("CDFFitFunctionLDME","Q0","MER", 5.0, 30.0);
 
   Double_t CDF_Chi2 = CDFFitFunctionLDME->GetChisquare();
   Double_t CDF_NDF = CDFFitFunctionLDME->GetNDF();
@@ -748,20 +747,22 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   TGraphAsymmErrors *grfData_CDF_180_D2NDPtDy_PromptPsi2S_Y0006_Pt=new TGraphAsymmErrors();
   grfData_CDF_180_D2NDPtDy_PromptPsi2S_Y0006_Pt=Data_CDF_180_D2NDPtDy_PromptPsi2S_Y0006_Pt();
   
-  TF1 *CDF_180_FitFunctionLDME = new TF1("CDF_180_FitFunctionLDME", CDF_180_FitLDME, 5.0, 100, 3);
+  TF1 *CDF_180_FitFunctionLDME = new TF1("CDF_180_FitFunctionLDME", CDF_180_FitLDME, 5.0, 30, 3);
   CDF_180_FitFunctionLDME->SetLineColor(2);
   CDF_180_FitFunctionLDME->FixParameter(0,1.0);     
 
-  CDF_180_FitFunctionLDME->FixParameter(1,CDF_LDME_1S0_8);     
-  CDF_180_FitFunctionLDME->FixParameter(2,CDF_LDME_3S1_8);     
+  //CDF_180_FitFunctionLDME->FixParameter(1,CDF_LDME_1S0_8);     
+  //CDF_180_FitFunctionLDME->FixParameter(2,CDF_LDME_3S1_8);     
   
-
+  CDF_180_FitFunctionLDME->SetParameter(1,CDF_LDME_1S0_8);     
+  CDF_180_FitFunctionLDME->SetParameter(2,CDF_LDME_3S1_8);     
 
   grfData_CDF_180_D2NDPtDy_PromptPsi2S_Y0006_Pt->Fit("CDF_180_FitFunctionLDME","Q0","MER", 5.0, 20.0);
   
   Double_t CDF_180_Chi2 = CDF_180_FitFunctionLDME->GetChisquare();
   Double_t CDF_180_NDF = CDF_180_FitFunctionLDME->GetNDF();
   Double_t CDF_180_Prob = CDF_180_FitFunctionLDME->GetProb();
+
   Double_t CDF_180_LDME_3S1_1 = CDF_180_FitFunctionLDME->GetParameter(0);
   Double_t CDF_180_LDME_1S0_8 = CDF_180_FitFunctionLDME->GetParameter(1);
   Double_t CDF_180_LDME_3S1_8 = CDF_180_FitFunctionLDME->GetParameter(2);
@@ -787,7 +788,6 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   dataFile<<"LDME : 3P1_8 "<<CDF_180_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<CDF_180_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<CDF_180_Chi2<<"/"<<CDF_180_NDF<<" Prob: "<<CDF_180_Prob<<endl<<endl;
-
 
 
 
@@ -1008,13 +1008,12 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
-  
 
 
+  cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+  cout<<" ======== COMBINED FITTING of ATLAS 7 TeV, 8 TeV and CMS Data and CDF 1.96 and CDF 1.8 TeV =================="<<endl;
+  cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
 
-  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-  cout<<" ======== COMBINED FITTING of ATLAS 7 TeV, 8 TeV and CMS Data =================="<<endl;
-  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
 
   gr0=new TGraphAsymmErrors();
   gr0=Data_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt();
@@ -1029,11 +1028,47 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   gr3=Data_ATLAS_RootS8TeV_D2NDPtDy_PromptPsi2S_Y0025_Pt();
 
   gr4=new TGraphAsymmErrors(); 
-  gr4=Data_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt();
+  gr4=CutGraph(Data_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt(), 6.0);
+
+  TGraph *gr4_t=new TGraphAsymmErrors();
+  gr4_t=Data_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt();
+
+
+  /*  
+  TGraphAsymmErrors *Temp_gr4;
+  Temp_gr4=CutGraph(Data_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt(), 5.0);
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  Temp_gr4->Draw("zAP");
+ 
+ for (int j=0; j < gr4->GetN();++j){
+   Double_t xx1,yy1;
+  gr4->GetPoint(j,xx1,yy1);
+  cout<<j<<"  "<<xx1<<"   "<<yy1<<endl;    
+  }
+
+ // return;
+ cout<<endl<<endl;
+
+
+  for (int j=0; j < Temp_gr4->GetN();++j){
+    Double_t xx1,yy1;
+  Temp_gr4->GetPoint(j,xx1,yy1);
+  cout<<j<<"  "<<xx1<<"   "<<yy1<<endl;    
+  }
+  */
 
   gr5=new TGraphAsymmErrors(); 
   gr5=Data_CDF_180_D2NDPtDy_PromptPsi2S_Y0006_Pt();
 
+  gr6=new TGraphAsymmErrors(); 
+  gr6=CutGraph(Data_LHCb_D2NDPtDy_PromptPsi2S_Y2045_Pt(),6);
+
+  TGraph *gr6_t=new TGraphAsymmErrors();
+  gr6_t=Data_LHCb_D2NDPtDy_PromptPsi2S_Y2045_Pt();
 
   //---------------------------------------------------------------------
   //     Blocks for fitting procedure
@@ -1041,36 +1076,45 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   const Int_t npars = 3;
   TMinuit *gMinuit = new TMinuit(npars);  //initialize TMinuit with a maximum of 3 params
   gMinuit->SetFCN(fcn);
-  
+ 
+  //This is where the delta chi2 is defined
+  //This is critical to getting the correct error estimates
+
+  //I learned now that 'SET ERR' decides if you have a chi-squared (arglist[0]=1)
+  //or loglikelihood fit (arglist[0]=0.5) -- if one does not consider the fcn return value explicitly.
+ 
   Double_t arglist[10];
-  Int_t ierflg = 0;
-  arglist[0] = 1;
+  Int_t ierflg = 1.0;
+
+  arglist[0] = 0.5;
+
   gMinuit->mnexcm("SET ERR", arglist, 1, ierflg);
   
   // Set starting values and step sizes for parameters
   static Double_t vstart[] = {1.0,0.0080,0.0033};
-  static Double_t step[]   = {0.0001,0.00001 , 0.00001};
+  //static Double_t vstart[] = {1.0,0.028,0.0018};
+  static Double_t step[]   = {0.0001,0.00001,0.00001};
 
   gMinuit->mnparm(0, "3S1_1", vstart[0], step[0], 0, 0, ierflg);
   gMinuit->mnparm(1, "1S0_8", vstart[1], step[1], 0, 0, ierflg);
   gMinuit->mnparm(2, "3S1_8", vstart[2], step[2], 0, 0, ierflg);
-  gMinuit->FixParameter(0);
- 
-  //This is where the delta chi2 is defined
-  //This is critical to getting the correct error estimates
-  arglist[0] = 1.0;
-  if (arglist[0]) gMinuit->mnexcm("SET ERR", arglist, 1, ierflg);
   
+  gMinuit->FixParameter(0);
+  //gMinuit->SetErrorDef(1);
+  //gMinuit->Print(1);
+
   // Now ready for minimization step
   arglist[0] = 500; //max 500
   arglist[1] = 0.1; // tolerance = 0.1
   gMinuit->mnexcm("MIGRAD", arglist, 2, ierflg);
   
+  //gMinuit->mnexcm("HESSE", arglist, 2, ierflg);
+  //gMinuit->mnexcm("MINOS", arglist, 2, ierflg);
+  
   // Print results
   Double_t amin,edm,errdef;
   Int_t nvpar,nparx,icstat;
   gMinuit->mnstat(amin,edm,errdef,nvpar,nparx,icstat);
-
   Int_t iuext;
   TString chnam;   // The name of the parameter
   Double_t val;    // The current (external) value of the parameter 
@@ -1083,7 +1127,18 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Double_t currentPar[npars] = {0};
   for (i=0; i< npars;i++) {
     gMinuit->mnpout(i, chnam, currentPar[i], errl[i], xlolim, xuplim, iuint);
+    //cout<<chnam<<"   "<<currentPar[i]<<"  "<<errl[i]<<"  "<<xlolim<<"  "<<xuplim<<"  "<<iuint<<endl;
+
   }
+
+
+  //gMinuit->mnmatu(1);
+
+
+  //TGraph *CounturGraph = (TGraph*)gMinuit->Contour(100,1,2);
+  //new TCanvas;
+  //CounturGraph->Draw("APL");
+
 
   TMultiGraph *gl_mg = new TMultiGraph();
   gl_mg->Add(gr0);
@@ -1136,7 +1191,16 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   fun_5->SetLineStyle(1);
   fun_5->SetLineWidth(4);
 
+  
+  TF1 *fun_6=new TF1("fun_6", LHCb_FitLDME, 5.0, 30, 3);
+  for(Int_t i=0;i<3;i++){fun_6->FixParameter(i,currentPar[i]);}
+  //fun_5->SetParameters(currentPar);
+  fun_6->SetLineColor(2);
+  fun_6->SetLineStyle(1);
+  fun_6->SetLineWidth(4);
 
+
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -1146,7 +1210,7 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   gPad->Update();
   fun_1->Draw("same");
   fun_2->Draw("same");
-  //fun_3->Draw("same");
+  */
 
   cout<<endl<<endl;
   cout<<" combined fitting perameters "<<endl;
@@ -1180,22 +1244,18 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   
 
 
-
-
-
-
-
   
   //============================ Calculate Chi2 For Combined fitting =====================//
 
   gr0->Fit("fun_0","Q0","MER", 5, 100);
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   gr0->Draw("AP");
   fun_0->Draw("same");
-
+  */
   TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
   TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
@@ -1243,8 +1303,8 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_DSigmaDPtDY_Pt1->Draw("same");
 
-  gPad->SaveAs("Psi2S_CMS_LowPt.pdf");
-  gPad->SaveAs("Psi2S_CMS_LowPt.png");
+  gPad->SaveAs("Plots/Psi2S_CMS_LowPt.pdf");
+  gPad->SaveAs("Plots/Psi2S_CMS_LowPt.png");
 
 
 
@@ -1253,13 +1313,14 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   gr1->Fit("fun_1","Q0","MER", 5, 100);
 
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   gr1->Draw("AP");
   fun_1->Draw("same");
-
+  */
   
   TLegend *Comb_lgd_CMS_DSigmaDPtDY_Pt1 = new TLegend(0.50,0.62,0.85,0.93);
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->SetBorderSize(0);
@@ -1288,20 +1349,21 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->Draw("same");
 
-  gPad->SaveAs("Psi2S_CMS_HighPt.pdf");
-  gPad->SaveAs("Psi2S_CMS_HighPt.png");
+  gPad->SaveAs("Plots/Psi2S_CMS_HighPt.pdf");
+  gPad->SaveAs("Plots/Psi2S_CMS_HighPt.png");
 
 
 
 
   gr2->Fit("fun_2","Q0","MER", 5, 100);
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   gr2->Draw("AP");
   fun_2->Draw("same");
-
+  */
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
@@ -1350,19 +1412,22 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->Draw("same");
   
-  gPad->SaveAs("Psi2S_ATLAS.pdf");
-  gPad->SaveAs("Psi2S_ATLAS.png");
+  gPad->SaveAs("Plots/Psi2S_ATLAS.pdf");
+  gPad->SaveAs("Plots/Psi2S_ATLAS.png");
 
 
 
   gr3->Fit("fun_3","Q0","MER", 5, 100);
+  
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   gr3->Draw("AP");
   fun_3->Draw("same");
-
+  */
+  
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
@@ -1408,18 +1473,19 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->Draw("same");
   
-  gPad->SaveAs("Psi2S_ATLAS_8TeV.pdf");
-  gPad->SaveAs("Psi2S_ATLAS_8TeV.png");
+  gPad->SaveAs("Plots/Psi2S_ATLAS_8TeV.pdf");
+  gPad->SaveAs("Plots/Psi2S_ATLAS_8TeV.png");
 
 
   gr4->Fit("fun_4","Q0","MER", 5, 30);
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   gr4->Draw("AP");
   fun_4->Draw("same");
-
+  */
 
   TGraph *Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
@@ -1466,18 +1532,36 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->Draw("same");
   
-  gPad->SaveAs("Psi2S_CDF_196TeV.pdf");
-  gPad->SaveAs("Psi2S_CDF_196TeV.png");
+
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  gr4_t->SetMarkerColor(1);
+  gr4_t->GetYaxis()->SetRangeUser(0.000001,100.0);
+  gr4_t->Draw("zAP");
+  gr4_t->GetYaxis()->SetTitleOffset(1.6);
+  gPad->Update();
+  fun_4->Draw("same");
+  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Draw("Lsame");
+  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
+  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->Draw("same");
+  
+  gPad->SaveAs("Plots/Psi2S_CDF_196TeV.pdf");
+  gPad->SaveAs("Plots/Psi2S_CDF_196TeV.png");
 
 
   gr5->Fit("fun_5","Q0","MER", 5, 30);
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   gr5->Draw("AP");
   fun_5->Draw("same");
-  
+  */
   
   TGraph *Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
@@ -1524,24 +1608,103 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_CDF_180TeV_DSigmaDPtDY_Pt1->Draw("same");
   
-  gPad->SaveAs("Psi2S_CDF_180TeV.pdf");
-  gPad->SaveAs("Psi2S_CDF_180TeV.png");
+  gPad->SaveAs("Plots/Psi2S_CDF_180TeV.pdf");
+  gPad->SaveAs("Plots/Psi2S_CDF_180TeV.png");
+
+ 
+
+
+
+
+
+  gr6->Fit("fun_6","Q0","MER", 5, 100);
+  /*
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  gr6->Draw("AP");
+  fun_6->Draw("same");
+  */
+  TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
+  TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
+  TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit->SetLineColor(9);
+  TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit, Comb_LDME_3P2_8);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit->SetLineColor(46);
 
   
+  TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
+									       Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
+  
+  
+  TLegend *Comb_lgd_LHCb_DSigmaDPtDY_Pt1 = new TLegend(0.50,0.62,0.85,0.93);
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->SetBorderSize(0);
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->SetFillStyle(0);
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->SetFillColor(0);
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->SetTextSize(0.03);
+
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->AddEntry(gr6,"LHCb Data","P");
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->AddEntry(fun_6,"Total","L");
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+
+  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  gr6->GetYaxis()->SetRangeUser(0.0001,1000);
+  gr6->SetMarkerColor(1);
+  gr6->Draw("zAP");
+  gr6->GetYaxis()->SetTitleOffset(1.6);
+  gPad->Update();
+  fun_6->Draw("same");
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Draw("Lsame");
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->Draw("same");
+
+
+
 
  
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  gr6_t->GetYaxis()->SetRangeUser(0.0001,1000);
+  gr6_t->SetMarkerColor(1);
+  gr6_t->Draw("zAP");
+  gr6_t->GetYaxis()->SetTitleOffset(1.6);
+  gPad->Update();
+  fun_6->Draw("same");
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Draw("Lsame");
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
+  Comb_lgd_LHCb_DSigmaDPtDY_Pt1->Draw("same");
 
 
+  gPad->SaveAs("Plots/Psi2S_LHCb.pdf");
+  gPad->SaveAs("Plots/Psi2S_LHCb.png");
 
 
- 
   
 
   cout<<"chi2/ndf "<<fun_1->GetChisquare()<<"/"<<fun_1->GetNDF()<<" Prob: "<<fun_1->GetProb()<<endl;
   cout<<"chi2/ndf "<<fun_2->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_2->GetProb()<<endl;
-  cout<<"chi2/ndf "<<fun_3->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_3->GetProb()<<endl;
-  cout<<"chi2/ndf "<<fun_4->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_4->GetProb()<<endl;
-  cout<<"chi2/ndf "<<fun_5->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_5->GetProb()<<endl;
+  cout<<"chi2/ndf "<<fun_3->GetChisquare()<<"/"<<fun_3->GetNDF()<<" Prob: "<<fun_3->GetProb()<<endl;
+  cout<<"chi2/ndf "<<fun_4->GetChisquare()<<"/"<<fun_4->GetNDF()<<" Prob: "<<fun_4->GetProb()<<endl;
+  cout<<"chi2/ndf "<<fun_5->GetChisquare()<<"/"<<fun_5->GetNDF()<<" Prob: "<<fun_5->GetProb()<<endl;
+  cout<<"chi2/ndf "<<fun_6->GetChisquare()<<"/"<<fun_6->GetNDF()<<" Prob: "<<fun_6->GetProb()<<endl;
 
   return;
 
@@ -1701,8 +1864,6 @@ Double_t CDF_180_FitLDME(Double_t *x, Double_t *par)
     LDME_3P1_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]);
   
   return Sigma;
-
-
 
 
 }
@@ -1867,12 +2028,49 @@ Double_t fcn5(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
 
 
 //______________________________________________________________________________
+Double_t fcn6(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
+{ 
+  
+  const Int_t nbins = gr6->GetN();
+  Int_t i;
+  
+  Double_t xx6[nbins]; 
+  Double_t yy6[nbins];
+  Double_t erryy6[nbins];
+
+  for (Int_t j=0;j<nbins; j++) 
+    {
+      gr6->GetPoint(j,xx6[j],yy6[j]);
+      erryy6[j]= gr6->GetErrorY(j);
+    }
+
+ //calculate chisquare
+  Double_t chisq = 0;
+  for (i=0;i<nbins; i++) {
+    Double_t delta  = (yy6[i] - LHCb_FitLDME(&xx6[i],par))/erryy6[i];
+    chisq += delta*delta;
+  }
+  return chisq;
+}
+
+
+
+
+
+
+
+
+
+
+
+//______________________________________________________________________________
 void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
 {
-  f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag);
+  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
 
-  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)
-  //+ fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
+  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag) + fcn6(npar,gin, par, iflag);
+  
+  f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
 
 
 }
@@ -1933,6 +2131,50 @@ TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph
 
 
 }
+
+
+
+TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin)
+{
+  
+  TGraphAsymmErrors *SGraph = new TGraphAsymmErrors; 
+  const int NN = InGraph->GetN();
+  
+ Int_t i=-1;    
+  for (int j=0; j < NN;++j){
+    Double_t xx,yy;
+    Double_t errlowxx,errlowyy;
+    Double_t errhighxx,errhighyy;
+    
+    InGraph->GetPoint(j,xx,yy);
+    errlowxx=InGraph->GetErrorXlow(j);
+    errhighxx=InGraph->GetErrorXhigh(j);
+    errlowyy=InGraph->GetErrorYlow(j);
+    errhighyy=InGraph->GetErrorYhigh(j);
+    
+   
+    if(xx>=XMin)
+      {
+	i=i+1;
+	SGraph->SetPoint(i,xx,yy);  
+	SGraph->SetPointError(i,errlowxx,errhighxx,errlowyy,errhighyy);  
+      }
+  }
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = SGraph;
+  return OutGraph;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2414,11 +2656,6 @@ for(int j=0;j<NN;j++){
   return OutGraph;
   
 }
-
-
-
-
-
 
 
 
