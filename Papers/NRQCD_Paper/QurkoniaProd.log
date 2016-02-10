@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.12)  4 FEB 2016 16:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.7.12)  10 FEB 2016 19:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -396,9 +396,6 @@ Class revtex4-1 Info: multicol was not loaded (OK!) on input line 15.
 
 LaTeX Warning: Label `eq:MJn2CO_val' multiply defined.
 
-
-LaTeX Warning: Label `Fig:LDMEJPsiCDF' multiply defined.
-
 )
 \openout1 = `QurkoniaProd.aux'.
 
@@ -469,236 +466,214 @@ Class revtex4-1 Info: Taking \maketitle back from hyperref on input line 15.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 112.
+(hyperref)                removing `math shift' on input line 110.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 112.
+(hyperref)                removing `math shift' on input line 110.
 
-[2] [3]
-Overfull \hbox (45.55746pt too wide) in paragraph at lines 265--265
+[2]
+Overfull \hbox (6.01074pt too wide) in paragraph at lines 281--281
 [] 
  []
 
-[4] [5]
-Overfull \hbox (30.00818pt too wide) in paragraph at lines 330--330
-[] 
- []
+[3] [4] [5] [6] [7]
+<Figures/Chic/Chic1_CDF_Fit.pdf, id=177, 569.12625pt x 548.0475pt>
+File: Figures/Chic/Chic1_CDF_Fit.pdf Graphic file (type pdf)
 
+<use Figures/Chic/Chic1_CDF_Fit.pdf>
+Package pdftex.def Info: Figures/Chic/Chic1_CDF_Fit.pdf used on input line 732.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
 
-[6]
-Overfull \hbox (46.76216pt too wide) in paragraph at lines 464--464
-[] 
- []
+<Figures/Psi2S/Psi2S_CMS_LowPt.pdf, id=180, 569.12625pt x 548.0475pt>
+File: Figures/Psi2S/Psi2S_CMS_LowPt.pdf Graphic file (type pdf)
 
+<use Figures/Psi2S/Psi2S_CMS_LowPt.pdf>
+Package pdftex.def Info: Figures/Psi2S/Psi2S_CMS_LowPt.pdf used on input line 7
+46.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
 
-Package natbib Warning: Citation `Aaltonen:2009dm' on page 7 undefined on input
- line 513.
+<Figures/Psi2S/Psi2S_CMS_HighPt.pdf, id=181, 569.12625pt x 548.0475pt>
+File: Figures/Psi2S/Psi2S_CMS_HighPt.pdf Graphic file (type pdf)
 
-[7] [8]
+<use Figures/Psi2S/Psi2S_CMS_HighPt.pdf>
+Package pdftex.def Info: Figures/Psi2S/Psi2S_CMS_HighPt.pdf used on input line 
+747.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/Psi2S/Psi2S_ATLAS.pdf, id=182, 569.12625pt x 548.0475pt>
+File: Figures/Psi2S/Psi2S_ATLAS.pdf Graphic file (type pdf)
+
+<use Figures/Psi2S/Psi2S_ATLAS.pdf>
+Package pdftex.def Info: Figures/Psi2S/Psi2S_ATLAS.pdf used on input line 748.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf, id=183, 569.12625pt x 548.0475pt>
+File: Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf Graphic file (type pdf)
+
+<use Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf>
+Package pdftex.def Info: Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf used on input line 
+749.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/Psi2S/Psi2S_CDF_180TeV.pdf, id=188, 569.12625pt x 548.0475pt>
+File: Figures/Psi2S/Psi2S_CDF_180TeV.pdf Graphic file (type pdf)
+
+<use Figures/Psi2S/Psi2S_CDF_180TeV.pdf>
+Package pdftex.def Info: Figures/Psi2S/Psi2S_CDF_180TeV.pdf used on input line 
+760.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/Psi2S/Psi2S_CDF_196TeV.pdf, id=189, 569.12625pt x 548.0475pt>
+File: Figures/Psi2S/Psi2S_CDF_196TeV.pdf Graphic file (type pdf)
+
+<use Figures/Psi2S/Psi2S_CDF_196TeV.pdf>
+Package pdftex.def Info: Figures/Psi2S/Psi2S_CDF_196TeV.pdf used on input line 
+761.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf, id=192, 569.12625pt x 5
+48.0475pt>
+File: Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf Graphic file (type 
+pdf)
+ <use Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf>
+Package pdftex.def Info: Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf 
+used on input line 772.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf, id=193, 569.12625pt 
+x 548.0475pt>
+File: Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf Graphic file (ty
+pe pdf)
+ <use Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf>
+Package pdftex.def Info: Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.p
+df used on input line 773.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, id=194, 569.12625pt x
+ 548.0475pt>
+File: Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf Graphic file (typ
+e pdf)
+ <use Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf>
+Package pdftex.def Info: Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pd
+f used on input line 774.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, id=195, 569.12625pt 
+x 548.0475pt>
+File: Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf Graphic file (ty
+pe pdf)
+ <use Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf>
+Package pdftex.def Info: Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.p
+df used on input line 775.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
+<Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, id=200, 569.12625pt 
+x 548.0475pt>
+File: Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf Graphic file (ty
+pe pdf)
+ <use Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf>
+Package pdftex.def Info: Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.p
+df used on input line 785.
+(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
+
 <Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf, id=203, 569.12625pt x 548.0475pt>
 File: Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf Graphic file (type pdf)
 
 <use Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf>
 Package pdftex.def Info: Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf used on input lin
-e 712.
+e 795.
 (pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
 
 <Fig1b_Psi2S_CMS_Y012_S7TeV.pdf, id=204, 569.12625pt x 548.0475pt>
 File: Fig1b_Psi2S_CMS_Y012_S7TeV.pdf Graphic file (type pdf)
 
 <use Fig1b_Psi2S_CMS_Y012_S7TeV.pdf>
-Package pdftex.def Info: Fig1b_Psi2S_CMS_Y012_S7TeV.pdf used on input line 713.
+Package pdftex.def Info: Fig1b_Psi2S_CMS_Y012_S7TeV.pdf used on input line 796.
 
 (pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/Chic/Chic1_CDF_Fit.pdf, id=209, 569.12625pt x 548.0475pt>
-File: Figures/Chic/Chic1_CDF_Fit.pdf Graphic file (type pdf)
-
-<use Figures/Chic/Chic1_CDF_Fit.pdf>
-Package pdftex.def Info: Figures/Chic/Chic1_CDF_Fit.pdf used on input line 721.
-
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/Psi2S/Psi2S_CMS_LowPt.pdf, id=212, 569.12625pt x 548.0475pt>
-File: Figures/Psi2S/Psi2S_CMS_LowPt.pdf Graphic file (type pdf)
-
-<use Figures/Psi2S/Psi2S_CMS_LowPt.pdf>
-Package pdftex.def Info: Figures/Psi2S/Psi2S_CMS_LowPt.pdf used on input line 7
-35.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/Psi2S/Psi2S_CMS_HighPt.pdf, id=213, 569.12625pt x 548.0475pt>
-File: Figures/Psi2S/Psi2S_CMS_HighPt.pdf Graphic file (type pdf)
-
-<use Figures/Psi2S/Psi2S_CMS_HighPt.pdf>
-Package pdftex.def Info: Figures/Psi2S/Psi2S_CMS_HighPt.pdf used on input line 
-736.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/Psi2S/Psi2S_ATLAS.pdf, id=214, 569.12625pt x 548.0475pt>
-File: Figures/Psi2S/Psi2S_ATLAS.pdf Graphic file (type pdf)
-
-<use Figures/Psi2S/Psi2S_ATLAS.pdf>
-Package pdftex.def Info: Figures/Psi2S/Psi2S_ATLAS.pdf used on input line 737.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf, id=215, 569.12625pt x 548.0475pt>
-File: Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf Graphic file (type pdf)
-
-<use Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf>
-Package pdftex.def Info: Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf used on input line 
-738.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/Psi2S/Psi2S_CDF_180TeV.pdf, id=220, 569.12625pt x 548.0475pt>
-File: Figures/Psi2S/Psi2S_CDF_180TeV.pdf Graphic file (type pdf)
-
-<use Figures/Psi2S/Psi2S_CDF_180TeV.pdf>
-Package pdftex.def Info: Figures/Psi2S/Psi2S_CDF_180TeV.pdf used on input line 
-749.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/Psi2S/Psi2S_CDF_196TeV.pdf, id=221, 569.12625pt x 548.0475pt>
-File: Figures/Psi2S/Psi2S_CDF_196TeV.pdf Graphic file (type pdf)
-
-<use Figures/Psi2S/Psi2S_CDF_196TeV.pdf>
-Package pdftex.def Info: Figures/Psi2S/Psi2S_CDF_196TeV.pdf used on input line 
-750.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf, id=224, 569.12625pt x 5
-48.0475pt>
-File: Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf Graphic file (type 
-pdf)
- <use Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf>
-Package pdftex.def Info: Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf 
-used on input line 761.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf, id=225, 569.12625pt 
-x 548.0475pt>
-File: Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf Graphic file (ty
-pe pdf)
- <use Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf>
-Package pdftex.def Info: Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.p
-df used on input line 762.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, id=226, 569.12625pt x
- 548.0475pt>
-File: Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf Graphic file (typ
-e pdf)
- <use Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf>
-Package pdftex.def Info: Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pd
-f used on input line 763.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, id=227, 569.12625pt 
-x 548.0475pt>
-File: Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf Graphic file (ty
-pe pdf)
- <use Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf>
-Package pdftex.def Info: Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.p
-df used on input line 764.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-<Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, id=232, 569.12625pt 
-x 548.0475pt>
-File: Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf Graphic file (ty
-pe pdf)
- <use Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf>
-Package pdftex.def Info: Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.p
-df used on input line 774.
-(pdftex.def)             Requested size: 229.32257pt x 220.82907pt.
-
-[9] [10 <./Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf, page is rotated 90 degrees> <.
-/Fig1b_Psi2S_CMS_Y012_S7TeV.pdf, page is rotated 90 degrees> <./Figures/Chic/Ch
-ic1_CDF_Fit.pdf, page is rotated 90 degrees>] [11 <./Figures/Psi2S/Psi2S_CMS_Lo
-wPt.pdf, page is rotated 90 degrees> <./Figures/Psi2S/Psi2S_CMS_HighPt.pdf, pag
-e is rotated 90 degrees> <./Figures/Psi2S/Psi2S_ATLAS.pdf, page is rotated 90 d
-egrees> <./Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf, page is rotated 90 degrees>]
-[12 <./Figures/Psi2S/Psi2S_CDF_180TeV.pdf, page is rotated 90 degrees> <./Figur
-es/Psi2S/Psi2S_CDF_196TeV.pdf, page is rotated 90 degrees>] [13 <./Figures/JPsi
-/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf, page is rotated 90 degrees> <./Figur
-es/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf, page is rotated 90 degrees
-> <./Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, page is rotated 9
-0 degrees> <./Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, page is
- rotated 90 degrees>]
+ [8 <./Figures/Chic/Chic1_CDF_Fit.pdf, page is rotated 90 degrees>] [9 <./Figur
+es/Psi2S/Psi2S_CMS_LowPt.pdf, page is rotated 90 degrees> <./Figures/Psi2S/Psi2
+S_CMS_HighPt.pdf, page is rotated 90 degrees> <./Figures/Psi2S/Psi2S_ATLAS.pdf,
+ page is rotated 90 degrees> <./Figures/Psi2S/Psi2S_ATLAS_8TeV.pdf, page is rot
+ated 90 degrees>] [10 <./Figures/Psi2S/Psi2S_CDF_180TeV.pdf, page is rotated 90
+ degrees> <./Figures/Psi2S/Psi2S_CDF_196TeV.pdf, page is rotated 90 degrees>] [
+11 <./Figures/JPsi/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf, page is rotated 90
+ degrees> <./Figures/JPsi/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf, page is 
+rotated 90 degrees> <./Figures/JPsi/ATLAS_New_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf,
+ page is rotated 90 degrees> <./Figures/JPsi/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y00
+25_Pt.pdf, page is rotated 90 degrees>]
+[12 <./Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, page is rotate
+d 90 degrees> <./Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf, page is rotated 90 degre
+es> <./Fig1b_Psi2S_CMS_Y012_S7TeV.pdf, page is rotated 90 degrees>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 857.
+(hyperref)                than one, level fixed on input line 869.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 859.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 871.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 859.
- [14 <./Figures/JPsi/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf, page is rotat
-ed 90 degrees>]
-[15]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 871.
+ [13]
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 947.
+(amsmath)                 on input line 950.
 
-[16] [17]
-Overfull \hbox (21.15715pt too wide) in paragraph at lines 1003--1003
+[14] [15]
+Overfull \hbox (21.15715pt too wide) in paragraph at lines 998--998
 [] 
  []
 
 
-Overfull \hbox (30.0pt too wide) detected at line 1003
+Overfull \hbox (30.0pt too wide) detected at line 998
+[][]
+ []
+
+[16] [17]
+Overfull \hbox (28.31265pt too wide) in paragraph at lines 1050--1050
+[] 
+ []
+
+
+Overfull \hbox (30.0pt too wide) detected at line 1050
 [][]
  []
 
 [18] [19]
-Overfull \hbox (28.31265pt too wide) in paragraph at lines 1057--1057
-[] 
- []
-
-
-Overfull \hbox (30.0pt too wide) detected at line 1057
-[][]
- []
-
-[20] [21]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ‰ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ‰ in font cmr10!
- [22]
+ [20]
 No file QurkoniaProd.bbl.
-
-Package natbib Warning: There were undefined citations.
-
-[23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1305.
+[21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1297.
  (./QurkoniaProd.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1305.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1305.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1297.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1297.
 
 Package rerunfilecheck Info: File `QurkoniaProd.out' has not changed.
-(rerunfilecheck)             Checksum: E90B9795FE950F9CA258AB08E4FBBE05;1064.
+(rerunfilecheck)             Checksum: 73F2E6B02F6214E765383093EE9600BE;730.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9007 strings out of 493304
- 127709 string characters out of 6139871
- 273674 words of memory out of 5000000
- 12228 multiletter control sequences out of 15000+600000
+ 8981 strings out of 493304
+ 127377 string characters out of 6139871
+ 273829 words of memory out of 5000000
+ 12215 multiletter control sequences out of 15000+600000
  18254 words of font info for 64 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,23n,35p,551b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,20n,35p,551b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -708,17 +683,15 @@ st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on QurkoniaProd.pdf (23 pages, 505948 bytes).
+ts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on QurkoniaProd.pdf (21 pages, 479212 bytes).
 PDF statistics:
- 1021 PDF objects out of 1200 (max. 8388607)
- 599 compressed objects within 6 object streams
- 112 named destinations out of 1000 (max. 500000)
- 183 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 970 PDF objects out of 1000 (max. 8388607)
+ 552 compressed objects within 6 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 

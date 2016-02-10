@@ -106,56 +106,58 @@ through the deconfined medium, their yields should be suppressed in comparison w
 {\color{red} To be written .....}
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quarkonia Production in p$+$p collisions}
 \label{section:ppProduction}
 In this section we describe the production of quarkonia at high transverse
 momenta in p$+$p collisions. The factorization formalism of the NRQCD  provides 
 a theoretical framework for studying the heavy quarkonium production and decay.
+
+
+
+ 
 Under NRQCD the cross-section for direct production of a resonance $\psi$ in pp collision 
-can be expressed in factorized form. The dominant processes in evaluating the differential 
-yields of heavy mesons as a function of $p_T$ are the $2\rightarrow 2$
-processes of the kind $g+q\rightarrow \psi+q$, $q+\bar{q}\rightarrow \psi+g$ and
-$g+g\rightarrow \psi+g$, where $\psi$ refers to the heavy meson. We label the process
-generically as $a+b\rightarrow \psi+X$, where $a$ and $b$ are the light incident
-partons. The invariant cross-section can be written as 
+can be expressed in factorized form 
 \begin{equation}
-  %\begin{split}
-    E\frac{d^{3}\sigma^{\psi}}{d^{3}p} = \sum_{a,b}\int \int dx_a\,dx_b 
-    G_{a/p}(x_a,\mu_{F}^{2}) G_{b/p}(x_b,\mu_{F}^{2})\frac{\hat s}{\pi}\frac{d\sigma}{d\hat t}
-    \otimes \delta(\hat s + \hat t + \hat u -M^{2}) 
-%\end{split}
+  \begin{split}
+    E\frac{d^{3}\sigma^{\psi}}{d^{3}p} = &\sum_{a,b}\int \int dx_a\,dx_b 
+    G_{a/A}(x_a,\mu_{F}^{2}) G_{b/B}(x_b,\mu_{F}^{2})\frac{\hat s}{\pi}\frac{d\sigma}{d\hat t}\\
+    &(ab\rightarrow^{(2S+1)}L_{J}c) \otimes \delta(\hat s + \hat t + \hat u -M^{2}) 
+\end{split}
 \label{eqn:cross}
 \end{equation}
-where, $G_{a/p}(G_{b/p})$ is the parton distribution function (PDF) of the incoming parton $a(b)$ in the 
-incident proton, which depends on the momentum fraction $x_a(x_b)$ and the factorization 
+where, $G_{a/A}(G_{b/B})$ is the parton distribution function (PDF) of the incoming parton $a(b)$ in the 
+incident hadron $A(B)$, which depends on the momentum fraction $x_a(x_b)$ and the factorization 
 scale $\mu_F$ as well as on the renormalization scale $\mu_R$. However, 
 as we have chosen $\mu_F$ = $\mu_R$, in our case PDFs are function of $x$ and $\mu_F$ only. 
-The parton level cross-section d$\sigma$/d$\hat{t}$ is defined as
+The short distance contribution $d\sigma/d\hat t$ can be calculated within the framework of perturbative 
+QCD (pQCD). $(ab\rightarrow^{(2S+1)}L_{J}c)$ are the nonperturbative LDMEs and can be estimated by comparison 
+with experimental measurements. 
+
+Using the invariant relation 
 \begin{equation}
-\frac{d\sigma}{d\hat t} = \frac{d\sigma}{d\hat t}(ab\rightarrow Q\overline{Q}(^{2S+1}L_{J})+X)M_{L}(Q\overline{Q}(^{2S+1}L_{J})\rightarrow\psi)
+    E\frac{d^{3}\sigma}{d^{3}p} = \frac{d^{2}\sigma}{2\pi p_{T} dp_{T}dy} 
 \end{equation}
-The short distance contribution $d\sigma/d\hat t (ab\rightarrow Q\overline{Q}(^{2S+1}L_{J})+X)$ can be calculated within 
-the framework of perturbative QCD (pQCD). $M_{L}(Q\overline{Q}(^{2S+1}L_{J})\rightarrow\psi)$ are the nonperturbative 
-LDMEs and can only be estimated by comparison with experimental measurements. 
-%Using the invariant relation 
-%\begin{equation}
-%    E\frac{d^{3}\sigma}{d^{3}p} = \frac{d^{2}\sigma}{2\pi p_{T} dp_{T}dy} 
-%\end{equation}
-%the cross section shown in eq.~\ref{eqn:cross} can be written in the 
-%terms of resonance transeverse momentum and rapidity 
-%\begin{equation}
-%  \begin{split}
-%    \frac{d^{2}\sigma^{ab\rightarrow cd}}{dp_{T}dy}(^{(2S+1)}L_{J}) = &\sum_{a,b}\int \int dx_a\,dx_b 
-%    G_{a/A}(x_a,\mu_{F}^{2}) G_{b/B}(x_b,\mu_{F}^{2}) \times 2{\hat s} p_{T} \frac{d\sigma}{d\hat t}\\
-%    &(ab\rightarrow^{(2S+1)}L_{J}c) \otimes \delta(\hat s + \hat t + \hat u -M^{2}) 
-%\end{split}
-%\end{equation}
-At this stage, the integration upon $x_b$ can be performed using the properties of delta function. 
+the cross section shown in eq.~\ref{eqn:cross} can be written in the 
+terms of resonance transeverse momentum and rapidity 
+\begin{equation}
+  \begin{split}
+    \frac{d^{2}\sigma^{ab\rightarrow cd}}{dp_{T}dy}(^{(2S+1)}L_{J}) = &\sum_{a,b}\int \int dx_a\,dx_b 
+    G_{a/A}(x_a,\mu_{F}^{2}) G_{b/B}(x_b,\mu_{F}^{2}) \times 2{\hat s} p_{T} \frac{d\sigma}{d\hat t}\\
+    &(ab\rightarrow^{(2S+1)}L_{J}c) \otimes \delta(\hat s + \hat t + \hat u -M^{2}) 
+\end{split}
+\end{equation}
+At this stage, the integration upon $x_b$ can be performed using the properties delta function. 
 To solve the integration we have to express the ${\hat s}$, ${\hat t}$, and ${\hat u}$
 in terms of $x_a$, $x_b$, resonance transeverse momentum $p_{T}$ and rapidity $y$. 
-For $ab\rightarrow \psi+X$ kind of processes following are the relations between ${\hat s}$, ${\hat t}$, ${\hat u}$ 
-and meson variables  
+The dominant processes in evaluating the differential 
+yields of heavy mesons as a function of $p_T$ are the $2\rightarrow 2$
+processes of the kind $g+q\rightarrow H+q$, $q+\bar{q}\rightarrow H+g$ and
+$g+g\rightarrow H+g$, where $H$ refers to the heavy meson. We label the process
+generically as $a+b\rightarrow c+d$, where $a$ and $b$ are light incident
+partons, $c$ refers to $H$ and $d$ is a light final-state parton. 
+For these kind processes following are the relations between ${\hat s}$, ${\hat t}$, ${\hat u}$ and meson variables  
 \begin{equation}
 \begin{split}
 \cs = \,&x_{a}\,x_{b}\,s \\
@@ -167,6 +169,7 @@ Writing down $ \hat s + \hat t + \hat u -M^{2} $ and solving for $x_{b}$ we obta
 \begin{equation}
 x_b = \frac{1}{\sqrt{s}}\frac{x_a\,\sqrt{s}\,m_T\,e^{-y}-m^2_H}{x_a\,\sqrt{s}-m_T\,e^y}.
 \end{equation}
+
 The double differential cross-section upon $p_{T}$ and y takes the following form
 %\begin{equation}
 %  d\sigma_{A+B\rightarrow H+X} = \sum_{a,b,n}\int dx_a dx_b  G_{a/A}(x_a,\,\mu^{2}_{F}) 
@@ -188,8 +191,8 @@ The double differential cross-section upon $p_{T}$ and y takes the following for
 %for the short distance contribution i.e. the heavy quark pair production 
 %from the reaction of the type $a\,+\,b\,\rightarrow\,c\,+\,d$ can be written as~\cite{Owens:1986mp}
 \begin{equation}
-  \frac{{d^{2}\sigma}^{ab\rightarrow cd}}{dp_T\,dy} = \sum_{a,b}\int_{x_{a}^{min}}^{1} dx_a\, G_{a/A}(x_a,\,\mu^{2}_{F})\, G_{b/B}(x_b,\,\mu^{2}_{F})\times 
-  2p_T \frac{x_a\,x_b}{x_a-\frac{m_T}{\sqrt{s}}e^y}\frac{d\sigma}{d\hat t},
+  \frac{{d^{2}\sigma}^{ab\rightarrow cd}}{dp_T\,dy} = \int_{x_{a}^{min}}^{1} dx_a\, G_{a/A}(x_a,\,\mu^{2}_{F})\, G_{b/B}(x_b,\,\mu^{2}_{F})\times 
+  2p_T \frac{x_a\,x_b}{x_a-\frac{m_T}{\sqrt{s}}e^y}\frac{d\sigma}{d\hat t}(ab\rightarrow cd),
 \end{equation}
 
 where, $\sqrt{s}$ being the total energy in the centre-of-mass and $y$ is the rapidity of 
@@ -197,15 +200,14 @@ the $Q\bar Q$ pair. The minimum value of $x_a$ is
 \begin{equation}
 x_{a\rm min} = \frac{1}{\sqrt{s}}\frac{\sqrt{s}\,m_T\,e^{y}-m^2_H}{\sqrt{s}-m_T\,e^{-y}}.
 \end{equation}
-The short distance invariant differential cross-section is given by
+The invariant differential cross-section is given by
 \begin{equation}
-  \frac{d\sigma}{d\hat t}(ab\rightarrow Q\overline{Q}(^{2S+1}L_{J})+X) = \frac{|\mathcal{M}|^2}{16\pi{\hat s}^2},
+\frac{d\sigma}{d\hat t} = \frac{|\mathcal{M}|^2}{16\pi{\hat s}^2},
 \end{equation}
 where $\hat s$ and $\hat t$ are the parton level Mandelstam variables. $|\mathcal{M}|^2$ is the 
-feynman squared amplitude averaged over initial spin of partons.  In our calculations, we used the expressions 
-for the short distance Color Singlet (CS) cross-sections given in Refs.~\cite{Baier:1983va,Humpert:1986cy,Gastmans:1987be} 
-and the Color Octet (CO) cross-sections given in Refs.~\cite{Cho:1995vh,Cho:1995ce,Braaten:2000cm}. In our numerical computation, 
-we use CTEQ6M~\cite{Lai:2010vv} for the parton distribution functions. 
+feynman squared amplitude, averaged on the initial spin and color degrees of freedom and summed over the
+final ones. In our numerical computation, we use CTEQ6M~\cite{Lai:2010vv} for the parton distribution functions. 
+
 %feynman amplitude for the process. Energy momentum conservation fixes value of the momentum 
 %fraction $x_b$ as,
 %\begin{equation}
@@ -214,68 +216,53 @@ we use CTEQ6M~\cite{Lai:2010vv} for the parton distribution functions.
 
 The LDMEs are predicted to scale with a definite power of the relative velocity $v$ of the heavy constituents inside $Q\bar Q$ bound states. 
 In the limit $v<<1$, the production of quarkonium is based on the $^3S_1^{[1]}$ and $^3P_J^{[1]}$ ($J$ = 0,1,2) CS states 
-and $^1S_0^{[8]}$, $^3S_1^{[8]}$ and $^3P_J^{[8]}$ CO states.
-%In this section we calculate the $p_T$ distribution of $J/\psi$ and $\psi(2S)$ mesons in $p-p$ collisions 
-%at LHC energies. For $J/\psi$ production in $p-p$ collisions, three sources need to be considered: 
-%direct $J/\psi$ production, feed-down contributions to the $J/\psi$ from the decay of heavier charmonium states, 
-%predominantly from $\psi(2S)$, $\chi_{c0}$, $\chi_{c1}$ and $\chi_{c2}$ and $J/\psi$ 
-%from $B$ hadron decays. The sum of the first two sources is called "prompt $J/\psi$" and the third source will be called "$J/\psi$ from $B$". 
-%On the other hand, $\psi(2S)$ has no significant feed-down contributions from higher mass states. We call this direct contribution as 
-%"prompt $\psi(2S)$" to be consistent with the experiments. The other source to $\psi(2S)$ production is from $B$ hadron decays and
-% we call it "$\psi(2S)$ from $B$". The sum of the prompt $J/\psi$($\psi(2S)$) and $J/\psi$($\psi(2S)$) from $B$ will be called 
-%"inclusive $J/\psi$($\psi(2S)$)". 
-%NRQCD provides a systematic procedure to compute any quantity as an expansion in the relative velocity $v$
-%of the heavy quarks in the meson. For example, the wavefunction of the $J/\psi$
-%meson (analogous expressions hold for the $\psi(2S)$) is written as
-%\begin{equation}
-%\begin{split}
-%|J/\psi\rangle = &|Q\barQ([^3S_1]_{1})\rangle 
-%+ \calO(v)|Q\barQ([^1S_0]_{8}g)\rangle 
-%  + \calO(v^2)|Q\barQ([^3S_1]_{8}gg)\rangle\\
-%  &+ \calO(v^1)|Q\barQ([^3P_0]_{8}g)\rangle
-%  + \calO(v^1)|Q\barQ([^3P_1]_{8}g)\rangle
-%  + \calO(v^1)|Q\barQ([^3P_2]_{8}g)\rangle
-%  +\cdot\cdot\cdot
-%  \label{eq:Jfock}
-%\end{split}
-%\end{equation}
-The differential cross section for the direct production of $J/\psi$ can be written 
-as the sum of the contributions,
-%\begin{equation}
-%\begin{split}
-%d\sigma(J/\psi) &= d\sigma(Q\barQ([^3S_1]_{1}))
-%                  \langle M(Q\barQ([^3S_1]_{1})\rightarrow J/\psi)\rangle 
-%                +  d\sigma(Q\barQ([^1S_0]_{8}))
-%                  \langle M(Q\barQ([^1S_0]_{8})\rightarrow J/\psi)\rangle\\ 
-%                &+  d\sigma(Q\barQ([^3S_1]_{8}))
-%                  \langle M(Q\barQ([^3S_1]_{8})\rightarrow J/\psi)\rangle 
-%                +  d\sigma(Q\barQ([^3P_0]_{8}))
-%                  \langle M(Q\barQ([^3P_0]_{8})\rightarrow J/\psi)\rangle\\ 
-%                &+  d\sigma(Q\barQ([^3P_1]_{8}))
-%                  \langle M(Q\barQ([^3P_1]_{8})\rightarrow J/\psi)\rangle
-%                +  d\sigma(Q\barQ([^3P_2]_{8}))
-%                  \langle M(Q\barQ([^3P_2]_{8})\rightarrow J/\psi)\rangle
-%                + \cdot\cdot\cdot  \;,
-%\label{eq:dsigmaJ}
-%\end{split}
-%\end{equation}
+and $^1S_0^{[8]}$, $^3S_1^{[8]}$ and $^3P_J^{[8]}$ CO states. In our calculations, we used the expressions for the short distance CS cross-sections 
+given in Refs.~\cite{Baier:1983va,Humpert:1986cy,Gastmans:1987be} and the CO cross-sections given in Refs.~\cite{Cho:1995vh,Cho:1995ce}.
 
+In this section we calculate the $p_T$ distribution of $J/\psi$ and $\psi(2S)$ mesons in $p-p$ collisions 
+at LHC energies. For $J/\psi$ production in $p-p$ collisions, three sources need to be considered: 
+direct $J/\psi$ production, feed-down contributions to the $J/\psi$ from the decay of heavier charmonium states, 
+predominantly from $\psi(2S)$, $\chi_{c0}$, $\chi_{c1}$ and $\chi_{c2}$ and $J/\psi$ 
+from $B$ hadron decays. The sum of the first two sources is called "prompt $J/\psi$" and the third source will be called "$J/\psi$ from $B$". 
+On the other hand, $\psi(2S)$ has no significant feed-down contributions from higher mass states. We call this direct contribution as 
+"prompt $\psi(2S)$" to be consistent with the experiments. The other source to $\psi(2S)$ production is from $B$ hadron decays and
+ we call it "$\psi(2S)$ from $B$". The sum of the prompt $J/\psi$($\psi(2S)$) and $J/\psi$($\psi(2S)$) from $B$ will be called 
+"inclusive $J/\psi$($\psi(2S)$)". 
+
+NRQCD provides a systematic procedure to compute any quantity as an expansion in the relative velocity $v$
+of the heavy quarks in the meson. For example, the wavefunction of the $J/\psi$
+meson (analogous expressions hold for the $\psi(2S)$) is written as
 
 \begin{equation}
 \begin{split}
+|J/\psi\rangle = &|Q\barQ([^3S_1]_{1})\rangle 
++ \calO(v)|Q\barQ([^1S_0]_{8}g)\rangle 
+  + \calO(v^2)|Q\barQ([^3S_1]_{8}gg)\rangle\\
+  &+ \calO(v^1)|Q\barQ([^3P_0]_{8}g)\rangle
+  + \calO(v^1)|Q\barQ([^3P_1]_{8}g)\rangle
+  + \calO(v^1)|Q\barQ([^3P_2]_{8}g)\rangle
+  +\cdot\cdot\cdot
+  \label{eq:Jfock}
+\end{split}
+\end{equation}
+
+The differential cross section for the direct production of $J/\psi$ can be written 
+as the sum of the contributions,
+\begin{equation}
+\begin{split}
 d\sigma(J/\psi) &= d\sigma(Q\barQ([^3S_1]_{1}))
-                   M_{L}(Q\barQ([^3S_1]_{1})\rightarrow J/\psi) 
+                  \langle \calO(Q\barQ([^3S_1]_{1})\rightarrow J/\psi)\rangle 
                 +  d\sigma(Q\barQ([^1S_0]_{8}))
-                   M_{L}(Q\barQ([^1S_0]_{8})\rightarrow J/\psi)\\ 
+                  \langle \calO(Q\barQ([^1S_0]_{8})\rightarrow J/\psi)\rangle\\ 
                 &+  d\sigma(Q\barQ([^3S_1]_{8}))
-                   M_{L}(Q\barQ([^3S_1]_{8})\rightarrow J/\psi) 
+                  \langle \calO(Q\barQ([^3S_1]_{8})\rightarrow J/\psi)\rangle 
                 +  d\sigma(Q\barQ([^3P_0]_{8}))
-                   M_{L}(Q\barQ([^3P_0]_{8})\rightarrow J/\psi)\\ 
+                  \langle \calO(Q\barQ([^3P_0]_{8})\rightarrow J/\psi)\rangle\\ 
                 &+  d\sigma(Q\barQ([^3P_1]_{8}))
-                   M_{L}(Q\barQ([^3P_1]_{8})\rightarrow J/\psi)
+                  \langle \calO(Q\barQ([^3P_1]_{8})\rightarrow J/\psi)\rangle
                 +  d\sigma(Q\barQ([^3P_2]_{8}))
-                   M_{L}(Q\barQ([^3P_2]_{8})\rightarrow J/\psi)\\
-                &+ \cdot\cdot\cdot  \;,
+                  \langle \calO(Q\barQ([^3P_2]_{8})\rightarrow J/\psi)\rangle
+                + \cdot\cdot\cdot  \;,
 \label{eq:dsigmaJ}
 \end{split}
 \end{equation}
@@ -286,112 +273,106 @@ the color-singlet and $8$ being the color-octet. The dots represent terms which 
 higher powers of $v$. The short distance cross sections $d\sigma(Q\barQ)$
 correspond to the production of a $Q\barQ$ pair in a particular color and spin
 configuration, while the long distance matrix element
-$M_{L}(Q\barQ)\rightarrow J/\psi$ corresponds to the probability
+$\langle\calO(Q\barQ)\rightarrow J/\psi\rangle$ corresponds to the probability
 of the $Q\barQ$ state to convert to the quarkonium wavefunction. This
 probability includes any necessary prompt emission of soft gluons to prepare a
 color neutral system that matches onto the corresponding Fock component of the
 quarkonium wavefunction. 
+
+
 Power counting rules tell us that contributions from the color-octet matrix
 elements in Eq.~\ref{eq:dsigmaJ} are suppressed by $v^4$ compared to the color
-singlet matrix elements.
-%More specifically,
-%\begin{equation}
-%\begin{split}
-%\langle \calO(Q\barQ([^3S_1]_{1})\rightarrow J/\psi)\rangle &= \calO(m_Q^3 v^3)\;, \\
-%\langle \calO(Q\barQ([^3S_1]_{8})\rightarrow J/\psi)\rangle &= \calO(m_Q^3 v^7)\;, \\
-%\langle \calO(Q\barQ([^1S_0]_{8})\rightarrow J/\psi)\rangle &= \calO(m_Q^3 v^7)\;, \\
-%\langle \calO(Q\barQ([^3P_J]_{8})\rightarrow J/\psi)\rangle &= 
-%\calO(m_Q^5 v^7) \;. ~\label{eq:scalingsJ}
-%\end{split}
-%\end{equation}
-%These operators are multiplied by the short distance differential cross sections,
-%which are related to the probability to create $Q\barQ$ pairs in specific
-%quantum states. Since these are short distance operators, they can be
-%calculated in perturbation theory. We use the expressions for the short
-%distance color-singlet cross sections given in~\cite{Baier:1983va, Humpert:1986cy} 
-%and the color-octet cross sections given in~\cite{Cho:1995ce,Cho:1995vh,Braaten:2000cm}.
+singlet matrix elements. More specifically,
+\begin{equation}
+\begin{split}
+\langle \calO(Q\barQ([^3S_1]_{1})\rightarrow J/\psi)\rangle &= \calO(m_Q^3 v^3)\;, \\
+\langle \calO(Q\barQ([^3S_1]_{8})\rightarrow J/\psi)\rangle &= \calO(m_Q^3 v^7)\;, \\
+\langle \calO(Q\barQ([^1S_0]_{8})\rightarrow J/\psi)\rangle &= \calO(m_Q^3 v^7)\;, \\
+\langle \calO(Q\barQ([^3P_J]_{8})\rightarrow J/\psi)\rangle &= 
+\calO(m_Q^5 v^7) \;. ~\label{eq:scalingsJ}
+\end{split}
+\end{equation}
+These operators are multiplied by the short distance differential cross sections,
+which are related to the probability to create $Q\barQ$ pairs in specific
+quantum states. Since these are short distance operators, they can be
+calculated in perturbation theory. We use the expressions for the short
+distance color-singlet cross sections given in~\cite{Baier:1983va, Humpert:1986cy} 
+and the color-octet cross sections given in~\cite{Cho:1995ce,Cho:1995vh,Braaten:2000cm}.
+
 The case of the $p$-wave bound states ($\chi_{c0}$, $\chi_{c1}$, and
-$\chi_{c2}$, sometimes collectively referred to as $\chi_{cJ}$, 
-and the corresponding states of the $b$ quark) 
-is slightly different. 
-%The wavefunction of $\chi_c$ states can be written as
-%\begin{equation}
-%\begin{split}
-%|\chi_{cJ}\rangle = & |Q\barQ([^3P_J]_{1})\rangle 
-%  + \calO(v)|Q\barQ([^3S_1]_{8}g)\rangle
-%  + \calO(v^2)|Q\barQ([^1S_0]_{8}g)\rangle
-%  + \calO(v)|Q\barQ([^3D_J]_{8}g)\rangle\\
-%  &+ \calO(v^2)|Q\barQ([^1P_1]_{8}g)\rangle
-%  + \calO(v^2)|Q\barQ([^3P_J]_{8}gg)\rangle
-%  +\cdot\cdot\cdot
-%  \label{eq:chifock}
-%\end{split}
-%\end{equation}
+$\chi_{c2}$, sometimes collectively referred to as $\chi_{cJ}$, and the
+corresponding states of the $b$ quark) is slightly
+different. The wavefunction of $\chi_c$ states can be written as
+\begin{equation}
+\begin{split}
+|\chi_{cJ}\rangle = & |Q\barQ([^3P_J]_{1})\rangle 
+  + \calO(v)|Q\barQ([^3S_1]_{8}g)\rangle
+  + \calO(v^2)|Q\barQ([^1S_0]_{8}g)\rangle
+  + \calO(v)|Q\barQ([^3D_J]_{8}g)\rangle\\
+  &+ \calO(v^2)|Q\barQ([^1P_1]_{8}g)\rangle
+  + \calO(v^2)|Q\barQ([^3P_J]_{8}gg)\rangle
+  +\cdot\cdot\cdot
+  \label{eq:chifock}
+\end{split}
+\end{equation}
 The color-singlet state $Q\barQ[^3P_J]_{1}$ and the color-octet state
-$Q\barQ[^3S_1]_{8}$ contribute to the same order in $v$ ($v^{5}$) because of the angular
+$Q\barQ[^3S_1]_{8}$ contribute to the same order in $v$ because of the angular
 momentum barrier for $p-$wave states, and hence both need to be included for a consistent
 calculation in $v$.  For the calculation of the production cross section, we
 consistently take the contributions to the lowest order in $v$.
-The $\chi_{c}$ differential cross section can be written as 
+For example the $\chi_{c}$ contribution is
 \begin{equation}
 \begin{split}
-d\sigma(\chi_{cJ}) =\,&d\sigma(Q\barQ([^3P_J]_{1}))
-                   M_{L}(Q\barQ([^3P_J]_{1})\rightarrow \chi_{cJ}) 
+d\sigma(\chi_{cJ}) &= d\sigma(Q\barQ([^3P_J]_{1}))
+                  \langle \calO(Q\barQ([^3P_J]_{1})\rightarrow \chi_{cJ})\rangle 
                 +  d\sigma(Q\barQ([^3S_1]_{8}))
-                   M_{L}(Q\barQ([^3S_1]_{8})\rightarrow \chi_{cJ})\\
-                &+ \cdot\cdot\cdot  
+                  \langle \calO(Q\barQ([^3S_1]_{8})\rightarrow \chi_{cJ})\rangle
+                + \cdot\cdot\cdot  
 \label{eq:dsigmachi}
 \end{split}
 \end{equation}
 Similar expressions hold for the $\chi_b(1P), \chi_b(2P)$ and $\chi_b(3P)$ 
-mesons. 
-%The expressions for the short distance coefficients are given
-%in~\cite{Cho:1995vh}. The scaling of the matrix elements is given as
-%\begin{equation}
-%\begin{split}
-%\langle \calO(Q\barQ([^3P_J]_{1})\rightarrow \chi_{cJ})\rangle &= 
-%\calO(m_Q^5 v^5) \;,\\
-%\langle \calO(Q\barQ([^3S_1]_{8})\rightarrow \chi_{cJ})\rangle &= 
-%\calO(m_Q^5 v^5)\;.~\label{eq:scalingschi}
-%\end{split}
-%\end{equation}
-%Therefore we need the color-singlet and color-octet matrix elements
-%to obtain theoretical results for the production of quarkonia at RHIC and
-%LHC energies.
-Using above mentioned formalism we calculate the cross-section of charmonia states 
-at LHC energies. For $J/\psi$ production in $p-p$ collisions at LHC energies, three sources 
-need to be considered: direct $J/\psi$ production from initial parton-parton hard scattering, 
-feed-down contributions to the $J/\psi$ from the decay of heavier charmonium states, 
-predominantly from $\psi(2S)$, $\chi_{c0}$, $\chi_{c1}$ and $\chi_{c2}$ and $J/\psi$ 
-from $B$ hadron decays. The sum of the first two sources is called "prompt $J/\psi$" and the third source 
-is called "$J/\psi$ from $B$". On the other hand, $\psi(2S)$ has no significant feed-down contributions 
-from higher mass states. We call this direct contribution as "prompt $\psi(2S)$" to be consistent with 
-the experiments. 
-%The other source to $\psi(2S)$ production is from $B$ hadron decays and
-% we call it "$\psi(2S)$ from $B$". The sum of the prompt $J/\psi$($\psi(2S)$) and $J/\psi$($\psi(2S)$) from $B$ will be called 
-%"inclusive $J/\psi$($\psi(2S)$)".
-%\subsection{Feed-down contributions}
-For the production of prompt $J/\psi$ we consider the direct contribution, and
+mesons. The expressions for the short distance coefficients are given
+in~\cite{Cho:1995vh}. The scaling of the matrix elements is given as
+\begin{equation}
+\begin{split}
+\langle \calO(Q\barQ([^3P_J]_{1})\rightarrow \chi_{cJ})\rangle &= 
+\calO(m_Q^5 v^5) \;,\\
+\langle \calO(Q\barQ([^3S_1]_{8})\rightarrow \chi_{cJ})\rangle &= 
+\calO(m_Q^5 v^5)\;.~\label{eq:scalingschi}
+\end{split}
+\end{equation}
+
+Therefore we need the color-singlet and color-octet matrix elements
+to obtain theoretical results for the production of quarkonia at RHIC and
+LHC energies.
+
+
+\subsection{Feed-down contributions}
+
+For the net production of $J/\psi$ we consider the direct contribution, and
 feed-down contributions from $\chi_{c0}(1P)$, $\chi_{c1}(1P)$,
 $\chi_{c2}(1P)$ and $\psi(2S)$. The relevant branching fractions are given
 in Table~\ref{table:CharmoniaBFs},
 
 \begin{table*}[h]
-\caption{Relevant branching fractions for charmonia~\cite{Nakamura:2010zzi}}
 \begin{tabular}{c|cccc}
-Meson From &to $\chi_{c0}$ &to $\chi_{c1}$ &to $\chi_{c2}$ &to $J/\psi$\\ 
+meson from &to $\chi_{c0}$ &to $\chi_{c1}$ &to $\chi_{c2}$ &to $J/\psi$\\ 
 \hline
 $\psi(2S)$ & 0.0962 & 0.092 & 0.0874 & 0.595   \\
 $\chi_{c0}$& &  &  & 0.0116           \\
 $\chi_{c1}$& &  &  & 0.344           \\
 $\chi_{c2}$& &  &  & 0.195           \\
 \end{tabular}
+\caption{Relevant branching fractions for charmonia~\cite{Nakamura:2010zzi}}
 \label{table:CharmoniaBFs}
 \end{table*}
-%$B$ hadrons can also decay to $J/\psi$($\psi$(2S)) with a net effective branching fraction
-%$B(H_b\rightarrow J/\psi+X)_{\rm {eff}} =1.16(2.83)\times10^{-2}$~\cite{Acosta:2004yw}. 
-%In particular, at high $p_T$, the contribution to the inclusive yield from the decay of $B-$hadrons is
-%substantial, and can possibly even dominate production.
+
+$B$ hadrons can also decay to $J/\psi$($\psi$(2S)) with a net effective branching fraction
+$B(H_b\rightarrow J/\psi+X)_{\rm {eff}} =1.16(2.83)\times10^{-2}$~\cite{Acosta:2004yw}. 
+In particular, at high $p_T$, the contribution to the inclusive yield from the decay of $B-$hadrons is
+substantial, and can possibly even dominate production.
+
 
 %The analysis of $\Upsilon$(1S) production and feed-down contributions is very
 %similar to the analysis for J/$\psi$. Following~\cite{Cho:1995ce,Cho:1995vh}
@@ -446,47 +427,49 @@ $\chi_{c2}$& &  &  & 0.195           \\
 %\end{table*}
 
 
-%\subsection{Long distance matrix elements (LDME) for quarkonia production}
-%\label{section:Matrix}
-%\subsubsection{Color Singlet Matrix elements}
-In this work, following~\cite{Cho:1995ce,Cho:1995vh} we use the values of the
-color-singlet matrix elements calculated using the potential model. The expressions
-and the values for the color-singlet operators can be found in~\cite{Cho:1995ce,Cho:1995vh,Eichten:1994gt}. 
-The values are obtained by solving the non-relativistic wavefunctions:
-%\begin{equation}
-%\begin{split}
-%\begin{array}{ccc}
-%\langle \calO(c\barc([^3S_1]_{1})\rightarrow J/\psi)\rangle 
-%=3\langle \calO(c\barc([^1S_0]_{1})\rightarrow J/\psi)\rangle
-%&=3N_c\frac{|R_{n=1}(0)|^2}{2\pi}
-%&=1.2\;{\rm GeV^3} \;, \\
-%\langle \calO(c\barc([^3S_1]_{1})\rightarrow \psi(2S))\rangle 
-%=3\langle \calO(c\barc([^1S_0]_{1})\rightarrow \psi(2S))\rangle
-%&=3N_c\frac{|R_{n=2}(0)|^2}{2\pi}
-%&=0.76\;{\rm GeV^3} \;, \\
-%\frac{1}{5}\langle \calO(c\barc([^3P_2]_{1})\rightarrow \chi_{c2}(1P))\rangle
-%=\frac{1}{3}\langle \calO(c\barc([^3P_1]_{1})\rightarrow \chi_{c1}(1P))\rangle 
-%=&&\\ 
-%\langle \calO(c\barc([^3P_0]_{1})\rightarrow \chi_{c0}(1P))\rangle 
-%&=3N_c\frac{|R^\prime_{n=1}(0)|^2}{2\pi}
-%&=0.054 m_{\charm}^2\;{\rm GeV^3}\; ,
-%\end{array}
-%\label{eq:charmsinglet}
-%\end{split}
-%\end{equation}
 
+
+
+
+
+
+
+\subsection{Long distance matrix elements (LDME) for quarkonia production}
+\label{section:Matrix}
+
+\subsubsection{Color Singlet Matrix elements}
+
+In this work, following~\cite{Cho:1995ce,Cho:1995vh} we use the values of the
+color-singlet operators calculated using the potential model. The expressions
+and the values for the color-singlet operators are given
+in~\cite{Cho:1995ce,Cho:1995vh,Eichten:1994gt}. The values are obtained by
+solving the non-relativistic wavefunctions:
 \begin{equation}
 \begin{split}
- &M_{L}(c\barc([^3S_1]_{1})\rightarrow J/\psi) = 3 M_{L}(c\barc([^1S_0]_{1})\rightarrow J/\psi) = 3N_c\frac{|R_{n=1}(0)|^2}{2\pi} = 1.2\;{\rm GeV^3} \;, \\
- &M_{L}(c\barc([^3S_1]_{1})\rightarrow \psi(2S))=3 M_{L}(c\barc([^1S_0]_{1})\rightarrow \psi(2S)) =3N_c\frac{|R_{n=2}(0)|^2}{2\pi}=0.76\;{\rm GeV^3} \;, \\
- &\frac{1}{5} M_{L}(c\barc([^3P_2]_{1})\rightarrow \chi_{c2}(1P))=\frac{1}{3} M_{L}(c\barc([^3P_1]_{1})\rightarrow \chi_{c1}(1P)) =M_{L}(c\barc([^3P_0]_{1})\rightarrow \chi_{c0}(1P))\\
- &=3N_c\frac{|R^\prime_{n=1}(0)|^2}{2\pi} =0.054 m_{\charm}^2\;{\rm GeV^3} \;
+\begin{array}{ccc}
+\langle \calO(c\barc([^3S_1]_{1})\rightarrow J/\psi)\rangle 
+=3\langle \calO(c\barc([^1S_0]_{1})\rightarrow J/\psi)\rangle
+&=3N_c\frac{|R_{n=1}(0)|^2}{2\pi}
+&=1.2\;{\rm GeV^3} \;, \\
+\langle \calO(c\barc([^3S_1]_{1})\rightarrow \psi(2S))\rangle 
+=3\langle \calO(c\barc([^1S_0]_{1})\rightarrow \psi(2S))\rangle
+&=3N_c\frac{|R_{n=2}(0)|^2}{2\pi}
+&=0.76\;{\rm GeV^3} \;, \\
+\frac{1}{5}\langle \calO(c\barc([^3P_2]_{1})\rightarrow \chi_{c2}(1P))\rangle
+=\frac{1}{3}\langle \calO(c\barc([^3P_1]_{1})\rightarrow \chi_{c1}(1P))\rangle 
+=&&\\ 
+\langle \calO(c\barc([^3P_0]_{1})\rightarrow \chi_{c0}(1P))\rangle 
+&=3N_c\frac{|R^\prime_{n=1}(0)|^2}{2\pi}
+&=0.054 m_{\charm}^2\;{\rm GeV^3}\; ,
+\end{array}
 \label{eq:charmsinglet}
 \end{split}
 \end{equation}
-here $R(0)$ is the radial wavefunction at the origin, $R^\prime(0)$ is the
+
+where $R(0)$ is the radial wavefunction at the origin, $R^\prime(0)$ is the
 first derivative of the radial wavefunction at the origin, and $n$ refers to
-the radial quantum number. We take the mass of the charm quark, $m_{\charm}=1.6$ GeV. 
+the radial quantum number. We take the mass of the charm quark,
+$m_{\charm}=1.4$GeV. 
 
 
 %The values of the color-singlet operators for  bottomonia are given
@@ -514,81 +497,100 @@ the radial quantum number. We take the mass of the charm quark, $m_{\charm}=1.6$
 %\end{split}
 %\end{equation}
 %where we use $m_{\bottom}=4.88$GeV~\cite{Cho:1995ce,Cho:1995vh}.
-%\subsubsection{Color Octet Matrix elements}
+
+
+
+\subsubsection{Color Octet Matrix elements}
 The color-octet operators can not be related to the non-relativistic
 wavefunctions of $Q\barQ$ since it involves a higher Fock state.
-We used measured data from LHC~\cite{Chatrchyan:2011kc,Khachatryan:2015rra,Aad:2015duc} 
-and TeVatron~\cite{Acosta:2004yw} to constrain these  Color Octet Matrix elements.
-For the net production of $J/\psi$ we consider the direct contribution, and
+We used measured data from LHC and TeVatron to constrain these  Color Octet Matrix elements.
+ For the net production of $J/\psi$ we consider the direct contribution, and
 feed-down contributions from $\chi_{c0}(1P)$, $\chi_{c1}(1P)$,
-$\chi_{c2}(1P)$ and $\psi(2S)$. 
-%The relevant branching fractions are given in Table~\ref{table:CharmoniaBFs},
-%$p_T$-differential yields at small rapidity for $J/\psi$ is available from
-%LHC(\cite{Chatrchyan:2011kc,Khachatryan:2015rra,Aad:2015duc}) and TeVatron
-%(\cite{Acosta:2004yw}). 
-Yields of $\psi(2S)$ have been measured at TeVatron~\cite{Abe:1997yz} and LHC~\cite{Chatrchyan:2011kc}. 
-Data for $\chi_{cJ}$ is available from TeVatron~\cite{Abe:1997yz}.  
+$\chi_{c2}(1P)$ and $\psi(2S)$. The relevant branching fractions are given
+in Table~\ref{table:CharmoniaBFs},
+$p_T$-differential yields at small rapidity for $J/\psi$ is available from
+LHC(\cite{Chatrchyan:2011kc,Khachatryan:2015rra,Aad:2015duc}) and TeVatron
+(\cite{Acosta:2004yw}). 
+
+Yields of $\psi(2S)$ have been measured
+at TeVatron (\cite{Aaltonen:2009dm,Abe:1997yz}) and
+LHC(\cite{Chatrchyan:2011kc}). Data for $\chi_{cJ}$ is available from
+TeVatron~\cite{Abe:1997yz}.  
 
  The following color-singlet and color-octet contributions are relevant for our
 calculation.
-
 \begin{enumerate}
 \item{Direct contributions
 \begin{equation}
 \begin{split}
-&M_{L}(c\barc([^3S_1]_{1})\rightarrow J/\psi) = 1.2\,{\rm GeV}^{3}\\
-&M_{L}(c\barc([^3S_1]_{8})\rightarrow J/\psi) \\
-&M_{L}(c\barc([^1S_0]_{8})\rightarrow J/\psi) \\
-&M_{L}(c\barc([^3P_0]_{8})\rightarrow J/\psi) \\
+{\cal{M}}(\psi[^3S_1]_{1})
+ &=\langle \calO(c\barc([^3S_1]_{1})\rightarrow J/\psi)\rangle
+ =3N_c\frac{|R_{n=1}(0)|^2}{2\pi}\\
+{\cal{M}}(\psi[^3S_1]_{8})
+ &=\langle \calO(c\barc([^3S_1]_{8})\rightarrow J/\psi)\rangle \\
+{\cal{M}}(\psi[^3P_0]_{1})
+ &= \langle \calO(c\barc([^3P_0]_{8})\rightarrow J/\psi)\rangle \\
+{\cal{M}}(\psi[^1S_0]_{1})
+ &=\langle \calO(c\barc([^1S_0]_{8})\rightarrow J/\psi)\rangle 
 ~\label{eq:Mpsi1}
 \end{split}
 \end{equation}
     }
-\item{Feed-down contribution from $\psi(2S)$
+\item{Indirect contribution from $\chi_{cJ}$
 \begin{equation}
 \begin{split}
-&M_{L}(c\barc([^3S_1]_{1})\rightarrow \psi(2S)) = 0.76\,{\rm GeV}^{3}\\
-&M_{L}(c\barc([^3S_1]_{8})\rightarrow \psi(2S)) \\
-&M_{L}(c\barc([^1S_0]_{8})\rightarrow \psi(2S)) \\
-&M_{L}(c\barc([^3P_0]_{8})\rightarrow \psi(2S)) \\
-~\label{eq:Mpsi2}
-\end{split}
-\end{equation}
-    }
-\item{Feed-down contribution from $\chi_{cJ}$
-\begin{equation}
-\begin{split}
-&M_{L}(c\barc([^3P_0]_{1})\rightarrow \chi_{c0}) = 0.054\,m_{c}^{2}\,{\rm GeV}^{3}\\ 
-&M_{L}(c\barc([^3S_1]_{8})\rightarrow \chi_{c0})\\
+{\cal{M}}(\chi[^3P_0]_{1}) 
+ &= \langle \calO(Q\barQ([^3P_0]_{1})\rightarrow \chi_{c0})\rangle  = 
+3N_c\frac{|R^\prime_{n=1}(0)|^2}{2\pi}\\
+{\cal{M}}(\chi[^3S_1]_{8})
+ &=\langle \calO(Q\barQ([^3S_1]_{8})\rightarrow \chi_{c0})\rangle
 ~\label{eq:Mchi}
 \end{split}
 \end{equation}
     }
-\end{enumerate}
-Hence for $J/\psi$ we have to determine $10$ parameters. Three color singlet matrix elements
-can be estimated from the wavefunctions of the heavy mesons. 
-%We use values from ~\cite{Cho:1995ce,Cho:1995vh,Eichten:1994gt},
-%\begin{equation}
-%\begin{split}
-%{\cal{M}}(J/\psi[^3S_1]_{1}(1S)) &= 1.2 {\rm GeV^3}\\
-%{\cal{M}}(\chi[^3P_0]_{1}(1P))/m_{\charm}^2 &= 0.054 {\rm GeV^3}\\
-%{\cal{M}}(\psi[^3S_1]_{1}(2S)) &= 0.76 {\rm GeV^3}\;.
-%~\label{eq:MCSpsi_val}
-%\end{split}
-%\end{equation}
-%The color octet matrix elements can not be determined from the wavefunction
-%because it involves the wavefunctional form of a higher Fock state. Therefore,
-%we fit them to reproduce $p_T$ differential cross sections at the LHC ,
-%TeVatron and RHIC. 
-We use the following procedure to determine the remaining
-$7$ color-octet components. 
-CDF~\cite{Abe:1997yz} has measured the feed-down contribution from the
-$\chi_{cJ}$ states to $J/\psi$ production. We use this data to fit the octet
-matrix element $M_{L}(Q\barQ([^3S_1]_{8})\rightarrow \chi_{c0})$. Figure~\ref{Fig:LDMEChicCDF} shows
-different components of cross-section along with the CDF data 
+\item{Indirect contribution from $\psi(2S)$
 \begin{equation}
 \begin{split}
-M_{L}(Q\barQ([^3S_1]_{8})\rightarrow \chi_{c0})/m_{\charm}^2 &= (0.00157\pm {\color{red} 0.00159})\,{\rm GeV^3}\;,
+{\cal{M}}(\psi[^3S_1]_{1})
+ &=\langle \calO(c\barc([^3S_1]_{1})\rightarrow \psi(2S))\rangle
+ =3N_c\frac{|R_{n=1}(0)|^2}{2\pi}\\
+{\cal{M}}(\psi[^3S_1]_{8})
+ &=\langle \calO(c\barc([^3S_1]_{8})\rightarrow \psi(2S))\rangle \\
+{\cal{M}}(\psi[^3P_0]_{1})
+ &= \langle \calO(c\barc([^3P_0]_{8})\rightarrow \psi(2S))\rangle \\
+{\cal{M}}(\psi[^1S_0]_{1})
+ &=\langle \calO(c\barc([^1S_0]_{8})\rightarrow \psi(2S))\rangle 
+~\label{eq:Mpsi2}
+\end{split}
+\end{equation}
+    }
+\end{enumerate}
+
+Hence we have to determine $10$ parameters. The color singlet matrix elements
+can be estimated from the wavefunctions of the heavy mesons. We use values from
+~\cite{Cho:1995ce,Cho:1995vh,Eichten:1994gt},
+\begin{equation}
+\begin{split}
+{\cal{M}}(J/\psi[^3S_1]_{1}(1S)) &= 1.2 {\rm GeV^3}\\
+{\cal{M}}(\chi[^3P_0]_{1}(1P))/m_{\charm}^2 &= 0.054 {\rm GeV^3}\\
+{\cal{M}}(\psi[^3S_1]_{1}(2S)) &= 0.76 {\rm GeV^3}\;.
+~\label{eq:MCSpsi_val}
+\end{split}
+\end{equation}
+
+The color octet matrix elements can not be determined from the wavefunction
+because it involves the wavefunctional form of a higher Fock state. Therefore,
+we fit them to reproduce $p_T$ differential cross sections at the LHC ,
+TeVatron and RHIC. We use the following procedure to determine the remaining
+$6$ color-octet components. 
+
+CDF~\cite{Abe:1997yz} has measured the feed-down contribution from the
+$\chi_{cJ}$ states to $J/\psi$ production. We use this data to fit the octet
+matrix element ${\cal{M}}(\chi_{c0}[^3S_1]_{8})$.
+\begin{equation}
+\begin{split}
+%{\cal{M}}(\chi_{c0}[^3S_1]_{8}(1P))/m_{\charm}^2 &= (0.00187\pm 0.00025) GeV^3\;,
+{\cal{M}}(\chi_{c0}[^3S_1]_{8}(1P))/m_{\charm}^2 &= (0.00160\pm {\color{red} 0.000}) {\rm GeV^3}\;,
 ~\label{eq:Mchicn1CO_val}
 \end{split}
 \end{equation}
@@ -598,68 +600,51 @@ lowest $p_T$ included in the fit by $1$~GeV.  The $\chi^2/dof=4.56$ is not
 very good because the (dominant) color-octet production is harder than the
 experimentally observed spectrum.
 }
-We assume that the measured yields of prompt $\psi(2S)$ is not
-substantially contaminated by higher feed-downs and use combined fit of the following data sets
+Similarly we assume that the measured yields of prompt $\psi(2S)$ is not
+substantially contaminated by higher feed-downs and fit the following data
 \begin{enumerate}
 \item{CMS results at $\sqrt{S}=7$~TeV~\cite{Chatrchyan:2011kc,Khachatryan:2015rra}}
 \item{ATLAS results at $\sqrt{S}=7$ and 8 ~TeV~\cite{Aad:2015duc}}
 \item{CDF results at $\sqrt{S}=1.96$~TeV~\cite{Acosta:2004yw}}
 \end{enumerate}
-to obtain color octet $\psi(2S)$ matrix elements. Figure~\ref{Fig:LDMEPsi2S} and Figure~\ref{Fig:LDMEPsi2SCDF}
-shows the fitted values of color-singlet and color-octet cross-section components along with the measured $\psi(2S)$ 
-cross-section. We found following values of $\psi(2S)$ color-octet matrix elements  
+
+We obtain,
 \begin{equation}
 \begin{split}
- M_{L}(c\barc([^3S_1]_{8})\rightarrow \psi(2S)) &= (0.00190\pm {\color{red}0.00002)} {\rm GeV^3}\\
- M_{L}(c\barc([^1S_0]_{8})\rightarrow \psi(2S)) &= (0.0264\pm {\color{red}0.0003)} {\rm GeV^3}\\
-                                           &= M_{L}(c\barc([^3P_0]_{8})\rightarrow \psi(2S))/m_{\charm}^2\;,
+{\cal{M}}(\psi[^3S_1]_{8}(2S)) &= (0.00342\pm {\color{red}0.000)} {\rm GeV^3}\\
+{\cal{M}}(\psi[^1S_0]_{8}(2S)) &= (0.00243\pm {\color{red}0.000)} {\rm GeV^3}=
+{\cal{M}}(\psi[^3P_0]_{8}(2S))/m_{\charm}^2\;,
 ~\label{eq:MJn2CO_val}
 \end{split}
 \end{equation}
-{\color{red} with a $\chi^2/dof=00$.} 
-To fit the remaining $3$ parameters we use the combined fit for the 
+
+{\color{red} with a $\chi^2/dof=06$.} 
+
+To fit the remaining fit $3$ parameters we use the combined fit for the 
 following results for $J/\psi$ (direct+feed-down) yields
 \begin{enumerate}
 \item{CMS results at $\sqrt{S}=7$~TeV~\cite{Chatrchyan:2011kc,Khachatryan:2015rra}}
 \item{ATLAS results at $\sqrt{S}=7$ and 8 ~TeV~\cite{Aad:2015duc}}
 \item{CDF results at $\sqrt{S}=1.96$~TeV~\cite{Acosta:2004yw}}
+
 \end{enumerate}
-Figure~\ref{Fig:LDMEJPsi} and Figure~\ref{Fig:LDMEJPsiCDF}
-shows the fitted values of color-singlet and color-octet cross-section components along with the measured $J/\psi$ 
-cross-section. Using simultaneous fitting of these data-sets We obtain,
+
+We obtain,
 \begin{equation}
 \begin{split}
-M_{L}(c\barc([^3S_1]_{8})\rightarrow J/\psi)&= (0.00317\pm {\color{red}0.00007)} {\rm GeV^3}\\
-M_{L}(c\barc([^1S_0]_{8})\rightarrow J/\psi)&= (0.0630\pm {\color{red}0.0015)} {\rm GeV^3} \\
-                                          &=M_{L}(c\barc([^3P_0]_{8})\rightarrow J/\psi)/m_{\charm}^2\;,
+{\cal{M}}(\psi[^3S_1]_{8}(1S)) &= (0.00294\pm {\color{red}0.000)} {\rm GeV^3}\\
+{\cal{M}}(\psi[^1S_0]_{8}(1S)) &= (0.0663\pm {\color{red}0.000)} {\rm GeV^3}=
+{\cal{M}}(\psi[^3P_0]_{8}(1S))/m_{\charm}^2\;,
 ~\label{eq:MJn2CO_val}
 \end{split}
 \end{equation}
+
+
 {\color{red} with a $\chi^2/dof=0$.} 
+
+
 For a more sophisticated fitting of the color-octet matrix elements including
 NLO effects, see~\cite{Butenschoen:2010rq, Butenschoen:Long,Butenschoen:polarised}.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -726,6 +711,13 @@ NLO effects, see~\cite{Butenschoen:2010rq, Butenschoen:Long,Butenschoen:polarise
 %\end{equation}
 
 
+\begin{figure}
+\includegraphics[width=0.49\textwidth]{Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf}
+\includegraphics[width=0.49\textwidth]{Fig1b_Psi2S_CMS_Y012_S7TeV.pdf}
+\caption{(Color online) Differential production cross-section of $J/\psi$ and $\psi$(2S) as a function of $p_{T}$ compared 
+  with the CMS~\cite{Chatrchyan:2011kc,Khachatryan:2015rra} data.}
+\label{Fig:SigmaPsi}
+\end{figure}
 
 
 \begin{figure}
@@ -763,7 +755,7 @@ of $\psi$(2S) croos-section.}
 collected by CDF experiment at $\sqrt{s}$ = 1.8 TeV and $\sqrt{s}$ = 1.96 TeV~\cite{Acosta:2004yw}. 
 We use these data sets to constrain color octet LDMEs. Figures also shows our calculations for various components 
 of $\psi$(2S) croos-section.}
-\label{Fig:LDMEPsi2SCDF}
+\label{Fig:LDMEJPsiCDF}
 \end{figure}
 
 
@@ -791,13 +783,8 @@ of $J/\psi$ croos-section and feed-down contribution from higher charmonia state
 \end{figure}
 
 
-\begin{figure}
-\includegraphics[width=0.49\textwidth]{Fig1a_PromptJPsi_CMS_Y0012_S7TeV.pdf}
-\includegraphics[width=0.49\textwidth]{Fig1b_Psi2S_CMS_Y012_S7TeV.pdf}
-\caption{(Color online) Differential production cross-section of $J/\psi$ and $\psi$(2S) as a function of $p_{T}$ compared 
-  with the CMS~\cite{Chatrchyan:2011kc,Khachatryan:2015rra} data.}
-\label{Fig:SigmaPsi}
-\end{figure}
+
+
 
 
 
@@ -837,36 +824,40 @@ description of data in the whole $p_{T}$ range.
 
 
 \newpage
-
 \appendix
 
 %\begin{appendices}
+
+
 \section{Short distance pQCD cross sections for quarkonia production}
 \label{section:pqcd}
 Here we list the lowest order QCD cross sections for the resonance production used 
 in our calculations. We write the formulas in terms of the invariants $\cs$,$\ct$,$\cu$.
 where $\cs^2 + \ct^2 + \cu^2 = M^2$ and $M$ is the mass of the resonance considered.
-%These parton level invariants are related with the rapidity,y 
-%and transeverse momentum $p_{T}$ of the resonance with following relations
-%\begin{equation}
-%\begin{split}
-%\cs = \,&x_{a}\,x_{b}\,s \\
-%\ct = \,&M^{2} - x_{a}\,\sqrt{s}\,m_{T}\,e^{-y}\\
-%\cu = \,&M^{2} - x_{b}\,\sqrt{s}\,m_{T}\,e^{y}\\
-%\end{split}  
-%\end{equation}
+These parton level invariants are related with the rapidity,y 
+and transeverse momentum $p_{T}$ of the resonance with following relations
+
+\begin{equation}
+\begin{split}
+\cs = \,&x_{a}\,x_{b}\,s \\
+\ct = \,&M^{2} - x_{a}\,\sqrt{s}\,m_{T}\,e^{-y}\\
+\cu = \,&M^{2} - x_{b}\,\sqrt{s}\,m_{T}\,e^{y}\\
+ \end{split}  
+\end{equation}
+
 The subprocesses of resonance production can be
 grouped as follows.
-To order $\alpha_{s}^{2}$ one only has the
+
+ To order $\alpha_{s}^{2}$ one only has the
 gluon fusion processes, g g $\rightarrow ^{(2S+1)}L_{J}$. This 
 process gives resonance with very small $\pT$, so we do not 
-use these cross-sections in our calculations.
+use these corss sections in our calculations.
 
 To order $\alpha_{s}^{3}$, on the other hand, one has typically
 two-by-two scattering processes. The relevant cross
 sections are given below:
 
-\subsubsection{\bf Color Singlet PQCD cross sections}
+\subsubsection{Color Singlet PQCD cross sections}
 \begin{itemize}
 \item g q $\rightarrow {\rm ^{(2S+1)}L_{J}}$ q or (q$\rightarrow \bar{\rm q})$
 \begin{equation}
@@ -894,8 +885,9 @@ sections are given below:
                               &+\frac{28}{3}M^4\cs^2\ct^2\cu^2]+[\cs\leftrightarrow\ct]+[\cs\leftrightarrow\cu]\}\\
 \end{split}  
 \end{equation}
-We define two new variables as a combination of $\cs$, $\ct$ and $\cu$ which can be used to define 
+We define two new variables as a combination of $\cs,\ct and \cu$. These variables can  be used to define 
 the g g $\rightarrow {\rm ^{(2S+1)}L_{J}}$ g cross sections.
+cross sections
 \begin{equation}
 \begin{split}
   P = & \,\cs\ct + \ct\cu + \cu\cs \\
@@ -919,18 +911,26 @@ the g g $\rightarrow {\rm ^{(2S+1)}L_{J}}$ g cross sections.
 \end{split}  
 \end{equation}
 \end{itemize}
-\subsubsection{\bf Color Octet PQCD cross sections}
+
+
+
+\subsubsection{Color Octet PQCD cross sections}
 We list below short distance squared amplitudes for $2 \to 2$ scattering 
 processes which mediate color-octet quarkonia production. 
 These expressions are averaged over initial spins and colors of the two 
 incident partons.  The helicity levels of outgoing $J=1$ and $J=2$ pairs 
-are labeled by the subscript $h$.  
-%The total squared amplitudes for creating 
-%specific quarkonia states can be obtained by multiplying these process-independent 
-%short distance expressions with appropriate long distance NRQCD matrix 
-%elements. 
+are labeled by the subscript $h$.  The total squared amplitudes for creating 
+specific quarkonia states can be obtained by multiplying these process-independent 
+short distance expressions with appropriate long distance NRQCD matrix 
+elements. 
+
+
+\bigskip
+
+
 \begin{itemize}
 \item q $\bar{\rm q}$ $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ g
+
 \begin{equation}
 \begin{split}
 %{\overline{\sum}} | \CA(q\barq \to \QQbaroctetsingS g) |^2 &= {5 (4\pi \alphas)^3 \over 27 M} {\ct^2+\cu^2 \over \cs (\cs-M^2)^2}\\
@@ -949,7 +949,12 @@ are labeled by the subscript $h$.
 \mathop{{\bar{\sum_{|h|=2}}}} | \CA(q\barq \to \QQbaroctetPtwo g) |^2 &={16 (4\pi \alphas)^3 \over 27 M^3} {M^4 (\that^2+\uhat^2)\over \shat(\shat-M^2)^4}\\
 \end{split}  
 \end{equation}
+
+
+
+
 \item g q $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ q
+
 \begin{equation}
 \begin{split}
 \mathop{{\bar{\sum}}} | \CA(gq \to \QQbaroctetsingS q) |^2 &=-{5 (4\pi \alphas)^3 \over 72 M} {\shat^2+\uhat^2 \over \that (\that-M^2)^2}\\
@@ -971,8 +976,11 @@ are labeled by the subscript $h$.
                                         & \times \bigl[ \shat^2+\uhat^2 + 2 \shat^2 \that \uhat{(\shat-M^2)(2 \that+\uhat) - \uhat^2 \over (\shat-M^2)^4} \bigr] 
 \end{split}  
 \end{equation}
+
+
 \item g g $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ g ( The $gg \to \QQbaroctettripP\ g$ squared amplitudes are expressed in 
   terms of the variables $\shat$ and $\zhat \equiv \sqrt{\that\uhat}$.)
+
 \begin{equation}
 \begin{split}
 \mathop{{\bar{\sum}}} | \CA(gg \to \QQbaroctetsingS g) |^2 &=
@@ -996,6 +1004,8 @@ are labeled by the subscript $h$.
                                                            & + 9 M^{20} \shat^4 \Bigr\} \\
 \end{split}  
 \end{equation}
+
+
 \begin{equation}
 \begin{split}
 \mathop{{\bar{\sum_{h=0}}}} | \CA(gg \to \QQbaroctetPone g) |^2 &={5 (4\pi \alphas)^3 \over 6 M^3} \frac{1}{\bigl[(\shat-M^2)^4 (\shat M^2 + \zhat^2)^4  \bigr]}\\
@@ -1048,6 +1058,7 @@ are labeled by the subscript $h$.
                                      & + 2 M^{20} \shat^4 \Bigr\} \\
 \end{split}  
 \end{equation}
+
 \end{itemize}
 
 
