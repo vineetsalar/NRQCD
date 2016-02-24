@@ -772,10 +772,8 @@ void QuarkoniaProd_NRQCD()
 	Double_t LDME_3P1_8 = 1.0;
 	Double_t LDME_3P2_8 = 1.0;
 	
-
 	DSigmaDPtDY_Pt[i] = (Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax))/DeltaY;
 	if(QQbarVar ==1 || QQbarVar ==2){
-
 	  DSigmaDPtDY_Pt_3S1_1_Fit[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;
 	  DSigmaDPtDY_Pt_1S0_8_Fit[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
 	  DSigmaDPtDY_Pt_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,3))/DeltaY;
