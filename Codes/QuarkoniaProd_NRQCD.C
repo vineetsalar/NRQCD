@@ -69,7 +69,7 @@ Double_t XXk[NNXXk]={0.0};
 Double_t WWk[NNXXk]={0.0};
 
 
-/*
+
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
 const Double_t mC = 1.6;
@@ -85,7 +85,7 @@ const Double_t OO_QQbar_3S1_8_JPsi=0.0013;  //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC*mC; //GeV^5  
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
-*/
+
 
 /*
 //Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -152,7 +152,7 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
 
-
+/*
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
 const Double_t mC = 1.6;
@@ -169,7 +169,7 @@ const Double_t NC = 3.0;
 const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
-
+*/
 
 /*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -529,9 +529,8 @@ void QuarkoniaProd_NRQCD()
   Double_t GluonDissFunc_Q1[100000]={0.0};
   Double_t UpQuarkDissFunc_Q1[100000]={0.0};
   Double_t DownQuarkDissFunc_Q1[100000]={0.0};
-
   Double_t UpBarQuarkDissFunc_Q1[100000]={0.0};
-
+  
   Double_t XX =0.0;
   Double_t XXMin = 0.000001;
   Double_t XXMax = 1.0;
@@ -678,16 +677,47 @@ void QuarkoniaProd_NRQCD()
   Double_t DSigmaDPtDY_Pt[1000]={0.0};
 
 
-  Double_t DSigmaDPtDY_Pt_3P0_1_Fit[1000]={0.0};
-  Double_t DSigmaDPtDY_Pt_3P1_1_Fit[1000]={0.0};
-  Double_t DSigmaDPtDY_Pt_3P2_1_Fit[1000]={0.0};
+
 
   Double_t DSigmaDPtDY_Pt_3S1_1_Fit[1000]={0.0};
   Double_t DSigmaDPtDY_Pt_1S0_8_Fit[1000]={0.0};
-  Double_t DSigmaDPtDY_Pt_3S1_8_Fit[1000]={0.0};
   Double_t DSigmaDPtDY_Pt_3P0_8_Fit[1000]={0.0};
   Double_t DSigmaDPtDY_Pt_3P1_8_Fit[1000]={0.0};
   Double_t DSigmaDPtDY_Pt_3P2_8_Fit[1000]={0.0};
+
+  Double_t DSigmaDPtDY_Pt_3P0_1_Fit[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P1_1_Fit[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P2_1_Fit[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3S1_8_Fit[1000]={0.0};
+
+
+
+
+
+  Double_t DSigmaDPtDY_Pt_3S1_1_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_1S0_8_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P0_8_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P1_8_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P2_8_Fit_ATLAS[1000]={0.0};
+
+  Double_t DSigmaDPtDY_Pt_3P0_1_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P1_1_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P2_1_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3S1_8_Fit_ATLAS[1000]={0.0};
+
+
+
+  Double_t DSigmaDPtDY_Pt_3S1_1_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_1S0_8_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P0_8_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P1_8_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P2_8_Fit_ALICE[1000]={0.0};
+
+  Double_t DSigmaDPtDY_Pt_3P0_1_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P1_1_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3P2_1_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Pt_3S1_8_Fit_ALICE[1000]={0.0};
+
 
 
 
@@ -700,8 +730,6 @@ void QuarkoniaProd_NRQCD()
   Double_t DSigmaDPtDY_Y2To45_Pt[1000]={0.0};
   Double_t DSigmaDPtDY_Y25To40_Pt[1000]={0.0};
 
-
-
   
   Double_t DSigmaDt_GG_Pt[1000]={0.0};
   Double_t DSigmaDt_qq_Pt[1000]={0.0};
@@ -711,9 +739,9 @@ void QuarkoniaProd_NRQCD()
   
   //Experimental
   Double_t Pt = 0.0;
-  Double_t PtMin = 2.0;
-  Double_t PtMax = 30.0;
-  Double_t PtStep = 0.5;
+  Double_t PtMin = 5.0;
+  Double_t PtMax = 100.0;
+  Double_t PtStep = 1.0;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
   //cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
   //FillPtRapHist(5.0, 75.0, -5.0, 5.0);
@@ -743,11 +771,11 @@ void QuarkoniaProd_NRQCD()
 
   Double_t RapInt = 0;
   
-  //NNPt=2;
+  NNPt=1;
+
 
   for(Int_t i =0;i<NNPt;i++)
     {
-
 
       Pt = PtMin+ (i*PtStep);
       APt[i]=Pt;
@@ -774,22 +802,64 @@ void QuarkoniaProd_NRQCD()
 	
 	DSigmaDPtDY_Pt[i] = (Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax))/DeltaY;
 	if(QQbarVar ==1 || QQbarVar ==2){
+	
 	  DSigmaDPtDY_Pt_3S1_1_Fit[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;
 	  DSigmaDPtDY_Pt_1S0_8_Fit[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
 	  DSigmaDPtDY_Pt_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,3))/DeltaY;
 	  DSigmaDPtDY_Pt_3P0_8_Fit[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,4))/DeltaY;
 	  DSigmaDPtDY_Pt_3P1_8_Fit[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,5))/DeltaY;
 	  DSigmaDPtDY_Pt_3P2_8_Fit[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,6))/DeltaY;
+	
+	  //==========ATLAS Graph
+	  DSigmaDPtDY_Pt_3S1_1_Fit_ATLAS[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;
+	  DSigmaDPtDY_Pt_1S0_8_Fit_ATLAS[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,2))/5.0;
+	  DSigmaDPtDY_Pt_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,3))/5.0;
+	  DSigmaDPtDY_Pt_3P0_8_Fit_ATLAS[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,4))/5.0;
+	  DSigmaDPtDY_Pt_3P1_8_Fit_ATLAS[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,5))/5.0;
+	  DSigmaDPtDY_Pt_3P2_8_Fit_ATLAS[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,6))/5.0;
+
+
+
+
+	  //==========ALICE Graph
+	  DSigmaDPtDY_Pt_3S1_1_Fit_ALICE[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;
+	  DSigmaDPtDY_Pt_1S0_8_Fit_ALICE[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,2))/1.5;
+	  DSigmaDPtDY_Pt_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,3))/1.5;
+	  DSigmaDPtDY_Pt_3P0_8_Fit_ALICE[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,4))/1.5;
+	  DSigmaDPtDY_Pt_3P1_8_Fit_ALICE[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,5))/1.5;
+	  DSigmaDPtDY_Pt_3P2_8_Fit_ALICE[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,6))/1.5;
+
+
+
+
+
 	}
 
-	
+
 	if(QQbarVar == 3 || QQbarVar ==4 || QQbarVar ==5){
 	  if(QQbarVar==3){DSigmaDPtDY_Pt_3P0_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;}
 	  if(QQbarVar==4){DSigmaDPtDY_Pt_3P1_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;}
 	  if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;}
 	  DSigmaDPtDY_Pt_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
+
+	  //==========ATLAS Graph
+	  if(QQbarVar==3){DSigmaDPtDY_Pt_3P0_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
+	  if(QQbarVar==4){DSigmaDPtDY_Pt_3P1_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
+	  if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
+	  DSigmaDPtDY_Pt_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,2))/5.0;
+
+
+	
+	  //==========ALICE Graph
+	  if(QQbarVar==3){DSigmaDPtDY_Pt_3P0_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
+	  if(QQbarVar==4){DSigmaDPtDY_Pt_3P1_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
+	  if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
+	  DSigmaDPtDY_Pt_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,2))/1.5;
+
+
 	}
 	
+
 	DSigmaDPtDY_ModY075_Pt[i]=DSigmaDPt_Gauss(Pt, -1.2, 1.2);
 	RapInt = RapInt + DSigmaDPtDY_Pt[i];
       
@@ -816,12 +886,7 @@ void QuarkoniaProd_NRQCD()
 	DSigmaDt_qg_Pt[i]=Sum_qg_DSigmaDt_Chi(0.2,Pt,0.1);
       }
 
-      
-      //cout<<APt[i]<<"         "<<DSigmaDt_GG_Pt[i]<<"    "<<DSigmaDt_qq_Pt[i]<<"    "<<DSigmaDt_qg_Pt[i]<<"    "<<DSigmaDPtDY_Pt[i]<<endl;
-      //cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY075_Pt[i]<<"  "<<DSigmaDPtDY_ModY090_Pt[i]<<"  "<<DSigmaDPtDY_ModY075To24_Pt[i]<<endl;
-      //cout<<APt[i]<<"         "<<DSigmaDPtDY_ModY090To24_Pt[i]<<"  "<<DSigmaDPtDY_Y2To45_Pt[i]<<"  "<<DSigmaDPtDY_Y25To40_Pt[i]<<endl;
-
-    
+        
       Double_t Total = DSigmaDPtDY_Pt_3S1_1_Fit[i] + DSigmaDPtDY_Pt_1S0_8_Fit[i] + DSigmaDPtDY_Pt_3S1_8_Fit[i] + DSigmaDPtDY_Pt_3P0_8_Fit[i] +
 	DSigmaDPtDY_Pt_3P1_8_Fit[i] + DSigmaDPtDY_Pt_3P2_8_Fit[i];
 
@@ -986,9 +1051,6 @@ void QuarkoniaProd_NRQCD()
   }
 
 
-
-
-
   TGraph *grDSigmaDPtDY_Pt_3P0_1_Fit = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P0_1_Fit);
   grDSigmaDPtDY_Pt_3P0_1_Fit->SetName("grDSigmaDPtDY_Pt_3P0_1_Fit");
   grDSigmaDPtDY_Pt_3P0_1_Fit->SetTitle("grDSigmaDPtDY_Pt_3P0_1_Fit");
@@ -1098,9 +1160,78 @@ void QuarkoniaProd_NRQCD()
 
 
 
+  //=================================== Prediction Graphs ====================================//
+
+  TGraph *grDSigmaDPtDY_Pt_3S1_1_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3S1_1_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Pt_1S0_8_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_1S0_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Pt_3S1_8_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3S1_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Pt_3P0_8_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P0_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Pt_3P1_8_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P1_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Pt_3P2_8_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P2_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Pt_3P0_1_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P0_1_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Pt_3P1_1_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P1_1_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Pt_3P2_1_Fit_ATLAS = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P2_1_Fit_ATLAS);
 
 
+  TGraph *grDSigmaDPtDY_Pt_3S1_1_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3S1_1_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Pt_1S0_8_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_1S0_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Pt_3S1_8_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3S1_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Pt_3P0_8_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P0_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Pt_3P1_8_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P1_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Pt_3P2_8_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P2_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P0_1_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P1_1_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE = new TGraph(NNPt,APt,DSigmaDPtDY_Pt_3P2_1_Fit_ALICE);
  
+
+  grDSigmaDPtDY_Pt_3S1_1_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_3S1_1_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_1S0_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_1S0_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3S1_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_3S1_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P0_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_3P0_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P1_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_3P1_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P2_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_3P2_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P0_1_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_3P0_1_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P1_1_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_3P1_1_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P2_1_Fit_ATLAS->SetName("grDSigmaDPtDY_Pt_3P2_1_Fit_ATLAS");
+  
+  grDSigmaDPtDY_Pt_3S1_1_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3S1_1_Fit_ALICE");
+  grDSigmaDPtDY_Pt_1S0_8_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_1S0_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3S1_8_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3S1_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P0_8_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P0_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P1_8_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P1_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P2_8_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P2_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE->SetName(" grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE");
+
+
+
+  grDSigmaDPtDY_Pt_3S1_1_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_3S1_1_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_1S0_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_1S0_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3S1_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_3S1_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P0_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_3P0_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P1_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_3P1_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P2_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_3P2_8_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P0_1_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_3P0_1_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P1_1_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_3P1_1_Fit_ATLAS");
+  grDSigmaDPtDY_Pt_3P2_1_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Pt_3P2_1_Fit_ATLAS");
+  
+  grDSigmaDPtDY_Pt_3S1_1_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_3S1_1_Fit_ALICE");
+  grDSigmaDPtDY_Pt_1S0_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_1S0_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3S1_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_3S1_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P0_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_3P0_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P1_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_3P1_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P2_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_3P2_8_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE->SetTitle("grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE");
+
+
+
+
+
+
+
   //====================================== DSigma/DPt.Dy graphs ================================//
 
   TLatex *tb= new TLatex;
@@ -1225,10 +1356,6 @@ void QuarkoniaProd_NRQCD()
 
 
 
-
-
-
-
   Double_t DSigmaDPtDY_Rap_3P0_1_Fit[1000]={0.0};
   Double_t DSigmaDPtDY_Rap_3P1_1_Fit[1000]={0.0};
   Double_t DSigmaDPtDY_Rap_3P2_1_Fit[1000]={0.0};
@@ -1241,12 +1368,38 @@ void QuarkoniaProd_NRQCD()
   Double_t DSigmaDPtDY_Rap_3P2_8_Fit[1000]={0.0};
 
 
-
-
-
-
-
  
+
+  Double_t DSigmaDPtDY_Rap_3S1_1_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_1S0_8_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P0_8_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P1_8_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P2_8_Fit_ATLAS[1000]={0.0};
+
+  Double_t DSigmaDPtDY_Rap_3P0_1_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P1_1_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P2_1_Fit_ATLAS[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[1000]={0.0};
+
+
+
+  Double_t DSigmaDPtDY_Rap_3S1_1_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_1S0_8_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P0_8_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P1_8_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P2_8_Fit_ALICE[1000]={0.0};
+
+  Double_t DSigmaDPtDY_Rap_3P0_1_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P1_1_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3P2_1_Fit_ALICE[1000]={0.0};
+  Double_t DSigmaDPtDY_Rap_3S1_8_Fit_ALICE[1000]={0.0};
+
+
+
+
+
+
+
   Double_t Rap = 0.0;
   
   Double_t RapMin = 2.0;
@@ -1256,6 +1409,10 @@ void QuarkoniaProd_NRQCD()
   Int_t NNRap = (RapMax - RapMin)/RapStep;
   
   Double_t ARap[1000]={0.0};
+
+  Double_t ARap_ATLAS[1000]={0.0};
+  Double_t ARap_ALICE[1000]={0.0};
+
   Double_t DSigmaDPtDY_Rap[1000]={0.0};
 
   Double_t DSigmaDt_GG_Rap[1000]={0.0};
@@ -1265,6 +1422,19 @@ void QuarkoniaProd_NRQCD()
   cout<<" Rap: "<<"     "<<" DSigmaDY_Rap "<<endl;
   Double_t PtInt =0.0;
 
+  Double_t RapMin_ATLAS = 0.1;
+  Double_t RapMax_ATLAS = 3.0;
+  Double_t RapStep_ATLAS = (RapMax_ATLAS - RapMin_ATLAS)/NNRap;
+  for(Int_t i =0;i<NNRap;i++){ARap_ATLAS[i] = RapMin_ATLAS + i*RapStep_ATLAS;}
+
+  Double_t RapMin_ALICE = 2.5;
+  Double_t RapMax_ALICE = 4.0;
+  Double_t RapStep_ALICE = (RapMax_ALICE - RapMin_ALICE)/NNRap;
+  for(Int_t i =0;i<NNRap;i++){ARap_ALICE[i] = RapMin_ALICE + i*RapStep_ALICE;}
+
+
+  //for(Int_t i =0;i<NNRap;i++){cout<<ARap_ATLAS[i]<<"   "<<ARap_ALICE[i]<<endl;}
+  //return;
   //NNRap=1;
 
   for(Int_t i =0;i<NNRap;i++)
@@ -1279,6 +1449,9 @@ void QuarkoniaProd_NRQCD()
       DSigmaDPtDY_Rap[i]= Psi2MuMu*DSigmaDY_Gauss(ARap[i],PtMin,PtMax);
       PtInt = PtInt + DSigmaDPtDY_Rap[i];
       
+
+      Double_t PtMin_ATLAS = 5.0; Double_t PtMax_ATLAS = 100.0; Double_t DeltaPt_ATLAS = 95.0;
+      Double_t PtMin_ALICE = 5.0; Double_t PtMax_ALICE = 50.0; Double_t DeltaPt_ALICE = 45.0;
       /*
 	Double_t LDME_3S1_1 = 1.0;
 	Double_t LDME_1S0_8 = 0.0080;
@@ -1297,9 +1470,7 @@ void QuarkoniaProd_NRQCD()
       
 
 
-
       if(QQbarVar ==1 || QQbarVar ==2){
-	
 
 	DSigmaDPtDY_Rap_3S1_1_Fit[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDY_Gauss_Fit(ARap[i], PtMin, PtMax,1))/DeltaPt;
 	DSigmaDPtDY_Rap_1S0_8_Fit[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDY_Gauss_Fit(ARap[i], PtMin, PtMax,2))/DeltaPt;
@@ -1307,6 +1478,25 @@ void QuarkoniaProd_NRQCD()
 	DSigmaDPtDY_Rap_3P0_8_Fit[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDY_Gauss_Fit(ARap[i], PtMin, PtMax,4))/DeltaPt;
 	DSigmaDPtDY_Rap_3P1_8_Fit[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDY_Gauss_Fit(ARap[i], PtMin, PtMax,5))/DeltaPt;
 	DSigmaDPtDY_Rap_3P2_8_Fit[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDY_Gauss_Fit(ARap[i], PtMin, PtMax,6))/DeltaPt;
+      
+
+	//==========ATLAS Graph Rap
+	DSigmaDPtDY_Rap_3S1_1_Fit_ATLAS[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;
+	DSigmaDPtDY_Rap_1S0_8_Fit_ATLAS[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,2))/DeltaPt_ATLAS;
+	DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,3))/DeltaPt_ATLAS;
+	DSigmaDPtDY_Rap_3P0_8_Fit_ATLAS[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,4))/DeltaPt_ATLAS;
+	DSigmaDPtDY_Rap_3P1_8_Fit_ATLAS[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,5))/DeltaPt_ATLAS;
+	DSigmaDPtDY_Rap_3P2_8_Fit_ATLAS[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,6))/DeltaPt_ATLAS;
+
+	
+
+	//==========ALICE Graph Rap
+	DSigmaDPtDY_Rap_3S1_1_Fit_ALICE[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;
+	DSigmaDPtDY_Rap_1S0_8_Fit_ALICE[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,2))/DeltaPt_ALICE;
+	DSigmaDPtDY_Rap_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,3))/DeltaPt_ALICE;
+	DSigmaDPtDY_Rap_3P0_8_Fit_ALICE[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,4))/DeltaPt_ALICE;
+	DSigmaDPtDY_Rap_3P1_8_Fit_ALICE[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,5))/DeltaPt_ALICE;
+	DSigmaDPtDY_Rap_3P2_8_Fit_ALICE[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,6))/DeltaPt_ALICE;
       }
       
       
@@ -1315,21 +1505,47 @@ void QuarkoniaProd_NRQCD()
 	if(QQbarVar==4){DSigmaDPtDY_Rap_3P1_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDY_Chi_Gauss_Fit(ARap[i], PtMin, PtMax,1))/DeltaPt;}
 	if(QQbarVar==5){DSigmaDPtDY_Rap_3P2_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDY_Chi_Gauss_Fit(ARap[i], PtMin, PtMax,1))/DeltaPt;}
 	DSigmaDPtDY_Rap_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDY_Chi_Gauss_Fit(ARap[i], PtMin, PtMax,2))/DeltaPt;
+
+
+
+	//==========ATLAS Graph
+	if(QQbarVar==3){DSigmaDPtDY_Rap_3P0_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
+	if(QQbarVar==4){DSigmaDPtDY_Rap_3P1_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
+	if(QQbarVar==5){DSigmaDPtDY_Rap_3P2_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
+	DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;
+		
+	//==========ALICE Graph
+	if(QQbarVar==3){DSigmaDPtDY_Rap_3P0_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
+	if(QQbarVar==4){DSigmaDPtDY_Rap_3P1_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
+	if(QQbarVar==5){DSigmaDPtDY_Rap_3P2_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
+	DSigmaDPtDY_Rap_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;
       }
-          
+   
+
       //cout<<ARap[i]<<"     "<< DSigmaDPtDY_Rap[i] <<endl;
       Double_t Total = DSigmaDPtDY_Rap_3S1_1_Fit[i] + DSigmaDPtDY_Rap_1S0_8_Fit[i] + DSigmaDPtDY_Rap_3S1_8_Fit[i] + DSigmaDPtDY_Rap_3P0_8_Fit[i] + DSigmaDPtDY_Rap_3P1_8_Fit[i] + DSigmaDPtDY_Rap_3P2_8_Fit[i];
+
+     
       
-      cout<< DSigmaDPtDY_Rap_3S1_1_Fit[i]<<"   "<<DSigmaDPtDY_Rap_1S0_8_Fit[i]<<"   "<<DSigmaDPtDY_Rap_3S1_8_Fit[i]<<"  "<<DSigmaDPtDY_Rap_3P0_8_Fit[i]<<
+      cout<<ARap[i]<<"  "<<DSigmaDPtDY_Rap_3S1_1_Fit[i]<<"   "<<DSigmaDPtDY_Rap_1S0_8_Fit[i]<<"   "<<DSigmaDPtDY_Rap_3S1_8_Fit[i]<<"  "<<DSigmaDPtDY_Rap_3P0_8_Fit[i]<<
 	"   "<<DSigmaDPtDY_Rap_3P1_8_Fit[i]<<"   "<<DSigmaDPtDY_Rap_3P2_8_Fit[i]<<endl;
+
+
+
+
+      //Double_t Total_ATLAS = DSigmaDPtDY_Rap_3S1_1_Fit_ATLAS[i] + DSigmaDPtDY_Rap_1S0_8_Fit_ATLAS[i] + DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i] + DSigmaDPtDY_Rap_3P0_8_Fit_ATLAS[i] + 
+      //DSigmaDPtDY_Rap_3P1_8_Fit_ATLAS[i] + DSigmaDPtDY_Rap_3P2_8_Fit_ATLAS[i];
+      
+      //cout<<" ATLAS: "<<ARap_ATLAS[i]<<DSigmaDPtDY_Rap_3S1_1_Fit_ATLAS[i]<<"   "<<DSigmaDPtDY_Rap_1S0_8_Fit_ATLAS[i]<<"   "<<DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i]<<"  "<<DSigmaDPtDY_Rap_3P0_8_Fit_ATLAS[i]<<
+      //"   "<<DSigmaDPtDY_Rap_3P1_8_Fit_ATLAS[i]<<"   "<<DSigmaDPtDY_Rap_3P2_8_Fit_ATLAS[i]<<endl;
       
       cout<<ARap[i]<<"    "<< DSigmaDPtDY_Rap[i] <<"   "<<Total<<"    "<<(100*(Total-DSigmaDPtDY_Rap[i]))/Total<<"% "<<endl;
 
     }
-
+  
   cout<<" =================== "<<endl;
   cout<<" Integration over Pt: "<<PtInt*RapStep<<endl;
-
+  
   TGraph *grDSigmaDt_GG_Rap = new TGraph(NNRap,ARap,DSigmaDt_GG_Rap);
   grDSigmaDt_GG_Rap->SetName("grDSigmaDt_Rap");
   grDSigmaDt_GG_Rap->SetTitle("grDSigmaDt_Rap");
@@ -1346,8 +1562,7 @@ void QuarkoniaProd_NRQCD()
   grDSigmaDt_GG_Rap->Draw("AL");
 
 
-
- TGraph *grDSigmaDt_qq_Rap = new TGraph(NNRap,ARap,DSigmaDt_qq_Rap);
+  TGraph *grDSigmaDt_qq_Rap = new TGraph(NNRap,ARap,DSigmaDt_qq_Rap);
   grDSigmaDt_qq_Rap->SetName("grDSigmaDt_Rap");
   grDSigmaDt_qq_Rap->SetTitle("grDSigmaDt_Rap");
   grDSigmaDt_qq_Rap->SetLineWidth(2);
@@ -1395,8 +1610,6 @@ void QuarkoniaProd_NRQCD()
   gPad->SetLeftMargin(0.16);
   grDSigmaDPtDY_Rap->GetYaxis()->SetTitleOffset(1.6);
   grDSigmaDPtDY_Rap->Draw("AL");
-
-
 
 
 
@@ -1528,6 +1741,75 @@ void QuarkoniaProd_NRQCD()
 
 
 
+  TGraph *grDSigmaDPtDY_Rap_3S1_1_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_3S1_1_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Rap_1S0_8_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_1S0_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Rap_3S1_8_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Rap_3P0_8_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_3P0_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Rap_3P1_8_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_3P1_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Rap_3P2_8_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_3P2_8_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Rap_3P0_1_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_3P0_1_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Rap_3P1_1_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_3P1_1_Fit_ATLAS);
+  TGraph *grDSigmaDPtDY_Rap_3P2_1_Fit_ATLAS = new TGraph(NNRap,ARap_ATLAS,DSigmaDPtDY_Rap_3P2_1_Fit_ATLAS);
+
+
+
+
+  TGraph *grDSigmaDPtDY_Rap_3S1_1_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_3S1_1_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Rap_1S0_8_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_1S0_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Rap_3S1_8_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_3S1_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Rap_3P0_8_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_3P0_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Rap_3P1_8_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_3P1_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Rap_3P2_8_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_3P2_8_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Rap_3P0_1_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_3P0_1_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Rap_3P1_1_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_3P1_1_Fit_ALICE);
+  TGraph *grDSigmaDPtDY_Rap_3P2_1_Fit_ALICE = new TGraph(NNRap,ARap_ALICE,DSigmaDPtDY_Rap_3P2_1_Fit_ALICE);
+
+
+  grDSigmaDPtDY_Rap_3S1_1_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_3S1_1_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_1S0_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_1S0_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3S1_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_3S1_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P0_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_3P0_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P1_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_3P1_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P2_8_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_3P2_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P0_1_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_3P0_1_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P1_1_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_3P1_1_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P2_1_Fit_ATLAS->SetName("grDSigmaDPtDY_Rap_3P2_1_Fit_ATLAS");
+  
+  grDSigmaDPtDY_Rap_3S1_1_Fit_ALICE->SetName("grDSigmaDPtDY_Rap_3S1_1_Fit_ALICE");
+  grDSigmaDPtDY_Rap_1S0_8_Fit_ALICE->SetName("grDSigmaDPtDY_Rap_1S0_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3S1_8_Fit_ALICE->SetName("grDSigmaDPtDY_Rap_3S1_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P0_8_Fit_ALICE->SetName("grDSigmaDPtDY_Rap_3P0_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P1_8_Fit_ALICE->SetName("grDSigmaDPtDY_Rap_3P1_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P2_8_Fit_ALICE->SetName("grDSigmaDPtDY_Rap_3P2_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P0_1_Fit_ALICE->SetName("grDSigmaDPtDY_Rap_3P0_1_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P1_1_Fit_ALICE->SetName("grDSigmaDPtDY_Rap_3P1_1_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P2_1_Fit_ALICE->SetName(" grDSigmaDPtDY_Rap_3P2_1_Fit_ALICE");
+
+
+
+  grDSigmaDPtDY_Rap_3S1_1_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_3S1_1_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_1S0_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_1S0_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3S1_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_3S1_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P0_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_3P0_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P1_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_3P1_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P2_8_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_3P2_8_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P0_1_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_3P0_1_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P1_1_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_3P1_1_Fit_ATLAS");
+  grDSigmaDPtDY_Rap_3P2_1_Fit_ATLAS->SetTitle("grDSigmaDPtDY_Rap_3P2_1_Fit_ATLAS");
+  
+  grDSigmaDPtDY_Rap_3S1_1_Fit_ALICE->SetTitle("grDSigmaDPtDY_Rap_3S1_1_Fit_ALICE");
+  grDSigmaDPtDY_Rap_1S0_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Rap_1S0_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3S1_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Rap_3S1_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P0_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Rap_3P0_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P1_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Rap_3P1_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P2_8_Fit_ALICE->SetTitle("grDSigmaDPtDY_Rap_3P2_8_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P0_1_Fit_ALICE->SetTitle("grDSigmaDPtDY_Rap_3P0_1_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P1_1_Fit_ALICE->SetTitle("grDSigmaDPtDY_Rap_3P1_1_Fit_ALICE");
+  grDSigmaDPtDY_Rap_3P2_1_Fit_ALICE->SetTitle(" grDSigmaDPtDY_Rap_3P2_1_Fit_ALICE");
+
+
+
+
 
   grGluonDissFunc_Q1->Write();
   grUpQuarkDissFunc_Q1->Write();
@@ -1564,6 +1846,44 @@ void QuarkoniaProd_NRQCD()
   grDSigmaDPtDY_Pt_3P2_1_Fit->Write();
 
 
+
+
+
+
+  grDSigmaDPtDY_Pt_3S1_1_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Pt_1S0_8_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Pt_3S1_8_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Pt_3P0_8_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Pt_3P1_8_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Pt_3P2_8_Fit_ATLAS->Write();
+
+  grDSigmaDPtDY_Pt_3P0_1_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Pt_3P1_1_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Pt_3P2_1_Fit_ATLAS->Write();
+
+
+
+  grDSigmaDPtDY_Pt_3S1_1_Fit_ALICE->Write();
+  grDSigmaDPtDY_Pt_1S0_8_Fit_ALICE->Write();
+  grDSigmaDPtDY_Pt_3S1_8_Fit_ALICE->Write();
+  grDSigmaDPtDY_Pt_3P0_8_Fit_ALICE->Write();
+  grDSigmaDPtDY_Pt_3P1_8_Fit_ALICE->Write();
+  grDSigmaDPtDY_Pt_3P2_8_Fit_ALICE->Write();
+
+  grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE->Write();
+  grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE->Write();
+  grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE->Write();
+
+
+
+
+
+
+
+
+
+
+
   
   grDSigmaDPtDY_Rap_3S1_1_Fit->Write();
   grDSigmaDPtDY_Rap_1S0_8_Fit->Write();
@@ -1577,6 +1897,30 @@ void QuarkoniaProd_NRQCD()
   grDSigmaDPtDY_Rap_3P2_1_Fit->Write();
 
 
+
+  grDSigmaDPtDY_Rap_3S1_1_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Rap_1S0_8_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Rap_3S1_8_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Rap_3P0_8_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Rap_3P1_8_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Rap_3P2_8_Fit_ATLAS->Write();
+
+  grDSigmaDPtDY_Rap_3P0_1_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Rap_3P1_1_Fit_ATLAS->Write();
+  grDSigmaDPtDY_Rap_3P2_1_Fit_ATLAS->Write();
+
+
+
+  grDSigmaDPtDY_Rap_3S1_1_Fit_ALICE->Write();
+  grDSigmaDPtDY_Rap_1S0_8_Fit_ALICE->Write();
+  grDSigmaDPtDY_Rap_3S1_8_Fit_ALICE->Write();
+  grDSigmaDPtDY_Rap_3P0_8_Fit_ALICE->Write();
+  grDSigmaDPtDY_Rap_3P1_8_Fit_ALICE->Write();
+  grDSigmaDPtDY_Rap_3P2_8_Fit_ALICE->Write();
+
+  grDSigmaDPtDY_Rap_3P0_1_Fit_ALICE->Write();
+  grDSigmaDPtDY_Rap_3P1_1_Fit_ALICE->Write();
+  grDSigmaDPtDY_Rap_3P2_1_Fit_ALICE->Write();
 
 
 

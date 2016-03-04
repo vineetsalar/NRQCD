@@ -34,22 +34,67 @@
 #include "TGraphAsymmErrors.h"
 
 const Double_t mC = 1.6;
+
+
 //=================== Fitted LDMEs ==================================//
+//========= Our Values of fitted Jsi LDME =========//
+Double_t JPsi_LDME_3S1_1 = 1.0;  
+Double_t JPsi_LDME_1S0_8 = 0.06296;
+Double_t JPsi_LDME_3S1_8 = 0.003168;
+Double_t JPsi_LDME_3P0_8 = mC*mC*JPsi_LDME_1S0_8;
+Double_t JPsi_LDME_3P1_8 = 3.0*JPsi_LDME_3P0_8;
+Double_t JPsi_LDME_3P2_8 = 5.0*JPsi_LDME_3P0_8;
+
+
 //========= Our Values of fitted Psi(2S) LDME =========//
 Double_t Psi2S_LDME_3S1_1 = 1.0;  
 Double_t Psi2S_LDME_1S0_8 = 0.02639;
 Double_t Psi2S_LDME_3S1_8 = 0.00190;
-
 Double_t Psi2S_LDME_3P0_8 = mC*mC*Psi2S_LDME_1S0_8;
 Double_t Psi2S_LDME_3P1_8 = 3.0*Psi2S_LDME_3P0_8;
 Double_t Psi2S_LDME_3P2_8 = 5.0*Psi2S_LDME_3P0_8;
 //========= Our Values of fitted Chic LDME =========//
 Double_t Chic0_LDME_3P0_1 = 1.0;
 Double_t Chic0_LDME_3S1_8 = 0.00160;
+
 Double_t Chic1_LDME_3P1_1 = 1.0;
 Double_t Chic1_LDME_3S1_8 = 0.00160;
+
 Double_t Chic2_LDME_3P2_1 = 1.0;
 Double_t Chic2_LDME_3S1_8 = 0.00160;
+
+/*
+//=================== Fitted LDMEs ==================================//
+//========= Our Values of fitted Jsi LDME =========//
+Double_t JPsi_LDME_3S1_1 = 1.0;  
+Double_t JPsi_LDME_1S0_8 = 0.018;
+Double_t JPsi_LDME_3S1_8 = 0.0013;
+Double_t JPsi_LDME_3P0_8 = mC*mC*JPsi_LDME_1S0_8;
+Double_t JPsi_LDME_3P1_8 = 3.0*JPsi_LDME_3P0_8;
+Double_t JPsi_LDME_3P2_8 = 5.0*JPsi_LDME_3P0_8;
+
+
+//========= Our Values of fitted Psi(2S) LDME =========//
+Double_t Psi2S_LDME_3S1_1 = 1.0;  
+Double_t Psi2S_LDME_1S0_8 = 0.0080;
+Double_t Psi2S_LDME_3S1_8 = 0.0033;
+Double_t Psi2S_LDME_3P0_8 = mC*mC*Psi2S_LDME_1S0_8;
+Double_t Psi2S_LDME_3P1_8 = 3.0*Psi2S_LDME_3P0_8;
+Double_t Psi2S_LDME_3P2_8 = 5.0*Psi2S_LDME_3P0_8;
+//========= Our Values of fitted Chic LDME =========//
+Double_t Chic0_LDME_3P0_1 = 1.0;
+Double_t Chic0_LDME_3S1_8 = 0.00187;
+
+Double_t Chic1_LDME_3P1_1 = 1.0;
+Double_t Chic1_LDME_3S1_8 = Chic0_LDME_3S1_8;
+
+Double_t Chic2_LDME_3P2_1 = 1.0;
+Double_t Chic2_LDME_3S1_8 = Chic0_LDME_3S1_8;
+*/
+
+
+
+
 //=========================== BR =================//
 Double_t BR_JPsiToMuMu = 0.0593;
 Double_t BR_Psi2SToMuMu = 0.0078;
@@ -58,9 +103,69 @@ Double_t BR_ChiC0ToJPsi = 0.0116;
 Double_t BR_ChiC1ToJPsi = 0.344;
 Double_t BR_ChiC2ToJPsi = 0.195;
 
+//====================================================================================================//
+//================================= LHCb 13TeV y[2.0-4.5] ===========================================//
+//==================================================================================================//
+
+//==================  JPsi Direct =========================================//
+TFile *file_LHCb_2045_RootS13TeV_JPsiCrossSection =  new TFile("rootFiles/LHCb/JPsiCrossSection.root","R");
+//================ Get All the graphs ===============================//
+TGraph *grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3S1_1_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_JPsiCrossSection->Get("grDSigmaDPtDY_Pt_3S1_1_Fit");
+TGraph *grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_1S0_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_JPsiCrossSection->Get("grDSigmaDPtDY_Pt_1S0_8_Fit");
+TGraph *grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_JPsiCrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+TGraph *grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3P0_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_JPsiCrossSection->Get("grDSigmaDPtDY_Pt_3P0_8_Fit");
+TGraph *grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3P1_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_JPsiCrossSection->Get("grDSigmaDPtDY_Pt_3P1_8_Fit");
+TGraph *grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3P2_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_JPsiCrossSection->Get("grDSigmaDPtDY_Pt_3P2_8_Fit");
+
+//==================  Psi2S Feed =========================================//
+TFile *file_LHCb_2045_RootS13TeV_Psi2SCrossSection =  new TFile("rootFiles/LHCb/Psi2SCrossSection.root","R");
+//================ Get All the graphs ===============================//
+TGraph *grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3S1_1_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Psi2SCrossSection->Get("grDSigmaDPtDY_Pt_3S1_1_Fit");
+TGraph *grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_1S0_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Psi2SCrossSection->Get("grDSigmaDPtDY_Pt_1S0_8_Fit");
+TGraph *grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Psi2SCrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+TGraph *grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3P0_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Psi2SCrossSection->Get("grDSigmaDPtDY_Pt_3P0_8_Fit");
+TGraph *grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3P1_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Psi2SCrossSection->Get("grDSigmaDPtDY_Pt_3P1_8_Fit");
+TGraph *grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3P2_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Psi2SCrossSection->Get("grDSigmaDPtDY_Pt_3P2_8_Fit");
+
+//==================  Chic0 Feed =========================================//
+TFile *file_LHCb_2045_RootS13TeV_Chic0CrossSection =  new TFile("rootFiles/LHCb/Chic0_1PCrossSection.root","R");
+//================ Get All the graphs ===============================//
+TGraph *grLHCb_2045_RootS13TeV_Chic0_DSigmaDPtDY_Pt_3P0_1_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Chic0CrossSection->Get("grDSigmaDPtDY_Pt_3P0_1_Fit");
+TGraph *grLHCb_2045_RootS13TeV_Chic0_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Chic0CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+
+
+//==================  Chic1 Feed =========================================//
+TFile *file_LHCb_2045_RootS13TeV_Chic1CrossSection =  new TFile("rootFiles/LHCb/Chic1_1PCrossSection.root","R");
+//================ Get All the graphs ===============================//
+TGraph *grLHCb_2045_RootS13TeV_Chic1_DSigmaDPtDY_Pt_3P1_1_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Chic1CrossSection->Get("grDSigmaDPtDY_Pt_3P1_1_Fit");
+TGraph *grLHCb_2045_RootS13TeV_Chic1_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Chic1CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+
+
+//==================  Chic2 Feed =========================================//
+TFile *file_LHCb_2045_RootS13TeV_Chic2CrossSection =  new TFile("rootFiles/LHCb/Chic2_1PCrossSection.root","R");
+//================ Get All the graphs ===============================//
+TGraph *grLHCb_2045_RootS13TeV_Chic2_DSigmaDPtDY_Pt_3P2_1_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Chic2CrossSection->Get("grDSigmaDPtDY_Pt_3P2_1_Fit");
+TGraph *grLHCb_2045_RootS13TeV_Chic2_DSigmaDPtDY_Pt_3S1_8_Fit =(TGraph*)file_LHCb_2045_RootS13TeV_Chic2CrossSection->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+
+
 
 
 TGraphAsymmErrors *Data_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt();
+TGraph *Add_DirectJPsi_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4, TGraph *InGraph5,TGraph *InGraph6);
+TGraph *Add_FeedPsi2S_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4, TGraph *InGraph5,TGraph *InGraph6);
+
+TGraph *Add_FeedChic0_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2);
+TGraph *Add_FeedChic1_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2);
+TGraph *Add_FeedChic2_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2);
+
+TGraph *Add_PromptJPsi_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4, TGraph *InGraph5);
+
+
+Double_t Scale_Pt(Double_t JPsiPt);
+Double_t Scale_Chi_Pt(Double_t JPsiPt, Int_t Par);
+
+Double_t Scale_Pt_ChiToJPsi(Double_t ChiPt, Int_t Par);
+Double_t Scale_Pt_Psi2SToJPsi(Double_t Psi2SPt);
 
 void JPsiTotal()
 {
@@ -128,9 +233,6 @@ void JPsiTotal()
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
 
-
-
-
  
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== GETTING LHCb 13 TeV DATA DATA ==========================="<<endl;
@@ -139,18 +241,76 @@ void JPsiTotal()
   TGraphAsymmErrors *grfData_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt=new TGraphAsymmErrors();
   grfData_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt=Data_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt();
   
+ 
+
+  TGraph *Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi =Add_DirectJPsi_DSigmaDPt(grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3S1_1_Fit,grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_1S0_8_Fit,
+							    grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3S1_8_Fit,grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3P0_8_Fit,
+							    grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3P1_8_Fit,grLHCb_2045_RootS13TeV_JPsi_DSigmaDPtDY_Pt_3P2_8_Fit);
+
+
+ 
+  TGraph *Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S =Add_FeedPsi2S_DSigmaDPt(grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3S1_1_Fit,grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_1S0_8_Fit,
+							    grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3S1_8_Fit,grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3P0_8_Fit,
+							    grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3P1_8_Fit,grLHCb_2045_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3P2_8_Fit);
+
+
+
+
+
+
+  TGraph *Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0 =Add_FeedChic0_DSigmaDPt(grLHCb_2045_RootS13TeV_Chic0_DSigmaDPtDY_Pt_3P0_1_Fit,grLHCb_2045_RootS13TeV_Chic0_DSigmaDPtDY_Pt_3S1_8_Fit);
+
+  TGraph *Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1 =Add_FeedChic1_DSigmaDPt(grLHCb_2045_RootS13TeV_Chic1_DSigmaDPtDY_Pt_3P1_1_Fit,grLHCb_2045_RootS13TeV_Chic1_DSigmaDPtDY_Pt_3S1_8_Fit);
+
+  TGraph *Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2 =Add_FeedChic2_DSigmaDPt(grLHCb_2045_RootS13TeV_Chic2_DSigmaDPtDY_Pt_3P2_1_Fit,grLHCb_2045_RootS13TeV_Chic2_DSigmaDPtDY_Pt_3S1_8_Fit);
+
+
+
+  TGraph *Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi= Add_PromptJPsi_DSigmaDPt(Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi,Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S,
+											 Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0,Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1,
+											 Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2);
+
+
+
+
+
+
+
+  TLegend *lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045 = new TLegend(0.37,0.67,0.85,0.93);
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetBorderSize(0);
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetFillStyle(0);
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetFillColor(0);
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetTextSize(0.03);
+
+
+
+
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(grfData_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt,"LHCb Prompt J/#psi, 2.0 #leq y #leq 4.5","P");
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Prompt J/#psi","L");
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi,"Direct J/#psi","L");
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S,"J/#psi from #psi(2S)","L");
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0,"J/#psi from #chi_{c0}","L");
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1,"J/#psi from #chi_{c1}","L");
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2,"J/#psi from #chi_{c2}","L");
+  
+
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   grfData_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt->Draw("zAP");
+  Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi->Draw("sameL");
+  Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S->Draw("sameL");
+  Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0->Draw("sameL");
+  Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1->Draw("sameL");
+  Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2->Draw("sameL");
+  Out_grLHCb_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->Draw("sameL");
+  lgd_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->Draw("same");
   gPad->Update();
+  gPad->SaveAs("Plots/Fig_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.pdf");
+  gPad->SaveAs("Plots/Fig_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.png");
 
 
-
-
-
- 
 }
 
 
@@ -182,7 +342,6 @@ TGraphAsymmErrors *Data_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt()
   Double_t p8319_d1x1y1_ysystminus2[NN] = {127.00, 245.00, 202.00, 125.00, 69.00, 37.90, 20.30, 10.90, 6.20, 3.60, 2.20, 1.30, 0.80, 0.50};
   Double_t p8319_d1x1y1_ysystplus2[NN] = {127.00, 245.00, 202.00, 125.00, 69.00, 37.90, 20.30, 10.90, 6.20, 3.60, 2.20, 1.30, 0.80, 0.50};
 
-
   
   Double_t p8319_d1x1y1_ysystminus[NN] = {0.0};
   Double_t p8319_d1x1y1_ysystplus[NN] = {0.0};
@@ -212,21 +371,21 @@ TGraphAsymmErrors *Data_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt()
     p8319_d1x1y1_yerrminus[j] = TMath::Sqrt( (p8319_d1x1y1_ystatminus[j]*p8319_d1x1y1_ystatminus[j]) + (p8319_d1x1y1_ysystminus[j]*p8319_d1x1y1_ysystminus[j]));
     p8319_d1x1y1_yerrplus[j] = TMath::Sqrt( (p8319_d1x1y1_ystatplus[j]*p8319_d1x1y1_ystatplus[j]) + (p8319_d1x1y1_ysystplus[j]*p8319_d1x1y1_ysystplus[j]));
   
-    p8319_d1x1y1_yval[j] = (p8319_d1x1y1_yval[j]*pbTonb)/DeltaY;
-    p8319_d1x1y1_yerrminus[j]= (p8319_d1x1y1_yerrminus[j]*pbTonb)/DeltaY;
-    p8319_d1x1y1_yerrplus[j]=(p8319_d1x1y1_yerrplus[j]*pbTonb)/DeltaY;
-    p8319_d1x1y1_ystatminus[j]= (p8319_d1x1y1_ystatminus[j]*pbTonb)/DeltaY;
-    p8319_d1x1y1_ystatplus[j]=(p8319_d1x1y1_ystatplus[j]*pbTonb)/DeltaY;
+    p8319_d1x1y1_yval[j] = (p8319_d1x1y1_yval[j]*pbTonb* BR_JPsiToMuMu)/DeltaY;
+    p8319_d1x1y1_yerrminus[j]= (p8319_d1x1y1_yerrminus[j]*pbTonb *BR_JPsiToMuMu)/DeltaY;
+    p8319_d1x1y1_yerrplus[j]=(p8319_d1x1y1_yerrplus[j]*pbTonb *BR_JPsiToMuMu)/DeltaY;
+    p8319_d1x1y1_ystatminus[j]= (p8319_d1x1y1_ystatminus[j]*pbTonb *BR_JPsiToMuMu)/DeltaY;
+    p8319_d1x1y1_ystatplus[j]=(p8319_d1x1y1_ystatplus[j]*pbTonb *BR_JPsiToMuMu)/DeltaY;
   }
 
 
   TGraphAsymmErrors *Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
 										  p8319_d1x1y1_xerrplus, p8319_d1x1y1_yerrminus, p8319_d1x1y1_yerrplus);
-  Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt->SetMarkerStyle(22);
+  Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt->SetMarkerStyle(20);
   Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt->SetMarkerColor(8);
   Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt->SetMarkerSize(1.6);
   Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt->GetYaxis()->SetTitleOffset(1.6);
-  Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt->GetYaxis()->SetRangeUser(1.0,10000.0);
+  Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt->GetYaxis()->SetRangeUser(0.001,300000.0);
   
   TAxis *Xaxis1 = Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt->GetXaxis();
   Xaxis1->SetLimits(0.0,15.0);
@@ -240,4 +399,320 @@ TGraphAsymmErrors *Data_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt()
   OutGraph = Grf_CDF_D2NDPtDy_PromptJPsi_0006_Pt;
   return OutGraph;
   
+}
+
+
+
+
+
+TGraph *Add_PromptJPsi_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4, TGraph *InGraph5)
+{
+  
+  TGraph *SGraph = new TGraph; 
+  
+  for (int j=0; j < InGraph1->GetN();++j){
+
+    Double_t xx,yy;
+    Double_t xx1,yy1;
+    Double_t xx2,yy2;
+    Double_t xx3,yy3;
+    Double_t xx4,yy4;
+    Double_t xx5,yy5;
+
+    InGraph1->GetPoint(j,xx1,yy1);
+    
+    xx2 = xx1;
+    xx3 = xx1;
+    xx4 = xx1;
+    xx5 = xx1;
+    
+    //xx2 = Scale_Pt(xx1);
+    //xx3 = Scale_Chi_Pt(xx1,0);
+    //xx4 = Scale_Chi_Pt(xx1,1);
+    //xx5 = Scale_Chi_Pt(xx1,2);
+
+    yy2 = InGraph2->Eval(xx2);
+    yy3 = InGraph3->Eval(xx3);
+    yy4 = InGraph4->Eval(xx4);
+    yy5 = InGraph5->Eval(xx5);
+   
+
+    xx=xx1;
+    yy=yy1+yy2+yy3+yy4+yy5;
+    SGraph->SetPoint(j,xx,yy);  
+    
+  }
+
+  SGraph->SetLineColor(2);
+  SGraph->SetLineStyle(1);
+  SGraph->SetLineWidth(2);
+
+  TGraph *OutGraph;
+  OutGraph = SGraph;
+  return OutGraph;
+
+
+}
+
+
+TGraph *Add_DirectJPsi_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4, TGraph *InGraph5,TGraph *InGraph6)
+{
+  
+  TGraph *SGraph = new TGraph; 
+  
+  for (int j=0; j < InGraph1->GetN();++j){
+
+    Double_t xx,yy;
+    Double_t xx1,yy1;
+    Double_t xx2,yy2;
+    Double_t xx3,yy3;
+    Double_t xx4,yy4;
+    Double_t xx5,yy5;
+    Double_t xx6,yy6;
+
+    InGraph1->GetPoint(j,xx1,yy1);
+    InGraph2->GetPoint(j,xx2,yy2);
+    InGraph3->GetPoint(j,xx3,yy3);
+    InGraph4->GetPoint(j,xx4,yy4);
+    InGraph5->GetPoint(j,xx5,yy5);
+    InGraph6->GetPoint(j,xx6,yy6);
+        
+    yy1=yy1*JPsi_LDME_3S1_1;
+    yy2=yy2*JPsi_LDME_1S0_8;
+    yy3=yy3*JPsi_LDME_3S1_8;
+    yy4=yy4*JPsi_LDME_3P0_8;
+    yy5=yy5*JPsi_LDME_3P1_8;
+    yy6=yy6*JPsi_LDME_3P2_8;
+
+    xx=xx1;
+    yy=yy1+yy2+yy3+yy4+yy5+yy6;
+    SGraph->SetPoint(j,xx,yy);  
+    
+  }
+
+  SGraph->SetLineColor(4);
+  SGraph->SetLineStyle(9);
+  SGraph->SetLineWidth(2);
+  
+
+  TGraph *OutGraph;
+  OutGraph = SGraph;
+  return OutGraph;
+
+
+}
+
+TGraph *Add_FeedPsi2S_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4, TGraph *InGraph5,TGraph *InGraph6)
+{
+  
+  TGraph *SGraph = new TGraph; 
+  
+  for (int j=0; j < InGraph1->GetN();++j){
+
+    Double_t xx,yy;
+    Double_t xx1,yy1;
+    Double_t xx2,yy2;
+    Double_t xx3,yy3;
+    Double_t xx4,yy4;
+    Double_t xx5,yy5;
+    Double_t xx6,yy6;
+
+    InGraph1->GetPoint(j,xx1,yy1);
+    InGraph2->GetPoint(j,xx2,yy2);
+    InGraph3->GetPoint(j,xx3,yy3);
+    InGraph4->GetPoint(j,xx4,yy4);
+    InGraph5->GetPoint(j,xx5,yy5);
+    InGraph6->GetPoint(j,xx6,yy6);
+        
+    yy1=yy1*Psi2S_LDME_3S1_1;
+    yy2=yy2*Psi2S_LDME_1S0_8;
+    yy3=yy3*Psi2S_LDME_3S1_8;
+    yy4=yy4*Psi2S_LDME_3P0_8;
+    yy5=yy5*Psi2S_LDME_3P1_8;
+    yy6=yy6*Psi2S_LDME_3P2_8;
+    
+    
+
+  xx=Scale_Pt_Psi2SToJPsi(xx1);
+    //xx=xx1;
+
+    yy=yy1+yy2+yy3+yy4+yy5+yy6;
+    SGraph->SetPoint(j,xx,yy);  
+    
+  }
+
+  SGraph->SetLineColor(6);
+  SGraph->SetLineStyle(7);
+  SGraph->SetLineWidth(2);
+
+  TGraph *OutGraph;
+  OutGraph = SGraph;
+  return OutGraph;
+}
+
+
+
+TGraph *Add_FeedChic0_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2)
+{
+ 
+  TGraph *SGraph = new TGraph; 
+  
+  for (int j=0; j < InGraph1->GetN();++j){
+
+    Double_t xx,yy;
+    Double_t xx1,yy1;
+    Double_t xx2,yy2;
+ 
+    InGraph1->GetPoint(j,xx1,yy1);
+    InGraph2->GetPoint(j,xx2,yy2);
+        
+    yy1=yy1*Chic0_LDME_3P0_1;
+    yy2=yy2*Chic0_LDME_3S1_8;
+        
+
+
+    xx=Scale_Pt_ChiToJPsi(xx1,0);
+    //xx=xx1;
+
+    yy=yy1+yy2;
+    SGraph->SetPoint(j,xx,yy);  
+    
+  }
+
+
+  SGraph->SetLineColor(8);
+  SGraph->SetLineStyle(2);
+  SGraph->SetLineWidth(2);
+
+
+
+  TGraph *OutGraph;
+  OutGraph = SGraph;
+  return OutGraph;
+}
+
+
+TGraph *Add_FeedChic1_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2)
+{
+ 
+  TGraph *SGraph = new TGraph; 
+  
+  for (int j=0; j < InGraph1->GetN();++j){
+
+    Double_t xx,yy;
+    Double_t xx1,yy1;
+    Double_t xx2,yy2;
+ 
+    InGraph1->GetPoint(j,xx1,yy1);
+    InGraph2->GetPoint(j,xx2,yy2);
+        
+    yy1=yy1*Chic1_LDME_3P1_1;
+    yy2=yy2*Chic1_LDME_3S1_8;
+        
+    xx=Scale_Pt_ChiToJPsi(xx1,1);
+
+    yy=yy1+yy2;
+    SGraph->SetPoint(j,xx,yy);  
+    
+  }
+
+
+  SGraph->SetLineColor(7);
+  SGraph->SetLineStyle(6);
+  SGraph->SetLineWidth(2);
+
+  TGraph *OutGraph;
+  OutGraph = SGraph;
+  return OutGraph;
+}
+
+
+TGraph *Add_FeedChic2_DSigmaDPt(TGraph *InGraph1, TGraph *InGraph2)
+{
+ 
+  TGraph *SGraph = new TGraph; 
+  
+  for (int j=0; j < InGraph1->GetN();++j){
+
+    Double_t xx,yy;
+    Double_t xx1,yy1;
+    Double_t xx2,yy2;
+ 
+    InGraph1->GetPoint(j,xx1,yy1);
+    InGraph2->GetPoint(j,xx2,yy2);
+        
+    yy1=yy1*Chic2_LDME_3P2_1;
+    yy2=yy2*Chic2_LDME_3S1_8;
+        
+    xx=Scale_Pt_ChiToJPsi(xx1,2);
+
+    yy=yy1+yy2;
+    SGraph->SetPoint(j,xx,yy);  
+    
+  }
+
+  SGraph->SetLineColor(46);
+  SGraph->SetLineStyle(3);
+  SGraph->SetLineWidth(2);
+
+  TGraph *OutGraph;
+  OutGraph = SGraph;
+  return OutGraph;
+}
+
+
+Double_t Scale_Pt(Double_t JPsiPt)
+{
+  Double_t Psi2SPt;
+  Double_t MM = 0.0;
+  Double_t CC = 0.0;
+  MM=1.154; CC = 0.1413;
+  Psi2SPt  = MM * JPsiPt + CC;
+  return Psi2SPt;
+}
+
+
+
+Double_t Scale_Pt_Psi2SToJPsi(Double_t Psi2SPt)
+{
+  Double_t JPsiPt;
+  Double_t MM = 0.0;
+  Double_t CC = 0.0;
+  MM=1.154; CC = 0.1413;
+  JPsiPt = (Psi2SPt - CC)/MM;
+  return JPsiPt;
+}
+
+
+
+
+
+
+
+Double_t Scale_Chi_Pt(Double_t JPsiPt, Int_t Par)
+{
+
+  Double_t ChiPt;
+  Double_t MM = 0.0;
+  Double_t CC = 0.0;
+  if(Par ==0){MM=1.075; CC = 0.113;}
+  if(Par ==1){MM=1.067; CC = 0.181;}
+  if(Par ==2){MM=1.113; CC = 0.137;}
+  ChiPt  = MM * JPsiPt + CC;
+  return ChiPt;
+}
+
+
+
+Double_t Scale_Pt_ChiToJPsi(Double_t ChiPt, Int_t Par)
+{
+
+  Double_t JPsiPt;
+  Double_t MM = 0.0;
+  Double_t CC = 0.0;
+  if(Par ==0){MM=1.075; CC = 0.113;}
+  if(Par ==1){MM=1.067; CC = 0.181;}
+  if(Par ==2){MM=1.113; CC = 0.137;}
+  JPsiPt = (ChiPt - CC)/MM;
+  return JPsiPt;
 }

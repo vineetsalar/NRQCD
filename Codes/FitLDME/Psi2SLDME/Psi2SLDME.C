@@ -1217,9 +1217,9 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   cout<<"LDME : 3S1_1 "<<currentPar[0]<<" \\pm "<<errl[0]<<endl;
   cout<<"LDME : 1S0_8 "<<currentPar[1]<<" \\pm "<<errl[1]<<endl;
   cout<<"LDME : 3S1_8 "<<currentPar[2]<<" \\pm "<<errl[2]<<endl;
-  cout<<"LDME : 3P0_1 "<<currentPar[1]*mC*mC<<"\\pm"<<errl[1]*mC*mC<<endl;
-  cout<<"LDME : 3P1_1 "<<3.0*currentPar[1]*mC*mC<<"\\pm"<<3.0*errl[1]*mC*mC<<endl;
-  cout<<"LDME : 3P1_2 "<<5.0*currentPar[1]*mC*mC<<"\\pm"<<5.0*errl[1]*mC*mC<<endl<<endl;
+  cout<<"LDME : 3P0_8 "<<currentPar[1]*mC*mC<<"\\pm"<<errl[1]*mC*mC<<endl;
+  cout<<"LDME : 3P1_8 "<<3.0*currentPar[1]*mC*mC<<"\\pm"<<3.0*errl[1]*mC*mC<<endl;
+  cout<<"LDME : 3P2_8 "<<5.0*currentPar[1]*mC*mC<<"\\pm"<<5.0*errl[1]*mC*mC<<endl<<endl;
   
   
   dataFile<<endl<<endl;
@@ -1227,9 +1227,9 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   dataFile<<"LDME : 3S1_1 "<<currentPar[0]<<"\\pm"<<errl[0]<<endl;
   dataFile<<"LDME : 1S0_8 "<<currentPar[1]<<"\\pm"<<errl[1]<<endl;
   dataFile<<"LDME : 3S1_8 "<<currentPar[2]<<"\\pm"<<errl[2]<<endl;
-  dataFile<<"LDME : 3P0_1 "<<currentPar[1]*mC*mC<<"\\pm"<<errl[1]*mC*mC<<endl;
-  dataFile<<"LDME : 3P1_1 "<<3.0*currentPar[1]*mC*mC<<"\\pm"<<3.0*errl[1]*mC*mC<<endl;
-  dataFile<<"LDME : 3P1_2 "<<5.0*currentPar[1]*mC*mC<<"\\pm"<<5.0*errl[1]*mC*mC<<endl<<endl;
+  dataFile<<"LDME : 3P0_8 "<<currentPar[1]*mC*mC<<"\\pm"<<errl[1]*mC*mC<<endl;
+  dataFile<<"LDME : 3P1_8 "<<3.0*currentPar[1]*mC*mC<<"\\pm"<<3.0*errl[1]*mC*mC<<endl;
+  dataFile<<"LDME : 3P2_8 "<<5.0*currentPar[1]*mC*mC<<"\\pm"<<5.0*errl[1]*mC*mC<<endl<<endl;
 
 
 
@@ -1307,9 +1307,6 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   gPad->SaveAs("Plots/Psi2S_CMS_LowPt.pdf");
   gPad->SaveAs("Plots/Psi2S_CMS_LowPt.png");
-
-
-  
 
 
 
@@ -2071,17 +2068,15 @@ Double_t fcn6(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
 
 
 
-
-
-
+//gr0 CMS_New gr1 CMS_Lat gr2 ATLAS_7 gr3 ATLAS_8 gr4 CDF_196_Cut6 gr5 CDF_180 gr6  LHCb_7_Cut6
 //______________________________________________________________________________
 void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
 {
-  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
+  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag) ;
 
-  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag) + fcn6(npar,gin, par, iflag);
+  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
   
-  f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
+  f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag) + fcn6(npar,gin, par, iflag);
 
 
 }
