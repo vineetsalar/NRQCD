@@ -259,17 +259,25 @@ void ChiCLDME()
   TGraph *Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,CDF_180_Chic1Chic2_LDME_3S1_8);
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(8);
   
-  TLegend *lgd_DSigmaDPtDY_CDF_180_Chic1Chic2 = new TLegend(0.37,0.66,0.90,0.94);
+  TLegend *lgd_DSigmaDPtDY_CDF_180_Chic1Chic2 = new TLegend(0.36,0.66,0.89,0.94);
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetBorderSize(0);
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetFillStyle(0);
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetFillColor(0);
-  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetTextSize(0.04);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetTextSize(0.040);
 
-  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,"CDF J/#psi Data,#surds = 7 TeV ","P"); 
+  //lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,"CDF J/#psi Data,#surds = 7 TeV ","P"); 
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetHeader("CDF Data, pp #surds = 1.8 TeV"); 
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,"J/#psi from #chi_{c}, |y^{J/#psi}| #leq 0.6","P"); 
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(CDF_180_Chic1Chic2_FitFunctionLDME,"Total","L"); 
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit,"^{3}P_{1}^{[1]}","L");  
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
   
+  TLatex *tb= new TLatex;
+  tb->SetNDC(); 
+  tb->SetTextAlign(12);
+  tb->SetTextColor(1);
+  tb->SetTextSize(0.040);
+
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -284,6 +292,10 @@ void ChiCLDME()
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->Draw("same");
   
+  //tb->DrawLatex(0.21,0.25,"CDF pp #sqrt{s_{_{NN}}} = 1.8 TeV");
+
+
+
   gPad->SaveAs("Chic1_CDF_Fit.png");
   gPad->SaveAs("Chic1_CDF_Fit.pdf");
 
@@ -518,7 +530,7 @@ TGraphAsymmErrors *Data_CDF_180_D2NDPtDy_Chic1Chic2ToJPsi_Y0006_Pt()
   Grf_CDF_196_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->SetMarkerColor(8);
   Grf_CDF_196_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->SetMarkerSize(1.6);
   Grf_CDF_196_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetYaxis()->SetTitleOffset(1.6);
-  Grf_CDF_196_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetYaxis()->SetRangeUser(0.0001,1000.0);
+  Grf_CDF_196_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetYaxis()->SetRangeUser(0.0003,1000.0);
   
   TAxis *Xaxis1 = Grf_CDF_196_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetXaxis();
   Xaxis1->SetLimits(0.0,22.0);

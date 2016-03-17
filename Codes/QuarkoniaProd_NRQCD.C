@@ -53,11 +53,17 @@
 using namespace std;
 using namespace LHAPDF;
 
+
+
+
 //=========================== Global Variables ============================//
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 13000.0;
+const Double_t RootS = 7000.0;
+Int_t IsPrediction =0;
+
+
 
 //===== for gauss quadrature integration ========//
 const Int_t NNXXi = 150;
@@ -69,7 +75,7 @@ Double_t XXk[NNXXk]={0.0};
 Double_t WWk[NNXXk]={0.0};
 
 
-
+/*
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
 const Double_t mC = 1.6;
@@ -85,7 +91,7 @@ const Double_t OO_QQbar_3S1_8_JPsi=0.0013;  //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.018*mC*mC; //GeV^5  
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
-
+*/
 
 /*
 //Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -152,7 +158,7 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
 
-/*
+
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
 const Double_t mC = 1.6;
@@ -169,7 +175,7 @@ const Double_t NC = 3.0;
 const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
-*/
+
 
 /*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -678,7 +684,6 @@ void QuarkoniaProd_NRQCD()
 
 
 
-
   Double_t DSigmaDPtDY_Pt_3S1_1_Fit[1000]={0.0};
   Double_t DSigmaDPtDY_Pt_1S0_8_Fit[1000]={0.0};
   Double_t DSigmaDPtDY_Pt_3P0_8_Fit[1000]={0.0};
@@ -717,9 +722,6 @@ void QuarkoniaProd_NRQCD()
   Double_t DSigmaDPtDY_Pt_3P1_1_Fit_ALICE[1000]={0.0};
   Double_t DSigmaDPtDY_Pt_3P2_1_Fit_ALICE[1000]={0.0};
   Double_t DSigmaDPtDY_Pt_3S1_8_Fit_ALICE[1000]={0.0};
-
-
-
 
   
   Double_t DSigmaDPtDY_ModY012_Pt[1000]={0.0};
@@ -771,8 +773,7 @@ void QuarkoniaProd_NRQCD()
 
   Double_t RapInt = 0;
   
-  NNPt=1;
-
+  //NNPt=1;
 
   for(Int_t i =0;i<NNPt;i++)
     {
@@ -782,7 +783,9 @@ void QuarkoniaProd_NRQCD()
       SPlusTPlusU[i]=SSPlusTTPlusUU(0.2, Pt, 1.0)/mJPsi2;
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
-	Double_t YMin = 2.0; Double_t YMax = 4.5; 
+
+	Double_t YMin = 2.5; Double_t YMax = 4.0; 
+
 	Double_t DeltaY = (YMax - YMin);
 	/*
 	Double_t LDME_3S1_1 = 1.0;
@@ -810,27 +813,24 @@ void QuarkoniaProd_NRQCD()
 	  DSigmaDPtDY_Pt_3P1_8_Fit[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,5))/DeltaY;
 	  DSigmaDPtDY_Pt_3P2_8_Fit[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,6))/DeltaY;
 	
-	  //==========ATLAS Graph
-	  DSigmaDPtDY_Pt_3S1_1_Fit_ATLAS[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;
-	  DSigmaDPtDY_Pt_1S0_8_Fit_ATLAS[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,2))/5.0;
-	  DSigmaDPtDY_Pt_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,3))/5.0;
-	  DSigmaDPtDY_Pt_3P0_8_Fit_ATLAS[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,4))/5.0;
-	  DSigmaDPtDY_Pt_3P1_8_Fit_ATLAS[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,5))/5.0;
-	  DSigmaDPtDY_Pt_3P2_8_Fit_ATLAS[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,6))/5.0;
 
-
-
-
-	  //==========ALICE Graph
-	  DSigmaDPtDY_Pt_3S1_1_Fit_ALICE[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;
-	  DSigmaDPtDY_Pt_1S0_8_Fit_ALICE[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,2))/1.5;
-	  DSigmaDPtDY_Pt_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,3))/1.5;
-	  DSigmaDPtDY_Pt_3P0_8_Fit_ALICE[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,4))/1.5;
-	  DSigmaDPtDY_Pt_3P1_8_Fit_ALICE[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,5))/1.5;
-	  DSigmaDPtDY_Pt_3P2_8_Fit_ALICE[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,6))/1.5;
-
-
-
+	  if(IsPrediction ==1){
+	    //==========ATLAS Graph
+	    DSigmaDPtDY_Pt_3S1_1_Fit_ATLAS[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;
+	    DSigmaDPtDY_Pt_1S0_8_Fit_ATLAS[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,2))/5.0;
+	    DSigmaDPtDY_Pt_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,3))/5.0;
+	    DSigmaDPtDY_Pt_3P0_8_Fit_ATLAS[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,4))/5.0;
+	    DSigmaDPtDY_Pt_3P1_8_Fit_ATLAS[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,5))/5.0;
+	    DSigmaDPtDY_Pt_3P2_8_Fit_ATLAS[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, -2.5, 2.5,6))/5.0;
+	    
+	    //==========ALICE Graph
+	    DSigmaDPtDY_Pt_3S1_1_Fit_ALICE[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;
+	    DSigmaDPtDY_Pt_1S0_8_Fit_ALICE[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,2))/1.5;
+	    DSigmaDPtDY_Pt_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,3))/1.5;
+	    DSigmaDPtDY_Pt_3P0_8_Fit_ALICE[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,4))/1.5;
+	    DSigmaDPtDY_Pt_3P1_8_Fit_ALICE[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,5))/1.5;
+	    DSigmaDPtDY_Pt_3P2_8_Fit_ALICE[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, 2.5, 4.0,6))/1.5;
+	  }
 
 
 	}
@@ -842,29 +842,29 @@ void QuarkoniaProd_NRQCD()
 	  if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;}
 	  DSigmaDPtDY_Pt_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
 
-	  //==========ATLAS Graph
-	  if(QQbarVar==3){DSigmaDPtDY_Pt_3P0_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
-	  if(QQbarVar==4){DSigmaDPtDY_Pt_3P1_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
-	  if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
-	  DSigmaDPtDY_Pt_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,2))/5.0;
 
-
-	
-	  //==========ALICE Graph
-	  if(QQbarVar==3){DSigmaDPtDY_Pt_3P0_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
-	  if(QQbarVar==4){DSigmaDPtDY_Pt_3P1_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
-	  if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
-	  DSigmaDPtDY_Pt_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,2))/1.5;
-
-
+	  if(IsPrediction ==1){
+	    //==========ATLAS Graph
+	    if(QQbarVar==3){DSigmaDPtDY_Pt_3P0_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
+	    if(QQbarVar==4){DSigmaDPtDY_Pt_3P1_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
+	    if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,1))/5.0;}
+	    DSigmaDPtDY_Pt_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, -2.5, 2.5,2))/5.0;
+	    
+	    //==========ALICE Graph
+	    if(QQbarVar==3){DSigmaDPtDY_Pt_3P0_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
+	    if(QQbarVar==4){DSigmaDPtDY_Pt_3P1_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
+	    if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,1))/1.5;}
+	    DSigmaDPtDY_Pt_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, 2.5, 4.0,2))/1.5;
+	  }
+	  
 	}
 	
 
 	DSigmaDPtDY_ModY075_Pt[i]=DSigmaDPt_Gauss(Pt, -1.2, 1.2);
 	RapInt = RapInt + DSigmaDPtDY_Pt[i];
-      
+	
       }
-
+      
       if(QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 || QQbarVar ==9 || QQbarVar == 10){
 	Double_t YMin = -5.0; Double_t YMax =5.0; 
 	Double_t DeltaY = (YMax - YMin);
@@ -872,7 +872,7 @@ void QuarkoniaProd_NRQCD()
 	RapInt = RapInt + DSigmaDPtDY_Pt[i];
 
       }
-
+      
       if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar == 6 || QQbarVar ==7 || QQbarVar ==8 ){
 	DSigmaDt_GG_Pt[i]= Sum_GG_DSigmaDt(0.1,Pt,1.0);
 	DSigmaDt_qq_Pt[i]= Sum_qq_DSigmaDt(0.2,Pt,1.0);
@@ -1229,9 +1229,6 @@ void QuarkoniaProd_NRQCD()
 
 
 
-
-
-
   //====================================== DSigma/DPt.Dy graphs ================================//
 
   TLatex *tb= new TLatex;
@@ -1398,8 +1395,6 @@ void QuarkoniaProd_NRQCD()
 
 
 
-
-
   Double_t Rap = 0.0;
   
   Double_t RapMin = 2.0;
@@ -1409,12 +1404,12 @@ void QuarkoniaProd_NRQCD()
   Int_t NNRap = (RapMax - RapMin)/RapStep;
   
   Double_t ARap[1000]={0.0};
-
+  
   Double_t ARap_ATLAS[1000]={0.0};
   Double_t ARap_ALICE[1000]={0.0};
-
+  
   Double_t DSigmaDPtDY_Rap[1000]={0.0};
-
+  
   Double_t DSigmaDt_GG_Rap[1000]={0.0};
   Double_t DSigmaDt_qq_Rap[1000]={0.0};
   Double_t DSigmaDt_qg_Rap[1000]={0.0};
@@ -1435,7 +1430,8 @@ void QuarkoniaProd_NRQCD()
 
   //for(Int_t i =0;i<NNRap;i++){cout<<ARap_ATLAS[i]<<"   "<<ARap_ALICE[i]<<endl;}
   //return;
-  //NNRap=1;
+  
+  NNRap=1;
 
   for(Int_t i =0;i<NNRap;i++)
     {
@@ -1480,25 +1476,26 @@ void QuarkoniaProd_NRQCD()
 	DSigmaDPtDY_Rap_3P2_8_Fit[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDY_Gauss_Fit(ARap[i], PtMin, PtMax,6))/DeltaPt;
       
 
-	//==========ATLAS Graph Rap
-	DSigmaDPtDY_Rap_3S1_1_Fit_ATLAS[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;
-	DSigmaDPtDY_Rap_1S0_8_Fit_ATLAS[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,2))/DeltaPt_ATLAS;
-	DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,3))/DeltaPt_ATLAS;
-	DSigmaDPtDY_Rap_3P0_8_Fit_ATLAS[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,4))/DeltaPt_ATLAS;
-	DSigmaDPtDY_Rap_3P1_8_Fit_ATLAS[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,5))/DeltaPt_ATLAS;
-	DSigmaDPtDY_Rap_3P2_8_Fit_ATLAS[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,6))/DeltaPt_ATLAS;
-
+	if(IsPrediction ==1){
+	  //==========ATLAS Graph Rap
+	  DSigmaDPtDY_Rap_3S1_1_Fit_ATLAS[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;
+	  DSigmaDPtDY_Rap_1S0_8_Fit_ATLAS[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,2))/DeltaPt_ATLAS;
+	  DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,3))/DeltaPt_ATLAS;
+	  DSigmaDPtDY_Rap_3P0_8_Fit_ATLAS[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,4))/DeltaPt_ATLAS;
+	  DSigmaDPtDY_Rap_3P1_8_Fit_ATLAS[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,5))/DeltaPt_ATLAS;
+	  DSigmaDPtDY_Rap_3P2_8_Fit_ATLAS[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,6))/DeltaPt_ATLAS;
+	  
 	
-
-	//==========ALICE Graph Rap
-	DSigmaDPtDY_Rap_3S1_1_Fit_ALICE[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;
-	DSigmaDPtDY_Rap_1S0_8_Fit_ALICE[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,2))/DeltaPt_ALICE;
-	DSigmaDPtDY_Rap_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,3))/DeltaPt_ALICE;
-	DSigmaDPtDY_Rap_3P0_8_Fit_ALICE[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,4))/DeltaPt_ALICE;
-	DSigmaDPtDY_Rap_3P1_8_Fit_ALICE[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,5))/DeltaPt_ALICE;
-	DSigmaDPtDY_Rap_3P2_8_Fit_ALICE[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,6))/DeltaPt_ALICE;
-      }
-      
+	  
+	  //==========ALICE Graph Rap
+	  DSigmaDPtDY_Rap_3S1_1_Fit_ALICE[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;
+	  DSigmaDPtDY_Rap_1S0_8_Fit_ALICE[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,2))/DeltaPt_ALICE;
+	  DSigmaDPtDY_Rap_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,3))/DeltaPt_ALICE;
+	  DSigmaDPtDY_Rap_3P0_8_Fit_ALICE[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,4))/DeltaPt_ALICE;
+	  DSigmaDPtDY_Rap_3P1_8_Fit_ALICE[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,5))/DeltaPt_ALICE;
+	  DSigmaDPtDY_Rap_3P2_8_Fit_ALICE[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,6))/DeltaPt_ALICE;
+	}
+      } 
       
       if(QQbarVar == 3 || QQbarVar ==4 || QQbarVar ==5){
 	if(QQbarVar==3){DSigmaDPtDY_Rap_3P0_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDY_Chi_Gauss_Fit(ARap[i], PtMin, PtMax,1))/DeltaPt;}
@@ -1507,30 +1504,31 @@ void QuarkoniaProd_NRQCD()
 	DSigmaDPtDY_Rap_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDY_Chi_Gauss_Fit(ARap[i], PtMin, PtMax,2))/DeltaPt;
 
 
-
-	//==========ATLAS Graph
-	if(QQbarVar==3){DSigmaDPtDY_Rap_3P0_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
-	if(QQbarVar==4){DSigmaDPtDY_Rap_3P1_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
-	if(QQbarVar==5){DSigmaDPtDY_Rap_3P2_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
-	DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;
-		
-	//==========ALICE Graph
-	if(QQbarVar==3){DSigmaDPtDY_Rap_3P0_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
-	if(QQbarVar==4){DSigmaDPtDY_Rap_3P1_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
-	if(QQbarVar==5){DSigmaDPtDY_Rap_3P2_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
-	DSigmaDPtDY_Rap_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;
+	if(IsPrediction ==1){
+	  //==========ATLAS Graph
+	  if(QQbarVar==3){DSigmaDPtDY_Rap_3P0_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
+	  if(QQbarVar==4){DSigmaDPtDY_Rap_3P1_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
+	  if(QQbarVar==5){DSigmaDPtDY_Rap_3P2_1_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;}
+	  DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ATLAS[i], PtMin_ATLAS, PtMax_ATLAS,1))/DeltaPt_ATLAS;
+	  
+	  //==========ALICE Graph
+	  if(QQbarVar==3){DSigmaDPtDY_Rap_3P0_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
+	  if(QQbarVar==4){DSigmaDPtDY_Rap_3P1_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
+	  if(QQbarVar==5){DSigmaDPtDY_Rap_3P2_1_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;}
+	  DSigmaDPtDY_Rap_3S1_8_Fit_ALICE[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(ARap_ALICE[i], PtMin_ALICE, PtMax_ALICE,1))/DeltaPt_ALICE;
+	}      
       }
    
 
       //cout<<ARap[i]<<"     "<< DSigmaDPtDY_Rap[i] <<endl;
       Double_t Total = DSigmaDPtDY_Rap_3S1_1_Fit[i] + DSigmaDPtDY_Rap_1S0_8_Fit[i] + DSigmaDPtDY_Rap_3S1_8_Fit[i] + DSigmaDPtDY_Rap_3P0_8_Fit[i] + DSigmaDPtDY_Rap_3P1_8_Fit[i] + DSigmaDPtDY_Rap_3P2_8_Fit[i];
-
-     
+      
+      
       
       cout<<ARap[i]<<"  "<<DSigmaDPtDY_Rap_3S1_1_Fit[i]<<"   "<<DSigmaDPtDY_Rap_1S0_8_Fit[i]<<"   "<<DSigmaDPtDY_Rap_3S1_8_Fit[i]<<"  "<<DSigmaDPtDY_Rap_3P0_8_Fit[i]<<
 	"   "<<DSigmaDPtDY_Rap_3P1_8_Fit[i]<<"   "<<DSigmaDPtDY_Rap_3P2_8_Fit[i]<<endl;
 
-
+      
 
 
       //Double_t Total_ATLAS = DSigmaDPtDY_Rap_3S1_1_Fit_ATLAS[i] + DSigmaDPtDY_Rap_1S0_8_Fit_ATLAS[i] + DSigmaDPtDY_Rap_3S1_8_Fit_ATLAS[i] + DSigmaDPtDY_Rap_3P0_8_Fit_ATLAS[i] + 
