@@ -78,6 +78,7 @@ Double_t CDF_180_Chic0_FitLDME(Double_t *x, Double_t *par);
 
 TGraph *Scale_QCDSigma(TGraph *InGraph, Double_t LDME);
 TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4);
+TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin);
 
 Double_t Scale_Pt(Double_t JPsiPt, Int_t Par);
 
@@ -277,6 +278,17 @@ void ChiCLDME()
   tb->SetTextAlign(12);
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
+
+
+
+
+
+
+
+  Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit=CutGraph(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit,5.0);
+  Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,5.0);
+
+
 
   new TCanvas;
   gPad->SetTicks();
@@ -581,6 +593,48 @@ void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
 
 
 
+TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin)
+{
+  
+  TGraphAsymmErrors *SGraph = new TGraphAsymmErrors; 
+  const int NN = InGraph->GetN();
+  
+ Int_t i=-1;    
+  for (int j=0; j < NN;++j){
+    Double_t xx,yy;
+    Double_t errlowxx,errlowyy;
+    Double_t errhighxx,errhighyy;
+    
+    InGraph->GetPoint(j,xx,yy);
+    errlowxx=InGraph->GetErrorXlow(j);
+    errhighxx=InGraph->GetErrorXhigh(j);
+    errlowyy=InGraph->GetErrorYlow(j);
+    errhighyy=InGraph->GetErrorYhigh(j);
+    
+   
+    if(xx>=XMin)
+      {
+	i=i+1;
+	SGraph->SetPoint(i,xx,yy);  
+	SGraph->SetPointError(i,errlowxx,errhighxx,errlowyy,errhighyy);  
+      }
+  }
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = SGraph;
+
+  OutGraph->SetLineColor(InGraph->GetLineColor());
+  OutGraph->SetLineStyle(InGraph->GetLineStyle());
+  OutGraph->SetLineWidth(InGraph->GetLineWidth());
+  
+  OutGraph->SetMarkerColor(InGraph->GetMarkerColor());
+  OutGraph->SetMarkerStyle(InGraph->GetMarkerStyle());
+  OutGraph->SetMarkerSize(InGraph->GetMarkerSize());
+
+
+
+  return OutGraph;
+}
 
 
 
