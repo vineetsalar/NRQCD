@@ -60,8 +60,9 @@ using namespace LHAPDF;
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 7000.0;
-Int_t IsPrediction =0;
+const Double_t RootS = 13000.0;
+
+Int_t IsPrediction =1;
 
 
 
@@ -1202,7 +1203,7 @@ void QuarkoniaProd_NRQCD()
   grDSigmaDPtDY_Pt_3P2_8_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P2_8_Fit_ALICE");
   grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE");
   grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE");
-  grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE->SetName(" grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE");
+  grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE->SetName("grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE");
 
 
 
@@ -1431,7 +1432,7 @@ void QuarkoniaProd_NRQCD()
   //for(Int_t i =0;i<NNRap;i++){cout<<ARap_ATLAS[i]<<"   "<<ARap_ALICE[i]<<endl;}
   //return;
   
-  NNRap=1;
+  //NNRap=1;
 
   for(Int_t i =0;i<NNRap;i++)
     {
