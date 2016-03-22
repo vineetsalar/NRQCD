@@ -260,30 +260,34 @@ void ChiCLDME()
   TGraph *Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCDF_Chic1_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,CDF_180_Chic1Chic2_LDME_3S1_8);
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(8);
   
-  TLegend *lgd_DSigmaDPtDY_CDF_180_Chic1Chic2 = new TLegend(0.36,0.66,0.89,0.94);
+  TLegend *lgd_DSigmaDPtDY_CDF_180_Chic1Chic2 = new TLegend(0.214,0.883,0.916,0.932);
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetBorderSize(0);
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetFillStyle(0);
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetFillColor(0);
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetTextSize(0.040);
+  //lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetHeader("CDF Data, pp #surds = 1.8 TeV, |y^{J/#psi}| #leq 0.6"); 
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetHeader("pp #surds = 1.8 TeV, J/#psi from #chi_{c}, |y^{J/#psi}| #leq 0.6"); 
+  
+ 
 
-  //lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,"CDF J/#psi Data,#surds = 7 TeV ","P"); 
-  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->SetHeader("CDF Data, pp #surds = 1.8 TeV"); 
-  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,"J/#psi from #chi_{c}, |y^{J/#psi}| #leq 0.6","P"); 
-  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(CDF_180_Chic1Chic2_FitFunctionLDME,"Total","L"); 
-  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit,"^{3}P_{1}^{[1]}","L");  
-  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->AddEntry(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  TLegend *lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1 = new TLegend(0.622,0.58,0.897,0.858);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->SetBorderSize(0);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->SetFillStyle(0);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->SetFillColor(0);
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->SetTextSize(0.040);
+
+
+  //lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->AddEntry(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,"J/#psi from #chi_{c}","P"); 
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->AddEntry(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,"CDF Data","P"); 
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->AddEntry(CDF_180_Chic1Chic2_FitFunctionLDME,"Total","L"); 
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->AddEntry(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit,"^{3}P_{1}^{[1]}","L");  
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->AddEntry(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
   
   TLatex *tb= new TLatex;
   tb->SetNDC(); 
   tb->SetTextAlign(12);
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
-
-
-
-
-
-
 
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit=CutGraph(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit,5.0);
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,5.0);
@@ -294,6 +298,9 @@ void ChiCLDME()
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
+  grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetYaxis()->SetRangeUser(0.0001,20);
+  grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetXaxis()->SetRangeUser(4.0,22);
+
   grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->SetMarkerSize(1.8);
   grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->SetMarkerStyle(24);
   grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->SetMarkerColor(1);
@@ -303,6 +310,7 @@ void ChiCLDME()
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit->Draw("Lsame");
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->Draw("same");
+  lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->Draw("same");
   
   //tb->DrawLatex(0.21,0.25,"CDF pp #sqrt{s_{_{NN}}} = 1.8 TeV");
 
@@ -312,6 +320,7 @@ void ChiCLDME()
   gPad->SaveAs("Chic1_CDF_Fit.pdf");
 
 
+  return;
   //==================================== Fit with TMiniut ========================//
   gr0=new TGraphAsymmErrors();
   gr0=Data_CDF_180_D2NDPtDy_Chic1Chic2ToJPsi_Y0006_Pt();

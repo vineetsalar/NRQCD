@@ -38,6 +38,12 @@ void Draw_CMS_D2NDPtDy_PromptPsi2S_Y1216_Pt(TLegend *lgd);
 void Draw_CMS_D2NDPtDy_PromptPsi2S_Y1624_Pt(TLegend *lgd);
 
 void Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd);
+void Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y1216_Pt(TLegend *lgd);
+void Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y1624_Pt(TLegend *lgd);
+
+
+void Draw_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd);
+
 void Psi2STotal()
 {
 
@@ -121,7 +127,7 @@ gROOT->SetStyle("Plain");
 
   TFile *file_Psi2SCrossSection =  new TFile("Psi2SCrossSection.root","R");
 
- //grDSigmaDPtDY_ModY075_Pt
+  //grDSigmaDPtDY_ModY075_Pt
   TGraph *Psi2S_grDSigmaDPtDY_ModY075_Pt =(TGraph*)file_Psi2SCrossSection->Get("grDSigmaDPtDY_ModY075_Pt");
   Psi2S_grDSigmaDPtDY_ModY075_Pt->SetName("Psi2S_grDSigmaDPtDY_ModY075_Pt");
   Psi2S_grDSigmaDPtDY_ModY075_Pt->SetTitle("Psi2S_grDSigmaDPtDY_ModY075_Pt");
@@ -207,23 +213,28 @@ gROOT->SetStyle("Plain");
     TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->SetPoint(j,Pt,TotalPsi2S);
   }
 
-  TLegend *lgd_DSigmaDPtDY_ModY075_Pt = new TLegend(0.40,0.82,0.90,0.93);
+  TLegend *lgd_DSigmaDPtDY_ModY075_Pt = new TLegend(0.22,0.78,0.78,0.94);
   lgd_DSigmaDPtDY_ModY075_Pt->SetBorderSize(0);
   lgd_DSigmaDPtDY_ModY075_Pt->SetFillStyle(0);
   lgd_DSigmaDPtDY_ModY075_Pt->SetFillColor(0);
-  lgd_DSigmaDPtDY_ModY075_Pt->SetTextSize(0.03);
+  lgd_DSigmaDPtDY_ModY075_Pt->SetTextSize(0.045);
   
   new TCanvas; 
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
 
-  Draw_CMS_D2NDPtDy_PromptPsi2S_Y0012_Pt(lgd_DSigmaDPtDY_ModY075_Pt);
+  //Draw_CMS_D2NDPtDy_PromptPsi2S_Y0012_Pt(lgd_DSigmaDPtDY_ModY075_Pt);
+  //
   Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt(lgd_DSigmaDPtDY_ModY075_Pt);
-  lgd_DSigmaDPtDY_ModY075_Pt->AddEntry(TotalPsi2S_grDSigmaDPtDY_ModY075_Pt,"NRQCD, Prompt #psi(2S)","L");
+  Draw_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt(lgd_DSigmaDPtDY_ModY075_Pt);
+  lgd_DSigmaDPtDY_ModY075_Pt->AddEntry(TotalPsi2S_grDSigmaDPtDY_ModY075_Pt,"Prompt #psi(2S)","L");
   
   TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->GetYaxis()->SetTitleOffset(1.6);
-   
+
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->SetLineWidth(3);
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->SetLineStyle(1);
+ 
   TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->Draw("Csame");
   lgd_DSigmaDPtDY_ModY075_Pt->Draw("same");
 
@@ -315,8 +326,14 @@ gROOT->SetStyle("Plain");
 
   gPad->SaveAs("Fig2c_Psi2S_CMS_Y1624_S7TeV.pdf");
 
+  TFile *OutFile = new TFile("TotalPsi2SCrossSection.root","Recreate");
 
+  TotalPsi2S_grDSigmaDPtDY_ModY075_Pt->Write();
+  TotalPsi2S_grDSigmaDPtDY_ModY090_Pt->Write();
+  TotalPsi2S_grDSigmaDPtDY_ModY075To24_Pt->Write();
 
+  OutFile->Write();
+  OutFile->Close();
 
 
 
@@ -543,10 +560,10 @@ void Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
   TGraphAsymmErrors *Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
 										  p8319_d1x1y1_xerrplus, p8319_d1x1y1_yerrminus, p8319_d1x1y1_yerrplus);
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerStyle(21);
-  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerColor(kBlue+0);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerColor(4);
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerSize(1.6);
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetTitleOffset(1.6);
-  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetRangeUser(0.000001,10000.0);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetRangeUser(0.0000001,100.0);
   
   TAxis *Xaxis1 = Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetXaxis();
   Xaxis1->SetLimits(0.0,70.0);
@@ -555,7 +572,7 @@ void Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetXaxis()->SetTitle("p_{T}[GeV/c]");
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
   
-  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->Draw("Psame");
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->Draw("zAP");
 
   
   TBox *SystErr[NN];
@@ -576,48 +593,74 @@ void Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
   tb->SetTextAlign(12);
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
-  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
-  tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
+  //tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  //tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
  
-  lgd->AddEntry(Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt,"CMS prompt #psi(2S)", "P");
+  lgd->AddEntry(Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt,"CMS prompt #psi(2S), low p_{T}", "P");
   
   
   
 }
-void Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
+void Draw_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
 {
-  //This data is from 1111.1557
-  const int NN = 9;
+  //
+  const int NN = 19;
 
-  Double_t p8319_d1x1y1_xval[NN] = {7.6, 8.54, 9.5, 10.5, 11.48, 12.72, 14.23, 16.3, 21.92};
-  Double_t p8319_d1x1y1_xerrminus[NN] = {};
-  Double_t p8319_d1x1y1_xerrplus[NN] = {};
+  Double_t p8319_d1x1y1_xval[NN] = {10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 
+    19.5, 21.1, 23.6, 26.1, 28.7, 32.2, 37.2, 45.5, 62.4, 84.1};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+					 0.5, 1.1000000000000014, 1.1000000000000014, 1.1000000000000014, 1.1999999999999993, 2.200000000000003, 
+					 2.200000000000003, 5.5, 7.399999999999999, 9.099999999999994};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+					0.5, 1.3999999999999986, 1.3999999999999986, 1.3999999999999986, 1.3000000000000007, 2.799999999999997, 2.799999999999997, 
+					9.5, 12.600000000000001, 15.900000000000006};
   
   
-  Double_t p8319_d1x1y1_yval[NN] = {};
-  Double_t p8319_d1x1y1_yerrminus[NN] = {};
-  Double_t p8319_d1x1y1_yerrplus[NN] = {};
+  Double_t p8319_d1x1y1_yval[NN] = {38.0, 24.1, 15.4, 10.2, 7.15, 4.79, 3.48, 2.52, 1.87, 
+    1.34, 0.857, 0.461, 0.269, 0.165, 0.0842, 0.0347, 0.0102, 0.00235, 5.62E-4};
+  Double_t p8319_d1x1y1_yerrminus[NN] = {2.994346673316234, 1.4998589933723767, 0.872326773634743, 0.5494606446325342, 0.38020278799609036, 0.26125627265196905, 
+					 0.18547174987043175, 0.13869340287122528, 0.1012699856818396, 0.07589519088848778, 0.049967989753441154, 
+					 0.027793704323101662, 0.018381689258607326, 0.011822664674260198, 0.006161671851048221, 0.0034377709347773594, 
+					 0.0010926362615253074, 4.183390490977384E-4, 1.5471069775552045E-4};
+  Double_t p8319_d1x1y1_yerrplus[NN] = {2.994346673316234, 1.4998589933723767, 0.872326773634743, 0.5494606446325342, 0.38020278799609036, 0.26125627265196905, 
+					0.18547174987043175, 0.13869340287122528, 0.1012699856818396, 0.07589519088848778, 0.049967989753441154, 0.027793704323101662, 
+					0.018381689258607326, 0.011822664674260198, 0.006161671851048221, 0.0034377709347773594, 0.0010926362615253074, 4.183390490977384E-4, 
+					1.5471069775552045E-4};
 
-  Double_t p8319_d1x1y1_ystatminus[NN] = {};
-  Double_t p8319_d1x1y1_ystatplus[NN] = {};
+  Double_t p8319_d1x1y1_ystatminus[NN] = {0.296, 0.194, 0.137, 0.101, 0.0796, 0.0622, 0.0511, 0.0419, 0.0352, 
+					  0.0294, 0.0144, 0.0102, 0.00772, 0.00607, 0.00299, 0.002, 6.66E-4, 2.99E-4, 1.37E-4};
+  Double_t p8319_d1x1y1_ystatplus[NN] = { 0.296, 0.194, 0.137, 0.101, 0.0796, 0.0622, 0.0511, 0.0419, 0.0352, 
+					  0.0294, 0.0144, 0.0102, 0.00772, 0.00607, 0.00299, 0.002, 6.66E-4, 2.99E-4, 1.37E-4};
+
+  Double_t pbTonb =1.0/1000.0;
+
+
+for(int j=0;j<NN;j++){
+    p8319_d1x1y1_yval[j] = p8319_d1x1y1_yval[j]*pbTonb;
+    p8319_d1x1y1_yerrminus[j]= p8319_d1x1y1_yerrminus[j]*pbTonb;
+    p8319_d1x1y1_yerrplus[j]=p8319_d1x1y1_yerrplus[j]*pbTonb;
+    p8319_d1x1y1_ystatminus[j]= p8319_d1x1y1_ystatminus[j]*pbTonb;
+    p8319_d1x1y1_ystatplus[j]=p8319_d1x1y1_ystatplus[j]*pbTonb;
+  }
+
 
 
   TGraphAsymmErrors *Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
 										  p8319_d1x1y1_xerrplus, p8319_d1x1y1_yerrminus, p8319_d1x1y1_yerrplus);
-  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerStyle(21);
-  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerColor(kBlue+0);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerStyle(20);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerColor(kBlack);
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->SetMarkerSize(1.6);
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetTitleOffset(1.6);
-  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetRangeUser(0.000001,10000.0);
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetRangeUser(0.0000001,100.0);
   
   TAxis *Xaxis1 = Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetXaxis();
-  Xaxis1->SetLimits(0.0,70.0);
+  Xaxis1->SetLimits(0.0,100.0);
    
 
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetXaxis()->SetTitle("p_{T}[GeV/c]");
   Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
   
-  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->Draw("Psame");
+  Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt->Draw("zPsame");
 
   
   TBox *SystErr[NN];
@@ -638,10 +681,10 @@ void Draw_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt(TLegend *lgd)
   tb->SetTextAlign(12);
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
-  tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
-  tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
+  //tb->DrawLatex(0.21,0.25,"pp #sqrt{s_{_{NN}}} = 7.0 TeV");
+  //tb->DrawLatex(0.21,0.20,"|y| #leq 1.2");
  
-  lgd->AddEntry(Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt,"CMS prompt #psi(2S)", "P");
+  lgd->AddEntry(Grf_CMS_D2NDPtDy_PromptPsi2S_0012_Pt,"CMS prompt #psi(2S), high p_{T}", "P");
   
   
   

@@ -1678,23 +1678,6 @@ void JPsiLDME()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== COMBINED FITTING CMS, ATLAS, LHCb, CDF DATA FOR LDME ====="<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
@@ -1956,21 +1939,27 @@ void JPsiLDME()
 											  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 											  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_0);
     
-  TLegend *Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1 = new TLegend(0.35,0.49,0.88,0.94);
+  TLegend *Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1 = new TLegend(0.24,0.87,0.88,0.93);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetFillColor(0);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetTextSize(0.04);
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetHeader("pp #surds=7 TeV, Prompt J/#psi, |y^{J/#psi}| #leq 0.9");
 
-  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetHeader("CMS Data, #surds = 7 TeV");
-  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->AddEntry(gr0,"Prompt J/#psi, |y^{J/#psi}| #leq 0.9","P");
-  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->AddEntry(fun_0,"Total","L");
-  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
-  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
-  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
-  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
+
+
+  TLegend *Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1 = new TLegend(0.57,0.43,0.90,0.88);
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->SetBorderSize(0);
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->SetFillStyle(0);
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->SetFillColor(0);
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->SetTextSize(0.04);
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->AddEntry(gr0,"CMS Data","P");
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->AddEntry(fun_0,"Total","L");
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
  
-
 
 
 
@@ -1982,13 +1971,12 @@ void JPsiLDME()
 
 
 
-
-
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
-  gr0->GetYaxis()->SetRangeUser(0.00001,10000);
+
+  gr0->GetYaxis()->SetRangeUser(0.00002,200);
   gr0->SetMarkerStyle(24);
   gr0->SetMarkerSize(1.8);
   gr0->Draw("zAP");
@@ -2001,11 +1989,11 @@ void JPsiLDME()
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
 
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->Draw("same");
+  Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->Draw("same");
   gPad->SaveAs("Plots/Combined/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf");
   gPad->SaveAs("Plots/Combined/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.png");
 
-
-
+ 
   
   gr1->Fit("fun_1","Q0","MER", 6, 120); //CMS Latest
   /*
@@ -2042,35 +2030,35 @@ void JPsiLDME()
 											  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 											  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_1);
     
-  TLegend *Comb_lgd_CMS_DSigmaDPtDY_Pt1 = new TLegend(0.37,0.51,0.90,0.94);
+  TLegend *Comb_lgd_CMS_DSigmaDPtDY_Pt1 = new TLegend(0.24,0.88,0.90,0.92);
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->SetFillColor(0);
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->SetTextSize(0.04);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1->SetHeader("pp #surds=7 TeV, Prompt J/#psi, |y^{J/#psi}| #leq 1.2");
 
-  Comb_lgd_CMS_DSigmaDPtDY_Pt1->SetHeader("CMS Data, #surds = 7 TeV");
-  Comb_lgd_CMS_DSigmaDPtDY_Pt1->AddEntry(gr1,"Prompt J/#psi, |y^{J/#psi}| #leq 1.2","P");
-  Comb_lgd_CMS_DSigmaDPtDY_Pt1->AddEntry(fun_1,"Total","L");
-  Comb_lgd_CMS_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
-  Comb_lgd_CMS_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
-  Comb_lgd_CMS_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
-  Comb_lgd_CMS_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
-
-
+  TLegend *Comb_lgd_CMS_DSigmaDPtDY_Pt1_1 = new TLegend(0.55,0.36,0.91,0.86);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->SetBorderSize(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->SetFillStyle(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->SetFillColor(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->SetTextSize(0.04);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->AddEntry(gr1,"CMS Data","P");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->AddEntry(fun_1,"Total","L");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=CutGraph(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,5.0);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,5.0);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=CutGraph(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,5.0);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit=CutGraph(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,5.0);
-
-
-
-
+  
  
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gr1->SetMarkerSize(1.8);
-  gr1->GetYaxis()->SetRangeUser(0.000001,1000);
+  gr1->GetYaxis()->SetRangeUser(0.000001,100);
   gPad->SetLeftMargin(0.18);
   gr1->Draw("zAP");
   gr1->GetYaxis()->SetTitleOffset(1.6);
@@ -2082,11 +2070,13 @@ void JPsiLDME()
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
 
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->Draw("same");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->Draw("same");
   gPad->SaveAs("Plots/Combined/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf");
   gPad->SaveAs("Plots/Combined/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.png");
 
 
- 
+  return;
+
   
   gr2->Fit("fun_2","Q0","MER", 6, 100); //ATLAS 7 TeV
   /*

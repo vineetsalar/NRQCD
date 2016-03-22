@@ -65,7 +65,6 @@ const Double_t RootS = 13000.0;
 Int_t IsPrediction =1;
 
 
-
 //===== for gauss quadrature integration ========//
 const Int_t NNXXi = 150;
 Double_t XXi[NNXXi]={0.0};
@@ -76,14 +75,17 @@ Double_t XXk[NNXXk]={0.0};
 Double_t WWk[NNXXk]={0.0};
 
 
+
+//const Double_t mC = 1.4; //Mass_var1
+//const Double_t mC = 1.6;
+const Double_t mC = 1.8;//Mass_var2
+
+const Double_t mJPsi = 2.0*mC;
+
+
 /*
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =1;
-const Double_t mC = 1.6;
-//const Double_t mJPsi = 3.096916;
-const Double_t mJPsi = 3.2;
-
-//const Double_t OO_QQbar_3S1_1_JPsi=1.2;   //GeV^3
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*1.2/(3.0*NC);  //GeV^3
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
@@ -98,17 +100,12 @@ const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3
 //Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =2;
 
-const Double_t mC = 1.6;
-const Double_t mJPsi = 3.2;
-
-//const Double_t mJPsi = 3.686109;
-
 //const Double_t mC = 1.6;
 //const Double_t mJPsi = 3.2;
 
+
 //const Double_t OO_QQbar_3S1_1_JPsi=0.76; //GeV^3 
 const Double_t NC = 3.0;        
-
 const Double_t R02 = 2.0*pi*0.76/(3.0*NC);  //GeV^3 
 const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
 
@@ -125,9 +122,10 @@ const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3
 /*
 // Chic0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 3;
-const Double_t mC = 1.6;
+
+//const Double_t mC = 1.6;
 //const Double_t mJPsi = 3.41475;
-const Double_t mJPsi = 3.2;
+//const Double_t mJPsi = 3.2;
 
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
@@ -140,13 +138,13 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  //GeV^3          
 */
 
+
 /*
 // Chic1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 4;
-const Double_t mC = 1.6;
+//const Double_t mC = 1.6;
 //const Double_t mJPsi = 3.51066;
-const Double_t mJPsi = 3.2;
-
+//const Double_t mJPsi = 3.2;
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0;     //GeV^3
@@ -162,10 +160,9 @@ const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3
 
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
-const Double_t mC = 1.6;
+//const Double_t mC = 1.6;
 //const Double_t mJPsi = 3.55620;
-const Double_t mJPsi = 3.2;
-
+//const Double_t mJPsi = 3.2;
 const Double_t OO_QQbar_3S1_1_JPsi=0.0;     //GeV^3 
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0;     //GeV^3
