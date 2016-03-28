@@ -149,6 +149,7 @@ void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag);
 TGraph *Scale_QCDSigma(TGraph *InGraph, Double_t LDME);
 TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4);
 TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin);
+Double_t CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc);
 
 const Double_t mC = 1.6;
 
@@ -1239,8 +1240,6 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
-
-
   Double_t Comb_LDME_3S1_1 = currentPar[0];
   Double_t Comb_LDME_1S0_8 = currentPar[1];
   Double_t Comb_LDME_3S1_8 = currentPar[2];
@@ -1248,7 +1247,6 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Double_t Comb_LDME_3P1_8 = 3.0*currentPar[1]*mC*mC;
   Double_t Comb_LDME_3P2_8 = 5.0*currentPar[1]*mC*mC;
   
-
 
   
   //============================ Calculate Chi2 For Combined fitting =====================//
@@ -1323,12 +1321,12 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_DSigmaDPtDY_Pt1_1->Draw("same");
-
+  tb->DrawLatex(0.23,0.18,"(a)");
   gPad->SaveAs("Plots/Psi2S_CMS_LowPt.pdf");
   gPad->SaveAs("Plots/Psi2S_CMS_LowPt.png");
 
   
-  
+  //  return;
 
 
   gr1->Fit("fun_1","Q0","MER", 5, 100);
@@ -1379,6 +1377,7 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->Draw("same");
+  tb->DrawLatex(0.23,0.18,"(b)");
 
   gPad->SaveAs("Plots/Psi2S_CMS_HighPt.pdf");
   gPad->SaveAs("Plots/Psi2S_CMS_HighPt.png");
@@ -1452,6 +1451,8 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->Draw("same");
   
+  tb->DrawLatex(0.23,0.18,"(c)");
+
   gPad->SaveAs("Plots/Psi2S_ATLAS.pdf");
   gPad->SaveAs("Plots/Psi2S_ATLAS.png");
 
@@ -1533,7 +1534,9 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->Draw("same");
-  
+  tb->DrawLatex(0.23,0.18,"(d)");  
+
+
   gPad->SaveAs("Plots/Psi2S_ATLAS_8TeV.pdf");
   gPad->SaveAs("Plots/Psi2S_ATLAS_8TeV.png");
   
@@ -1638,6 +1641,8 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->Draw("same");
   
+  tb->DrawLatex(0.23,0.18,"(b)");
+
   gPad->SaveAs("Plots/Psi2S_CDF_196TeV.pdf");
   gPad->SaveAs("Plots/Psi2S_CDF_196TeV.png");
 
@@ -1719,11 +1724,11 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_CDF_180TeV_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_CDF_180TeV_DSigmaDPtDY_Pt1_1->Draw("same");
-  
+  tb->DrawLatex(0.23,0.18,"(a)");  
+
   gPad->SaveAs("Plots/Psi2S_CDF_180TeV.pdf");
   gPad->SaveAs("Plots/Psi2S_CDF_180TeV.png");
 
-  return;  
   
 
   gr6->Fit("fun_6","Q0","MER", 6, 20);
@@ -1811,6 +1816,21 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   cout<<"chi2/ndf "<<fun_4->GetChisquare()<<"/"<<fun_4->GetNDF()<<" Prob: "<<fun_4->GetProb()<<endl;
   cout<<"chi2/ndf "<<fun_5->GetChisquare()<<"/"<<fun_5->GetNDF()<<" Prob: "<<fun_5->GetProb()<<endl;
   cout<<"chi2/ndf "<<fun_6->GetChisquare()<<"/"<<fun_6->GetNDF()<<" Prob: "<<fun_6->GetProb()<<endl;
+
+
+  // f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
+
+  cout<<"Chi Square  "<<CalcChi2(gr0,fun_0)<<"   "<<CalcChi2(gr1,fun_1)<<"   "<<CalcChi2(gr2,fun_2)<<"   "<<CalcChi2(gr3,fun_3)<<endl;
+  cout<<"Chi Square  "<<CalcChi2(gr4,fun_4)<<"   "<<CalcChi2(gr5,fun_5)<<endl;
+  
+  Double_t TotalChi2 = CalcChi2(gr0,fun_0) + CalcChi2(gr1,fun_1) + CalcChi2(gr2,fun_2) + CalcChi2(gr3,fun_3)+CalcChi2(gr4,fun_4)
+    + CalcChi2(gr5,fun_5);
+  
+  Double_t TotalNDF = (gr0->GetN() + gr1->GetN() + gr2->GetN() + gr3->GetN() + gr4->GetN() + gr5->GetN()) - 2 ;
+  
+  cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
+  
+  dataFile<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
 
   return;
 
@@ -2180,6 +2200,45 @@ void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
 
 
 }
+
+
+
+Double_t CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc)
+{
+  
+  const Int_t nbins = InGrf->GetN();
+  Int_t i;
+  Double_t xx[nbins];
+  Double_t yy[nbins];
+  Double_t erryy[nbins];
+
+ for (Int_t j=0;j<nbins; j++) 
+    {
+      InGrf->GetPoint(j,xx[j],yy[j]);
+      erryy[j]= InGrf->GetErrorY(j);
+      //cout<<InGrf->GetErrorY(j)<<"   "<<InGrf->GetErrorYlow(j)<<"   "<<InGrf->GetErrorYhigh(j)<<"  "<<InGrf->GetErrorYlow(j)+InGrf->GetErrorYhigh(j)<<endl;
+    }
+
+  //calculate chisquare
+  Double_t chisq = 0;
+  for (i=0;i<nbins; i++) {
+    //cout<<xx[i]<<"   "<<yy[i]<<"  "<<InFunc->Eval(xx[i])<<"   "<< (yy[i] -InFunc->Eval(xx[i]))/erryy[i]<< endl;
+    Double_t delta  = (yy[i]-InFunc->Eval(xx[i]))/erryy[i];
+    //cout<<delta<<endl;
+    chisq += delta*delta;
+  }
+  
+
+  return chisq;
+
+}
+
+
+
+
+
+
+
 
 
 

@@ -87,7 +87,7 @@ Double_t fcn0(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
 void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag);
 
 const Double_t mC = 1.6;
-
+Double_t CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc);
 void ChiCLDME()
 {
 
@@ -312,12 +312,18 @@ void ChiCLDME()
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->Draw("same");
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->Draw("same");
   
-  //tb->DrawLatex(0.21,0.25,"CDF pp #sqrt{s_{_{NN}}} = 1.8 TeV");
-
-
+  
 
   gPad->SaveAs("Chic1_CDF_Fit.png");
   gPad->SaveAs("Chic1_CDF_Fit.pdf");
+
+
+  //Double_t CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc)
+
+  Double_t TotalChi2 = CalcChi2(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,CDF_180_Chic1Chic2_FitFunctionLDME);
+  Double_t TotalNDF = (grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetN() - 2 );
+  cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
+
 
 
   return;
@@ -648,199 +654,37 @@ TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-//______________________________________________________________________________
-Double_t fcn0(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
+Double_t CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc)
 {
-  const Int_t nbins = gr0->GetN();
+  
+  const Int_t nbins = InGrf->GetN();
   Int_t i;
-  Double_t xx0[nbins];
-  Double_t yy0[nbins];
-  Double_t erryy0[nbins];
-    
-  for (Int_t j=0;j<nbins; j++) 
+  Double_t xx[nbins];
+  Double_t yy[nbins];
+  Double_t erryy[nbins];
+
+ for (Int_t j=0;j<nbins; j++) 
     {
-      gr0->GetPoint(j,xx0[j],yy0[j]);
-      erryy0[j]= gr0->GetErrorY(j);
+      InGrf->GetPoint(j,xx[j],yy[j]);
+      erryy[j]= InGrf->GetErrorY(j);
+      //cout<<InGrf->GetErrorY(j)<<"   "<<InGrf->GetErrorYlow(j)<<"   "<<InGrf->GetErrorYhigh(j)<<"  "<<InGrf->GetErrorYlow(j)+InGrf->GetErrorYhigh(j)<<
+      //endl;
     }
 
   //calculate chisquare
   Double_t chisq = 0;
-  for (i=0;i<  nbins; i++) {
-    Double_t delta  = (yy0[i]-CMS_FitLDME(&xx0[i],par))/erryy0[i];
-    chisq += delta*delta;
-  }
-  return chisq;
-}
-
-
-//______________________________________________________________________________
-Double_t fcn1(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
-{
-  const Int_t nbins = gr1->GetN();
-  Int_t i;
-  Double_t xx1[nbins];
-  Double_t yy1[nbins];
-  Double_t erryy1[nbins];
-  
-  
-  for (Int_t j=0;j<nbins; j++) 
-    {
-      gr1->GetPoint(j,xx1[j],yy1[j]);
-      erryy1[j]= gr1->GetErrorY(j);
-    }
-
-  //calculate chisquare
-  Double_t chisq = 0;
-  for (i=0;i<  nbins; i++) {
-    Double_t delta  = (yy1[i]-CMS_FitLDME(&xx1[i],par))/erryy1[i];
-    chisq += delta*delta;
-  }
-  return chisq;
-}
-
-
-
-//______________________________________________________________________________
-Double_t fcn2(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
-{ 
-  
-  const Int_t nbins = gr2->GetN();
-  Int_t i;
-  
-  Double_t xx2[nbins]; 
-  Double_t yy2[nbins];
-  Double_t erryy2[nbins];
-
-  for (Int_t j=0;j<nbins; j++) 
-    {
-      gr2->GetPoint(j,xx2[j],yy2[j]);
-      erryy2[j]= gr2->GetErrorY(j);
-    }
-
- //calculate chisquare
-  Double_t chisq = 0;
-  for (i=0;i<  nbins; i++) {
-    Double_t delta  = (yy2[i]-ATLAS_FitLDME(&xx2[i],par))/erryy2[i];
-    chisq += delta*delta;
-  }
-  return chisq;
-}
-
-
-//______________________________________________________________________________
-Double_t fcn3(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
-{ 
-  
-  const Int_t nbins = gr3->GetN();
-  Int_t i;
-  
-  Double_t xx3[nbins]; 
-  Double_t yy3[nbins];
-  Double_t erryy3[nbins];
-
-  for (Int_t j=0;j<nbins; j++) 
-    {
-      gr3->GetPoint(j,xx3[j],yy3[j]);
-      erryy3[j]= gr3->GetErrorY(j);
-    }
-
- //calculate chisquare
-  Double_t chisq = 0;
   for (i=0;i<nbins; i++) {
-    Double_t delta  = (yy3[i]-ATLAS8TeV_FitLDME(&xx3[i],par))/erryy3[i];
+    //cout<<xx[i]<<"   "<<yy[i]<<"  "<<InFunc->Eval(xx[i])<<"   "<< (yy[i] -InFunc->Eval(xx[i]))/erryy[i]<< endl;
+    Double_t delta  = (yy[i]-InFunc->Eval(xx[i]))/erryy[i];
+    //cout<<delta<<endl;
     chisq += delta*delta;
   }
+  
+
   return chisq;
-}
-
-//______________________________________________________________________________
-Double_t fcn4(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
-{ 
-  const Int_t nbins = gr4->GetN();
-  Int_t i;
-  Double_t xx4[nbins]; 
-  Double_t yy4[nbins];
-  Double_t erryy4[nbins];
-
-  for (Int_t j=0;j<nbins; j++) 
-    {
-      gr4->GetPoint(j,xx4[j],yy4[j]);
-      erryy4[j]= gr4->GetErrorY(j);
-    }
-
- //calculate chisquare
-  Double_t chisq = 0;
-  for (i=0;i<nbins; i++) {
-    Double_t delta  = (yy4[i]-CDF_FitLDME(&xx4[i],par))/erryy4[i];
-    chisq += delta*delta;
-  }
-  return chisq;
-}
-
-
-//______________________________________________________________________________
-Double_t fcn5(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
-{ 
-  
-  const Int_t nbins = gr5->GetN();
-  Int_t i;
-  
-  Double_t xx5[nbins]; 
-  Double_t yy5[nbins];
-  Double_t erryy5[nbins];
-
-  for (Int_t j=0;j<nbins; j++) 
-    {
-      gr5->GetPoint(j,xx5[j],yy5[j]);
-      erryy5[j]= gr5->GetErrorY(j);
-    }
-
- //calculate chisquare
-  Double_t chisq = 0;
-  for (i=0;i<nbins; i++) {
-    Double_t delta  = (yy5[i]-CDF_180_FitLDME(&xx5[i],par))/erryy5[i];
-    chisq += delta*delta;
-  }
-  return chisq;
-}
-
-
-//______________________________________________________________________________
-void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
-{
-  f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag);
-
-  //f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)
-  //+ fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
-
 
 }
 
-*/
 
 
 
@@ -852,221 +696,8 @@ void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
 
 
 
-  /*
-  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-  cout<<" ======== COMBINED FITTING of ATLAS 7 TeV, 8 TeV and CMS Data =================="<<endl;
-  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-
-  gr0=new TGraphAsymmErrors();
-  gr0=Data_CMS_New_D2NDPtDy_PromptPsi2S_Y0012_Pt();
-
-  gr1=new TGraphAsymmErrors();
-  gr1=Data_CMS_Latest_D2NDPtDy_PromptPsi2S_Y0012_Pt();
-
-  gr2=new TGraphAsymmErrors();
-  gr2=Data_ATLAS_D2NDPtDy_PromptPsi2S_Y0025_Pt();
-
-  gr3=new TGraphAsymmErrors();
-  gr3=Data_ATLAS_RootS8TeV_D2NDPtDy_PromptPsi2S_Y0025_Pt();
-
-  gr4=new TGraphAsymmErrors(); 
-  gr4=Data_CDF_196_D2NDPtDy_PromptPsi2S_Y0006_Pt();
-
-  gr5=new TGraphAsymmErrors(); 
-  gr5=Data_CDF_180_D2NDPtDy_PromptPsi2S_Y0006_Pt();
 
 
-  //---------------------------------------------------------------------
-  //     Blocks for fitting procedure
-  //---------------------------------------------------------------------
-  const Int_t npars = 3;
-  TMinuit *gMinuit = new TMinuit(npars);  //initialize TMinuit with a maximum of 3 params
-  gMinuit->SetFCN(fcn);
-  
-  Double_t arglist[10];
-  Int_t ierflg = 0;
-  arglist[0] = 1;
-  gMinuit->mnexcm("SET ERR", arglist, 1, ierflg);
-  
-  // Set starting values and step sizes for parameters
-  static Double_t vstart[] = {1.0,0.0080,0.0033};
-  static Double_t step[]   = {0.0001,0.00001 , 0.00001};
-
-  gMinuit->mnparm(0, "3S1_1", vstart[0], step[0], 0, 0, ierflg);
-  gMinuit->mnparm(1, "1S0_8", vstart[1], step[1], 0, 0, ierflg);
-  gMinuit->mnparm(2, "3S1_8", vstart[2], step[2], 0, 0, ierflg);
-  gMinuit->FixParameter(0);
- 
-  //This is where the delta chi2 is defined
-  //This is critical to getting the correct error estimates
-  arglist[0] = 1.0;
-  if (arglist[0]) gMinuit->mnexcm("SET ERR", arglist, 1, ierflg);
-  
-  // Now ready for minimization step
-  arglist[0] = 500; //max 500
-  arglist[1] = 0.1; // tolerance = 0.1
-  gMinuit->mnexcm("MIGRAD", arglist, 2, ierflg);
-  
-  // Print results
-  Double_t amin,edm,errdef;
-  Int_t nvpar,nparx,icstat;
-  gMinuit->mnstat(amin,edm,errdef,nvpar,nparx,icstat);
-
-  Int_t iuext;
-  TString chnam;   // The name of the parameter
-  Double_t val;    // The current (external) value of the parameter 
-  Double_t errl;   // The current estimate of the parameter uncertainty  
-  Double_t xlolim; // The lower bound (or zero if no limits)
-  Double_t xuplim; // The upper bound (or zero if no limits)
-  Int_t iuint;     // The internal parameter number 
- 
- Int_t i = 0;
-  Double_t currentPar[npars] = {0};
-  for (i=0; i< npars;i++) {
-    gMinuit->mnpout(i, chnam, currentPar[i], errl, xlolim, xuplim, iuint);
-  }
-
-  TMultiGraph *gl_mg = new TMultiGraph();
-  gl_mg->Add(gr0);
-  gl_mg->Add(gr1);
-  gl_mg->Add(gr2);
-  //gl_mg->Add(gr3);
-  gl_mg->SetTitle("title;p_{T}[GeV/c]; #frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
 
 
-  TF1 *fun_0=new TF1("fun_0",CMS_FitLDME, 5.0, 100, 3); 	
-  fun_0->SetParameters(currentPar);
-  fun_0->SetLineColor(kBlack);
-  fun_0->SetLineStyle(1);
-  fun_0->SetLineWidth(2);
 
-  TF1 *fun_1=new TF1("fun_1",CMS_FitLDME, 5.0, 100, 3); 	
-  fun_1->SetParameters(currentPar);
-  fun_1->SetLineColor(kBlue);
-  fun_1->SetLineStyle(1);
-  fun_1->SetLineWidth(2);
-    
-  TF1 *fun_2=new TF1("fun_2",ATLAS_FitLDME, 5.0, 100, 3);
-  fun_2->SetParameters(currentPar);
-  fun_2->SetLineColor(kRed);
-  fun_2->SetLineStyle(1);
-  fun_2->SetLineWidth(4);
-  
-  
-  TF1 *fun_3=new TF1("fun_3", ATLAS8TeV_FitLDME, 5.0, 100, 3);
-  fun_3->SetParameters(currentPar);
-  fun_3->SetLineColor(kGreen);
-  fun_3->SetLineStyle(1);
-  fun_3->SetLineWidth(4);
-  
-  TF1 *fun_4=new TF1("fun_4", CDF_FitLDME, 5.0, 30, 3);
-  fun_4->SetParameters(currentPar);
-  fun_4->SetLineColor(kGreen);
-  fun_4->SetLineStyle(1);
-  fun_4->SetLineWidth(4);
-
-  TF1 *fun_5=new TF1("fun_5", CDF_180_FitLDME, 5.0, 30, 3);
-  fun_5->SetParameters(currentPar);
-  fun_5->SetLineColor(kGreen);
-  fun_5->SetLineStyle(1);
-  fun_5->SetLineWidth(4);
-
-
-  new TCanvas;
-  gPad->SetTicks();
-  gPad->SetLogy(1);
-  gPad->SetLeftMargin(0.18);
-  gl_mg->Draw("zAP");
-  gl_mg->GetYaxis()->SetTitleOffset(1.6);
-  gPad->Update();
-  fun_1->Draw("same");
-  fun_2->Draw("same");
-  //fun_3->Draw("same");
-
-
-  cout<<endl<<endl;
-  cout<<" combined fitting perameters "<<endl;
-  cout<<"LDME : 3S1_1 "<<currentPar[0]<<endl;
-  cout<<"LDME : 1S0_8 "<<currentPar[1]<<endl;
-  cout<<"LDME : 3S1_8 "<<currentPar[2]<<endl<<endl;
-  
-  //============================ Calculate Chi2 For Combined fitting =====================//
-
-  gr0->Fit("fun_0","Q0","MER", 5, 100);
-  gr1->Fit("fun_1","Q0","MER", 5, 100);
-
-  gr2->Fit("fun_2","Q0","MER", 5, 100);
-  gr3->Fit("fun_3","Q0","MER", 5, 100);
-
-  gr4->Fit("fun_4","Q0","MER", 5, 30);
-  gr5->Fit("fun_5","Q0","MER", 5, 30);
-  
-  new TCanvas;
-  gPad->SetTicks();
-  gPad->SetLogy(1);
-  gPad->SetLeftMargin(0.18);
-  gr0->Draw("AP");
-  fun_0->Draw("same");
-
-  new TCanvas;
-  gPad->SetTicks();
-  gPad->SetLogy(1);
-  gPad->SetLeftMargin(0.18);
-  gr1->Draw("AP");
-  fun_1->Draw("same");
-
-  new TCanvas;
-  gPad->SetTicks();
-  gPad->SetLogy(1);
-  gPad->SetLeftMargin(0.18);
-  gr2->Draw("AP");
-  fun_2->Draw("same");
-
-
-  new TCanvas;
-  gPad->SetTicks();
-  gPad->SetLogy(1);
-  gPad->SetLeftMargin(0.18);
-  gr3->Draw("AP");
-  fun_3->Draw("same");
-
-  new TCanvas;
-  gPad->SetTicks();
-  gPad->SetLogy(1);
-  gPad->SetLeftMargin(0.18);
-  gr4->Draw("AP");
-  fun_4->Draw("same");
-
-  new TCanvas;
-  gPad->SetTicks();
-  gPad->SetLogy(1);
-  gPad->SetLeftMargin(0.18);
-  gr5->Draw("AP");
-  fun_5->Draw("same");
-
-
-  cout<<"chi2/ndf "<<fun_1->GetChisquare()<<"/"<<fun_1->GetNDF()<<" Prob: "<<fun_1->GetProb()<<endl;
-  cout<<"chi2/ndf "<<fun_2->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_2->GetProb()<<endl;
-  cout<<"chi2/ndf "<<fun_3->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_3->GetProb()<<endl;
-  cout<<"chi2/ndf "<<fun_4->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_4->GetProb()<<endl;
-  cout<<"chi2/ndf "<<fun_5->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_5->GetProb()<<endl;
-  */
-
-
-/*
-//================ Global Fittings ================================//
-TGraphAsymmErrors *gr0;
-TGraphAsymmErrors *gr1;
-TGraphAsymmErrors *gr2;
-TGraphAsymmErrors *gr3;
-TGraphAsymmErrors *gr4;
-TGraphAsymmErrors *gr5;
-
-Double_t fcn0(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
-Double_t fcn1(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
-Double_t fcn2(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
-Double_t fcn3(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
-Double_t fcn4(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
-Double_t fcn5(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
-void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag);
-*/

@@ -54,8 +54,6 @@ using namespace std;
 using namespace LHAPDF;
 
 
-
-
 //=========================== Global Variables ============================//
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;

@@ -120,7 +120,6 @@ Double_t CMS_0009_Chic1_FeedDown(Double_t Pt);
 Double_t CMS_0009_Chic2_FeedDown(Double_t Pt);
 TGraphAsymmErrors *Data_CMS_New_D2NDPtDy_PrompJPsi_Y0009_Pt();
 
-
 //================== CMS: open the calculated root file ===========================================//
 TFile *file_CMS_RootS7TeV_JPsiCrossSection =  new TFile("rootFiles/CMS_RootS7TeV/CMS_RootS7TeV_Y0012_JPsiCrossSection.root","R");
 //================ Get All the graphs ===============================//
@@ -278,11 +277,6 @@ Double_t CDF_RootS180TeV_Chic1_FeedDown(Double_t Pt);
 Double_t CDF_RootS180TeV_Chic2_FeedDown(Double_t Pt);
 
 TGraphAsymmErrors *Data_CDF_RootS180TeV_D2NDPtDy_PromptJPsi_Y0006_Pt();
-
-
-
-
-
 
 //====================================================================================================//
 //================================= ATLAS 7 TeV =======================================================//
@@ -543,7 +537,7 @@ TGraph *Add_FeedDown_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGrap
 TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin);
 
 
-
+Double_t CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc);
 
 
 void JPsiLDME()
@@ -1671,13 +1665,6 @@ void JPsiLDME()
   //==============================================================================================================================//
   //==============================================================================================================================//
   //==============================================================================================================================//
-
-
-
-
-
-
-
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== COMBINED FITTING CMS, ATLAS, LHCb, CDF DATA FOR LDME ====="<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
@@ -1723,14 +1710,11 @@ void JPsiLDME()
   TGraph *gr6_t=new TGraphAsymmErrors();
   gr6_t=Data_LHCb_D2NDPtDy_RootS7TeV_PromptJPsi_Y2035_Pt();
 
-
   gr7=new TGraphAsymmErrors(); 
   gr7=CutGraph(Data_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt(),6.0);
 
   TGraph *gr7_t=new TGraphAsymmErrors();
   gr7_t=Data_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt();
-
-
 
   //---------------------------------------------------------------------
   //     Blocks for fitting procedure
@@ -1857,8 +1841,6 @@ void JPsiLDME()
   fun_7->SetLineWidth(4);
 
 
-
-
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -1939,7 +1921,7 @@ void JPsiLDME()
 											  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 											  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_0);
     
-  TLegend *Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1 = new TLegend(0.24,0.87,0.88,0.93);
+  TLegend *Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1 = new TLegend(0.27,0.88,0.91,0.94);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetFillColor(0);
@@ -1976,7 +1958,7 @@ void JPsiLDME()
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
 
-  gr0->GetYaxis()->SetRangeUser(0.00002,200);
+  gr0->GetYaxis()->SetRangeUser(0.000001,100);
   gr0->SetMarkerStyle(24);
   gr0->SetMarkerSize(1.8);
   gr0->Draw("zAP");
@@ -1987,9 +1969,10 @@ void JPsiLDME()
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
-
+  tb->DrawLatex(0.23,0.18,"(a)"); 
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1_1->Draw("same");
+
   gPad->SaveAs("Plots/Combined/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf");
   gPad->SaveAs("Plots/Combined/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.png");
 
@@ -2071,11 +2054,12 @@ void JPsiLDME()
 
   Comb_lgd_CMS_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_CMS_DSigmaDPtDY_Pt1_1->Draw("same");
+  tb->DrawLatex(0.23,0.18,"(b)"); 
   gPad->SaveAs("Plots/Combined/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf");
   gPad->SaveAs("Plots/Combined/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.png");
 
 
-  return;
+ 
 
   
   gr2->Fit("fun_2","Q0","MER", 6, 100); //ATLAS 7 TeV
@@ -2111,23 +2095,26 @@ void JPsiLDME()
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 										       Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 										       Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_2);
-  
-  TLegend *Comb_lgd_ATLAS_DSigmaDPtDY_Pt1 = new TLegend(0.35,0.53,0.88,0.94);
+  TLegend *Comb_lgd_ATLAS_DSigmaDPtDY_Pt1 = new TLegend(0.24,0.86,0.90,0.95);
   Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->SetFillColor(0);
   Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->SetTextSize(0.04);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->SetHeader("pp #surds=7 TeV, Prompt J/#psi, |y^{J/#psi}| #leq 0.25");
   
-  
-  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->SetHeader("ATLAS Data, #surds = 7 TeV");
-  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->AddEntry(gr2,"Prompt J/#psi, |y^{J/#psi}| #leq 0.25","P");
-  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->AddEntry(fun_2,"Total","L");
-  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
-  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
-  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
-  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
- 
 
+  TLegend *Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1 = new TLegend(0.52,0.46,0.88,0.87);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->SetBorderSize(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->SetFillStyle(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->SetFillColor(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->SetTextSize(0.04);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->AddEntry(gr2,"ATLAS Data","P");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->AddEntry(fun_2,"Total","L");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
+ 
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=CutGraph(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,5.0);
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,5.0);
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=CutGraph(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,5.0);
@@ -2141,7 +2128,7 @@ void JPsiLDME()
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   gr2->SetMarkerSize(1.8);
-  gr2->GetYaxis()->SetRangeUser(0.000001,1000);
+  gr2->GetYaxis()->SetRangeUser(0.000001,100);
   gr2->Draw("zAP");
   gr2->GetYaxis()->SetTitleOffset(1.6);
   gPad->Update();
@@ -2150,13 +2137,14 @@ void JPsiLDME()
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
-
   Comb_lgd_ATLAS_DSigmaDPtDY_Pt1->Draw("same");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_1->Draw("same");
+  tb->DrawLatex(0.23,0.18,"(c)");
   gPad->SaveAs("Plots/Combined/ATLAS_7TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf");
   gPad->SaveAs("Plots/Combined/ATLAS_7TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.png");
 
 
-  
+
   gr3->Fit("fun_3","Q0","MER", 6, 120); //ATLAS 8 TeV
   /*
   new TCanvas;
@@ -2191,38 +2179,39 @@ void JPsiLDME()
 										       Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 										       Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_3);
     
-  TLegend *Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1 = new TLegend(0.34,0.49,0.90,0.94);
+  TLegend *Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1 = new TLegend(0.24,0.86,0.90,0.95);
   Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->SetFillColor(0);
   Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->SetTextSize(0.04);
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->SetHeader("pp #surds=8 TeV, Prompt J/#psi, |y^{J/#psi}| #leq 0.25");
 
-  
-  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->SetHeader("ATLAS Data, #surds = 8 TeV");
-  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->AddEntry(gr3,"Prompt J/#psi, |y^{J/#psi}| #leq 0.25","P");
-  //Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->AddEntry(gr3,"ATLAS J/#psi Data,#surds=8 TeV","P");
-  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->AddEntry(fun_3,"Total","L");
-  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
-  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
-  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
-  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
+
+
+  TLegend *Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1 = new TLegend(0.52,0.46,0.88,0.87);
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->SetBorderSize(0);
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->SetFillStyle(0);
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->SetFillColor(0);
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->SetTextSize(0.04);
+
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->AddEntry(gr3,"ATLAS Data","P");
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->AddEntry(fun_3,"Total","L");
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
  
-
-
-
-
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit=CutGraph(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit,5.0);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit,5.0);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=CutGraph(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,5.0);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_FeedDown_Fit=CutGraph(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_FeedDown_Fit,5.0);
 
 
-
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
-  gr3->GetYaxis()->SetRangeUser(0.000001,1000);
+  gr3->GetYaxis()->SetRangeUser(0.000001,100);
   gr3->SetMarkerSize(1.8);
   gr3->Draw("zAP");
   gr3->GetYaxis()->SetTitleOffset(1.6);
@@ -2233,9 +2222,10 @@ void JPsiLDME()
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
   Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1->Draw("same");
+  Comb_lgd_ATLAS_8TeV_DSigmaDPtDY_Pt1_1->Draw("same");
+  tb->DrawLatex(0.23,0.18,"(d)");
   gPad->SaveAs("Plots/Combined/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf");
   gPad->SaveAs("Plots/Combined/ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.png");
-
 
   
 
@@ -2277,22 +2267,29 @@ void JPsiLDME()
 											  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 											  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_4);
     
-  TLegend *Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1 = new TLegend(0.35,0.48,0.86,0.93);
+  TLegend *Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1 = new TLegend(0.22,0.87,0.89,0.93);
   Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->SetFillColor(0);
   Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->SetTextSize(0.04);
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->SetHeader("pp #surds=1.96 TeV, Prompt J/#psi, |y^{J/#psi}| #leq 0.6");
 
-  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->SetHeader("CDF Data, #surds=1.96 TeV");
-  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->AddEntry(gr4_t,"Prompt J/#psi, |y^{J/#psi}| #leq 0.6","P");
-  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->AddEntry(fun_4,"Total","L");
-  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
-  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
-  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
-  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
+
+  TLegend *Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1 = new TLegend(0.61,0.42,0.98,0.87);
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->SetBorderSize(0);
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->SetFillStyle(0);
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->SetFillColor(0);
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->SetTextSize(0.04);
+
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->AddEntry(gr4_t,"CDF Data","P");
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->AddEntry(fun_4,"Total","L");
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
  
   
-
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -2307,15 +2304,14 @@ void JPsiLDME()
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
   grfData_CDF_RootS196TeV_D2NDPtDy_PromptJPsi_Y0006_Pt->Draw("zPsame");
-  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->Draw("same"); 
-
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->Draw("same"); 
+  */
 
 
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit=CutGraph(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit,5.0);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit,5.0);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=CutGraph(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,5.0);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_FeedDown_Fit=CutGraph(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_FeedDown_Fit,5.0);
-
 
 
 
@@ -2329,7 +2325,7 @@ void JPsiLDME()
   gr4_t->SetMarkerColor(1);
   gr4_t->SetLineColor(1);
   gr4_t->Draw("zAP");
-  gr4_t->GetYaxis()->SetRangeUser(0.001,10000000);
+  gr4_t->GetYaxis()->SetRangeUser(0.001,1000);
   gr4_t->GetYaxis()->SetTitleOffset(1.6);
   gPad->Update();
   fun_4->Draw("same");
@@ -2338,11 +2334,14 @@ void JPsiLDME()
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
   Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1->Draw("same"); 
-
+  Comb_lgd_CDF_196TeV_DSigmaDPtDY_Pt1_1->Draw("same"); 
+  tb->DrawLatex(0.23,0.18,"(b)");
   gPad->SaveAs("Plots/Combined/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0006_Pt.pdf");
   gPad->SaveAs("Plots/Combined/CDF_196TeV_D2NDPtDy_PromptJPsi_Y0006_Pt.png");
 
   
+  
+
   //==================================================================================================== gr5 ==========//
 
 
@@ -2382,25 +2381,29 @@ void JPsiLDME()
 										       Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 										       Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_5);
   
-  TLegend *Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1 = new TLegend(0.28,0.55,0.79,0.93);
-  
+  TLegend *Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1 = new TLegend(0.22,0.87,0.89,0.93);
   Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->SetFillColor(0);
   Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->SetTextSize(0.04);
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->SetHeader("pp #surds=1.8 TeV, Prompt J/#psi, |y^{J/#psi}| #leq 0.6");
 
 
-  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->SetHeader("CDF Data, #surds=1.8 TeV");
-  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->AddEntry(gr5,"Prompt J/#psi, |y^{J/#psi}| #leq 0.6","P");
-  //Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->AddEntry(gr5,"CDF J/#psi Data,#surds=1.80 TeV","P");
-  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->AddEntry(fun_5,"Total","L");
-  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
-  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
-  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
-  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
+  TLegend *Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1 = new TLegend(0.61,0.42,0.98,0.87);
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->SetBorderSize(0);
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->SetFillStyle(0);
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->SetFillColor(0);
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->SetTextSize(0.04);
+
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->AddEntry(gr5_t,"CDF Data","P");
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->AddEntry(fun_5,"Total","L");
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
  
   
- 
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -2414,7 +2417,8 @@ void JPsiLDME()
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
-  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->Draw("same"); 
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->Draw("same"); 
+  */
 
   new TCanvas;
   gPad->SetTicks();
@@ -2424,22 +2428,23 @@ void JPsiLDME()
   gr5_t->SetMarkerColor(1);
   gr5_t->SetMarkerStyle(24);
   gr5_t->SetMarkerSize(1.8);
+  gr5_t->GetXaxis()->SetRangeUser(4.0,22);
+  gr5_t->GetYaxis()->SetRangeUser(0.001,1000);
+  gr5_t->GetYaxis()->SetTitleOffset(1.6);
 
   gr5_t->Draw("zAP");
-  gr5_t->GetYaxis()->SetRangeUser(0.001,100000);
-  gr5_t->GetYaxis()->SetTitleOffset(1.6);
-  gPad->Update();
   fun_5->Draw("same");
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Draw("Lsame");
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
   Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1->Draw("same"); 
+  Comb_lgd_CDF_RootS180TeV_DSigmaDPtDY_Pt1_1->Draw("same"); 
+  tb->DrawLatex(0.23,0.18,"(a)");
+  gPad->Update();
 
   gPad->SaveAs("Plots/Combined/CDF_RootS180TeV_D2NDPtDy_PromptJPsi_Y0006_Pt.pdf");
   gPad->SaveAs("Plots/Combined/CDF_RootS180TeV_D2NDPtDy_PromptJPsi_Y0006_Pt.png");
-
-  //return;
 
 
  //=========================================================================================== gr6 ==========//
@@ -2480,24 +2485,26 @@ void JPsiLDME()
 											  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 											  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_6);
     
-  TLegend *Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1 = new TLegend(0.23,0.53,0.87,0.94);
-  
+  TLegend *Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1 = new TLegend(0.20,0.88,0.91,0.92);
   Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->SetFillColor(0);
   Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->SetTextSize(0.04);
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->SetHeader("pp #surds=7 TeV, Prompt J/#psi, 2.5 #leq y^{J/#psi} #leq 4.0");
 
-  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->SetHeader("LHCb Data, #surds=7 TeV");
-  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->AddEntry(gr6_t,"Prompt J/#psi, 2.5 #leq y^{J/#psi} #leq 4.0","P");
-  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->AddEntry(fun_6,"Total","L");
-  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
-  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
-  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
-  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
- 
-  
- 
 
+  TLegend *Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1 = new TLegend(0.64,0.45,0.89,0.86);
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->SetBorderSize(0);
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->SetFillStyle(0);
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->SetFillColor(0);
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->SetTextSize(0.04);
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->AddEntry(gr6_t,"LHCb Data","P");
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->AddEntry(fun_6,"Total","L");
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -2512,7 +2519,7 @@ void JPsiLDME()
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
   Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->Draw("same"); 
-
+  */
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -2520,7 +2527,7 @@ void JPsiLDME()
   gr6_t->SetMarkerSize(1.8);
   gr6_t->SetMarkerStyle(24);
   gr6_t->SetMarkerColor(1);
-  gr6_t->GetYaxis()->SetRangeUser(0.001,9000000);
+  gr6_t->GetYaxis()->SetRangeUser(0.01,1000);
   gr6_t->Draw("zAP");
   gr6_t->GetYaxis()->SetTitleOffset(1.6);
   gPad->Update();
@@ -2530,7 +2537,8 @@ void JPsiLDME()
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
   Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1->Draw("same"); 
-
+  Comb_lgd_LHCb_RootS7TeV_DSigmaDPtDY_Pt1_1->Draw("same"); 
+  tb->DrawLatex(0.23,0.18,"(a)");
   gPad->SaveAs("Plots/Combined/LHCb_RootS7TeV_D2NDPtDy_PromptJPsi_Y2035_Pt.pdf");
   gPad->SaveAs("Plots/Combined/LHCb_RootS7TeV_D2NDPtDy_PromptJPsi_Y2035_Pt.png");
 
@@ -2572,24 +2580,29 @@ void JPsiLDME()
 											  Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 											  Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_7);
     
-  TLegend *Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1 = new TLegend(0.28,0.57,0.84,0.94);
-  
+  TLegend *Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1 = new TLegend(0.20,0.88,0.91,0.92);
   Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->SetFillStyle(0);
   Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->SetFillColor(0);
   Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->SetTextSize(0.04);
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->SetHeader("pp #surds=13 TeV, Prompt J/#psi, 2.5 #leq y^{J/#psi} #leq 4.0");
 
-  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->SetHeader("LHCb Data, #surds=13 TeV");
-  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->AddEntry(gr7_t,"Prompt J/#psi, 2.5 #leq y^{J/#psi} #leq 4.0","P");
-  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->AddEntry(fun_7,"Total","L");
-  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
-  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
-  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
-  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->AddEntry(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
+
+  TLegend *Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1 = new TLegend(0.64,0.45,0.89,0.86);
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->SetBorderSize(0);
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->SetFillStyle(0);
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->SetFillColor(0);
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->SetTextSize(0.04);
+
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->AddEntry(gr7_t,"LHCb Data","P");
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->AddEntry(fun_7,"Total","L");
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit,"^{3}S_{1}^{[8]}","L");
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->AddEntry(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_FeedDown_Fit,"Feed-down","L");
  
   
- 
-
+  /*
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
@@ -2604,11 +2617,7 @@ void JPsiLDME()
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
   Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->Draw("same"); 
-
-
-
-
-  //gr7=CutGraph(Data_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_Pt(),6.0);
+  */
 
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit=CutGraph(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit,5.0);
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit,5.0);
@@ -2626,7 +2635,7 @@ void JPsiLDME()
   gr7_t->SetMarkerSize(1.8);
 
   gr7_t->Draw("zAP");
-  gr7_t->GetYaxis()->SetRangeUser(0.001,9000000);
+  gr7_t->GetYaxis()->SetRangeUser(0.01,1000);
   gr7_t->GetYaxis()->SetTitleOffset(1.6);
   gPad->Update();
   fun_7->Draw("same");
@@ -2635,34 +2644,40 @@ void JPsiLDME()
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_FeedDown_Fit->Draw("Lsame");
   Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1->Draw("same"); 
-
+  Comb_lgd_LHCb_RootS13TeV_DSigmaDPtDY_Pt1_1->Draw("same"); 
+  tb->DrawLatex(0.23,0.18,"(b)");
   gPad->SaveAs("Plots/Combined/LHCb_RootS13TeV_D2NDPtDy_PromptJPsi_Y2045_Pt.pdf");
   gPad->SaveAs("Plots/Combined/LHCb_RootS13TeV_D2NDPtDy_PromptJPsi_Y2045_Pt.png");
 
 
 
+  //f = fcn0(npar,gin, par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag) + 
+  //fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag) + fcn6(npar,gin, par, iflag) + fcn7(npar,gin, par, iflag);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  cout<<"chi2/ndf "<<fun_0->GetChisquare()<<"/"<<fun_0->GetNDF()<<" Prob: "<<fun_0->GetProb()<<endl;
   cout<<"chi2/ndf "<<fun_1->GetChisquare()<<"/"<<fun_1->GetNDF()<<" Prob: "<<fun_1->GetProb()<<endl;
   cout<<"chi2/ndf "<<fun_2->GetChisquare()<<"/"<<fun_2->GetNDF()<<" Prob: "<<fun_2->GetProb()<<endl;
   cout<<"chi2/ndf "<<fun_3->GetChisquare()<<"/"<<fun_3->GetNDF()<<" Prob: "<<fun_3->GetProb()<<endl;
   cout<<"chi2/ndf "<<fun_4->GetChisquare()<<"/"<<fun_4->GetNDF()<<" Prob: "<<fun_4->GetProb()<<endl;
+  cout<<"chi2/ndf "<<fun_5->GetChisquare()<<"/"<<fun_5->GetNDF()<<" Prob: "<<fun_5->GetProb()<<endl;
+  cout<<"chi2/ndf "<<fun_6->GetChisquare()<<"/"<<fun_6->GetNDF()<<" Prob: "<<fun_6->GetProb()<<endl;
+  cout<<"chi2/ndf "<<fun_7->GetChisquare()<<"/"<<fun_7->GetNDF()<<" Prob: "<<fun_7->GetProb()<<endl;
+  cout<<endl<<endl;
+
+  // CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc);
+
+
+  cout<<"Chi Square  "<<CalcChi2(gr0,fun_0)<<"   "<<CalcChi2(gr1,fun_1)<<"   "<<CalcChi2(gr2,fun_2)<<"   "<<CalcChi2(gr3,fun_3)<<endl;
+  cout<<"Chi Square  "<<CalcChi2(gr4,fun_4)<<"   "<<CalcChi2(gr5,fun_5)<<"   "<<CalcChi2(gr6,fun_6)<<"   "<<CalcChi2(gr7,fun_7)<<endl;
+  
+  Double_t TotalChi2 = CalcChi2(gr0,fun_0) + CalcChi2(gr1,fun_1) + CalcChi2(gr2,fun_2) + CalcChi2(gr3,fun_3)+CalcChi2(gr4,fun_4)
+    + CalcChi2(gr5,fun_5) + CalcChi2(gr6,fun_6)+CalcChi2(gr7,fun_7);
+  
+  Double_t TotalNDF = (gr0->GetN() + gr1->GetN() + gr2->GetN() + gr3->GetN() + gr4->GetN() + gr5->GetN() + gr6->GetN() + gr7->GetN()) - 2 ;
+
+  cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
+  
+  dataFile<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
 
 
    return;
@@ -3222,8 +3237,6 @@ Double_t ATLAS_8TeV_Chic2_FeedDown(Double_t Pt)
 }
 
 
-
-
 //=====================================================================================================================================//
 //=====================================================================================================================================//
 //==========================================================================================================================================//
@@ -3411,6 +3424,40 @@ Double_t LHCb_RootS13TeV_Chic2_FeedDown(Double_t Pt)
   Sigma = Sigma*BRCorr;
   return Sigma;
 }
+
+
+Double_t CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc)
+{
+  
+  const Int_t nbins = InGrf->GetN();
+  Int_t i;
+  Double_t xx[nbins];
+  Double_t yy[nbins];
+  Double_t erryy[nbins];
+
+ for (Int_t j=0;j<nbins; j++) 
+    {
+      InGrf->GetPoint(j,xx[j],yy[j]);
+      erryy[j]= InGrf->GetErrorY(j);
+      //cout<<InGrf->GetErrorY(j)<<"   "<<InGrf->GetErrorYlow(j)<<"   "<<InGrf->GetErrorYhigh(j)<<"  "<<InGrf->GetErrorYlow(j)+InGrf->GetErrorYhigh(j)<<endl;
+    }
+
+  //calculate chisquare
+  Double_t chisq = 0;
+  for (i=0;i<nbins; i++) {
+    //cout<<xx[i]<<"   "<<yy[i]<<"  "<<InFunc->Eval(xx[i])<<"   "<< (yy[i] -InFunc->Eval(xx[i]))/erryy[i]<< endl;
+    Double_t delta  = (yy[i]-InFunc->Eval(xx[i]))/erryy[i];
+    //cout<<delta<<endl;
+    chisq += delta*delta;
+  }
+  
+
+  return chisq;
+
+}
+
+
+
 
 
 //=====================================================================================================================================//
@@ -3654,7 +3701,7 @@ void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
 
 
   f = fcn0(npar,gin, par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag) + 
-    fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag) + fcn6(npar,gin, par, iflag) + fcn7(npar,gin, par, iflag);
+  fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag) + fcn6(npar,gin, par, iflag) + fcn7(npar,gin, par, iflag);
 
   //f = fcn4(npar,gin, par, iflag) ;
 
