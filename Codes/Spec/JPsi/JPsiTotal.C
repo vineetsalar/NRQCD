@@ -442,19 +442,25 @@ void JPsiTotal()
 
 
 
-  TLegend *lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045 = new TLegend(0.37,0.53,0.88,0.93);
+  TLegend *lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045 = new TLegend(0.25,0.88,0.91,0.91);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetBorderSize(0);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetFillStyle(0);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetFillColor(0);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetTextSize(0.04);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetHeader("pp #surds=13 TeV, Prompt J/#psi, |y^{J/#psi}| #leq 2.5");
 
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetHeader("#surds = 13 TeV");
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Prompt J/#psi, |y^{J/#psi}| #leq 2.5","L");
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi,"Direct J/#psi","L");
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S,"J/#psi from #psi(2S)","L");
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0,"J/#psi from #chi_{c0}","L");
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1,"J/#psi from #chi_{c1}","L");
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2,"J/#psi from #chi_{c2}","L");
+
+  TLegend *lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1 = new TLegend(0.51,0.47,0.88,0.87);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetBorderSize(0);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetFillStyle(0);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetFillColor(0);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetTextSize(0.04);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Total","L");
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi,"Direct J/#psi","L");
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S,"J/#psi from #psi(2S)","L");
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0,"J/#psi from #chi_{c0}","L");
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1,"J/#psi from #chi_{c1}","L");
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2,"J/#psi from #chi_{c2}","L");
   
 
   new TCanvas;
@@ -462,7 +468,7 @@ void JPsiTotal()
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   
-  Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetRangeUser(0.000001,1000);
+  Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetRangeUser(0.000001,100);
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->SetLineWidth(4);
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->Draw("AL");
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi->Draw("sameL");
@@ -472,6 +478,7 @@ void JPsiTotal()
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2->Draw("sameL");
  
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->Draw("same");
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->Draw("same");
   tb->DrawLatex(0.23,0.18,"(a)");
   gPad->Update();
   gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2525.pdf");
@@ -479,9 +486,8 @@ void JPsiTotal()
 
 
 
-
-
- cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+  
+  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== GETTING ALICE 13 TeV prediction ==========================="<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   
@@ -536,19 +542,25 @@ void JPsiTotal()
 
 
 
-  TLegend *lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045 = new TLegend(0.23,0.54,0.86,0.94);
+  TLegend *lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045 = new TLegend(0.20,0.89,0.83,0.93);
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetBorderSize(0);
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetFillStyle(0);
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetFillColor(0);
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetTextSize(0.04);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetHeader("pp #surds=13 TeV,Prompt J/#psi, 2.0#leq y^{J/#psi} #leq4.5");
+  
 
-  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetHeader("#surds = 13 TeV");
-  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Prompt J/#psi, 2.0 #leq |y^{J/#psi}| #leq 4.5","L");
-  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi,"Direct J/#psi","L");
-  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S,"J/#psi from #psi(2S)","L");
-  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0,"J/#psi from #chi_{c0}","L");
-  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1,"J/#psi from #chi_{c1}","L");
-  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2,"J/#psi from #chi_{c2}","L");
+  TLegend *lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1 = new TLegend(0.51,0.47,0.88,0.87);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetBorderSize(0);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetFillStyle(0);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetFillColor(0);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetTextSize(0.04);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Total","L");
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi,"Direct J/#psi","L");
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S,"J/#psi from #psi(2S)","L");
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0,"J/#psi from #chi_{c0}","L");
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1,"J/#psi from #chi_{c1}","L");
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2,"J/#psi from #chi_{c2}","L");
   
 
   new TCanvas;
@@ -556,7 +568,7 @@ void JPsiTotal()
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetXaxis()->SetRangeUser(0.0,40);
-  Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetRangeUser(0.001,10000000);
+  Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetRangeUser(0.001,200);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->SetLineWidth(4);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->Draw("AL");
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi->Draw("sameL");
@@ -565,15 +577,14 @@ void JPsiTotal()
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic1->Draw("sameL");
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic2->Draw("sameL");
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->Draw("same");
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->Draw("same");
   tb->DrawLatex(0.23,0.18,"(b)");
   gPad->Update();
   gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.pdf");
   gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.png");
 
 
-
-
-
+  
 
 
 
@@ -581,7 +592,6 @@ void JPsiTotal()
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== GETTING Psi(2S) ATLAS 13 TeV prediction ================="<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
-
 
 
   TGraph *Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S =Add_DirectPsi2S_DSigmaDPt(grATLAS_2525_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_3S1_1_Fit,grATLAS_2525_RootS13TeV_Psi2S_DSigmaDPtDY_Pt_1S0_8_Fit,
@@ -593,26 +603,32 @@ void JPsiTotal()
 
 
 
-  TLegend *lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525 = new TLegend(0.23,0.82,0.85,0.93);
+  TLegend *lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525 = new TLegend(0.19,0.88,0.91,0.94);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetBorderSize(0);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetFillStyle(0);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetFillColor(0);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetTextSize(0.04);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetHeader("pp #surds=13 TeV, Prompt #psi(2S), |y^{#psi(2S)}| #leq 2.5");
+  TLegend *lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1 = new TLegend(0.57,0.80,0.88,0.86);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->SetBorderSize(0);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->SetFillStyle(0);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->SetFillColor(0);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->SetTextSize(0.04);
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S,"Total","L");
 
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetHeader("#surds = 13 TeV");
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S,"Prompt #psi(2S), |y^{#psi(2S)}| #leq 2.5","L");
 
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
 
-  Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->GetYaxis()->SetRangeUser(0.000001,1000);
+  Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->GetYaxis()->SetRangeUser(0.000001,20);
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->SetLineColor(2);
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->SetLineStyle(1);
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->SetLineWidth(4);
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->Draw("AL");
   lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->Draw("same");
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->Draw("same");
   tb->DrawLatex(0.23,0.18,"(a)");
   gPad->Update();
   gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_Y2525.pdf");
@@ -620,9 +636,9 @@ void JPsiTotal()
 
 
 
+  
 
-
-cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== GETTING Psi(2S) ALICE 13 TeV prediction ================="<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
 
@@ -636,28 +652,34 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
-
-  TLegend *lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525 = new TLegend(0.21,0.82,0.90,0.93);
+  TLegend *lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525 = new TLegend(0.20,0.87,0.90,0.92);
   lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetBorderSize(0);
   lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetFillStyle(0);
   lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetFillColor(0);
-  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetTextSize(0.04);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetTextSize(0.035);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetHeader("pp #surds=13 TeV, Prompt #psi(2S), 2.0#leq y^{#psi(2S)} #leq4.5");
 
-  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->SetHeader("#surds = 13 TeV");
-  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S,"Prompt #psi(2S), 2.0 #leq y^{#psi(2S)} #leq 4.5","L");
+
+  TLegend *lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1 = new TLegend(0.65,0.79,0.90,0.87);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->SetBorderSize(0);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->SetFillStyle(0);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->SetFillColor(0);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->SetTextSize(0.04);
+  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S,"Total","L");
 
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->GetXaxis()->SetRangeUser(0.0,40);
-  Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->GetYaxis()->SetRangeUser(0.000001,1000);
+  Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->GetYaxis()->SetRangeUser(0.00001,20);
 
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->SetLineColor(2);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->SetLineStyle(1);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->SetLineWidth(4);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->Draw("AL");
   lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->Draw("same");
+  lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->Draw("same");
   tb->DrawLatex(0.23,0.18,"(b)");
   gPad->Update();
   gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_Y2045.pdf");
@@ -665,7 +687,7 @@ cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
-
+  return;
 
 
 

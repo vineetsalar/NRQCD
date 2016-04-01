@@ -1,1 +1,1 @@
-pdflatex QurkoniaProd.tex;pdflatex QurkoniaProd.tex;pdflatex QurkoniaProd.tex;evince QurkoniaProd.pdf&
+pdflatex QuarkoniaProd.tex;pdflatex QuarkoniaProd.tex;pdflatex QuarkoniaProd.tex;evince QuarkoniaProd.pdf&
