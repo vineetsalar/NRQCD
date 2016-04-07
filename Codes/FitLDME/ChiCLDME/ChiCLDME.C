@@ -218,8 +218,14 @@ void ChiCLDME()
   TF1 *CDF_180_Chic1Chic2_FitFunctionLDME = new TF1("CDF_180_Chic1Chic2_FitFunctionLDME", CDF_180_Chic1Chic2_FitLDME, 5.0, 20, 3);
   
   CDF_180_Chic1Chic2_FitFunctionLDME->SetLineColor(2);
-  CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(0,1.0);     
-  CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(2,1.0);     
+
+  //CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(0,1.0);     
+  //CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(2,1.0);     
+
+  CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(0,1.1);     
+  CDF_180_Chic1Chic2_FitFunctionLDME->FixParameter(2,1.1);     
+
+
 
   //CDF_180_Chic1Chic2_FitFunctionLDME->SetParLimits(1,0.0,10.0);     
   TFitResultPtr r = grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->Fit("CDF_180_Chic1Chic2_FitFunctionLDME","0S","MER", 7.0, 18.0);

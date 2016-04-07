@@ -680,7 +680,7 @@ void JPsiLDME()
   cout<<"LDME : 3P1_8 "<<CMS_0009_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<CMS_0009_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<CMS_0009_Chi2<<"/"<<CMS_0009_NDF<<" Prob: "<<CMS_0009_Prob<<endl<<endl;
-
+  /*
   dataFile<<"Fitting CMS_0009_ Data"<<endl;
   dataFile<<"LDME : 3S1_1 "<<CMS_0009_LDME_3S1_1<<endl;
   dataFile<<"LDME : 1S0_8 "<<CMS_0009_LDME_1S0_8<<endl;
@@ -689,7 +689,7 @@ void JPsiLDME()
   dataFile<<"LDME : 3P1_8 "<<CMS_0009_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<CMS_0009_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<CMS_0009_Chi2<<"/"<<CMS_0009_NDF<<" Prob: "<<CMS_0009_Prob<<endl<<endl;
-
+  */
 
 
   TGraph *Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, CMS_0009_LDME_3S1_1);
@@ -818,7 +818,7 @@ void JPsiLDME()
   cout<<"LDME : 3P1_8 "<<CMS_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<CMS_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<CMS_Chi2<<"/"<<CMS_NDF<<" Prob: "<<CMS_Prob<<endl<<endl;
-
+  /*
   dataFile<<"Fitting CMS Data"<<endl;
   dataFile<<"LDME : 3S1_1 "<<CMS_LDME_3S1_1<<endl;
   dataFile<<"LDME : 1S0_8 "<<CMS_LDME_1S0_8<<endl;
@@ -827,7 +827,7 @@ void JPsiLDME()
   dataFile<<"LDME : 3P1_8 "<<CMS_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<CMS_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<CMS_Chi2<<"/"<<CMS_NDF<<" Prob: "<<CMS_Prob<<endl<<endl;
-
+  */
 
 
   TGraph *Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, CMS_LDME_3S1_1);
@@ -952,7 +952,7 @@ void JPsiLDME()
   cout<<"LDME : 3P1_8 "<<CDF_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<CDF_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<CDF_Chi2<<"/"<<CDF_NDF<<" Prob: "<<CDF_Prob<<endl<<endl;
-
+  /*
   dataFile<<"Fitting CDF Data"<<endl;
   dataFile<<"LDME : 3S1_1 "<<CDF_LDME_3S1_1<<endl;
   dataFile<<"LDME : 1S0_8 "<<CDF_LDME_1S0_8<<endl;
@@ -961,7 +961,7 @@ void JPsiLDME()
   dataFile<<"LDME : 3P1_8 "<<CDF_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<CDF_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<CDF_Chi2<<"/"<<CDF_NDF<<" Prob: "<<CDF_Prob<<endl<<endl;
-
+  */
 
   TGraph *Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit, CDF_LDME_3S1_1);
   Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
@@ -1079,7 +1079,7 @@ void JPsiLDME()
   cout<<"LDME : 3P1_8 "<<CDF_RootS180TeV_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<CDF_RootS180TeV_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<CDF_RootS180TeV_Chi2<<"/"<<CDF_RootS180TeV_NDF<<" Prob: "<<CDF_RootS180TeV_Prob<<endl<<endl;
-
+  /*
   dataFile<<"Fitting CDF Data"<<endl;
   dataFile<<"LDME : 3S1_1 "<<CDF_RootS180TeV_LDME_3S1_1<<endl;
   dataFile<<"LDME : 1S0_8 "<<CDF_RootS180TeV_LDME_1S0_8<<endl;
@@ -1088,7 +1088,7 @@ void JPsiLDME()
   dataFile<<"LDME : 3P1_8 "<<CDF_RootS180TeV_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<CDF_RootS180TeV_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<CDF_RootS180TeV_Chi2<<"/"<<CDF_RootS180TeV_NDF<<" Prob: "<<CDF_RootS180TeV_Prob<<endl<<endl;
-
+  */
 
   TGraph *Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit, CDF_RootS180TeV_LDME_3S1_1);
   Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
@@ -1204,7 +1204,7 @@ void JPsiLDME()
   cout<<"LDME : 3P1_8 "<<ATLAS_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<ATLAS_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<ATLAS_Chi2<<"/"<<ATLAS_NDF<<" Prob: "<<ATLAS_Prob<<endl<<endl;
-
+  /*
   dataFile<<"Fitting ATLAS Data"<<endl;
   dataFile<<"LDME : 3S1_1 "<<ATLAS_LDME_3S1_1<<endl;
   dataFile<<"LDME : 1S0_8 "<<ATLAS_LDME_1S0_8<<endl;
@@ -1213,7 +1213,7 @@ void JPsiLDME()
   dataFile<<"LDME : 3P1_8 "<<ATLAS_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<ATLAS_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<ATLAS_Chi2<<"/"<<ATLAS_NDF<<" Prob: "<<ATLAS_Prob<<endl<<endl;
-
+  */
 
 
   TGraph *Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, ATLAS_LDME_3S1_1);
@@ -1325,7 +1325,7 @@ void JPsiLDME()
   cout<<"LDME : 3P1_8 "<<ATLAS_8TeV_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<ATLAS_8TeV_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<ATLAS_8TeV_Chi2<<"/"<<ATLAS_8TeV_NDF<<" Prob: "<<ATLAS_8TeV_Prob<<endl<<endl;
-
+  /*
   dataFile<<"Fitting ATLAS_8TeV Data"<<endl;
   dataFile<<"LDME : 3S1_1 "<<ATLAS_8TeV_LDME_3S1_1<<endl;
   dataFile<<"LDME : 1S0_8 "<<ATLAS_8TeV_LDME_1S0_8<<endl;
@@ -1334,7 +1334,7 @@ void JPsiLDME()
   dataFile<<"LDME : 3P1_8 "<<ATLAS_8TeV_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<ATLAS_8TeV_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<ATLAS_8TeV_Chi2<<"/"<<ATLAS_8TeV_NDF<<" Prob: "<<ATLAS_8TeV_Prob<<endl<<endl;
-
+  */
 
 
   TGraph *Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit, ATLAS_8TeV_LDME_3S1_1);
@@ -1448,7 +1448,7 @@ void JPsiLDME()
   cout<<"LDME : 3P1_8 "<<LHCb_RootS13TeV_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<LHCb_RootS13TeV_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<LHCb_RootS13TeV_Chi2<<"/"<<LHCb_RootS13TeV_NDF<<" Prob: "<<LHCb_RootS13TeV_Prob<<endl<<endl;
-
+  /*
   dataFile<<"Fitting LHCb_RootS13TeV Data"<<endl;
   dataFile<<"LDME : 3S1_1 "<<LHCb_RootS13TeV_LDME_3S1_1<<endl;
   dataFile<<"LDME : 1S0_8 "<<LHCb_RootS13TeV_LDME_1S0_8<<endl;
@@ -1457,7 +1457,7 @@ void JPsiLDME()
   dataFile<<"LDME : 3P1_8 "<<LHCb_RootS13TeV_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<LHCb_RootS13TeV_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<LHCb_RootS13TeV_Chi2<<"/"<<LHCb_RootS13TeV_NDF<<" Prob: "<<LHCb_RootS13TeV_Prob<<endl<<endl;
-
+  */
 
 
   TGraph *Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit, LHCb_RootS13TeV_LDME_3S1_1);
@@ -1573,7 +1573,7 @@ void JPsiLDME()
   cout<<"LDME : 3P1_8 "<<LHCb_RootS7TeV_LDME_3P1_8<<endl;
   cout<<"LDME : 3P2_8 "<<LHCb_RootS7TeV_LDME_3P2_8<<endl<<endl;
   cout<<"Chi2/NDF : "<<LHCb_RootS7TeV_Chi2<<"/"<<LHCb_RootS7TeV_NDF<<" Prob: "<<LHCb_RootS7TeV_Prob<<endl<<endl;
-
+  /*
   dataFile<<"Fitting LHCb_RootS7TeV Data"<<endl;
   dataFile<<"LDME : 3S1_1 "<<LHCb_RootS7TeV_LDME_3S1_1<<endl;
   dataFile<<"LDME : 1S0_8 "<<LHCb_RootS7TeV_LDME_1S0_8<<endl;
@@ -1582,7 +1582,7 @@ void JPsiLDME()
   dataFile<<"LDME : 3P1_8 "<<LHCb_RootS7TeV_LDME_3P1_8<<endl;
   dataFile<<"LDME : 3P2_8 "<<LHCb_RootS7TeV_LDME_3P2_8<<endl<<endl;
   dataFile<<"Chi2/NDF : "<<LHCb_RootS7TeV_Chi2<<"/"<<LHCb_RootS7TeV_NDF<<" Prob: "<<LHCb_RootS7TeV_Prob<<endl<<endl;
-
+  */
 
 
   TGraph *Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, LHCb_RootS7TeV_LDME_3S1_1);
@@ -1729,7 +1729,11 @@ void JPsiLDME()
   gMinuit->mnexcm("SET ERR", arglist, 1, ierflg);
   
   // Set starting values and step sizes for parameters
-  static Double_t vstart[] = {1.0,0.0180,0.0013};
+
+  //static Double_t vstart[] = {1.0,0.0180,0.0013};
+  //static Double_t vstart[] = {2.0,0.0180,0.0013};
+  //static Double_t vstart[] = {3.0,0.0180,0.0013};
+  static Double_t vstart[] = {0.5,0.0180,0.0013};
   static Double_t step[]   = {0.0001,0.00001 , 0.00001};
   
   gMinuit->mnparm(0, "3S1_1", vstart[0], step[0], 0, 0, ierflg);
@@ -1900,10 +1904,13 @@ void JPsiLDME()
   
   TGraph *Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
-  TGraph *Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
+  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineStyle(7);
+    TGraph *Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
+  
   TGraph *Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineStyle(3);
   TGraph *Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
   TGraph *Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
@@ -1916,11 +1923,13 @@ void JPsiLDME()
   TGraph *Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
 										    Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
   Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
+  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineStyle(9);
     
   TGraph *Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 											  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 											  Comb_Out_grCMS_0009_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_0);
     
+
   TLegend *Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1 = new TLegend(0.27,0.88,0.91,0.94);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetBorderSize(0);
   Comb_lgd_CMS_0009_DSigmaDPtDY_Pt1->SetFillStyle(0);
@@ -1976,6 +1985,8 @@ void JPsiLDME()
   gPad->SaveAs("Plots/Combined/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf");
   gPad->SaveAs("Plots/Combined/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.png");
 
+
+
  
   
   gr1->Fit("fun_1","Q0","MER", 6, 120); //CMS Latest
@@ -1990,12 +2001,17 @@ void JPsiLDME()
   gPad->SaveAs("Plots/Combined/Data_CMS_Latest.png");
   */
 
- TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
+  TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineStyle(7);
+  
   TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
+  
   TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineStyle(3);
+  
   TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
   TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
@@ -2008,6 +2024,7 @@ void JPsiLDME()
   TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
 										    Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
   Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineStyle(9);
     
   TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 											  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
@@ -2058,9 +2075,6 @@ void JPsiLDME()
   gPad->SaveAs("Plots/Combined/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf");
   gPad->SaveAs("Plots/Combined/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.png");
 
-
- 
-
   
   gr2->Fit("fun_2","Q0","MER", 6, 100); //ATLAS 7 TeV
   /*
@@ -2076,10 +2090,14 @@ void JPsiLDME()
 
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineStyle(7);
+  
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
+  
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineStyle(3);
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
@@ -2091,6 +2109,7 @@ void JPsiLDME()
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
 										 Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
   Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineStyle(9);
   
   TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 										       Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
@@ -2143,6 +2162,9 @@ void JPsiLDME()
   gPad->SaveAs("Plots/Combined/ATLAS_7TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf");
   gPad->SaveAs("Plots/Combined/ATLAS_7TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.png");
 
+  //return;
+ 
+
 
 
   gr3->Fit("fun_3","Q0","MER", 6, 120); //ATLAS 8 TeV
@@ -2159,10 +2181,14 @@ void JPsiLDME()
   
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineStyle(7);
+  
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineStyle(3);
+
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
@@ -2174,6 +2200,7 @@ void JPsiLDME()
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
 										 Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
   Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
+  Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineStyle(9);
   
   TGraph *Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 										       Comb_Out_grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
@@ -2247,10 +2274,14 @@ void JPsiLDME()
   
   TGraph *Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineStyle(7);
+
   TGraph *Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
   TGraph *Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineStyle(3);
+
   TGraph *Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
   TGraph *Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
@@ -2262,6 +2293,7 @@ void JPsiLDME()
     TGraph *Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
 										    Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
   Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
+  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineStyle(9);
     
   TGraph *Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 											  Comb_Out_grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
@@ -2361,10 +2393,14 @@ void JPsiLDME()
   
   TGraph *Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineStyle(7);
+
   TGraph *Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
   TGraph *Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineStyle(3);
+
   TGraph *Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
   TGraph *Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
@@ -2376,6 +2412,7 @@ void JPsiLDME()
   TGraph *Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
 										 Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
   Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
+  Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineStyle(9);
   
   TGraph *Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 										       Comb_Out_grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
@@ -2465,10 +2502,12 @@ void JPsiLDME()
   
   TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineStyle(7);
   TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
   TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineStyle(3);
   TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
   TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
@@ -2477,10 +2516,11 @@ void JPsiLDME()
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit->SetLineColor(46);
 
   
-    TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
-										    Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
+  TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
+										Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
-    
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineStyle(9);
+  
   TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 											  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
 											  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,fun_6);
@@ -2560,10 +2600,12 @@ void JPsiLDME()
   
   TGraph *Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit=Scale_QCDSigma(grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit, Comb_LDME_3S1_1);
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineColor(1);
+  Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit->SetLineStyle(7);
   TGraph *Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_Fit=Scale_QCDSigma(grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Comb_LDME_1S0_8);
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_Fit->SetLineColor(4);
   TGraph *Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit=Scale_QCDSigma(grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit, Comb_LDME_3S1_8);
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineColor(6);
+  Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_8_Fit->SetLineStyle(3);
   TGraph *Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3P0_8_Fit=Scale_QCDSigma(grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3P0_8_Fit, Comb_LDME_3P0_8);
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3P0_8_Fit->SetLineColor(8);
   TGraph *Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3P1_8_Fit=Scale_QCDSigma(grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3P1_8_Fit, Comb_LDME_3P1_8);
@@ -2575,6 +2617,7 @@ void JPsiLDME()
     TGraph *Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=Add_QCDSigma(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3P0_8_Fit,
 										    Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3P1_8_Fit,Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3P2_8_Fit);
   Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
+  Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineStyle(9);
     
   TGraph *Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_FeedDown_Fit=Add_FeedDown_QCDSigma(Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_3S1_1_Fit,
 											  Comb_Out_grLHCb_RootS13TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,
