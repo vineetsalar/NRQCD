@@ -1,0 +1,29 @@
+cd Chic    
+mv  Chic1_CDF_Fit.pdf  Fig1_Chic1_CDF_Fit.pdf
+cd  ..  
+cd  Psi2S/  
+mv  Psi2S_CMS_LowPt.pdf  Fig2a_Psi2S_CMS_LowPt.pdf
+mv  Psi2S_CMS_HighPt.pdf  Fig2b_Psi2S_CMS_HighPt.pdf
+mv  Psi2S_ATLAS.pdf  Fig2c_Psi2S_ATLAS.pdf
+mv  Psi2S_ATLAS_8TeV.pdf  Fig2d_Psi2S_ATLAS_8TeV.pdf
+mv  Psi2S_CDF_180TeV.pdf  Fig3a_Psi2S_CDF_180TeV.pdf
+mv  Psi2S_CDF_196TeV.pdf  Fig3b_Psi2S_CDF_196TeV.pdf
+cd  ..  
+cd  JPsi/  
+mv  CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf  Fig4a_CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.pdf
+mv  CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf  Fig4b_CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf
+mv  ATLAS_7TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf  Fig4c_ATLAS_7TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf
+mv  ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf  Fig4d_ATLAS_8TeV_D2NDPtDy_PromptJPsi_Y0025_Pt.pdf
+mv  CDF_RootS180TeV_D2NDPtDy_PromptJPsi_Y0006_Pt.pdf  Fig5a_CDF_RootS180TeV_D2NDPtDy_PromptJPsi_Y0006_Pt.pdf
+mv  CDF_196TeV_D2NDPtDy_PromptJPsi_Y0006_Pt.pdf  Fig5b_CDF_196TeV_D2NDPtDy_PromptJPsi_Y0006_Pt.pdf
+mv  LHCb_RootS7TeV_D2NDPtDy_PromptJPsi_Y2035_Pt.pdf  Fig6a_LHCb_RootS7TeV_D2NDPtDy_PromptJPsi_Y2035_Pt.pdf
+mv  LHCb_RootS13TeV_D2NDPtDy_PromptJPsi_Y2045_Pt.pdf  Fig6b_LHCb_RootS13TeV_D2NDPtDy_PromptJPsi_Y2045_Pt.pdf
+cd  ..  
+cd  Predict/  
+rm  Fig_LHCb_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.pdf  
+mv  Fig_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2525.pdf  Fig7a_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2525.pdf
+mv  Fig_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.pdf  Fig7b_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.pdf
+mv  Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_Y2525.pdf  Fig8a_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_Y2525.pdf
+mv  Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_Y2045.pdf  Fig8b_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_Y2045.pdf
+mv  Fig_ATLAS_D2NDPtDy_DirectPsi_DirectJPsi_Y2525.pdf  Fig9a_ATLAS_D2NDPtDy_DirectPsi_DirectJPsi_Y2525.pdf
+mv  Fig_ALICE_2045_RootS5TeV_Psi_JPsi_Pt.pdf  Fig9b_ALICE_2045_RootS5TeV_Psi_JPsi_Pt.pdf
