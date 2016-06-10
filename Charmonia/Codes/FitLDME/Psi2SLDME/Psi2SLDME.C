@@ -42,7 +42,8 @@
 #include "TMultiGraph.h"
 #include "TLegend.h"
 #include "TMath.h"
-
+Double_t Ratio_3PJ8_1S0_8( Double_t Pt);
+Double_t CDFRatio_3PJ8_1S0_8( Double_t Pt);
 //================== CMS: open the calculated root file ===========================================//
 TFile *file_CMS_RootS7TeV_Psi2SCrossSection =  new TFile("CMS_RootS7TeV_Psi2SCrossSection.root","R");
 //================ Get All the graphs ===============================//
@@ -219,6 +220,57 @@ void Psi2SLDME()
   tb->SetTextAlign(12);
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
+
+
+
+
+  //======================== Checking Ratio ======================================//
+  Double_t PT[200]; Double_t SDCS[200];
+  Double_t SDCS1[200];
+ 
+  Double_t PtMin = 2.0;
+  Double_t PtMax = 100.0;
+  Double_t PtStep = 0.5;
+  Double_t NN = (PtMax - PtMin)/PtStep;
+
+  for(int i=0;i<NN;i++){
+    PT[i]=PtMin + i*PtStep;
+    SDCS1[i]=2.0*mC*mC*CDFRatio_3PJ8_1S0_8(PT[i]);
+    SDCS[i]=2.0*mC*mC*Ratio_3PJ8_1S0_8(PT[i]);
+  }
+
+  TGraph *grf_Ratio_3PJ_8_1S0_8 = new TGraph(NN,PT,SDCS);
+  grf_Ratio_3PJ_8_1S0_8->GetYaxis()->SetRangeUser(0.0,10.0);
+
+  grf_Ratio_3PJ_8_1S0_8->GetXaxis()->SetTitle("p_{T}(GeV/c)");
+  grf_Ratio_3PJ_8_1S0_8->GetYaxis()->SetTitle("#frac{m_{c}^{2}*3PJ_8}{1S0_8}");
+
+  TGraph *grf_CDFRatio_3PJ_8_1S0_8 = new TGraph(NN,PT,SDCS1);
+  grf_CDFRatio_3PJ_8_1S0_8->SetLineColor(2);
+
+  new TCanvas;
+  gPad->SetLeftMargin(0.14);
+  grf_Ratio_3PJ_8_1S0_8->Draw("AL");
+  grf_CDFRatio_3PJ_8_1S0_8->Draw("Lsame");
+  
+  //return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //============================ Open a output text file ====================================//
   char OutTextFile[100];
@@ -1941,8 +1993,7 @@ Double_t ATLAS_FitLDME(Double_t *x, Double_t *par)
   Double_t LDME_3S1_1 = par[0];  
   Double_t LDME_1S0_8 = par[1];
   Double_t LDME_3S1_8 = par[2];
- 
-  //Double_t Norm = par[3];
+
 
   Double_t LDME_3P0_8;
   Double_t LDME_3P1_8;
@@ -1952,10 +2003,17 @@ Double_t ATLAS_FitLDME(Double_t *x, Double_t *par)
   LDME_3P1_8=3.0*LDME_3P0_8;
   LDME_3P2_8=5.0*LDME_3P0_8;
   
-  Double_t Sigma = (LDME_3S1_1*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]) + 
-		    LDME_3S1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
-		    LDME_3P1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]));
-  
+  //  Double_t Sigma = (LDME_3S1_1*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]) + 
+  //LDME_3S1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
+  //		    LDME_3P1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]));
+
+
+
+  Double_t Sigma = LDME_3S1_1*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_3S1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) 
+    + LDME_1S0_8 * 3.0 * grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]);
+
+
+
   return Sigma;
   
 }
@@ -1975,12 +2033,12 @@ Double_t ATLAS8TeV_FitLDME(Double_t *x, Double_t *par)
   LDME_3P1_8=3.0*LDME_3P0_8;
   LDME_3P2_8=5.0*LDME_3P0_8;
   
-  Double_t Sigma = (LDME_3S1_1*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]) + 
-		    LDME_3S1_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
-		    LDME_3P1_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0])); 
-  
-  
-  
+  //Double_t Sigma = (LDME_3S1_1*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]) + 
+  //		    LDME_3S1_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
+  //		    LDME_3P1_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0])); 
+
+  Double_t Sigma = LDME_3S1_1*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_3S1_8*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) +
+    LDME_1S0_8*3.0*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]); 
   return Sigma;
   
 }
@@ -2003,9 +2061,13 @@ Double_t CDF_FitLDME(Double_t *x, Double_t *par)
   LDME_3P1_8=3.0*LDME_3P0_8;
   LDME_3P2_8=5.0*LDME_3P0_8;
 
-  Double_t Sigma = LDME_3S1_1*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0])+ 
-    LDME_3S1_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
-    LDME_3P1_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]);
+  //Double_t Sigma = LDME_3S1_1*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0])+ 
+  //LDME_3S1_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
+  //LDME_3P1_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]);
+
+
+  Double_t Sigma = LDME_3S1_1*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + 
+    LDME_3S1_8*grCDF_RootS196TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_1S0_8*3.0*grCDF_RootS196TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]);
   
   return Sigma;
   
@@ -2025,10 +2087,13 @@ Double_t LHCb_FitLDME(Double_t *x, Double_t *par)
   LDME_3P1_8=3.0*LDME_3P0_8;
   LDME_3P2_8=5.0*LDME_3P0_8;
   
-  Double_t Sigma = LDME_3S1_1*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]) + 
-    LDME_3S1_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
-    LDME_3P1_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]);
-  
+  //Double_t Sigma = LDME_3S1_1*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]) + 
+  //LDME_3S1_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
+  //LDME_3P1_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]);
+
+
+  Double_t Sigma = LDME_3S1_1*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + 
+    LDME_3S1_8*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_1S0_8*3.0*grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]);
   return Sigma;
   
 }
@@ -2047,14 +2112,55 @@ Double_t CDF_180_FitLDME(Double_t *x, Double_t *par)
   LDME_3P1_8=3.0*LDME_3P0_8;
   LDME_3P2_8=5.0*LDME_3P0_8;
   
-  Double_t Sigma = LDME_3S1_1*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0])+ 
-    LDME_3S1_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
-    LDME_3P1_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]);
-  
+  //Double_t Sigma = LDME_3S1_1*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0])+ 
+  //LDME_3S1_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
+  //LDME_3P1_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]);
+
+
+  Double_t Sigma = LDME_3S1_1*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + 
+    LDME_3S1_8*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_1S0_8*3.0*grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]);
+
+
   return Sigma;
 
 
 }
+
+
+
+
+
+Double_t Ratio_3PJ8_1S0_8( Double_t Pt)
+{
+
+  Double_t CS_3PJ8 = grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(Pt) + 3.0*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(Pt)+5.0*grATLAS_RootS8TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(Pt);
+  Double_t CS_1S08 = grATLAS_RootS8TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(Pt);
+
+
+  Double_t Ratio = CS_3PJ8/CS_1S08;
+
+  return Ratio;
+
+}
+
+
+
+
+Double_t CDFRatio_3PJ8_1S0_8( Double_t Pt)
+{
+
+  Double_t CS_3PJ8 = grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(Pt) + 3.0*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(Pt)+5.0*grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(Pt);
+  Double_t CS_1S08 = grCDF_RootS180TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(Pt);
+
+
+  Double_t Ratio = CS_3PJ8/CS_1S08;
+
+  return Ratio;
+
+}
+
+
+
 
 
 
