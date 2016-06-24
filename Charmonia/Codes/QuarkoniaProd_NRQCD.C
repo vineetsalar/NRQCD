@@ -1,6 +1,7 @@
 //=================================================================================================================================//
 //=========================================== Vineet Kumar, Prashant Shukla ======================================================//
 //=========================================== BARC Mumbai =======================================================================//
+/// 60, 797 
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -29,7 +30,6 @@
 #include "TMath.h"
 #include "TRandom3.h"
 #include "TF1.h"
-
 #include "TGraph.h"
 #include "TCanvas.h"
 #include "TAxis.h"
@@ -46,7 +46,6 @@
 #include <string>
 #include <vector>
 #include <map>
-
 # include "Math/GaussLegendreIntegrator.h"
 
 
@@ -58,9 +57,9 @@ using namespace LHAPDF;
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 1800.0;
+const Double_t RootS = 13000.0;
 
-Int_t IsPrediction =0;
+Int_t IsPrediction =1;
 
 
 //===== for gauss quadrature integration ========//
@@ -75,7 +74,7 @@ Double_t WWk[NNXXk]={0.0};
 
 // 1.6 is our nominal value
 //const Double_t mC = 1.4; //Mass_var1
-const Double_t mC = 1.48;
+const Double_t mC = 1.6;
 //const Double_t mC = 1.8;//Mass_var2
 
 const Double_t mJPsi = 2.0*mC;
@@ -94,7 +93,7 @@ const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
 */
 
-
+/*
 //Psi2S %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar =2;
 
@@ -113,8 +112,7 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.0080*mC*mC; //GeV^5
 
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3          
-
-
+*/
 
 
 /*
@@ -130,7 +128,7 @@ const Double_t OO_QQbar_1S0_8_JPsi=0.0;    //GeV^3
 const Double_t OO_QQbar_3S1_8_JPsi=0.0;     //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0;      //GeV^5 
 
-    const Double_t NC = 3.0;        
+const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*0.054*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  //GeV^3          
@@ -155,7 +153,7 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
 
-/*
+
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
 //const Double_t mC = 1.6;
@@ -170,8 +168,8 @@ const Double_t OO_QQbar_3P0_8_JPsi=0.0;      //GeV^5
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
-const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
-*/
+const Double_t OO_QQbar_3S1_8_Chic= 0.00187;  // no mc2 it is going as GeV^3          
+
 
 /*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -302,16 +300,10 @@ Double_t quark_function(int nf, Double_t x, Double_t Qsquare);
 Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y);
 Double_t FillPtRapHist(Double_t PtMin, Double_t PtMax, Double_t YYMin, Double_t YYMax);
 
-
-
-
-
 TGraph *PeterCho_JPsi_3S1_8_Y06_Pt();
 TGraph *PeterCho_JPsi_3PJ_8_Y06_Pt();
 TGraph *PeterCho_JPsi_3S1_1_Y06_Pt();
 TGraph *RatioGraph(TGraph *GraphIn1, TGraph *GraphIn2);
-
-
 
 ///================ Fitting =======================================//
 Double_t DSigmaDPt_Chi_Gauss_Fit(Double_t Pt, Double_t YMin, Double_t YMax, Int_t Par);
@@ -608,7 +600,7 @@ void QuarkoniaProd_NRQCD()
   grDownQuarkDissFunc_Q1->GetYaxis()->SetTitle("xf(x,Q^{2})");
 
 
-      TLegend *lgd_diss = new TLegend(0.68,0.72,0.85,0.91);
+  TLegend *lgd_diss = new TLegend(0.68,0.72,0.85,0.91);
   lgd_diss->SetBorderSize(0);
   lgd_diss->SetFillStyle(0);
   lgd_diss->SetFillColor(0);
@@ -749,13 +741,12 @@ void QuarkoniaProd_NRQCD()
   Double_t DSigmaDt_GG_Pt[1000]={0.0};
   Double_t DSigmaDt_qq_Pt[1000]={0.0};
   Double_t DSigmaDt_qg_Pt[1000]={0.0};
-
  
   
   //Experimental
   Double_t Pt = 0.0;
-  Double_t PtMin = 0.5;
-  Double_t PtMax = 20.0;
+  Double_t PtMin = 2.0;
+  Double_t PtMax = 120.0;
   Double_t PtStep = 0.5;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
   //cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
@@ -763,9 +754,8 @@ void QuarkoniaProd_NRQCD()
 
   Double_t Psi2MuMu = 0.0;
   if(QQbarVar  ==1){Psi2MuMu = 0.0593;}
-  
   //for fitting (take care of this for cross section calculations)
-  if(QQbarVar  ==2){Psi2MuMu = 0.0078;}
+  //if(QQbarVar  ==2){Psi2MuMu = 0.0078;}
   //if(QQbarVar  ==3){Psi2MuMu = 0.0079;}
   //if(QQbarVar  ==4){Psi2MuMu = 0.0079;}
   //if(QQbarVar  ==5){Psi2MuMu = 0.0079;}
@@ -773,11 +763,18 @@ void QuarkoniaProd_NRQCD()
   Double_t BRPsi2SToJPsi = 0.0;
   Double_t BRChicToJPsi = 0.0; 
   Double_t BRJPsiToMuMu = 0.0;
- 
-  //if(QQbarVar  ==2){BRPsi2SToJPsi=0.595; BRJPsiToMuMu=0.0593; Psi2MuMu = BRPsi2SToJPsi*BRJPsiToMuMu;}
+  if(QQbarVar  ==2){BRPsi2SToJPsi=0.595; BRJPsiToMuMu=0.0593; Psi2MuMu = BRPsi2SToJPsi*BRJPsiToMuMu;}
   if(QQbarVar  ==3){BRChicToJPsi=0.0116; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
   if(QQbarVar  ==4){BRChicToJPsi=0.3440; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
   if(QQbarVar  ==5){BRChicToJPsi=0.1950; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
+
+  //only for cross section ratios measured by LHCb
+  //if(QQbarVar  ==4){Psi2MuMu = 1.0;}
+  //if(QQbarVar  ==5){Psi2MuMu = 1.0;}
+
+
+
+
   
   Double_t Upsilon2MuMu = 0.0;
   if(QQbarVar  ==6){Upsilon2MuMu = 0.0248;}
@@ -799,7 +796,7 @@ void QuarkoniaProd_NRQCD()
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
 
-	Double_t YMin = -0.6; Double_t YMax = 0.6; 
+	Double_t YMin = 2.5; Double_t YMax = 4.0; 
 
 	Double_t DeltaY = (YMax - YMin);
 	/*
@@ -818,26 +815,23 @@ void QuarkoniaProd_NRQCD()
 	Double_t LDME_3P1_8 = 1.0;
 	Double_t LDME_3P2_8 = 1.0;
 	
-
-
 	Double_t Th_LDME3S1_8 = 0.0046;
 	Double_t Th_LDME3PJ_8_1S0_8 = 0.0059;
-
+	
 	DSigmaDPtDY_Pt[i] = (Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax))/DeltaY;
-
-
+	
 	if(QQbarVar ==1 || QQbarVar ==2){
 	
 	  DSigmaDPtDY_Pt_3S1_1_Fit[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;
 	  DSigmaDPtDY_Pt_1S0_8_Fit[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
 	  
 	  DSigmaDPtDY_Pt_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,3))/DeltaY;
-	 
+	  
 	  DSigmaDPtDY_Pt_3P0_8_Fit[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,4))/DeltaY;
 	  DSigmaDPtDY_Pt_3P1_8_Fit[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,5))/DeltaY;
 	  DSigmaDPtDY_Pt_3P2_8_Fit[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,6))/DeltaY;
-	
-
+	  
+	  
 	  DSigmaDPtDY_Pt_3PJ_8_Fit[i] = DSigmaDPtDY_Pt_3P0_8_Fit[i] + 3.0*DSigmaDPtDY_Pt_3P1_8_Fit[i] + 5.0*DSigmaDPtDY_Pt_3P2_8_Fit[i];
 	  
 	  //DSigmaDPtDY_Pt_3PJ_8_1S0_8_Fit[i] = (mC2*DSigmaDPtDY_Pt_3PJ_8_Fit[i])/(3.0*DSigmaDPtDY_Pt_1S0_8_Fit[i]);
@@ -847,7 +841,7 @@ void QuarkoniaProd_NRQCD()
 
 	  DSigmaDPtDY_Pt_3PJ_8_1S0_8_Fit[i] = DeltaY*Th_LDME3PJ_8_1S0_8*(3.0*DSigmaDPtDY_Pt_1S0_8_Fit[i]);
 	  
-	  DSigmaDPtDY_Pt_3S1_8_Fit_Copy[i]=   0.5*DeltaY*Th_LDME3S1_8*DSigmaDPtDY_Pt_3S1_8_Fit[i];
+	  DSigmaDPtDY_Pt_3S1_8_Fit_Copy[i]=   DeltaY*Th_LDME3S1_8*DSigmaDPtDY_Pt_3S1_8_Fit[i];
 
 	  cout<<Pt<<"   "<<DSigmaDPtDY_Pt_3S1_8_Fit_Copy[i]<<"   "<<DSigmaDPtDY_Pt_1S0_8_Fit[i]<<"   "<<DSigmaDPtDY_Pt_3P0_8_Fit[i]<<
 	    "  "<<DSigmaDPtDY_Pt_3P1_8_Fit[i]<<"  "<<DSigmaDPtDY_Pt_3P2_8_Fit[i]<<"  "<<DSigmaDPtDY_Pt_3PJ_8_1S0_8_Fit[i]<<endl;
@@ -875,9 +869,13 @@ void QuarkoniaProd_NRQCD()
 
 
 	if(QQbarVar == 3 || QQbarVar ==4 || QQbarVar ==5){
+	  
 	  if(QQbarVar==3){DSigmaDPtDY_Pt_3P0_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;}
+	  
 	  if(QQbarVar==4){DSigmaDPtDY_Pt_3P1_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;}
+	  
 	  if(QQbarVar==5){DSigmaDPtDY_Pt_3P2_1_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;}
+	 
 	  DSigmaDPtDY_Pt_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Chi_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
 
 
@@ -2341,9 +2339,6 @@ Double_t DSigmaDY_Chi_Gauss_Fit(Double_t YY, Double_t PtMin, Double_t PtMax, Int
 
 
 
-
-
-
 Double_t DSigmaDPtDy_Chi_Fit(Double_t Pt, Double_t Y, Int_t Par)
 {
   
@@ -2837,6 +2832,9 @@ Double_t DSigmaDt_qg_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
   
   Double_t AlphaS = GetAlphaS(Mt);
   
+  //****************
+  //****************
+  Double_t ChoFactor = 0.5;
 
   Double_t Constt = -TMath::Power((4.0*pi*AlphaS),3.0)/(54*mJPsi3);
 
@@ -2855,7 +2853,7 @@ Double_t DSigmaDt_qg_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
   
   Double_t Amp_h1 = (Constt1*Term3*Term4)/(SS*UU*Term2);
 
-  Double_t Amp = Amp_h0 + Amp_h1;
+  Double_t Amp = ChoFactor*(Amp_h0 + Amp_h1);
 
   Double_t Val = Amp/(16.0*pi*SS2);
 
@@ -3178,6 +3176,10 @@ Double_t DSigmaDt_qq_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
   
   Double_t AlphaS = GetAlphaS(Mt);
   
+  //****************
+  //****************
+  Double_t ChoFactor = 0.5;
+
   Double_t Constt = TMath::Power((4.0*pi*AlphaS),3.0)/(81.0*mJPsi3);
 
   Double_t Term1 = mJPsi2*SS/TMath::Power((SS-mJPsi2),4);
@@ -3194,7 +3196,7 @@ Double_t DSigmaDt_qq_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t Amp_h1 = 2.0*Constt*Term3*Term4*Term2;
 
 
-  Double_t Amp = Amp_h0 + Amp_h1;
+  Double_t Amp = ChoFactor*(Amp_h0 + Amp_h1);
 
   Double_t Val = Amp/(16.0*pi*SS2);
 
@@ -3553,7 +3555,6 @@ Double_t DSigmaDt_GG_QQbar_1S0_8(Double_t Xa, Double_t Pt, Double_t Y)
   return Val;
 
 }
-
  
 Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
 {
@@ -3571,6 +3572,10 @@ Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t AlphaS = GetAlphaS(Mt);
 
   Double_t Constt = -TMath::Power((4.0*pi*AlphaS),3)/(144.0*mJPsi3);
+  
+  //****************
+  //****************
+  Double_t ChoFactor = 0.5;
 
   Double_t Term1 = (2.0*mJPsi2*SS*(TT2 + UU2)*TT*UU)/TMath::Power((SS-mJPsi2),2);
   
@@ -3586,7 +3591,7 @@ Double_t DSigmaDt_GG_QQbar_3S1_8(Double_t Xa, Double_t Pt, Double_t Y)
 
   Double_t H1_Amp = Constt*Term3*Term4*Term2;
 
-  Double_t  Amp = H0_Amp + H1_Amp; 
+  Double_t  Amp = ChoFactor*(H0_Amp + H1_Amp); 
 
   Double_t Val = Amp/(16.0*pi*SS2);
 
@@ -3957,7 +3962,7 @@ Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y)
   Double_t SS = Xa*Xb*RootS*RootS;
   Double_t TT = mJPsi2 - Xa*RootS*Mt*TMath::Exp(-Y);
   Double_t UU = mJPsi2 - Xb*RootS*Mt*TMath::Exp(Y);
-
+ 
   
   Double_t PP = SS*TT + TT*UU + UU*SS;
   Double_t PP2 = PP*PP;
@@ -3971,8 +3976,9 @@ Double_t DSigmaDt_GG_QQbar_3P2_1(Double_t Xa, Double_t Pt, Double_t Y)
 
 
   Double_t AlphaS = GetAlphaS(Mt);
-  Double_t AlphaS3 = AlphaS*AlphaS;
-
+  //Double_t AlphaS3 = AlphaS*AlphaS;
+  Double_t AlphaS3 = AlphaS*AlphaS*AlphaS;
+  
   Double_t Term1 = 4.0*pi*AlphaS3*R02/(mJPsi3*SS*SS);
   
   Double_t Term2 = 1.0/(QQ*TMath::Power(QQ-mJPsi2*PP,4));

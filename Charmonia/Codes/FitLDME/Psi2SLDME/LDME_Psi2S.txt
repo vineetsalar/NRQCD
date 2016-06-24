@@ -982,3 +982,306 @@ LDME : 3P1_8 0.177897\pm0.00219771
 LDME : 3P2_8 0.296496\pm0.00366286
 
  Total Chi2 279.461/93   3.00495
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00189029\pm2.84182e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0231637 \pm 0.000286161
+ Total Chi2 279.461/93   3.00495
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00337894\pm6.03001e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0222835 \pm 0.00027322
+ Total Chi2 229.686/93   2.46975
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+ Total Chi2 189.982/93   2.04282
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+ Total Chi2 189.982/93   2.04282
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+ Total Chi2 189.982/93   2.04282
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+ Total Chi2 189.982/93   2.04282
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+ Total Chi2 189.982/93   2.04282
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+ Total Chi2 189.982/93   2.04282
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+ Total Chi2 189.982/93   2.04282
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
