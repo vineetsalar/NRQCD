@@ -770,7 +770,9 @@ void ChiCLDME()
   Out_grATLAS_Chic1_RootS7TeV_Y0075_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   lgd_DSigmaDPtDY_ATLAS_7TeV_Chic1->Draw("same");
   lgd_DSigmaDPtDY_ATLAS_7TeV_Chic1_1->Draw("same");
-
+ 
+  gPad->SaveAs("Chic1_ATLAS_Fit.png");
+  gPad->SaveAs("Chic1_ATLAS_Fit.pdf");
 
 
 
@@ -829,6 +831,9 @@ void ChiCLDME()
   lgd_DSigmaDPtDY_ATLAS_7TeV_Chic2_1->Draw("same");
 
 
+  gPad->SaveAs("Chic2_ATLAS_Fit.png");
+  gPad->SaveAs("Chic2_ATLAS_Fit.pdf");
+
   //TF1 *fun_t=new TF1("fun_t");
   //fun_t=
 
@@ -874,6 +879,12 @@ void ChiCLDME()
   lgd_DSigmaDPtDY_CMS_7TeV_RatioChiC2Chic1->Draw("same");
   lgd_DSigmaDPtDY_CMS_7TeV_RatioChiC2Chic1_1->Draw("same");
 
+  gPad->SaveAs("Chic2Chic1_CMS_Fit.png");
+  gPad->SaveAs("Chic2Chic1_CMS_Fit.pdf");
+
+
+
+
   TF1 *fun_4=new TF1("fun_4", LHCb_RootS7TeV_RatioChiC2ChiC1_FitLDME, 4.0, 30, 2); 	
   fun_4->FixParameter(0,currentPar[0]);
   fun_4->FixParameter(1,currentPar[1]);
@@ -916,8 +927,8 @@ void ChiCLDME()
   lgd_DSigmaDPtDY_LHCb_7TeV_RatioChiC2Chic1->Draw("same");
   lgd_DSigmaDPtDY_LHCb_7TeV_RatioChiC2Chic1_1->Draw("same");
 
-
-
+  gPad->SaveAs("Chic2Chic1_LHCb_Fit.png");
+  gPad->SaveAs("Chic2Chic1_LHCb_Fit.pdf");
 
 
 
