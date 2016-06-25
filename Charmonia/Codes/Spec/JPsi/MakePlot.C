@@ -139,8 +139,8 @@ void MakePlot()
   grATLAS_2525_RootS13TeV_Psi_JPsi_Pt->GetYaxis()->SetTitleOffset(1.8);
   grATLAS_2525_RootS13TeV_Psi_JPsi_Pt->GetXaxis()->SetTitle("p_{T}[GeV/c]");
   grATLAS_2525_RootS13TeV_Psi_JPsi_Pt->GetYaxis()->SetTitle("B.#frac{d^{2}#sigma^{#psi(2S)}}{dp_{T}dy}/B.#frac{d^{2}#sigma^{J/#psi}}{dp_{T}dy}");
-  grATLAS_2525_RootS13TeV_Psi_JPsi_Pt->GetYaxis()->SetRangeUser(0.03,0.07);
-  grATLAS_2525_RootS13TeV_Psi_JPsi_Pt->GetXaxis()->SetRangeUser(0.0,70.0);
+  grATLAS_2525_RootS13TeV_Psi_JPsi_Pt->GetYaxis()->SetRangeUser(0.02,0.085);
+  grATLAS_2525_RootS13TeV_Psi_JPsi_Pt->GetXaxis()->SetRangeUser(10.0,80.0);
   grATLAS_2525_RootS13TeV_Psi_JPsi_Pt->Draw("AL");
   grATLAS_2525_RootS5TeV_Psi_JPsi_Pt->Draw("Lsame");
   grATLAS_2525_RootS18TeV_Psi_JPsi_Pt->Draw("Lsame");
@@ -189,8 +189,8 @@ void MakePlot()
   grALICE_2045_RootS13TeV_Psi_JPsi_Pt->GetYaxis()->SetTitleOffset(1.8);
   grALICE_2045_RootS13TeV_Psi_JPsi_Pt->GetXaxis()->SetTitle("p_{T}[GeV/c]");
   grALICE_2045_RootS13TeV_Psi_JPsi_Pt->GetYaxis()->SetTitle("B.#frac{d^{2}#sigma^{#psi(2S)}}{dp_{T}dy}/B.#frac{d^{2}#sigma^{J/#psi}}{dp_{T}dy}");
-  grALICE_2045_RootS13TeV_Psi_JPsi_Pt->GetYaxis()->SetRangeUser(0.03,0.07);
-  grALICE_2045_RootS13TeV_Psi_JPsi_Pt->GetXaxis()->SetRangeUser(0.0,40.0);
+  grALICE_2045_RootS13TeV_Psi_JPsi_Pt->GetYaxis()->SetRangeUser(0.01,0.08);
+  grALICE_2045_RootS13TeV_Psi_JPsi_Pt->GetXaxis()->SetRangeUser(5.0,40.0);
   grALICE_2045_RootS13TeV_Psi_JPsi_Pt->Draw("AL");
   grALICE_2045_RootS5TeV_Psi_JPsi_Pt->Draw("Lsame");
   grALICE_2045_RootS18TeV_Psi_JPsi_Pt->Draw("Lsame");

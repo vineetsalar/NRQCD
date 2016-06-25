@@ -57,7 +57,7 @@ using namespace LHAPDF;
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 13000.0;
+const Double_t RootS = 1800.0;
 
 Int_t IsPrediction =1;
 
