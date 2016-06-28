@@ -44,7 +44,6 @@
 #include "TMath.h"
 #include <TFitResult.h>
 
-
 //================== CDF: 1.8 TeV  Chic0 calculated root file ===========================================//
 TFile *file_CDF_Chic0_RootS180TeV_CrossSection =  new TFile("rootFiles/CDF_Chic0_RootS180TeV_Chic0_1PCrossSection.root","R");
 //================ Get All the graphs ===============================//
@@ -153,6 +152,7 @@ TGraphAsymmErrors *gr2;
 
 TGraphAsymmErrors *gr3;
 TGraphAsymmErrors *gr4;
+TGraphAsymmErrors *gr4_t;
 
 
 
@@ -359,11 +359,9 @@ void ChiCLDME()
   CDF_180_Chic1Chic2_FitFunctionLDME->Draw("same");
 
 
-
-
-  Double_t TotalChi2 = CalcChi2(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,CDF_180_Chic1Chic2_FitFunctionLDME);
-  Double_t TotalNDF = (grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetN() - 2 );
-  cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
+  //Double_t TotalChi2 = CalcChi2(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,CDF_180_Chic1Chic2_FitFunctionLDME);
+  //Double_t TotalNDF = (grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetN() - 2 );
+  //cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
 
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ============= FITTING ATLAS RootS 7 TeV DATA FOR LDME (Chic1)=========="<<endl;
@@ -558,6 +556,7 @@ void ChiCLDME()
   gr4=new TGraphAsymmErrors();
   gr4=CutGraph(Data_LHCb_7TeV_D2NDPtDy_RatioChi2ChiC1_Y2045_JPsiPt(),5.0);
 
+  gr4_t =  Data_LHCb_7TeV_D2NDPtDy_RatioChi2ChiC1_Y2045_JPsiPt();
  
   //---------------------------------------------------------------------
   //     Blocks for fitting procedure
@@ -921,8 +920,9 @@ void ChiCLDME()
   Xaxis_gr4->SetLimits(0.0,30.0);
   gr4->GetYaxis()->SetRangeUser(0.0,1.6);
   gr4->Draw("AP");
-  fun_4->Draw("same");
-  // fun_3->Draw("same");
+  gr4_t->Draw("AP");
+  fun_4->Draw("Csame");
+
 
   lgd_DSigmaDPtDY_LHCb_7TeV_RatioChiC2Chic1->Draw("same");
   lgd_DSigmaDPtDY_LHCb_7TeV_RatioChiC2Chic1_1->Draw("same");
@@ -931,6 +931,17 @@ void ChiCLDME()
   gPad->SaveAs("Chic2Chic1_LHCb_Fit.pdf");
 
 
+  cout<<"Chi Square  "<<CalcChi2(gr0,fun_0)<<"   "<<CalcChi2(gr1,fun_1)<<"   "<<CalcChi2(gr2,fun_2)<<"   "<<CalcChi2(gr3,fun_3)<<endl;
+  cout<<"Chi Square  "<<CalcChi2(gr4,fun_4)<<endl;
+  
+  Double_t TotalChi2 = CalcChi2(gr0,fun_0) + CalcChi2(gr1,fun_1) + CalcChi2(gr2,fun_2) + CalcChi2(gr3,fun_3)+CalcChi2(gr4,fun_4);
+
+  
+  Double_t TotalNDF = (gr0->GetN() + gr1->GetN() + gr2->GetN() + gr3->GetN() + gr4->GetN()) - 2 ;
+
+  cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
+  
+  
 
 
   return;
@@ -1969,3 +1980,5 @@ TGraph *ThRatio_ChiC2ChiC1(TGraph *InGraph1, Double_t Fac1, TGraph *InGraph2, Do
   OutGraph = SGraph;
   return OutGraph;
 }
+
+

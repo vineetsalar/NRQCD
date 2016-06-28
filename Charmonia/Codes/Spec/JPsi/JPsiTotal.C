@@ -133,7 +133,7 @@ Double_t BR_ChiC0ToJPsi = 0.0116;
 Double_t BR_ChiC1ToJPsi = 0.344;
 Double_t BR_ChiC2ToJPsi = 0.195;
 
-/*
+
 //===================================== All the root Files 13 TeV =======================================//
 Int_t Is5TeV =0;
 TFile *file_LHCb_2045_RootS13TeV_JPsiCrossSection =  new TFile("rootFiles/13TeV/LHCb/JPsiCrossSection.root","R");
@@ -153,7 +153,7 @@ TFile *file_ALICE_2045_RootS13TeV_Psi2SCrossSection =  new TFile("rootFiles/13Te
 TFile *file_ALICE_2045_RootS13TeV_Chic0CrossSection =  new TFile("rootFiles/13TeV/ALICE/Nom/Chic0_1PCrossSection.root","R");
 TFile *file_ALICE_2045_RootS13TeV_Chic1CrossSection =  new TFile("rootFiles/13TeV/ALICE/Nom/Chic1_1PCrossSection.root","R");
 TFile *file_ALICE_2045_RootS13TeV_Chic2CrossSection =  new TFile("rootFiles/13TeV/ALICE/Nom/Chic2_1PCrossSection.root","R");
-*/
+
 
 
 
@@ -181,7 +181,7 @@ TFile *file_ALICE_2045_RootS13TeV_Chic1CrossSection =  new TFile("rootFiles/5TeV
 TFile *file_ALICE_2045_RootS13TeV_Chic2CrossSection =  new TFile("rootFiles/5TeV/ALICE/Nom/Chic2_1PCrossSection.root","R");
 */
 
-
+/*
 //===================================== All the root Files 1.8 TeV =======================================//
 Int_t Is5TeV = 2;
 TFile *file_LHCb_2045_RootS13TeV_JPsiCrossSection =  new TFile("rootFiles/18TeV/LHCb/JPsiCrossSection.root","R");
@@ -201,7 +201,7 @@ TFile *file_ALICE_2045_RootS13TeV_Psi2SCrossSection =  new TFile("rootFiles/18Te
 TFile *file_ALICE_2045_RootS13TeV_Chic0CrossSection =  new TFile("rootFiles/18TeV/ALICE/Nom/Chic0_1PCrossSection.root","R");
 TFile *file_ALICE_2045_RootS13TeV_Chic1CrossSection =  new TFile("rootFiles/18TeV/ALICE/Nom/Chic1_1PCrossSection.root","R");
 TFile *file_ALICE_2045_RootS13TeV_Chic2CrossSection =  new TFile("rootFiles/18TeV/ALICE/Nom/Chic2_1PCrossSection.root","R");
-
+*/
 
 
 
@@ -576,7 +576,7 @@ void JPsiTotal()
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetFillStyle(0);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetFillColor(0);
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetTextSize(0.04);
-  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Total","L");
+  lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Prompt J/#psi","L");
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi,"Direct J/#psi","L");
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S,"J/#psi from #psi(2S)","L");
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0,"J/#psi from #chi_{c0}","L");
@@ -609,9 +609,20 @@ void JPsiTotal()
   lgd_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->Draw("same");
   tb->DrawLatex(0.23,0.18,"(a)");
   gPad->Update();
+  if(Is5TeV ==0){
   gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2525.pdf");
   gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_PromptJPsi_Y2525.png");
+  }
 
+  if(Is5TeV ==1){
+  gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS5TeV_PromptJPsi_Y2525.pdf");
+  gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS5TeV_PromptJPsi_Y2525.png");
+  }
+
+  if(Is5TeV ==2){
+  gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS18TeV_PromptJPsi_Y2525.pdf");
+  gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS18TeV_PromptJPsi_Y2525.png");
+  }
 
 
   
@@ -686,12 +697,12 @@ void JPsiTotal()
   if(Is5TeV ==2){ lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045->SetHeader("pp #surds=1.8 TeV,Prompt J/#psi, 2.0#leq y^{J/#psi} #leq4.5");}
   
 
-  TLegend *lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1 = new TLegend(0.51,0.47,0.88,0.87);
+  TLegend *lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1 = new TLegend(0.54,0.47,0.91,0.87);
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetBorderSize(0);
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetFillStyle(0);
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetFillColor(0);
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->SetTextSize(0.04);
-  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Total","L");
+  lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi,"Prompt J/#psi","L");
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectJPsi,"Direct J/#psi","L");
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedPsi2S,"J/#psi from #psi(2S)","L");
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->AddEntry(Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_FeedChic0,"J/#psi from #chi_{c0}","L");
@@ -704,7 +715,8 @@ void JPsiTotal()
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetXaxis()->SetRangeUser(0.0,40);
-  Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetRangeUser(0.002,200);
+  if(Is5TeV ==0)Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetRangeUser(0.00001,2000);
+  if(Is5TeV ==1)Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetRangeUser(0.00001,200);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetTitleOffset(1.6);
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetXaxis()->SetTitle("p_{T}[GeV/c]");
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptJPsi->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}[nb/GeV]");
@@ -719,9 +731,21 @@ void JPsiTotal()
   lgd_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045_1->Draw("same");
   tb->DrawLatex(0.23,0.18,"(b)");
   gPad->Update();
+  if(Is5TeV ==0){
   gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.pdf");
   gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_PromptJPsi_Y2045.png");
+  }
 
+
+ if(Is5TeV ==1){
+  gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS5TeV_PromptJPsi_Y2045.pdf");
+  gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS5TeV_PromptJPsi_Y2045.png");
+  }
+
+ if(Is5TeV ==2){
+   gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS18TeV_PromptJPsi_Y2045.pdf");
+   gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS18TeV_PromptJPsi_Y2045.png");
+  }
 
   
 
@@ -779,11 +803,22 @@ void JPsiTotal()
   lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525->Draw("same");
   lgd_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->Draw("same");
   tb->DrawLatex(0.23,0.18,"(a)");
-  gPad->Update();
-  gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_Y2525.pdf");
-  gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_Y2525.png");
+  gPad->Update(); 
 
+  if(Is5TeV ==0){
+    gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_Y2525.pdf");
+    gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_Y2525.png");
+  }
 
+  if(Is5TeV ==1){
+    gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS5TeV_DirectPsi_Y2525.pdf");
+    gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS5TeV_DirectPsi_Y2525.png");
+  }
+
+  if(Is5TeV ==2){
+    gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS18TeV_DirectPsi_Y2525.pdf");
+    gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS18TeV_DirectPsi_Y2525.png");
+  }
 
   
   
@@ -838,9 +873,21 @@ void JPsiTotal()
   lgd_ALICE_D2NDPtDy_RootS13TeV_DirectPsi2S_Y2525_1->Draw("same");
   tb->DrawLatex(0.23,0.18,"(b)");
   gPad->Update();
-  gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_Y2045.pdf");
-  gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_Y2045.png");
+  if(Is5TeV ==0){
+    gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_Y2045.pdf");
+    gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_Y2045.png");
+  }
 
+ if(Is5TeV ==1){
+    gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS5TeV_DirectPsi_Y2045.pdf");
+    gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS5TeV_DirectPsi_Y2045.png");
+  }
+
+
+ if(Is5TeV ==2){
+    gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS18TeV_DirectPsi_Y2045.pdf");
+    gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS18TeV_DirectPsi_Y2045.png");
+  }
 
 
 
@@ -881,8 +928,8 @@ void JPsiTotal()
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptPsi2S_PromptJPsi->Draw("AL");
   lgd_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptPsi2S_PromptJPsi->Draw("same");
   tb->DrawLatex(0.28,0.20,"(a)");
-  gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_DirectJPsi_Y2525.pdf");
-  gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_DirectJPsi_Y2525.png");
+  //gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_DirectJPsi_Y2525.pdf");
+  //gPad->SaveAs("Plots/Fig_ATLAS_D2NDPtDy_RootS13TeV_DirectPsi_DirectJPsi_Y2525.png");
 
 
 
@@ -915,8 +962,8 @@ void JPsiTotal()
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptPsi2S_PromptJPsi->Draw("AL");
   lgd_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_PromptPsi2S_PromptJPsi->Draw("same");
   tb->DrawLatex(0.28,0.20,"(b)");
-  gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_DirectJPsi_Y2045.pdf");
-  gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_DirectJPsi_Y2045.png");
+  //gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_DirectJPsi_Y2045.pdf");
+  //gPad->SaveAs("Plots/Fig_ALICE_D2NDPtDy_RootS13TeV_DirectPsi_DirectJPsi_Y2045.png");
 
   Out_grALICE_2045_RootS13TeV_DSigmaDPtDY_Pt_DirectPsi2S->Write();
   Out_grATLAS_2525_RootS13TeV_DSigmaDPtDY_Pt_PromptPsi2S_PromptJPsi->Write();

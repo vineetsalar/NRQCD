@@ -1962,15 +1962,15 @@ void Psi2SLDME()
   cout<<"chi2/ndf "<<fun_6->GetChisquare()<<"/"<<fun_6->GetNDF()<<" Prob: "<<fun_6->GetProb()<<endl;
 
 
-  // f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag);
+  // f = fcn0(npar,gin,par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag)  + fcn4(npar,gin, par, iflag) + fcn5(npar,gin, par, iflag)+ fcn6(npar,gin, par, iflag);
 
   cout<<"Chi Square  "<<CalcChi2(gr0,fun_0)<<"   "<<CalcChi2(gr1,fun_1)<<"   "<<CalcChi2(gr2,fun_2)<<"   "<<CalcChi2(gr3,fun_3)<<endl;
-  cout<<"Chi Square  "<<CalcChi2(gr4,fun_4)<<"   "<<CalcChi2(gr5,fun_5)<<endl;
+  cout<<"Chi Square  "<<CalcChi2(gr4,fun_4)<<"   "<<CalcChi2(gr5,fun_5)<<"  "<<CalcChi2(gr6,fun_6)<<endl;
   
   Double_t TotalChi2 = CalcChi2(gr0,fun_0) + CalcChi2(gr1,fun_1) + CalcChi2(gr2,fun_2) + CalcChi2(gr3,fun_3)+CalcChi2(gr4,fun_4)
-    + CalcChi2(gr5,fun_5);
+    + CalcChi2(gr5,fun_5)+CalcChi2(gr6,fun_6);
   
-  Double_t TotalNDF = (gr0->GetN() + gr1->GetN() + gr2->GetN() + gr3->GetN() + gr4->GetN() + gr5->GetN()) - 2 ;
+  Double_t TotalNDF = (gr0->GetN() + gr1->GetN() + gr2->GetN() + gr3->GetN() + gr4->GetN() + gr5->GetN() + gr6->GetN()) - 2 ;
   
   cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
   

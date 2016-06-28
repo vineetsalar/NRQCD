@@ -1285,3 +1285,31 @@ LDME : 3S1_1 1\pm0
 LDME : 3S1_8 0.00361723\pm5.81612e-05
 LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
  Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00354533\pm5.85513e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.0234617 \pm 0.000285963
+ Total Chi2 189.982/93   2.04282
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 192.914/93   2.07435
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.00361723\pm5.81612e-05
+LDME : M(1S0_8/3 + 3P0_8/mc2)  0.022804 \pm 0.000278816
+ Total Chi2 246.948/97   2.54586

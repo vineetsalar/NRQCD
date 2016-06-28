@@ -1,6 +1,20 @@
-\documentclass[aps,prc,preprint]{revtex4}
+\documentclass[aps,prc,preprint,superscriptaddress,showpacs,showkeys,amsmath]{revtex4-1}
 \usepackage{graphicx}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{rotating}
+\usepackage{graphicx}% Include  files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{epsfig}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{appendix}
+
+
+
+%\documentclass[aps,prc,preprint]{revtex4}
+%\usepackage{graphicx}
+%\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 
 \begin{document}
 
@@ -20,8 +34,8 @@ of the NRQCD factorization formalism. All these discussions consider NLO
 analyses and the LHC data. I do not see any reason why a LO analysis, such as
 the present one, brings any new significant piece of information. In summary, I
 do not think this manuscript contains any piece of new and significant
-information that could justify its publication.
-
+information that could justify its publication.\\
+{\color{blue}
 Ans: We thanks the referee for his comments. Our response is as follows:
  An LO NRQCD analyis is useful as it is straightforward and once
 the parameters are obtained by fitting over large datasets it has excellent 
@@ -31,8 +45,8 @@ not unique. Example, results LDMEs from Ref. .. and from Ref. .. do noth
 match.
  The shortcomings of NLO analysis .......[28] and [29] of our paper.
  Thw work includes most uptodate datasets for fitting.
-
-\ \\
+}
+ \\
 
 {\bf Report of Referee B -- CR10456D/Kumar} \\
 
@@ -53,99 +67,113 @@ as follows.
 
 Ans: We thank the referee for his thorough and useful comments. We sincerly attempt
 to address all his comments.
-Add reference 1-4 and see reference 7. 
 
+%Add reference 1-4 and see reference 7. 
 
-1. The authors should provide the complete definitions of the variables used in their
+\begin{enumerate}
+
+\item The authors should provide the complete definitions of the variables used in their
 manuscript, for example, the definition of $M$, $\sigma$, $p_T$ , $m_T$ , and $m_H$. 
 The symbol $\times$ in Eq.(1) is confusing. According to my calculation, it should be 
-simply ”times”.
-
-Ans: $M$ is the mass ....   $m_H$ is the mass of the heavy meson. 
-$m_T=\sqrt{p_T^2 + M^2}$ ........
- Yes $\times$ should be replaced 
-\ \\
-
-2. The statement below Eq.(1), ”... depends ... on the renormalization scale $\mu_R$” 
-is wrong. The PDF depends on $\mu_F$ , however, does not depend on $\mu_R$.
-
-Ans: Agreed.
-
-\ \\
-
-3. The authors used $M_L(QQ(n) \rightarrow H)$ to denote the LDMEs. Although optional, 
+simply ”times”.\\
+{\color{blue}
+Ans: We have defined all the variables in the equation (1) and replace the $\times$
+symbol. 
+%$M$ is the mass ....   $m_H$ is the mass of the heavy meson. 
+%$m_T=\sqrt{p_T^2 + M^2}$ ........
+%Yes $\times$ should be replaced 
+}
+\item The statement below Eq.(1), ”... depends ... on the renormalization scale $\mu_R$” 
+is wrong. The PDF depends on $\mu_F$ , however, does not depend on $\mu_R$. \\
+{\color{blue}
+Ans: We agree with the refree and modify the equation accordingly.
+}
+\item The authors used $M_L(QQ(n) \rightarrow H)$ to denote the LDMEs. Although optional, 
 I believe that using the generally used notations would improve the readability of 
-their paper.
+their paper. \\
+{\color{blue}
+Ans: There is no fixed notation for LDMEs. Different autors use different notations according to
+their tastes. We will prefer our notations but if refree feels very strongly about it We will 
+change them. 
+}
 
-Ans: The generally used notations ....
-
-\ \\
-
-4. The relations between the LDMEs for $^3S_1^{[8]}$ and $^3P^{[8]}_J$ to $J/\psi$  
+\item The relations between the LDMEs for $^3S_1^{[8]}$ and $^3P^{[8]}_J$ to $J/\psi$  
 and  $\psi$(2s) in Eq.(10) and Eq.(11) are strange. Actually, there is neither 
 theoretical nor phenomenological evidence for these relations. More confusingly, 
-even their own results in Eq.(14) and Eq.(15) do not support their relations.
+even their own results in Eq.(14) and Eq.(15) do not support their relations.\\
+{\color{blue}
+Ans: We are now fitting the linear combination of the LDMEs according to your suggestion
+7.
+}
+\item Another optional suggestion is that the authors could include the RHIC data, 
+  which is also suitable for perturbative calculations.\\
+  {\color{blue}
+    Ans: The RHIC data are very low $p_{T}$ and hence are not included in the fit.
+    %But we give a comparison of calculations with RHIC data.
+  }
 
-Ans: There is inconsistency in these equations .. check
-
-\ \\
-
-5. Another optional suggestion is that the authors could include the RHIC data, 
-which is also suitable for perturbative calculations.
-
-Ans: The RHIC data are very low pT and hence are not included in the fit.
-  But we give a comparison of calculations with RHIC data.
-
-\ \\
-
-
-6. I don’t know why the authors ignored the copius $\chi_c$ data at the Tevatron 
+\item I don’t know why the authors ignored the copius $\chi_c$ data at the Tevatron 
 and the LHC, namely Ref. [8–12]. The authors should at least address this, and 
 compare there results with Ref. [13]. They should also notice that Ref. [14] only 
 measured four points, namly the ratio $\sigma(\chi_c)/(J/\psi)$. The differential 
-cross section for $\chi_c$ production was obtained by extrapolation.
-
+cross section for $\chi_c$ production was obtained by extrapolation. \\
+{\color{blue}
 Ans: This dataset is used in the present work now.
+}
 
-\ \\
-
-
-7. The presentation of the LDMEs, $M_L(^1S^{[8]}_0 ...) = M_L(^3P^{[8]}_0 ...)/m^2_{charm}$
+\item The presentation of the LDMEs, $M_L(^1S^{[8]}_0 ...) = M_L(^3P^{[8]}_0 ...)/m^2_{charm}$
 in Eq.(14) and Eq.(15) seems strange to me. This equation has no foundation. 
-So, I suggest they present their results following the form in Ref. [2] or Ref.~\cite{Cho:1995vh}. 
+So, I suggest they present their results following the form in Ref.~\cite{Beneke:1996yw} 
+or Ref.~\cite{Cho:1995vh}. 
 Actually, they can use the $\eta_c$ hadroproduction data to fix these LDMEs, as 
 Ref. [15] did. It would be interesting to see whether this approach also applies 
-at QCD LO.
+at QCD LO.\\
 
-Ans: Check these Eqs.  Check Ref. 1 and 2.
+{\color{blue}
+Ans: We are following the method described in ref.~\cite{Cho:1995vh,Beneke:1996yw} and
+presenting the results accordingly.
+}
 
-\ \\
-
-8. The authors should compare their results with Ref. [1, 4, 5]. Once the authors 
+\item The authors should compare their results with Ref. [1, 4, 5]. Once the authors 
 can address all the issues raised above and make major extensions, I can recommend 
-publication of this paper in Physical Review D.
-
+publication of this paper in Physical Review D.\\
+{\color{blue}
 Ans: We give a table for LDMES with results from LO, Ref[1,4,5] and 
-NLO from our paper Ref [28, 29].\\
-Our values of LDMEs
-1. J/$\psi$ 
+NLO from our paper Ref [28, 29]. The LDMEs for $\psi$(2S) are given in 
+table~\ref{table:LDMEPsi2S} and the LDMEs for J/$\psi$(2S) are given in 
+table~\ref{table:LDMEJPsi}
+
+}
+\end{enumerate}
 
 
 
+\begin{table}[h]
+\caption{Comparison of $\psi$(2S) LDMEs}.
+\begin{tabular}{ccccc}
+\hline            
+          &$[^3S_1]_{1}$  &$[^3S_1]_{8}$  &$[^3P_0]_{8}$   &$[^1S_{0}]_{8}+\frac{k}{m_{c}^2}[^3P_0]_{8}$\\
+\hline
+\end{tabular}
+\label{table:LDMEPsi2S}
+\end{table}
+
+\begin{table}[h]
+\caption{Comparison of $\psi$(2S) LDMEs}.
+\begin{tabular}{ccccc}
+\hline            
+          &$[^3S_1]_{1}$  &$[^3S_1]_{8}$  &$[^3P_0]_{8}$   &$[^1S_{0}]_{8}+\frac{k}{m_{c}^2}[^3P_0]_{8}$\\
+\hline
+\end{tabular}
+\label{table:LDMEJPsi}
+\end{table}
 
 
-The way, we are doing the fitting is not proper. We have to fit the linear combintion of LDMEs.\\
-
-
-
-
-
-
-
-Ref~\cite{Cho:1995vh} defined a quantity M$_{J/\psi}$ as 
-\begin{equation}
-M_{J/\psi} = \frac{3P0_8}{m_{c}^2} + \frac{1S0_8}{3} \\ \nonumber
-\end{equation}
+%The way, we are doing the fitting is not proper. We have to fit the linear combintion of LDMEs.\\
+%Ref~\cite{Cho:1995vh} defined a quantity M$_{J/\psi}$ as 
+%\begin{equation}
+%M_{J/\psi} = \frac{3P0_8}{m_{c}^2} + \frac{1S0_8}{3} \\ \nonumber
+%\end{equation}
 
 
 
@@ -169,8 +197,7 @@ M_{J/\psi} = \frac{3P0_8}{m_{c}^2} + \frac{1S0_8}{3} \\ \nonumber
   [hep-ph/9505329].
 
   
-
-[2] M. Beneke and M. Kramer, 1, Phys. Rev. D55, 5269 (1997), hep-ph/9611218.
+%[2] M. Beneke and M. Kramer, 1, Phys. Rev. D55, 5269 (1997), hep-ph/9611218.
 \bibitem{Beneke:1996yw} 
   M.~Beneke and M.~Kramer, 1,
   ``Direct $J/\psi$ and $\psi^\prime$ polarization and cross-sections at the Tevatron,''
