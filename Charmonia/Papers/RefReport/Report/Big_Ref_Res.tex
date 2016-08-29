@@ -1,0 +1,553 @@
+\documentclass[aps,prc,preprint,superscriptaddress,showpacs,showkeys,amsmath]{revtex4-1}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{rotating}
+\usepackage{graphicx}% Include  files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{epsfig}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{appendix}
+
+
+
+%\documentclass[aps,prc,preprint]{revtex4}
+%\usepackage{graphicx}
+%\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+\begin{document}
+%%%%%\newcommand{\1S08And3P08}{$\frac{[^1S_{0}]_{8}}{3}+\frac{[^3P_0]_{8}}{m_{c}^2}$}
+
+{\bf Report of Referee A -- CR10456D/Kumar } \\
+
+
+The present manuscript analyzes charmonium production in hadronic collisions
+within the framework of Non-Relativistic QCD (NRQCD). The authors use a
+leading-order (LO) NRQCD analysis throughout the paper. I fail to see how such
+an analysis brings anything new at this point, since the current state of the
+art is to use next-to-leading-order (NLO) full NRQCD analyses. The NLO NRQCD
+computation has already been performed by three different groups, and all of
+them have extensively analyzed the available data (including LHC data) and
+performed several phenomenological studies. In fact, there has been much
+discussion lately about finally being able to prove, or disprove, the validity
+of the NRQCD factorization formalism. All these discussions consider NLO
+analyses and the LHC data. I do not see any reason why a LO analysis, such as
+the present one, brings any new significant piece of information. In summary, I
+do not think this manuscript contains any piece of new and significant
+information that could justify its publication.\\
+{\color{blue}
+Ans: We thanks the referee for his comments. Our response is as follows:\\
+  A LO NRQCD analyis is useful as it is straightforward and unique and once
+the parameters are obtained by fitting over large datasets it has excellent 
+predictability power for unknown cross sections.
+ The short distance QCD cross-sections calculation techniques at NLO are not unique. 
+Moreover the NLO cross sections are not available in public. 
+ We compare here the work of two groups ~\cite{Butenschoen:2010rq,Ma:2010jj} who 
+calculate the J/$\psi$ cross-section at NLO. Ref.~\cite{Butenschoen:2010rq} fit 
+all three color-octet ($[^3S_1]_{8}$, $[^1S_0]_{8}$ and $[^3P_0]_{8}$ ) LDMEs independently 
+while Ref.~\cite{Ma:2010jj} define two quantities M$^{J/\psi}_{1,r_{1}}$  and  M$^{J/\psi}_{0,r_{0}}$
+as a linear combination of $[^3S_1]_{8}$, $[^1S_0]_{8}$ and $[^3P_0]_{8}$.
+\begin{equation}
+M^{J/\psi}_{0,r_{0}} = [^1S_0]_{8}  + \frac{r_{0}}{m_{c}^{2}}[^3P_0]_{8}\\ \nonumber
+\end{equation}
+and
+\begin{equation}
+M^{J/\psi}_{1,r_{0}} = [^3S_1]_{8}  + \frac{r_{1}}{m_{c}^{2}}[^3P_0]_{8}\\ \nonumber
+\end{equation}
+It uses values of r$_{0}$=3.9 and r$_{1}$=-0.56. 
+\begin{table}[h]
+\caption{Comparison of J/$\psi$ LDMEs at NLO}
+\begin{tabular}{|l|c|c|c|}
+\hline            
+                             &$[^3S_1]_{1}$(GeV$^3$)                     &$M^{J/\psi}_{1,r_{1}}$(10$^{-2}$GeV$^3$)    &$M^{J/\psi}_{0,r_{0}}$(10$^{-2}$GeV$^3$)  \\        
+\hline
+\cite{Ma:2010jj}             &1.16                                     &0.05$\pm$0.02$\pm$0.02              &7.4 $\pm$ 1.9 $\pm$ 0.4 \\
+\cite{Butenschoen:2010rq}    &1.32                                     &0.594                               &2.47 \\
+\hline
+\end{tabular}
+\label{table:LDMEJPsiNLO_I}
+\end{table}
+We compare the values of Ref.~\cite{Butenschoen:2010rq} and Ref.~\cite{Ma:2010jj} in 
+the Table~\ref{table:LDMEJPsiNLO_I} which clearly shows that LDMEs from the two works 
+are different from each other. 
+ An updated QCD LO study on the charmonium hadroproduction is useful as it
+provides a reference for comparison with NLO calculations.
+ Many NLO analysis do not include the feed down contribution from the higher charmonia 
+states. Our work includes most uptodate datasets and include feeddown contributions.
+}
+ \\
+
+{\bf Report of Referee B -- CR10456D/Kumar} \\
+
+This manuscript calculated the hadroproduction cross sections of the 
+$J/\psi$ ,  $\psi$(2s) and $\chi_c$ mesons at QCD LO. These calculations have been 
+performed 20 years ago in e.g.~\cite{Cho:1995vh,Beneke:1996yw,Leibovich:1996pa,Braaten:1999qk} 
+and also in a recent paper~\cite{Sharma:2012dy}. Neither the inclusion of the LHC data in the 
+fitting nor the prediction of $\sigma(\psi(2s))/(J/\psi)$ is new.  Actually, they have 
+been studied at QCD NLO level~\cite{Shao:2014yta,Sun:2015pia}. Nevertheless, I believe 
+that an updated QCD LO study on the charmonium
+hadroproduction is necessary for the convenience of some researchers who have not been
+equipped with the tools to do QCD NLO computation. But just these materials do not
+justify the publication in Physical Review D. I suggest that the authors could publish 
+their paper in some lower-level journal. However, if they can make some major 
+extensions, I can also recommend publication of their paper in Physical Review D.
+ In addition, I provide some comments regarding more specific issues of this paper 
+as follows.
+
+Ans: We thank the referee for his thorough and useful comments. We sincerly attempt
+to address all his comments.
+
+%Add reference 1-4 and see reference 7. 
+
+\begin{enumerate}
+
+\item The authors should provide the complete definitions of the variables used in their
+manuscript, for example, the definition of $M$, $\sigma$, $p_T$ , $m_T$ , and $m_H$. 
+The symbol $\times$ in Eq.(1) is confusing. According to my calculation, it should be 
+simply ”times”.\\
+{\color{blue}
+Ans: We have defined all the variables in the equation (1) and replace the $\times$
+symbol. 
+%$M$ is the mass ....   $m_H$ is the mass of the heavy meson. 
+%$m_T=\sqrt{p_T^2 + M^2}$ ........
+%Yes $\times$ should be replaced 
+}
+\item The statement below Eq.(1), ”... depends ... on the renormalization scale $\mu_R$” 
+is wrong. The PDF depends on $\mu_F$ , however, does not depend on $\mu_R$. \\
+{\color{blue}
+Ans: We agree with the refree and modify the statement accordingly.
+}
+\item The authors used $M_L(QQ(n) \rightarrow H)$ to denote the LDMEs. Although optional, 
+I believe that using the generally used notations would improve the readability of 
+their paper. \\
+{\color{blue}
+Ans: There is no fixed notation for LDMEs. Different authors use different notations according to
+their tastes. In this version we choose to keep our notations. 
+%We will prefer our notations but if refree feels very strongly about it We will 
+%change them. 
+}
+
+\item The relations between the LDMEs for $^3S_1^{[8]}$ and $^3P^{[8]}_J$ to $J/\psi$  
+and  $\psi$(2s) in Eq.(10) and Eq.(11) are strange. Actually, there is neither 
+theoretical nor phenomenological evidence for these relations. More confusingly, 
+even their own results in Eq.(14) and Eq.(15) do not support their relations.\\
+{\color{blue}
+Ans: As per last version, we were using equation 14 and 15 for the fitting purposes. There was
+a typo in equation 10 and 11. We have corrected it. However now we are fitting the 
+linear combination of the LDMEs according to your suggestion in point no. 7.
+}
+\item Another optional suggestion is that the authors could include the RHIC data, 
+  which is also suitable for perturbative calculations.\\
+  {\color{blue}
+    Ans: The RHIC data are at very low $p_{T}$ and hence are not included in the fit.
+    %But we give a comparison of calculations with RHIC data.
+  }
+
+
+\item I don’t know why the authors ignored the copius $\chi_c$ data at the Tevatron 
+and the LHC, namely~\cite{LHCb:2012af,Aaij:2013dja,Chatrchyan:2012ub,ATLAS:2014ala}. The authors 
+should at least address this, and compare there results with ~\cite{Jia:2014jfa}. They should also notice that~\cite{Abe:1997yz} 
+only measured four points, namly the ratio $\sigma(\chi_c)/(J/\psi)$. The differential 
+cross section for $\chi_c$ production was obtained by extrapolation. \\
+{\color{blue}
+Ans: Now we use the dataset of ~\cite{LHCb:2012af,Aaij:2013dja,Chatrchyan:2012ub,ATLAS:2014ala} for fitting and
+comparison tables are given.%
+\ref{table:LDMEChic0}.
+}
+
+\item The presentation of the LDMEs, $M_L(^1S^{[8]}_0 ...) = M_L(^3P^{[8]}_0 ...)/m^2_{charm}$
+in Eq.(14) and Eq.(15) seems strange to me. This equation has no foundation. 
+So, I suggest they present their results following the form in Ref.~\cite{Beneke:1996yw} 
+or Ref.~\cite{Cho:1995vh}. 
+Actually, they can use the $\eta_c$ hadroproduction data to fix these LDMEs, as 
+Ref.~\cite{Zhang:2014ybe} did. It would be interesting to see whether this approach also applies 
+at QCD LO.\\
+
+{\color{blue}
+Ans: We are following the method described in Ref.~\cite{Cho:1995vh,Beneke:1996yw} and
+presenting the results accordingly as per your suggestion.
+}
+
+\item The authors should compare their results with Ref.~\cite{Cho:1995vh, Braaten:1999qk, Sharma:2012dy}. Once the authors 
+can address all the issues raised above and make major extensions, I can recommend 
+publication of this paper in Physical Review D.\\
+{\color{blue}
+Ans: We give a table for LDMES with results from LO, Ref.~\cite{Cho:1995vh, Braaten:1999qk, Sharma:2012dy} and 
+NLO from Ref.~\cite{Butenschoen:2010rq,Ma:2010jj}. The LDMEs for $\psi$(2S) are given in table~\ref{table:LDMEPsi2S} and 
+the LDMEs for J/$\psi$ are given in table~\ref{table:LDMEJPsi}. The  LDMEs for $\chi_{c0}$ are given in 
+table~\ref{table:LDMEChic0}.
+
+\begin{table}[h]
+\caption{Comparison of $\psi$(2S) LDMEs. The short distance calculations are at LO. }
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline            
+Ref.                             &PDF     &m$_{c}$  &$[^3S_1]_{1}$    &$[^3S_1]_{8}$        &$\frac{[^1S_{0}]_{8}}{3}+\frac{[^3P_0]_{8}}{m_{c}^2}$ &$[^1S_0]_{8}$   &$[^3P_0]_{8}$\\
+                                &        &(GeV)   &(GeV$^3$)       &(GeV$^3$)           &(GeV$^3$)                                         &(GeV$^3$)      &(GeV$^5$)\\ 
+\hline
+Present                         &CTEQ6M   &1.6     &0.76           &0.00362$\pm$0.00006 &0.02280$\pm$0.00028                               &$--$            &$--$ \\
+\cite{Cho:1995vh}               &MRSD0    &1.48    &$--$           &0.0046$\pm$0.0010   &0.0059$\pm$0.0019                                 &$--$            &$--$ \\
+\cite{Braaten:1999qk}           &MRST98LO &1.5     &0.65$\pm$0.6   &0.0042$\pm$0.0010   &0.0037$\pm$0.0014                                 &$--$            &$--$ \\
+\cite{Braaten:1999qk}           &CTEQ5L   &1.5     &0.67$\pm$0.7   &0.0037$\pm$0.0090   &0.0022$\pm$0.001                                  &$--$            &$--$ \\
+\cite{Sharma:2012dy}            &MSTW08LO &1.4     &0.76           &0.0033$\pm$0.00021  &0.01067$\pm$0.0009                                &0.0080$\pm$0.0007&m$_{c}^{2}$.$[^1S_0]_{8}$\\
+\cite{Beneke:1996yw}            &CTEQ4L   &1.5     &$--$           &0.0044$\pm$0.0008   &0.00514$\pm$0.0016                                &$--$            &$--$ \\
+\cite{Beneke:1996yw}            &GRV94LO  &1.5     &$--$           &0.0046$\pm$0.0008   &0.00457$\pm$0.0014                                &$--$            &$--$ \\
+\cite{Beneke:1996yw}            &MRSR2    &1.5     &$--$           &0.0056$\pm$0.0011   &0.01246$\pm$0.0027                                &$--$            &$--$ \\
+\hline
+\end{tabular}
+\label{table:LDMEPsi2S}
+\end{table}
+
+
+
+
+
+\begin{table}[h]
+\caption{Comparison of J/$\psi$ LDMEs. The short distance calculations are at LO except ref~\cite{Butenschoen:2010rq}.}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline            
+Ref.                             &PDF     &m$_{c}$  &$[^3S_1]_{1}$    &$[^3S_1]_{8}$        &$\frac{[^1S_{0}]_{8}}{3}+\frac{[^3P_0]_{8}}{m_{c}^2}$ &$[^1S_0]_{8}$   &$[^3P_0]_{8}$\\
+                                &        &(GeV)   &(GeV$^3$)       &(GeV$^3$)           &(GeV$^3$)                                         &(GeV$^3$)      &(GeV$^5$)\\ 
+\hline
+Present                        &CTEQ6M   &1.6     &1.2            &0.00206$\pm$0.00014  &0.06384$\pm$0.00106                              &$--$           &$--$\\
+\cite{Cho:1995vh}              &MRSD0    &1.48    &$--$           &0.0066$\pm$0.0021    &0.0220$\pm$0.050                                 &$--$           &$--$ \\
+\cite{Braaten:1999qk}          &MRST98LO &1.5     &1.3$\pm$0.1    &0.0044$\pm$0.0007    &0.026$\pm$0.0026                                 &$--$           &$--$\\
+\cite{Braaten:1999qk}          &CTEQ5L   &1.5     &1.4$\pm$0.1    &0.0039$\pm$0.0007    &0.0194$\pm$0.0021                                &$--$           &$--$\\
+\cite{Sharma:2012dy}           &MSTW08LO &1.4      &1.2            &0.0013$\pm$0.0013    &0.0239$\pm$0.0115                                &0.018$\pm$0.0087&m$_{c}^{2}.[^1S_0]_{8}$ \\
+\cite{Beneke:1996yw}            &CTEQ4L   &1.5     &$--$           &0.0106$\pm$0.0014   &0.0125$\pm$0.0032                                &$--$            &$--$ \\
+\cite{Beneke:1996yw}            &GRV94LO  &1.5     &$--$           &0.0112$\pm$0.0014   &0.0114$\pm$0.0032                                &$--$            &$--$ \\
+\cite{Beneke:1996yw}            &MRSR2    &1.5     &$--$           &0.0140$\pm$0.0022   &0.0311$\pm$0.0059                                &$--$            &$--$ \\
+\cite{Butenschoen:2010rq}      &CTEQ6M   &1.5     &1.32           &0.00312$\pm$0.00093 &0.00962$\pm$0.0008                               &0.0450           &-0.0121 \\
+                        (NLO)  &    &      &             &     &                                                                         &$\pm$0.0072      &$\pm$0.0035\\
+\hline
+\end{tabular}
+\label{table:LDMEJPsi}
+\end{table}
+
+\begin{table}[h]
+\caption{Comparison of $\chi_{c0}$ LDMEs. The short distance calculations are at LO except ref~\cite{Jia:2014jfa}(NLO).}
+\begin{tabular}{|l|c|c|c|c|}
+\hline            
+Ref.                             &PDF     &m$_{c}$      &$[^3P_0]_{1}$                     &$[^3S_1]_{8}$      \\        
+                                &        &(GeV)       &(GeV$^5$)                        &(GeV$^3$)         \\
+\hline
+Present                        &CTEQ6M   &1.6         &0.054m$_{c}^{2}$                 &0.01112$\pm$0.00068\\
+\cite{Cho:1995vh}              &MRSD0    &1.48        &$--$                            &0.0098$\pm$0.0013   \\
+\cite{Braaten:1999qk}          &MRST98LO &1.5         &0.089$\pm$0.013                 &0.0023$\pm$0.0003    \\
+\cite{Braaten:1999qk}          &CTEQ5L   &1.5         &0.091$\pm$0.013                 &0.0019$\pm$0.0002     \\
+\cite{Sharma:2012dy}           &MSTW08LO &1.4         &0.054m$_{c}^{2}$                   &0.00187$\pm$0.00025     \\
+\cite{Jia:2014jfa}(LO)         &CTEQ6L   &1.5         &$--$                            &0.00031$\pm$0.00009   \\ 
+\cite{Jia:2014jfa}(NLO)        &CTEQ6M   &1.5         &$--$                            &0.0021$\pm$0.00004  \\ 
+\hline
+\end{tabular}
+\label{table:LDMEChic0}
+\end{table}
+
+}
+\end{enumerate}
+
+
+{\color{blue}
+Table~\ref{table:LDMEPsi2S} shows $\psi$(2S) LDMEs extracted in present analysis along with the results from other 
+works. The value of charm quark mass as well as the PDFs used in the calculations are also shown in the table.
+ All the calculations are at LO in $\alpha_{s}$. The calculations in Ref.~\cite{Cho:1995vh,Braaten:1999qk,Beneke:1996yw} use only 
+CDF data to fit the LDMEs while the Ref.~\cite{Sharma:2012dy} uses CDF and LHC data at mid-rapidity. In our analysis we use data from
+CDF~\cite{Abe:1997jz,Acosta:2004yw} and LHC data in mid rapidity~\cite{Chatrchyan:2011kc,Khachatryan:2015rra,Aad:2015duc} as well 
+as LHC data in forward rapidity~\cite{Aaij:2012ag}. Our value of matrix element $[^3S_1]_{8}$ is 
+similar with other analysis. The value of linear-combination, ($\frac{[^1S_{0}]_{8}}{3}+\frac{[^3P_0]_{8}}{m_{c}^2}$), vary significantly from 0.0022 to
+0.01246 between different analyis. As it can be seen from Table~\ref{table:LDMEPsi2S} the high energy LHC data require larger value of
+($\frac{[^1S_{0}]_{8}}{3}+\frac{[^3P_0]_{8}}{m_{c}^2}$).    
+
+
+Table~\ref{table:LDMEJPsi} shows J/$\psi$ LDMEs extracted in present analysis along with the results from other 
+works. All the calculations except Ref.~\cite{Butenschoen:2010rq} are at LO in $\alpha_{s}$. 
+The calculations in Ref.~\cite{Cho:1995vh,Braaten:1999qk,Beneke:1996yw} 
+use only CDF data to fit the LDMEs while Ref.~\cite{Sharma:2012dy} uses CDF, RHIC and LHC data at mid-rapidity. 
+In our analysis we use data from CDF~\cite{Abe:1997jz,Acosta:2004yw} and LHC data in mid rapidity~\cite{Chatrchyan:2011kc,Khachatryan:2015rra,Aad:2015duc} 
+as well as LHC data in forward rapidity~\cite{Aaij:2011jh,Aaij:2015rla}, both the datasets covering a much wider $p_T$ range.
+The value of the matrix element $[^3S_1]_{8}$ is differnt from different analysis.
+The large error present on $[^3S_1]_{8}$ in Ref.~\cite{Sharma:2012dy} is significantly improved by our 
+simultaneous fitting of several datasets. The value of linear-combination, 
+($\frac{[^1S_{0}]_{8}}{3}+\frac{[^3P_0]_{8}}{m_{c}^2}$), varies significantly from 0.0114 to 
+0.06384 (our value) between different analyis at LO. The NLO analysis~\cite{Butenschoen:2010rq} does not fit the linear combination but
+fit all the three ($[^3S_1]_{8}$,$[^1S_{0}]_{8}$ and $[^3P_0]_{8}$) LDMEs independently. The value of ($\frac{[^1S_{0}]_{8}}{3}+\frac{[^3P_0]_{8}}{m_{c}^2}$)
+is very small for Ref.~\cite{Butenschoen:2010rq} because of the negative value of $[^3P_0]_{8}$.     
+
+Ref.~\cite{Ma:2010jj} define two quantities M$^{J/\psi}_{1,r_{1}}$  and  M$^{J/\psi}_{0,r_{0}}$
+as a linear combination of combination of $[^3S_1]_{8}$, $[^1S_0]_{8}$ and $[^3P_0]_{8}$
+color octet LDMEs. 
+  
+\begin{equation}
+M^{J/\psi}_{0,r_{0}} = [^1S_0]_{8}  + \frac{r_{0}}{m_{c}^{2}}[^3P_0]_{8}\\ \nonumber
+\end{equation}
+and
+\begin{equation}
+M^{J/\psi}_{1,r_{0}} = [^3S_1]_{8}  + \frac{r_{1}}{m_{c}^{2}}[^3P_0]_{8}\\ \nonumber
+\end{equation}
+
+It uses values of $r_{0}$=3.9 and $r_{1}$=-0.56. We compare the values of Ref~\cite{Butenschoen:2010rq}
+and Ref~\cite{Ma:2010jj} here.
+
+\begin{table}[h]
+\caption{Comparison of J/$\psi$ LDMEs}
+\begin{tabular}{|l|c|c|c|}
+\hline            
+                             &$[^3S_1]_{1}$(GeV$^3$)                     &$M^{J/\psi}_{1,r_{1}}$(10$^{-2}$GeV$^3$)    &$M^{J/\psi}_{0,r_{0}}$(10$^{-2}$GeV$^3$)  \\        
+\hline
+\cite{Ma:2010jj}             &1.16                                     &0.05$\pm$0.02$\pm$0.02              &7.4 $\pm$ 1.9 $\pm$ 0.4 \\
+\cite{Butenschoen:2010rq}    &1.32                                     &0.594                               &2.47 \\
+\hline
+\end{tabular}
+\label{table:LDMEJPsiNLO}
+\end{table}
+
+
+
+
+
+
+
+
+
+Table~\ref{table:LDMEChic0} shows $\chi_{c0}$ LDMEs extracted in present analysis along with the results from other
+analysis. The short distance calculations are at LO except the last row in the table. We have made major extension in fitting
+the $\chi_{c}$ LDME. All the earlier calculations~\cite{Cho:1995vh,Braaten:1999qk,Sharma:2012dy} use only CDF data to
+fit the $\chi_{c}$ LDME. We use CDF data~\cite{Abe:1997yz} along-with the data from LHC~\cite{ATLAS:2014ala,Chatrchyan:2012ub,Aaij:2013dja} 
+to constrain the CO LDME of $\chi_{c}$. The new high energy LHC data require large value of $[^3S_1]_{8}$ to fit the data.  
+}
+
+\
+\\
+
+\noindent
+\begin{thebibliography}{100}
+\medskip
+
+
+
+\bibitem{Cho:1995vh} 
+  P.~L.~Cho and A.~K.~Leibovich,
+  ``Color octet quarkonia production,''
+  Phys.\ Rev.\ D {\bf 53}, 150 (1996),
+  [hep-ph/9505329].
+
+\bibitem{Beneke:1996yw} 
+  M.~Beneke and M.~Kramer, 1,
+  ``Direct $J/\psi$ and $\psi^\prime$ polarization and cross-sections at the Tevatron,''
+  Phys.\ Rev.\ D {\bf 55}, 5269 (1997), [hep-ph/9611218].
+
+%[3] A. K. Leibovich, Phys. Rev. D56, 4412 (1997), hep-ph/9610381.
+\bibitem{Leibovich:1996pa} 
+  A.~K.~Leibovich,
+  ``Psi-prime polarization due to color octet quarkonia production,''
+  Phys.\ Rev.\ D {\bf 56}, 4412 (1997), [hep-ph/9610381].
+
+%[4] E. Braaten, B. A. Kniehl, and J. Lee, Phys. Rev. D62, 094005 (2000), hep-ph/9911436.
+\bibitem{Braaten:1999qk} 
+  E.~Braaten, B.~A.~Kniehl and J.~Lee,
+  ``Polarization of prompt $J/\psi$ at the Tevatron,''
+  Phys.\ Rev.\ D {\bf 62}, 094005 (2000),[hep-ph/9911436].
+
+%[5] R. Sharma and I. Vitev, Phys. Rev. C87, 044905 (2013), 1203.0329.
+\bibitem{Sharma:2012dy} 
+  R.~Sharma and I.~Vitev,
+  ``High transverse momentum quarkonium production and dissociation in heavy ion collisions,''
+  Phys.\ Rev.\ C {\bf 87}, no. 4, 044905 (2013)
+  [arXiv:1203.0329 [hep-ph]].
+
+
+%[6] H.-S. Shao, H. Han, Y.-Q. Ma, C. Meng, Y.-J. Zhang, and K.-T. Chao, JHEP 05, 103 (2015),1411.3300.
+\bibitem{Shao:2014yta} 
+  H.~S.~Shao, H.~Han, Y.~Q.~Ma, C.~Meng, Y.~J.~Zhang and K.~T.~Chao,
+  ``Yields and polarizations of prompt $J/\psi$ and $\psi(2S)$ production in hadronic collisions,''
+  JHEP {\bf 1505}, 103 (2015)
+  doi:10.1007/JHEP05(2015)103
+  [arXiv:1411.3300 [hep-ph]].
+
+
+%[7] Z. Sun and H.-F. Zhang (2015), 1505.02675.
+\bibitem{Sun:2015pia} 
+  Z.~Sun and H.~F.~Zhang,
+  ``Reconciling charmonium production and polarization data within the nonrelativistic QCD framework,'',
+  arXiv:1505.02675 [hep-ph].
+
+
+%[8] A. Abulencia et al. (CDF), Phys. Rev. Lett. 98, 232001 (2007), hep-ex/0703028.
+\bibitem{Abulencia:2007bra} 
+  A.~Abulencia {\it et al.} [CDF Collaboration],
+  ``Measurement of $\sigma_{\chi_{c2}}{\cal B}(\chi_{c2} \to J/\psi \gamma)/\sigma_{\chi_{c1}} {\cal B}(\chi_{c1} \to J/\psi \gamma)$ 
+  in $p \bar{p}$ collisions at $\sqrt{s}$ = 1.96-TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 98}, 232001 (2007),[hep-ex/0703028 [HEP-EX]].
+
+%[9] R. Aaij et al. (LHCb), Phys. Lett. B718, 431 (2012), 1204.1462.
+
+\bibitem{LHCb:2012af} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of the ratio of prompt $\chi_{c}$ to $J/\psi$ production in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Phys.\ Lett.\ B {\bf 718}, 431 (2012),[arXiv:1204.1462 [hep-ex]].
+
+
+ %[10] R. Aaij et al. (LHCb), JHEP 10, 115 (2013), 1307.4285.
+\bibitem{Aaij:2013dja} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of the relative rate of prompt $\chi_{c0}$, $\chi_{c1}$ and $\chi_{c2}$ production at $\sqrt{s}=7$TeV,''
+  JHEP {\bf 1310}, 115 (2013), [arXiv:1307.4285 [hep-ex]].
+ 
+%[11] S. Chatrchyan et al. (CMS), Eur. Phys. J. C72, 2251 (2012), 1210.0875.
+\bibitem{Chatrchyan:2012ub} 
+  S.~Chatrchyan {\it et al.} [CMS Collaboration],
+  ``Measurement of the relative prompt production rate of $\chi_{c2}$ and $\chi_{c1}$ 
+  in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 2251 (2012),[arXiv:1210.0875 [hep-ex]].
+
+
+
+%[12] G. Aad et al. (ATLAS), JHEP 07, 154 (2014), 1404.7035.
+\bibitem{ATLAS:2014ala} 
+  G.~Aad {\it et al.} [ATLAS Collaboration],
+  ``Measurement of $\chi_{c1}$ and $\chi_{c2}$ production with $\sqrt{s}$ = 7 TeV $pp$ collisions at ATLAS,''
+  JHEP {\bf 1407}, 154 (2014), [arXiv:1404.7035 [hep-ex]].
+
+%[13] H.-F. Zhang, L. Yu, S.-X. Zhang, and L. Jia, Phys. Rev. D93, 054033 (2016), 
+ [Addendum: Phys. Rev.D93,no.7,079901(2016)], 1410.4032.
+\bibitem{Jia:2014jfa} 
+  H.~F.~Zhang, L.~Yu, S.~X.~Zhang and L.~Jia,
+  ``Global analysis of the experimental data on $\chi_c$ meson hadroproduction,''
+  Phys.\ Rev.\ D {\bf 93}, no. 5, 054033 (2016) Addendum: [Phys.\ Rev.\ D {\bf 93}, no. 7, 079901 (2016)], 
+  [arXiv:1410.4032 [hep-ph]].
+
+%[14] F. Abe et al. (CDF), Phys. Rev. Lett. 79, 578 (1997).
+\bibitem{Abe:1997yz} 
+  F.~Abe {\it et al.} [CDF Collaboration],
+  ``Production of $J/\psi$ mesons from $\chi_c$ meson decays in $p\bar{p}$ collisions at $\sqrt{s} = 1.8$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 79}, 578 (1997).
+
+
+%[15] H.-F. Zhang, Z. Sun, W.-L. Sang, and R. Li, Phys. Rev. Lett. 114, 092006 (2015), 1412.0508.
+\bibitem{Zhang:2014ybe} 
+  H.~F.~Zhang, Z.~Sun, W.~L.~Sang and R.~Li,
+  ``Impact of $\eta_c$ hadroproduction data on charmonium production and polarization within NRQCD framework,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, no. 9, 092006 (2015), [arXiv:1412.0508 [hep-ph]].
+  
+
+
+\bibitem{Butenschoen:2010rq} 
+  M.~Butenschoen and B.~A.~Kniehl,
+  ``Reconciling $J/\psi$ production at HERA, RHIC, Tevatron, and LHC with NRQCD factorization at next-to-leading order,''
+  Phys.\ Rev.\ Lett.\  {\bf 106}, 022003 (2011). 
+[arXiv:1009.5662 [hep-ph]].
+ 
+
+\bibitem{Ma:2010jj} 
+  Y.~Q.~Ma, K.~Wang and K.~T.~Chao,
+  ``A complete NLO calculation of the $J/\psi$ and $\psi'$ production at hadron colliders,''
+  Phys.\ Rev.\ D {\bf 84}, 114001 (2011),
+  [arXiv:1012.1030 [hep-ph]].
+
+
+
+
+
+%\bibitem{Abe:1997yz} 
+ % F.~Abe {\it et al.} [CDF Collaboration],
+ % ``Production of $J/\psi$ mesons from $\chi_c$ meson decays in $p\bar{p}$ collisions at $\sqrt{s} = 1.8$ TeV,''
+ % Phys.\ Rev.\ Lett.\  {\bf 79}, 578 (1997).
+
+
+%\bibitem{Abulencia:2007bra} 
+%  A.~Abulencia {\it et al.} [CDF Collaboration],
+%  ``Measurement of $\sigma_{\chi_{c2}}{\cal B}(\chi_{c2} \to J/\psi \gamma)/\sigma_{\chi_{c1}} {\cal B}(\chi_{c1} \to J/\psi \gamma)$ 
+%  in $p \bar{p}$ collisions at $\sqrt{s}$ = 1.96-TeV,''
+%  Phys.\ Rev.\ Lett.\  {\bf 98}, 232001 (2007),[hep-ex/0703028 [HEP-EX]].
+
+
+\bibitem{Abe:1997jz} 
+  F.~Abe {\it et al.} [CDF Collaboration],
+  ``$J/\psi$ and $\psi(2S)$ production in $p\bar{p}$ collisions at $\sqrt{s} = 1.8$ TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 79}, 572 (1997).
+  
+
+\bibitem{Acosta:2004yw} 
+  D.~Acosta {\it et al.}  [CDF Collaboration],
+  ``Measurement of the J/$\psi$ meson and $b-$hadron production cross sections in $p\bar{p}$ collisions at $\sqrt{s} = 1960$ GeV,''
+  Phys.\ Rev.\ D {\bf 71}, 032001 (2005).
+
+
+
+\bibitem{Chatrchyan:2011kc} 
+  S.~Chatrchyan {\it et al.} [CMS Collaboration],
+  ``$J/\psi$ and $\psi_{2S}$ production in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  JHEP {\bf 1202}, 011 (2012).
+%  [arXiv:1111.1557 [hep-ex]].
+  
+
+\bibitem{Khachatryan:2015rra} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Measurement of J/$\psi$ and $\psi$(2S) Prompt Double-Differential Cross Sections in pp Collisions at $\sqrt{s}$=7  TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, no. 19, 191802 (2015).
+%  [arXiv:1502.04155 [hep-ex]].
+
+%\bibitem{Chatrchyan:2012ub} 
+ % S.~Chatrchyan {\it et al.} [CMS Collaboration],
+  %``Measurement of the relative prompt production rate of $\chi_{c2}$ and $\chi_{c1}$ 
+  %in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+  %Eur.\ Phys.\ J.\ C {\bf 72}, 2251 (2012),[arXiv:1210.0875 [hep-ex]].
+
+
+\bibitem{Aad:2015duc} 
+  G.~Aad {\it et al.} [ATLAS Collaboration],
+  ``Measurement of the differential cross-sections of prompt and non-prompt production of $J/\psi$ 
+  and $\psi(2\mathrm{S})$ in $pp$ collisions at $\sqrt{s} = 7$ and $8$ TeV with the ATLAS detector,''
+  arXiv:1512.03657 [hep-ex].
+
+
+%\bibitem{ATLAS:2014ala} 
+%  G.~Aad {\it et al.} [ATLAS Collaboration],
+%  ``Measurement of $\chi_{c1}$ and $\chi_{c2}$ production with $\sqrt{s}$ = 7 TeV $pp$ collisions at ATLAS,''
+%  JHEP {\bf 1407}, 154 (2014), [arXiv:1404.7035 [hep-ex]].
+
+
+\bibitem{Aaij:2012ag} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of $\psi(2S)$ meson production in pp collisions at $\sqrt{s}$=7 TeV,''
+  Eur.\ Phys.\ J.\ C {\bf 72}, 2100 (2012).
+%  [arXiv:1204.1258 [hep-ex]].
+
+
+\bibitem{Aaij:2011jh} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of $J/\psi$ production in $pp$ collisions at $\sqrt{s}=7~\rm{TeV}$,''
+  Eur.\ Phys.\ J.\ C {\bf 71}, 1645 (2011).
+%  [arXiv:1103.0423 [hep-ex]].
+
+\bibitem{Aaij:2015rla} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of forward $J/\psi$ production cross-sections in $pp$ collisions at $\sqrt{s}=13$ TeV,''
+  JHEP {\bf 1510}, 172 (2015).
+% [arXiv:1509.00771 [hep-ex]].
+
+
+%\bibitem{LHCb:2012af} 
+%  R.~Aaij {\it et al.} [LHCb Collaboration],
+%  ``Measurement of the ratio of prompt $\chi_{c}$ to $J/\psi$ production in $pp$ collisions at $\sqrt{s}=7$ TeV,''
+%  Phys.\ Lett.\ B {\bf 718}, 431 (2012),[arXiv:1204.1462 [hep-ex]].
+
+
+ %\bibitem{Aaij:2013dja} 
+ % R.~Aaij {\it et al.} [LHCb Collaboration],
+ % ``Measurement of the relative rate of prompt $\chi_{c0}$, $\chi_{c1}$ and $\chi_{c2}$ production at $\sqrt{s}=7$TeV,''
+ % JHEP {\bf 1310}, 115 (2013), [arXiv:1307.4285 [hep-ex]].
+ 
+
+
+
+
+
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}

@@ -144,22 +144,17 @@ TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin);
 Double_t Scale_Pt(Double_t JPsiPt, Int_t Par);
 TGraph *Scale_QCDSigma_Pt(TGraph *InGraph, Double_t LDME, Int_t Par);
 
-TGraphAsymmErrors *gr0;
 
+TGraphAsymmErrors *gr0;
 TGraphAsymmErrors *gr1;
 TGraphAsymmErrors *gr2;
-
-
 TGraphAsymmErrors *gr3;
 TGraphAsymmErrors *gr4;
 TGraphAsymmErrors *gr4_t;
 
-
-
 Double_t fcn0(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
 Double_t fcn1(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
 Double_t fcn2(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
-
 Double_t fcn3(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
 Double_t fcn4(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
 
@@ -696,8 +691,6 @@ void ChiCLDME()
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->Draw("same");
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->Draw("same");
   
-  
-
   gPad->SaveAs("Chic1_CDF_Fit.png");
   gPad->SaveAs("Chic1_CDF_Fit.pdf");
 
@@ -769,7 +762,7 @@ void ChiCLDME()
   Out_grATLAS_Chic1_RootS7TeV_Y0075_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   lgd_DSigmaDPtDY_ATLAS_7TeV_Chic1->Draw("same");
   lgd_DSigmaDPtDY_ATLAS_7TeV_Chic1_1->Draw("same");
- 
+  tb->DrawLatex(0.23,0.18,"(a)");
   gPad->SaveAs("Chic1_ATLAS_Fit.png");
   gPad->SaveAs("Chic1_ATLAS_Fit.pdf");
 
@@ -829,7 +822,7 @@ void ChiCLDME()
   lgd_DSigmaDPtDY_ATLAS_7TeV_Chic2->Draw("same");
   lgd_DSigmaDPtDY_ATLAS_7TeV_Chic2_1->Draw("same");
 
-
+  tb->DrawLatex(0.23,0.18,"(b)");
   gPad->SaveAs("Chic2_ATLAS_Fit.png");
   gPad->SaveAs("Chic2_ATLAS_Fit.pdf");
 
@@ -877,7 +870,7 @@ void ChiCLDME()
   fun_3->Draw("same");
   lgd_DSigmaDPtDY_CMS_7TeV_RatioChiC2Chic1->Draw("same");
   lgd_DSigmaDPtDY_CMS_7TeV_RatioChiC2Chic1_1->Draw("same");
-
+  tb->DrawLatex(0.27,0.18,"(a)");
   gPad->SaveAs("Chic2Chic1_CMS_Fit.png");
   gPad->SaveAs("Chic2Chic1_CMS_Fit.pdf");
 
@@ -926,7 +919,7 @@ void ChiCLDME()
 
   lgd_DSigmaDPtDY_LHCb_7TeV_RatioChiC2Chic1->Draw("same");
   lgd_DSigmaDPtDY_LHCb_7TeV_RatioChiC2Chic1_1->Draw("same");
-
+  tb->DrawLatex(0.27,0.18,"(b)");
   gPad->SaveAs("Chic2Chic1_LHCb_Fit.png");
   gPad->SaveAs("Chic2Chic1_LHCb_Fit.pdf");
 

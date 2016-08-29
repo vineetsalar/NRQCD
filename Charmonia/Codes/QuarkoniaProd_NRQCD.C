@@ -57,9 +57,9 @@ using namespace LHAPDF;
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 1800.0;
+const Double_t RootS = 7000.0;
 
-Int_t IsPrediction =1;
+Int_t IsPrediction =0;
 
 
 //===== for gauss quadrature integration ========//
@@ -74,7 +74,7 @@ Double_t WWk[NNXXk]={0.0};
 
 // 1.6 is our nominal value
 //const Double_t mC = 1.4; //Mass_var1
-const Double_t mC = 1.6;
+const Double_t mC = 4.88;
 //const Double_t mC = 1.8;//Mass_var2
 
 const Double_t mJPsi = 2.0*mC;
@@ -153,7 +153,7 @@ const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.00187;  // no mc2 it is going as GeV^3          
 */
 
-
+/*
 // Chic2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 5;
 //const Double_t mC = 1.6;
@@ -169,7 +169,7 @@ const Double_t NC = 3.0;
 const Double_t R02 = 2.0*pi*0.054*5.0*mC*mC/(3.0*NC);  //GeV^5 
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic= 0.00187;  // no mc2 it is going as GeV^3          
-
+*/
 
 /*
 // Y(1S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -211,11 +211,12 @@ const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
 */
 
-/*
+
 // Y(3S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 8;
-const Double_t mC = 4.88;
-const Double_t mJPsi = 10.3552;
+
+//const Double_t mC = 4.88;
+//const Double_t mJPsi = 10.3552;
 
 //const Double_t OO_QQbar_3S1_1_JPsi=4.3;   //GeV^3
 const Double_t NC = 3.0;        
@@ -229,7 +230,7 @@ const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0002*mC*mC; //GeV^5
 //================ Faltu ===============//
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
-*/
+
 
 /*
 // Chi_b0 (1P)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -746,7 +747,7 @@ void QuarkoniaProd_NRQCD()
   //Experimental
   Double_t Pt = 0.0;
   Double_t PtMin = 2.0;
-  Double_t PtMax = 120.0;
+  Double_t PtMax = 80.0;
   Double_t PtStep = 0.5;
   Int_t NNPt = (PtMax - PtMin)/PtStep;
   //cout<<"APt: "<<"    "<<"DSigmaDt_GG_Pt: "<<"    "<<"DSigmaDt_qq_Pt: "<<"    "<<"DSigmaDt_qg_Pt: "<<"    "<<"DSigmaDPtDY_Pt: "<<endl;
@@ -767,13 +768,6 @@ void QuarkoniaProd_NRQCD()
   if(QQbarVar  ==3){BRChicToJPsi=0.0116; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
   if(QQbarVar  ==4){BRChicToJPsi=0.3440; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
   if(QQbarVar  ==5){BRChicToJPsi=0.1950; BRJPsiToMuMu=0.0593; Psi2MuMu = BRChicToJPsi*BRJPsiToMuMu;}
-
-  //only for cross section ratios measured by LHCb
-  //if(QQbarVar  ==4){Psi2MuMu = 1.0;}
-  //if(QQbarVar  ==5){Psi2MuMu = 1.0;}
-
-
-
 
   
   Double_t Upsilon2MuMu = 0.0;
@@ -796,7 +790,7 @@ void QuarkoniaProd_NRQCD()
 
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5){
 
-	Double_t YMin = 2.5; Double_t YMax = 4.0; 
+	Double_t YMin = -1.2; Double_t YMax = 1.2; 
 
 	Double_t DeltaY = (YMax - YMin);
 	/*
