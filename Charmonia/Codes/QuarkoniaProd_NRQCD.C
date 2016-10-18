@@ -4235,8 +4235,6 @@ Double_t SSPlusTTPlusUU(Double_t Xa, Double_t Pt, Double_t Y)
 }
 
 
-
-
 Double_t quark_function(Int_t nf, Double_t x, Double_t Qsquare)
 {
   Double_t  Q=TMath::Sqrt(Qsquare);

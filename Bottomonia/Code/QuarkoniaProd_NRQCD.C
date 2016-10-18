@@ -57,7 +57,7 @@ using namespace LHAPDF;
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 7000.0;
+const Double_t RootS = 1800.0;
 
 Int_t IsPrediction =1;
 
@@ -787,9 +787,6 @@ void QuarkoniaProd_NRQCD()
   Psi2MuMu =1.0; 
 
 
-
-
-
   for(Int_t i =0;i<NNPt;i++)
     {
 
@@ -800,9 +797,11 @@ void QuarkoniaProd_NRQCD()
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5 
 	 || QQbarVar ==6 || QQbarVar ==7 || QQbarVar ==8 || QQbarVar ==9 || QQbarVar ==10){
 
-	Double_t YMin = -1.2; Double_t YMax = 1.2; 
+	Double_t YMin = -0.4; Double_t YMax = 0.4; 
 
 	Double_t DeltaY = (YMax - YMin);
+	
+
 	/*
 	Double_t LDME_3S1_1 = 1.0;
 	Double_t LDME_1S0_8 = 0.0080;
