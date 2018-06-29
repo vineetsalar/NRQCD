@@ -1,0 +1,444 @@
+\documentclass[aps,prc,preprint,superscriptaddress,showpacs,showkeys,amsmath]{revtex4-1}
+\newcommand{\barc}{{\bar{c}}}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{rotating}
+\usepackage{graphicx}% Include  files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{epsfig}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{appendix}
+
+\begin{document}
+%%%%%\newcommand{\1S08And3P08}{$\frac{[^1S_{0}]_{8}}{3}+\frac{[^3P_0]_{8}}{m_{c}^2}$}
+
+{\bf Report of Referee 1 } \\
+
+
+In this paper the authors present a refit of quarkonium data in pp collisions
+based on the NRQCD formalism coupled with pQCD production amplitudes. 
+The new aspect is essentially the inclusion of the new LHC data
+which, in many cases, leads to considerably different values of the NRQCD
+matrix elemnets compared to existing literature.
+By and large this is a reasonable work that can be published in JPG. However,
+several points have to be addressed prior to that.\\
+{\color{blue}
+Ans: We thank the referee for his/her comments. We address all the points and modify the 
+manuscript as described below:\\}
+
+\begin{enumerate}
+
+\item In the intorduction, a more broad representation of the literature should
+be given, e.g. for the use of quarkonia in heavy-ion collisions. I find it 
+a bit overstated to claim that measuring their ratios for excited over ground 
+states "has become the most important goals of Pb-Pb collisions at LHC".
+
+{\color{blue}
+    
+  The discussions of heavy ion collisions are modified and references are updated as follows:\\
+    
+  The quarkonia yields are modified in the heavy ion collision due to QGP
+  and cold nuclear matter effects which has been demonstrated for J/$\psi$ and $\Upsilon$ 
+  in PbPb collisions~\cite{Strickland:2011mw,Kumar:2014kfa,Zhou:2016wbo}. The ratios of excited to ground state quarkonia 
+  yields are considered as better probes of QGP since the cold matter effects, 
+  which are similar for the ground and excited states, are expected to cancel in the 
+  ratio. At the LHC, the production of charmonium (J/$\psi$, $\psi$(2S)) 
+  and bottomonium ($\Upsilon$(1S),$\Upsilon$(2S),$\Upsilon$(3S) ) states has been studied in 
+  PbPb collisions at $\sqrt{s_{NN}} = 2.76$~TeV and $\sqrt{s_{NN}} = 5.02$~TeV
+  ~\cite{Chatrchyan:2012lxa,Khachatryan:2014bva,Khachatryan:2016ypw,Sirunyan:2016znt,Khachatryan:2016xxp,Abelev:2013ila}
+  showing the importance of quarkonia measurements in heavy ion collisions.
+}
+
+\item I am not sure the authors deliver on the promise made in the introduction
+of quantifying NLO corrections. The paragraph on top of page 13 is a bit thin 
+in this regard, and seems to be contradictory (factor 3 vs. 2-3 orders of magnitude 
+enhancement of the psi' cross sectoin).
+
+{\color{blue}
+  The NLO corrections increase the total color-singlet J/$\psi$ cross section by a 
+  factor of two, although at high $p_T$ the corrections can enhance the production by
+  2-3 orders of magnitude.~\cite{Gong:2008sn}.
+  The NLO corrections to J/$\psi$ production via S-wave 
+  color octet (CO) states ($^1S_{0}^{[8]}\,^3S_{1}^{[8]}$) are studied in 
+  Ref.~\cite{Gong:2008ft} and the corrections to $p_{T}$ distributions of both 
+  J/$\psi$ yield and polarization are found to be small.
+  We have given an estimate of uncertainty in the LDMEs due to enhancement of 
+  color-singlet J/$\psi$ cross-section by a factor of three expected from NLO 
+  corrections. 
+ 
+  First paragraph of page 13 is modified as follows:
+  
+  Here the first error is due to fitting and the second error is 
+  obtained by enhancing the CS cross section 3 times. 
+  It is due to the fact that NLO corrections enhance the total color-singlet J/$\psi$ 
+  production by a factor of 2~\cite{Gong:2008sn}.
+  The NLO corrections to J/$\psi$ production via S-wave color octet (CO) states 
+  ($^1S_{0}^{[8]}\,^3S_{1}^{[8]}$) are found to be small Ref.~\cite{Gong:2008ft}.
+}
+
+
+
+\item I believe that appendix A referred to in the text is missing altogether. It
+should be supplied.
+
+{\color{blue} Appendix A is included in the new version of paper. }
+
+
+\item I am wondering why the authors cut off their fits at pt=5GeV. How is that
+choice motivated?
+
+{\color{blue} 
+  It is known that the perturbative expansion calculations are not applicable to the regions 
+with small transverse  momentum. It is shown by previous NRQCD calculations~\cite{Sharma:2012dy} that the 
+formalism for production works well only for large pT. If we use a lower pT cut off 
+it would give a significantly larger $\chi^2$/dof. 
+}
+
+
+\item The chi$^2$/dof fit values of typical 2.5-3 are not very good. The authors
+should comment on that. For example, does that imply the breakdown of the 
+NRQCD formalism, or the production cross sections, or else?
+
+{\color{blue} 
+  The fitting method consist of simultaneous fitting of several (seven-eight) datasets
+  covering different collision energies and different kinematic ranges. Our Chi$^{2}$
+  are comparable to other~\cite{Sharma:2012dy,Butenschoen:2012qr} such analysis. 
+}
+
+\item The summary is a bit too short. In addition to emphasizing the main
+discrepances of this work with existing literture, the authors should 
+provide a more general perspetive of the implications of their
+results.
+
+{\color{blue} 
+  We have extended the summary in the new manuscript.
+  
+  %We have presented NRQCD calculations for the differential production 
+  %cross sections of prompt J/$\psi$ and prompt $\psi$(2S) in  p+p collisions.
+  %For the J/$\psi$ meson, all the relevant contributions from higher mass states 
+  %are estimated. 
+  %Measured transverse momentum distributions of $\psi$(2S), $\chi_{\rm c}$ and J/$\psi$ 
+  %in p +{$\bar {\rm p}$} collisions at $\sqrt{s}=$ 1.8, 1.96 TeV and in p+p collisions at 
+  %7, 8 and 13 TeV are used to constrain LDMEs. 
+  %The calculations for  prompt J/$\psi$ and prompt $\psi$(2S) are compared with the measured 
+  %data at Tevatron and LHC. 
+  %The formalism provides  very good description of the data in wide energy range. 
+  %The values of LDMEs are used to predict the charmonia cross sections in p+p collisions 
+  %at 13 and 5 TeV in kinematic bins relevant for LHC detectors. 
+  %We compare the LDMEs for charmonia obtained in this analysis with the results from earlier works.
+  %At high $p_T$, the color singlet contribution is very small and thus the LHC data in large $p_T$ range 
+  %helps to constrain the relative contributions of different colour octet contributions.
+  %The high energy LHC data require a smaller value of the LDME $M_{L}(c\barc([^3S_1]_{8}\rightarrow \psi))$ 
+  %and a larger value for the combination  $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\rightarrow \psi)$ of LDMEs.   
+  %In summary, we present a comprehensive lowest-order analysis of hadroproduction data, 
+  %including very recent LHC data. The values of fitted LDMEs will be useful for 
+  %predictions of quarkonia cross section and for the purpose of a comparison with those 
+  %obtained using NLO formulations.
+
+}
+
+
+
+\item I could not find some of the collision systems listed in Section 3 in the
+figures, for example 1.8TeV for chi$_c$ and 7 TeV LHCb result fot psi'
+Once the aboe points are satisfactorily addressed in the ms. it can be
+published.
+
+{\color{blue} 
+We have included these calculations in the new version of manuscript .
+}
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+{\bf Report of Referee 2 } \\
+
+The manuscript describes a leading-order fit of chi$_{c0}$, psi(2S) and J/psi NRQCD color-octet long distance matrix elements (CO LDMEs) to 
+Tevatron and LHC hadroproduction data. The work is certainly done thoroughly, and, besides some minor misunderstandings, the article is 
+clearly written. The article does however not fulfill JPhysG's criterion of having "new results that substantially advance their 
+relevant field": Leading order fits of this kind have already been published 20 years ago. The only relevant difference to these 
+early works seems to be the inclusion of the chi$_{c2}$/chi$_{c1}$ ratio in the chi$_{c0}$ CO LDME fit, which have only become available with 
+the LHC. Current CO LDME fits are done at next-to-leading and include a much wider range of observables, including photoproduction data, 
+eta$_c$ production rates and polarization observables on top of the observables used in the manuscript assessed here.
+
+{\color{blue}
+
+  A LO NRQCD analysis is useful as it is straightforward and unique and once
+  the parameters are obtained by fitting over large datasets it has excellent 
+  predictability power for unknown cross sections.
+
+}
+
+
+
+{\bf Report of Referee 3 (Adjudication report)} \\
+
+Dear Editors,
+
+Although this work remains below the present technological state of the art, which is next-to-leading order as pointed out 
+correctly by Referee B, it should still be of some interest. In fact, it present a comprehensive lowest-order analysis of 
+hadroproduction data, including very recent LHC data. The resulting long-distance matrix elements may be useful as input 
+for LO analysis by other authors.
+
+However, the authors are missing some relevant references that underline the current charmonium crisis of NRQCD 
+factorization which has recently emerged in various studies:
+
+\begin{enumerate}
+
+\item The problem of performing a joint analysis of the e$^{+}$e$^{-}$, photoproduction, hadroproduction and polarization 
+  data:: arXiv:1212.2037 [hep-ph].
+
+\item The problem of describing the eta$_c$ hadroproduction data on the basis of heavy-quark spin symmetyry:arXiv:1411.5287 [hep-ph]
+
+\item The problem of describing double J/psi hadropoduction at large invariant masses and rapidity 
+  separations of the J/psi pair: arXiv:1609.02786 [hep-ph]
+  Furthermore, they should add the following paper to Ref. 31 because it present the global fit: arXiv:1105.0820 [hep-ph].
+  I recommend that the discussion of the NRQCD crisis be substantiated and that these reference be properly cited. 
+
+
+
+{\color{blue}
+
+  We have included following discussion regarding above points in the manuscript:\\ 
+  
+  Authors in Ref.~\cite{Butenschoen:2012qr} extracted leading color-octet LDMEs
+  through a global fit to experimental data of unpolarized J/$\psi$ production in pp, p$\overline{\rm p}$, ep, $\gamma \gamma$, 
+  and e$^{+}$e$^{-}$ collisions. The extracted LDMEs give excellent discription of the 
+  unpolarized J/$\psi$ yields but fail to reproduce the  polarization measured at CDF~\cite{Abulencia:2007us}.
+  In another study~\cite{Chao:2012iv}, it is shown that the measured hadroproduction cross sections 
+  and the CDF polarization measurement~\cite{Abulencia:2007us} can be simultaneously described by NRQCD at NLO.
+  
+   Recently, the LHCb measurements of $\eta_{C}$ production~\cite{Aaij:2014bga} 
+   is investigated from different points of views by several groups using  
+   NRQCD formalism~\cite{Butenschoen:2014dra,Han:2014jya,Zhang:2014ybe}.   
+   Ref.~\cite{Butenschoen:2014dra} considered the $\eta_{ c}$ measurement as a challenge of NRQCD 
+   while Ref.~\cite{Han:2014jya} shows that the LHCb measurement results in a very 
+   strong constraint on the upper bound of the color-octet LDME of J/$\psi$.
+   Refs.~\cite{Zhang:2014ybe} obtain the color-singlet LDME for 
+   $\eta_c$ by fitting the experiment data to obtain good discription of $\eta_c$ production.
+   
+
+   The prompt double heavy quarkonium production is a sensitive testing 
+   ground for NRQCD factorization. The experiments at LHC recently published 
+   the measurement of double J/$\psi$ production in proton-proton collision at $ \sqrt{s} $ 
+   = 7, 8 and 13 TeV~\cite{Aaij:2011yc,Khachatryan:2014iia,Aaboud:2016fzt,Aaij:2016bqq}. 
+   Full NLO calculations including all color singlet and color octet contributions 
+   for this process in the NRQCD framework are not fully established yet. 
+   Authors in Ref~\cite{He:2015qya} showed that the LO calculations of the prompt double J/$\psi$ 
+   production by NRQCD formalism describes the data only qualitatively.
+   Authors in Ref~\cite{Sun:2014gca} present the NLO calculations for the color-singlet channel
+   which describe the measured LHCb cross section reasonably well, but fail to reproduce the CMS 
+   measurements. The complicated situation suggests that, further study and phenomenological test of NRQCD is still an 
+   urgent task.
+
+
+
+}
+
+
+
+
+
+\end{enumerate}
+ 
+
+
+
+
+
+
+%\\
+
+\noindent
+\begin{thebibliography}{100}
+\medskip
+
+
+\bibitem{Strickland:2011mw} 
+  M.~Strickland,
+  ``Thermal $\Upsilon$(1S) and $\chi_{b1}$ suppression in $\sqrt{s_{NN}}=2.76$ TeV Pb-Pb collisions at the LHC,''
+  Phys.\ Rev.\ Lett.\  {\bf 107}, 132301 (2011), [arXiv:1106.2571 [hep-ph]].
+
+\bibitem{Kumar:2014kfa} 
+  V.~Kumar, P.~Shukla and R.~Vogt,
+  ``Quarkonia suppression in PbPb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV,''
+  Phys.\ Rev.\ C {\bf 92}, 024908 (2015).
+
+\bibitem{Zhou:2016wbo} 
+  K.~Zhou, Z.~Chen, C.~Greiner and P.~Zhuang,
+  ``Thermal Charm and Charmonium Production in Quark Gluon Plasma,''
+  Phys.\ Lett.\ B {\bf 758}, 434 (2016), [arXiv:1602.01667 [hep-ph]].
+
+
+\bibitem{Chatrchyan:2012lxa} 
+  S.~Chatrchyan {\it et al.} [CMS Collaboration],
+  ``Observation of sequential Upsilon suppression in PbPb collisions,''
+  Phys.\ Rev.\ Lett.\  {\bf 109}, 222301 (2012).
+
+
+%\cite{Khachatryan:2014bva}
+\bibitem{Khachatryan:2014bva} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Measurement of Prompt $\psi(2S) \to J/\psi$ Yield Ratios in Pb-Pb and $p-p$ Collisions at $\sqrt {s_{NN}}=$ 2.76  TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 113}, no. 26, 262301 (2014).
+
+
+%\cite{Khachatryan:2016ypw}
+\bibitem{Khachatryan:2016ypw} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Suppression and azimuthal anisotropy of prompt and nonprompt $J/\psi$ production in PbPb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV,''
+  Eur.\ Phys.\ J.\ C, [arXiv:1610.00613 [nucl-ex]].
+
+
+
+%\cite{Sirunyan:2016znt}
+\bibitem{Sirunyan:2016znt} 
+  A.~M.~Sirunyan {\it et al.} [CMS Collaboration],
+  ``Relative modification of prompt $ {\psi\mathrm{(2S)}} $ and $\mathrm{J}/\psi $ yields from pp to PbPb collisions at ${\sqrt{s_{\mathrm{NN}}}} = $ 5.02 TeV,''
+  [Phys.\ Rev.\ Lett.\  {\bf 118}, 162301 (2017)], [arXiv:1611.01438 [nucl-ex]].
+
+
+\bibitem{Khachatryan:2016xxp} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Suppression of $\Upsilon(1S)$, $\Upsilon(2S)$ and $\Upsilon(3S)$ production in PbPb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV,''
+  Phys.Lett.B, [arXiv:1611.01510 [nucl-ex]].
+
+\bibitem{Abelev:2013ila} 
+  B.~B.~Abelev {\it et al.} [ALICE Collaboration],
+  ``Centrality, rapidity and transverse momentum dependence of $J/\psi$ suppression in Pb-Pb collisions at $\sqrt{s_{\rm NN}}$=2.76 TeV,''
+  Phys.\ Lett.\ B {\bf 734}, 314 (2014), [arXiv:1311.0214 [nucl-ex]].
+
+
+\bibitem{Campbell:2007ws}
+  J.~M.~Campbell, F.~Maltoni, and F.~Tramontano,
+  ``QCD corrections to J/$\psi$ and $\Upsilon$ production at hadron colliders,''
+  Phys.\ Rev.\ Lett.\  {\bf 98} 252002 (2007).
+
+
+\bibitem{Gong:2008sn} 
+  B.~Gong and J.~X.~Wang,
+  ``Next-to-leading-order QCD corrections to $J/\psi$ polarization at Tevatron and Large-Hadron-Collider energies,''
+  Phys.\ Rev.\ Lett.\  {\bf 100}, 232001 (2008).
+%  [arXiv:0802.3727 [hep-ph]].
+  
+
+\bibitem{Gong:2008ft} 
+  B.~Gong, X.~Q.~Li and J.~X.~Wang,
+  ``QCD corrections to J/$\psi$ production via color octet states at Tevatron and LHC,''
+  Phys.\ Lett.\ B {\bf 673}, 197 (2009),
+  [Phys.\ Lett.\  {\bf 693}, 612 (2010)].
+
+
+\bibitem{Sharma:2012dy} 
+  R.~Sharma and I.~Vitev,
+  ``High transverse momentum quarkonium production and dissociation in heavy ion collisions,''
+  Phys.\ Rev.\ C {\bf 87}, no. 4, 044905 (2013), [arXiv:1203.0329 [hep-ph]].
+
+
+
+\bibitem{Butenschoen:2012qr} 
+  M.~Butenschoen and B.~A.~Kniehl,
+  ``Next-to-leading-order tests of NRQCD factorization with $J/\psi$ yield and polarization,''
+  Mod.\ Phys.\ Lett.\ A {\bf 28}, 1350027 (2013), [arXiv:1212.2037 [hep-ph]].
+
+\bibitem{Abulencia:2007us} 
+  A.~Abulencia {\it et al.} [CDF Collaboration],
+  ``Polarization of $J/\psi$ and $\psi_{2S}$ mesons produced in $p \bar{p}$ collisions at $\sqrt{s}$ = 1.96-TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 99}, 132001 (2007), [arXiv:0704.0638 [hep-ex]].
+
+\bibitem{Chao:2012iv} 
+  K.~T.~Chao, Y.~Q.~Ma, H.~S.~Shao, K.~Wang and Y.~J.~Zhang,
+  ``$J/\psi$ Polarization at Hadron Colliders in Nonrelativistic QCD,''
+  Phys.\ Rev.\ Lett.\  {\bf 108}, 242004 (2012), [arXiv:1201.2675 [hep-ph]].
+  
+
+\bibitem{Aaij:2014bga} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of the $\eta_c (1S)$ production cross-section in proton-proton collisions via the decay $\eta_c (1S) \rightarrow p \bar{p}$,''
+  Eur.\ Phys.\ J.\ C {\bf 75}, no. 7, 311 (2015), [arXiv:1409.3612 [hep-ex]].
+ 
+
+\bibitem{Butenschoen:2014dra} 
+  M.~Butenschoen, Z.~G.~He and B.~A.~Kniehl,
+  ``$\eta_c$ production at the LHC challenges nonrelativistic-QCD factorization,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, no. 9, 092004 (2015), [arXiv:1411.5287 [hep-ph]].
+
+
+\bibitem{Han:2014jya} 
+  H.~Han, Y.~Q.~Ma, C.~Meng, H.~S.~Shao and K.~T.~Chao,
+  ``$\eta_c$ production at LHC and indications on the understanding of $J/\psi$ production,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, no. 9, 092005 (2015), [arXiv:1411.7350 [hep-ph]].
+  
+
+\bibitem{Zhang:2014ybe} 
+  H.~F.~Zhang, Z.~Sun, W.~L.~Sang and R.~Li,
+  ``Impact of $\eta_c$ hadroproduction data on charmonium production and polarization within NRQCD framework,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, 092006 (2015), [arXiv:1412.0508 [hep-ph]].
+
+
+
+
+
+\bibitem{Aaij:2011yc} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Observation of $J/\psi$ pair production in $pp$ collisions at $\sqrt{s}=7 TeV$,''
+  Phys.\ Lett.\ B {\bf 707}, 52 (2012), [arXiv:1109.0963 [hep-ex]].
+
+
+\bibitem{Khachatryan:2014iia} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Measurement of prompt $J/\psi$ pair production in pp collisions at $ \sqrt{s} $ = 7 Tev,''
+  JHEP {\bf 1409}, 094 (2014), [arXiv:1406.0484 [hep-ex]].
+ 
+
+\bibitem{Aaboud:2016fzt} 
+  M.~Aaboud {\it et al.} [ATLAS Collaboration],
+  ``Measurement of the prompt J/ $\psi $ pair production cross-section in pp collisions at $\sqrt{s} = 8$  TeV with the ATLAS detector,''
+  Eur.\ Phys.\ J.\ C {\bf 77}, no. 2, 76 (2017), [arXiv:1612.02950 [hep-ex]].
+
+
+\bibitem{Aaij:2016bqq} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of the $J/\psi$ pair production cross-section in $pp$ collisions at $\sqrt{s} = 13 \,{\mathrm{TeV}}$,''
+  arXiv:1612.07451 [hep-ex].
+  
+
+\bibitem{He:2015qya} 
+  Z.~G.~He and B.~A.~Kniehl,
+  ``Complete Nonrelativistic-QCD Prediction for Prompt Double J/ψ Hadroproduction,''
+  Phys.\ Rev.\ Lett.\  {\bf 115}, 022002 (2015), [arXiv:1609.02786 [hep-ph]].
+
+
+\bibitem{Sun:2014gca} 
+  L.~P.~Sun, H.~Han and K.~T.~Chao,
+  ``Impact of $J/\psi$ pair production at the LHC and predictions in nonrelativistic QCD,''
+  Phys.\ Rev.\ D {\bf 94}, 074033 (2016), [arXiv:1404.4042 [hep-ph]].
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

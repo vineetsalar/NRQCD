@@ -39,7 +39,7 @@
 %\linenumbers
 
 
-
+\usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
@@ -52,6 +52,8 @@
 \usepackage{ulem}
 \usepackage{appendix}
 \usepackage{iopams}
+\usepackage{mwe}
+\usepackage{subfig}
 \expandafter\let\csname equation*\endcsname\relax
 \expandafter\let\csname endequation*\endcsname\relax
 \usepackage{amsmath}
@@ -100,11 +102,23 @@ eversince the discovery of J/$\psi$ resonance~\cite{Augustin:1974xw,Aubert:1974j
  The Quarkonia states are qualitatively different from most other hadrons since 
 the velocity $v$ of the heavy constituents is small allowing a 
 non-relativistic treatment of bound states. 
-  The quarkonia are the richest probes to study the bulk strongly interacting matter
-produced in heavy ion collisions~\cite{Kumar:2014kfa}. The ratios of excited to ground state 
-quarkonia yields are considered as robust signals of Quark Gluon Plasma (QGP) and
-measuring such ratios has become the most important goals of Pb+Pb experiments
-at LHC \cite{Chatrchyan:2012lxa,Khachatryan:2014bva}.
+%The quarkonia are the richest probes to study the bulk strongly interacting matter
+%produced in heavy ion collisions~\cite{Kumar:2014kfa}. The ratios of excited to ground state 
+%quarkonia yields are considered as robust signals of Quark Gluon Plasma (QGP) and
+%measuring such ratios has become the most important goals of Pb+Pb experiments
+%at LHC \cite{Chatrchyan:2012lxa,Khachatryan:2014bva}.
+{\color{black}
+ The quarkonia yields are modified in the heavy ion collision due to QGP
+  and cold nuclear matter effects which has been demonstrated for J/$\psi$ and $\Upsilon$ 
+  in PbPb collisions~\cite{Braun-Munzinger:2015hba,Kumar:2014kfa,Mocsy:2013syh}. The ratios of excited to ground state quarkonia 
+  yields are considered as better probes of QGP since the cold matter effects, 
+  which are similar for the ground and excited states, are expected to cancel in the 
+  ratio. At the LHC, the production of charmonium (J/$\psi$, $\psi$(2S)) 
+  and bottomonium ($\Upsilon$(1S),$\Upsilon$(2S),$\Upsilon$(3S) ) states has been studied in 
+  PbPb collisions at $\sqrt{s_{NN}} = 2.76$~TeV and $\sqrt{s_{NN}} = 5.02$~TeV
+  ~\cite{Chatrchyan:2012lxa,Khachatryan:2014bva,Khachatryan:2016ypw,Sirunyan:2016znt,Khachatryan:2016xxp,Abelev:2013ila}
+  affirming the importance of quarkonia measurements in heavy ion collisions.
+}
 %The quarkonia production process can be divided into two major parts
 %\begin{enumerate}
 %\item Production of a heavy quark pair in hard partonic collisions.
@@ -136,7 +150,7 @@ relatively low energy \cite{Schuler:1994hy} but, at high
 energies, very large corrections appear at next-to-leading
 order (NLO) and next-to-next-to-leading order (NNLO) in $\alpha_s$
 \cite{Artoisenet:2007xi,Campbell:2007ws,Artoisenet:2008fc}.
-  The NRQCD factorization approach comprise the color-singlet model, 
+  The NRQCD factorization approach comprises the color-singlet model, 
 but also includes color-octet states.
     In the CEM~\cite{Fritzsch:1977ay,Amundson:1995em,Amundson:1996qr}, it
 is assumed that the produced $Q\bar Q$ pair evolves into a quarkonium
@@ -181,31 +195,76 @@ corresponding to the probability of the $Q\barQ$ state to convert to the quarkon
 can be estimated by comparison with the experimental measurements. 
   The leading order (LO) NRQCD gives a good description of J/$\psi$ yields at 
 Tevatron RHIC and LHC energies~\cite{Beneke:1996yw,Braaten:1999qk,Sharma:2012dy}.
-
   The NLO corrections to color-singlet J/$\psi$ production have been investigated 
-in Refs.~\cite{Campbell:2007ws,Gong:2008sn}. The color-singlet J/$\psi$ 
-production is found to be enhanced by 2-3 order of magnitude in high 
-$p_T$ region~\cite{Gong:2008sn}.
-% and its polarization changes from transverse into longitudinal at NLO~\cite{Gong:2008sn}. 
+in Refs.~\cite{Campbell:2007ws,Gong:2008sn}.
+{\color{black}
+ The NLO corrections increase the total color-singlet J/$\psi$ cross section by a 
+ factor of two, although at high $p_T$ the corrections can enhance the production by
+ two-three orders of magnitude.~\cite{Gong:2008sn}.
  The NLO corrections to J/$\psi$ production via S-wave 
-color octet (CO) states ($^1S_{0}^{[8]}\,^3S_{1}^{[8]}$) are studied in 
-Ref.~\cite{Gong:2008ft} and the corrections to $p_{T}$ distributions of both 
-J/$\psi$ yield and polarization are found to be small. In Refs.~\cite{Ma:2010vd}, 
+ color octet (CO) states ($^1S_{0}^{[8]}\,^3S_{1}^{[8]}$) are studied in 
+ Ref.~\cite{Gong:2008ft} and the corrections to $p_{T}$ distributions of both 
+ J/$\psi$ yield and polarization are found to be small.
+%We have given an estimate of uncertainty in the LDMEs due to enhancement of 
+%color-singlet J/$\psi$ cross-section by a factor of three expected from NLO 
+%corrections. 
+}
+%The color-singlet J/$\psi$ 
+%production is found to be enhanced by 2-3 order of magnitude in high 
+%$p_T$ region~\cite{Gong:2008sn}.
+%The NLO corrections to J/$\psi$ production via S-wave 
+%color octet (CO) states ($^1S_{0}^{[8]}\,^3S_{1}^{[8]}$) are studied in 
+%Ref.~\cite{Gong:2008ft} and the corrections to $p_{T}$ distributions of both 
+%J/$\psi$ yield and polarization are found to be small. 
+In Refs.~\cite{Ma:2010vd}, 
 NLO corrections for $\chi_{cJ}$ hadroproduction are also studied. 
-
-  Several NLO calculations are performed to obtain the polarization and yield of
+Several NLO calculations are performed to obtain the polarization and yield of
 J/$\psi$. The J/$\psi$ polarization presents a rather confusing 
-pattern~\cite{Butenschoen:2012px,Chao:2012iv,Gong:2012ug}.
-  The works of Ref.~\cite{Butenschoen:2010rq} and  Ref.~\cite{Ma:2010yw} present
-NLO-NRQCD calculations of J/$\psi$ yields.
-  In both the works, the set of CO LDMEs fitted to $p_{T}$ distributions measured 
-at HERA and CDF are used to describe the $p_{T}$ distributions from RHIC and 
-the LHC.
- The fitted LDMEs of Ref.~\cite{Butenschoen:2010rq} and  Ref.~\cite{Ma:2010yw}
+pattern~\cite{Butenschoen:2012px, Butenschoen:2012qr, Chao:2012iv,Gong:2012ug}.
+{\color{black}
+Authors in Ref.~\cite{Butenschoen:2012qr} extracted leading color-octet LDMEs
+through a global fit to experimental data of unpolarized J/$\psi$ production in 
+pp, p$\overline{\rm p}$, ep, $\gamma \gamma$, 
+and e$^{+}$e$^{-}$ collisions. The extracted LDMEs give excellent description of the 
+unpolarized J/$\psi$ yields but fail to reproduce the  polarization measured at 
+CDF~\cite{Abulencia:2007us}. In another study~\cite{Chao:2012iv}, it is shown 
+that the measured hadroproduction cross sections and the CDF polarization 
+measurement~\cite{Abulencia:2007us} can be simultaneously described by NRQCD at NLO.
+}
+%\cite{Butenschoen:2011yh}
+The works of Ref.~\cite{Butenschoen:2010rq,Butenschoen:2011yh} and  Ref.~\cite{Ma:2010yw} present
+NLO-NRQCD calculations of J/$\psi$ yields. In both the works, the set of CO LDMEs 
+fitted to $p_{T}$ distributions measured at HERA and CDF are used to describe 
+the $p_{T}$ distributions from RHIC and the LHC.
+The fitted LDMEs of Ref.~\cite{Butenschoen:2010rq} and  Ref.~\cite{Ma:2010yw}
 are incompatible with each other. A recent work~\cite{Shao:2014yta} gives 
 calculations for both the yields and polarizations of charmonia at the Tevatron 
 and the LHC where the LDMEs are obtained by fitting the Tevatron data only.
-  With the LHC running for several years we now have very high quality quarkonia 
+
+{\color{black}
+  Recently, the LHCb measurements of $\eta_{c}$ production~\cite{Aaij:2014bga} 
+  is investigated from different points of views by several groups using  
+  NRQCD formalism~\cite{Butenschoen:2014dra,Han:2014jya,Zhang:2014ybe}.   
+  Ref.~\cite{Butenschoen:2014dra} considered the $\eta_{ c}$ measurement as a challenge of NRQCD 
+  while Ref.~\cite{Han:2014jya} shows that the LHCb measurement results in a very 
+  strong constraint on the upper bound of the color-octet LDME of J/$\psi$.
+  Refs.~\cite{Zhang:2014ybe} obtains the color-singlet LDME for 
+  $\eta_c$ by fitting the experiment data to get good description of $\eta_c$ production.
+  The prompt double heavy quarkonium production should be a more sensitive testing 
+  ground for NRQCD factorization. The experiments at LHC recently published 
+  the measurement of double J/$\psi$ production in proton-proton collision at $ \sqrt{s} $ 
+  = 7, 8 and 13 TeV~\cite{Aaij:2011yc,Khachatryan:2014iia,Aaboud:2016fzt,Aaij:2016bqq}. 
+  Full NLO calculations including all color singlet and color octet contributions 
+  for this process in the NRQCD framework are not fully established yet. 
+  Authors in Ref.~\cite{He:2015qya} showed that the LO calculations of the prompt double J/$\psi$ 
+  production by NRQCD formalism describes the data only qualitatively.
+  Authors in Ref.~\cite{Sun:2014gca} present the NLO calculations for the color-singlet channel
+  which describe the measured LHCb cross section reasonably well, but fail to reproduce the CMS 
+  measurements. The complicated situation suggests that, further study and phenomenological test of NRQCD is still an 
+  urgent task.
+}
+
+ With the LHC running for several years we now have very high quality quarkonia 
 production data in several kinematic regions up to very high transverse momentum 
 which could be used to constrain the LDMEs. In this paper, we use CDF data
 \cite{Abe:1997yz,Abe:1997jz,Acosta:2004yw,Abulencia:2007bra} along with new LHC data 
@@ -215,11 +274,30 @@ the LDMEs.
  The feed-down contribution to each state from the higher states are taken into account.
 These new LDMEs are then used to predict the J/$\psi$ and $\psi$(2S)
 cross-section at 13 TeV and 5 TeV for the kinematical bins relevant to LHC detectors.
+
  The NLO calculations are still evolving and thus we use LO calculations in 
 this work. The values of fitted LDMEs with LO formulations are always useful 
 for straightforward predictions of quarkonia cross section and for the 
 purpose of a comparison with those obtained using NLO formulations.
- The uncertainties in the LDMEs due to NLO are quantified. 
+{\color{black}
+We have given an estimate of uncertainties in the LDMEs due to enhancement of 
+color-singlet J/$\psi$ cross-section by a factor of three expected from NLO 
+corrections.
+}
+%The uncertainties in the LDMEs due to NLO are quantified. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 %We also give predictions
 %for the $\psi$(2S) to J/$\psi$ ratios at $\sqrt{s}=$ 5 TeV which has 
 %become important due to the recent Pb+Pb collisions at $\sqrt{s_{NN}}=$ 5 TeV. 
@@ -254,9 +332,9 @@ can be expressed in terms of $x_a$, $x_b$ as
 \end{equation}
 where $\sqrt{s}$ being the total energy in the centre-of-mass, $y$ is the rapidity 
 and $p_{T}$ is the transverse momentum of the $Q\bar Q$ pair. The mass of heavy
-meson is represented by M and $m_{T}$ is the transverse mass 
+meson is represented by $M$ and $m_{T}$ is the transverse mass 
 defined as $m_{T}^{2} = p_{T}^{2} + M^{2}$. Writing 
-down $ \hat s + \hat t + \hat u -M^{2} = 0$ and solving for $x_{b}$ we obtain
+down $ \hat s + \hat t + \hat u -M^{2} = 0$ and solving for $x_{b}$, we obtain
 \begin{equation}
 x_b = \frac{1}{\sqrt{s}}\frac{x_a\,\sqrt{s}\,m_T\,e^{-y}-M^2}{x_a\,\sqrt{s}-m_T\,e^y}.
 \end{equation}
@@ -292,8 +370,8 @@ and can be estimated by comparison with experimental measurements.
 where $|\mathcal{M}|^2$ is the Feynman squared amplitude. We use the expressions for the 
 short distance CS cross-sections given in 
 Refs.~\cite{Baier:1983va,Humpert:1986cy,Gastmans:1987be} and the CO 
-cross-sections given in Refs.~\cite{Cho:1995vh,Cho:1995ce,Braaten:2000cm} which
-we reproduce in the Appendix A. 
+cross-sections given in Refs.~\cite{Cho:1995vh,Cho:1995ce,Braaten:2000cm}. 
+%which we reproduce in the Appendix A. 
   The CTEQ6M~\cite{Lai:2010vv} parametrization is used for parton 
 distribution functions. 
 
@@ -447,7 +525,7 @@ $J/\psi$.
 \end{enumerate}
 The mass of the charm quark is taken as $m_{c}=1.6$ GeV. The short distance cross 
 sections $d\sigma(Q\barQ([^1S_0]_{8}))$ and $d\sigma(Q\barQ([^3P_J]_{8}))$ have
-very similar $p_{T}$ dependence for this reason the transverse momentum distribution 
+very similar $p_{T}$ dependence and due to this reason the transverse momentum distribution 
 is sensitive only to a linear combination of their LDMEs.
 Following the Ref.~\cite{Cho:1995vh,Beneke:1996yw} we fit a linear combination 
 \begin{equation}
@@ -473,18 +551,50 @@ in our calculations.
 %ATLAS ATLAS:2014ala
 %LHCb LHCb:2012af
 %LHCb Aaij:2013dja
+
+
+%\begin{figure}
+%\includegraphics[width=0.49\textwidth]{Fig1a_Chic1_ATLAS_Fit.pdf}
+%\includegraphics[width=0.49\textwidth]{Fig1b_Chic2_ATLAS_Fit.pdf}
+%\includegraphics[width=0.49\textwidth]{Fig1c_Chic1_CDF_Fit.pdf}
+%\caption{(Color online) The NRQCD calculations of production cross section 
+%of  $\chi_{c1}$ and $\chi_{c2}$ in p+p collisions at
+%$\sqrt{s}$ = 7 TeV as a function of transverse momentum. 
+%The Calculations are compared with the measured data by
+%ATLAS experiment at LHC~\cite{ATLAS:2014ala}. The $\chi_{c}$
+%color octet LDMEs are obtained by fitting this data. 
+%}
+%\label{Fig:LDMEChicATLAS}
+%\end{figure}
+
+
 \begin{figure}
-\includegraphics[width=0.49\textwidth]{Fig1a_Chic1_ATLAS_Fit.pdf}
-\includegraphics[width=0.49\textwidth]{Fig1b_Chic2_ATLAS_Fit.pdf}
+\begin{minipage}{1.0\linewidth}
+\centering
+{\includegraphics[width=0.49\textwidth]{Fig1a_Chic1_ATLAS_Fit.pdf}}
+{\includegraphics[width=0.49\textwidth]{Fig1b_Chic2_ATLAS_Fit.pdf}}
+\end{minipage}%
+\ \\
+\centering
+\begin{minipage}{0.5\linewidth}
+\centering
+{\includegraphics[width=1.0\textwidth]{Fig1c_Chic1_CDF_Fit.pdf}}
+\end{minipage}%
 \caption{(Color online) The NRQCD calculations of production cross section 
-of  $\chi_{c1}$ and $\chi_{c2}$ in p+p collisions at
-$\sqrt{s}$ = 7 TeV as a function of transverse momentum. 
-The Calculations are compared with the measured data by
-ATLAS experiment at LHC~\cite{ATLAS:2014ala}. The $\chi_{c}$
-color octet LDMEs are obtained by fitting this data. 
-}
+of (a) $\chi_{c1}$, (b) $\chi_{c2}$ in p+p collisions at
+$\sqrt{s}$ = 7 TeV and (c) $J/\psi$ from $\chi_{c1}$ and $\chi_{c2}$ 
+decays in p+${\bar {\rm p}}$ collisions at $\sqrt{s}$ = 1.8 TeV as 
+a function of transverse momentum. The calculations are compared with 
+the measured data by ATLAS experiment at LHC~\cite{ATLAS:2014ala}
+and measured data by CDF experiment at Tevatron~\cite{Abe:1997yz}. 
+The $\chi_{c}$ color octet LDMEs are obtained by fitting this data.}
 \label{Fig:LDMEChicATLAS}
 \end{figure}
+
+
+
+
+
 
 \begin{figure}
 \includegraphics[width=0.49\textwidth]{Fig2a_Chic2Chic1_CMS_Fit.pdf}
@@ -492,7 +602,7 @@ color octet LDMEs are obtained by fitting this data.
 \caption{(Color online) The NRQCD calculations of production cross section ratios 
 of  $\chi_{c2}$ and $\chi_{c1}$ in p+p collisions at
 $\sqrt{s}$ = 7 TeV as a function of transverse momentum. 
-The Calculations are compared with the measured data by
+The calculations are compared with the measured data by
 CMS and LHCb experiments at LHC~\cite{Chatrchyan:2012ub,Aaij:2013dja}. The $\chi_{c}$
 color octet LDMEs are obtained by fitting this data. 
 }
@@ -517,19 +627,49 @@ as a function of transverse momentum compared with the measured data at LHC
 \label{Fig:LDMEPsi2S}
 \end{figure}
 
+
+
+%\begin{figure}
+%\includegraphics[width=0.49\textwidth]{Fig4a_Psi2S_CDF_180TeV.pdf}
+%\includegraphics[width=0.49\textwidth]{Fig4b_Psi2S_CDF_196TeV.pdf}
+%\caption{(Color online) The NRQCD calculations of production cross section 
+%of $\psi$(2S) in p+${\bar {\rm p}}$ collisions as a function of transverse momentum compared 
+%with the measured data at Tevatron 
+%(a) CDF data at $\sqrt{s}$ = 1.8 TeV~\cite{Abe:1997jz} and
+%(b) CDF data at $\sqrt{s}$ = 1.96 TeV~\cite{Acosta:2004yw}. 
+%The LDMEs are obtained by a combined fit of the Tevatron and
+%LHC data.
+%}
+%\label{Fig:LDMEPsi2SCDF}
+%\end{figure}
+
 \begin{figure}
-\includegraphics[width=0.49\textwidth]{Fig4a_Psi2S_CDF_180TeV.pdf}
-\includegraphics[width=0.49\textwidth]{Fig4b_Psi2S_CDF_196TeV.pdf}
+\begin{minipage}{1.0\linewidth}
+\centering
+{\includegraphics[width=0.49\textwidth]{Fig4a_Psi2S_CDF_180TeV.pdf}}
+{\includegraphics[width=0.49\textwidth]{Fig4b_Psi2S_CDF_196TeV.pdf}}
+\end{minipage}%
+\ \\
+\centering
+\begin{minipage}{0.5\linewidth}
+\centering
+{\includegraphics[width=1.0\textwidth]{Fig4c_Psi2S_LHCb.pdf}}
+\end{minipage}%
 \caption{(Color online) The NRQCD calculations of production cross section 
-of $\psi$(2S) in p+${\bar {\rm p}}$ collisions as a function of transverse momentum compared 
-with the measured data at Tevatron 
-(a) CDF data at $\sqrt{s}$ = 1.8 TeV~\cite{Abe:1997jz} and
-(b) CDF data at $\sqrt{s}$ = 1.96 TeV~\cite{Acosta:2004yw}. 
-The LDMEs are obtained by a combined fit of the Tevatron and
-LHC data.
-}
+of $\psi$(2S) in p+${\bar {\rm p}}$ and p+p collisions as a function of transverse 
+momentum compared with the measured  data 
+(a) CDF data at $\sqrt{s}$ = 1.8 TeV~\cite{Abe:1997jz}, 
+(b) CDF data at $\sqrt{s}$ = 1.96 TeV~\cite{Acosta:2004yw} and 
+(c) LHCb data at $\sqrt{s}$ = 7 TeV~\cite{Aaij:2012ag}.
+ The LDMEs are obtained by a combined fit of the Tevatron and
+LHC data.}
 \label{Fig:LDMEPsi2SCDF}
 \end{figure}
+
+
+
+
+
 
 
 \begin{figure}
@@ -634,14 +774,23 @@ are used to obtain color-octet matrix elements for $\chi_{cJ}$
 \item{CMS results at $\sqrt{S}=7$~TeV~\cite{Chatrchyan:2012ub}}.
 \item{LHCb results at $\sqrt{S}=7$~TeV~\cite{Aaij:2013dja}}.
 \end{enumerate}
+%Figure~\ref{Fig:LDMEChicATLAS} shows the NRQCD calculations of production cross section 
+%of  $\chi_{c1}$ and $\chi_{c2}$ in p+p collisions at $\sqrt{s}$ = 7 TeV as a function of 
+%transverse momentum. The Calculations are compared with the measured data by
+%ATLAS experiment at LHC~\cite{ATLAS:2014ala}. 
 Figure~\ref{Fig:LDMEChicATLAS} shows the NRQCD calculations of production cross section 
-of  $\chi_{c1}$ and $\chi_{c2}$ in p+p collisions at $\sqrt{s}$ = 7 TeV as a function of 
-transverse momentum. The Calculations are compared with the measured data by
-ATLAS experiment at LHC~\cite{ATLAS:2014ala}. Figure~\ref{Fig:LDMEChicCMS_LHCb} shows
+of (a) $\chi_{c1}$, (b) $\chi_{c2}$ in p+p collisions at
+$\sqrt{s}$ = 7 TeV and (c) $J/\psi$ from $\chi_{c1}$ and $\chi_{c2}$ 
+decays in p+${\bar {\rm p}}$ collisions at $\sqrt{s}$ = 1.8 TeV as 
+a function of transverse momentum. The calculations are compared with 
+the measured data by ATLAS experiment at LHC~\cite{ATLAS:2014ala}
+and measured data by CDF experiment at Tevatron~\cite{Abe:1997yz}. 
+The $\chi_{c}$ color octet LDMEs are obtained by fitting this data.
+Figure~\ref{Fig:LDMEChicCMS_LHCb} shows
 the NRQCD calculations of production cross section ratios 
 of $\chi_{c2}$ and $\chi_{c1}$ in p+p collisions at
 $\sqrt{s}$ = 7 TeV as a function of transverse momentum. 
-The Calculations are compared with the measured data at
+The calculations are compared with the measured data at
 LHC in panel (a) CMS data at $\sqrt{s}$ = 7 TeV~\cite{Chatrchyan:2012ub}
 and in panel (b) LHCb data at $\sqrt{s}$ = 7 TeV~\cite{Aaij:2013dja}.  
 %CDF~\cite{Abe:1997yz} has measured the feed-down contribution from the
@@ -689,10 +838,27 @@ measured data at LHC in panels
 (d) ATLAS data at $\sqrt{s}$ = 8 TeV~\cite{Aad:2015duc}. 
 %The LDMEs are obtained by a combined fit of this LHC data along with Tevatron data
 %shown in Fig~\ref{Fig:LDMEPsi2SCDF}.
+ 
+%Figure~\ref{Fig:LDMEPsi2SCDF} shows the NRQCD calculations of production cross section 
+%of $\psi$(2S) in p+{$\bar {\rm p}$} collisions as a function of transverse momentum compared 
+%with the measured data at Tevatron in panels (a) CDF data at $\sqrt{s}$ = 1.8 TeV~\cite{Abe:1997jz} 
+%and (b) CDF data at $\sqrt{s}$ = 1.96 TeV~\cite{Acosta:2004yw}. 
+
+
  Figure~\ref{Fig:LDMEPsi2SCDF} shows the NRQCD calculations of production cross section 
-of $\psi$(2S) in p+{$\bar {\rm p}$} collisions as a function of transverse momentum compared 
-with the measured data at Tevatron in panels (a) CDF data at $\sqrt{s}$ = 1.8 TeV~\cite{Abe:1997jz} 
-and (b) CDF data at $\sqrt{s}$ = 1.96 TeV~\cite{Acosta:2004yw}. 
+of $\psi$(2S) in p+${\bar {\rm p}}$ and p+p collisions as a function of transverse 
+momentum compared with the measured  data in panels
+(a) CDF data at $\sqrt{s}$ = 1.8 TeV~\cite{Abe:1997jz}, 
+(b) CDF data at $\sqrt{s}$ = 1.96 TeV~\cite{Acosta:2004yw} and 
+(c) LHCb data at $\sqrt{s}$ = 7 TeV~\cite{Aaij:2012ag}.
+ The LDMEs are obtained by a combined fit of the Tevatron and
+LHC data
+
+
+
+
+
+
 %The LDMEs are obtained by a combined fit of the Tevatron and LHC data
 We obtain following values of $\psi(2S)$ color-octet matrix elements by a combined fit of 
 the Tevatron and LHC data   
@@ -717,14 +883,21 @@ the Tevatron and LHC data
 with a {\color{black}$\chi^2/dof=2.54$}. 
 
 
-Here the first error is due to fitting and the second error is 
-obtained by enhancing the CS cross section 3 times. 
-  It is due to the fact that NLO corrections enhance the color-singlet J/$\psi$ production 
-by 2-3 order of magnitude ~\cite{Gong:2008sn}.
+%Here the first error is due to fitting and the second error is 
+%obtained by enhancing the CS cross section 3 times. 
+%  It is due to the fact that NLO corrections enhance the color-singlet J/$\psi$ production 
+%by 2-3 order of magnitude ~\cite{Gong:2008sn}.
+% The NLO corrections to J/$\psi$ production via S-wave color octet (CO) states 
+%($^1S_{0}^{[8]}\,^3S_{1}^{[8]}$) are found to be small Ref.~\cite{Gong:2008ft}.
+{\color{black}
+ Here the first error is due to fitting and the second error is 
+ obtained by enhancing the CS cross section 3 times. 
+ It is due to the fact that NLO corrections enhance the total color-singlet J/$\psi$ 
+ production by a factor of 2~\cite{Gong:2008sn}.
  The NLO corrections to J/$\psi$ production via S-wave color octet (CO) states 
-($^1S_{0}^{[8]}\,^3S_{1}^{[8]}$) are found to be small Ref.~\cite{Gong:2008ft}.
-
-  To fit the remaining 2 parameters of $J/\psi$ we use the combined fit for the
+ ($^1S_{0}^{[8]}\,^3S_{1}^{[8]}$) are found to be small Ref.~\cite{Gong:2008ft}.
+}
+To fit the remaining 2 parameters of $J/\psi$ we use the combined fit for the
 following datasets of prompt $J/\psi$ yields
 \begin{enumerate}
 \item{CMS results at $\sqrt{S}=7$~TeV~\cite{Chatrchyan:2011kc,Khachatryan:2015rra}}.
@@ -937,7 +1110,7 @@ CDF~\cite{Abe:1997jz,Acosta:2004yw} and LHC data in mid rapidity~\cite{Chatrchya
 as LHC data in forward rapidity~\cite{Aaij:2012ag}, both the datasets covering a much wider $p_T$ range. Our value of matrix 
 element $M_{L}(c\barc([^3S_1]_{8}\rightarrow \psi(2S)))$ is similar with other analysis. The value of linear-combination, 
 $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\rightarrow \psi(2S))$, varies significantly from 0.0022 to
-0.01246 between different analysis. As it can be seen from Table~\ref{table:LDMEPsi2S} the high energy LHC data require larger value of
+0.01246 between different analysis. As it can be seen from Table~\ref{table:LDMEPsi2S}, the high energy LHC data require larger value of
 $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\rightarrow \psi(2S))$.    
 
 Table~\ref{table:LDMEJPsi} shows J/$\psi$ LDMEs extracted in present analysis along with the results from other 
@@ -989,28 +1162,313 @@ from higher mass states are also shown.
 
 
 \section{Summary}
+%  We have presented NRQCD calculations for the differential production 
+%cross sections of prompt J/$\psi$ and prompt $\psi$(2S) in  p+p collisions.
+%For the J/$\psi$ meson, all the relevant contributions from higher mass states 
+%are estimated. 
+% Measured transverse momentum distributions of $\psi$(2S), $\chi_{\rm c}$ and J/$\psi$ 
+%in p +{$\bar {\rm p}$} collisions at $\sqrt{s}=$ 1.8, 1.96 TeV and in p+p collisions at 
+%7, 8 and 13 TeV are used to constrain LDMEs. 
+% The calculations for  prompt J/$\psi$ and prompt $\psi$(2S) are compared with the measured 
+%data at Tevatron and LHC. 
+%  The formalism provides a very good description of the data in wide energy range. 
+%The values of LDMEs are used to predict the charmonia cross sections in p+p collisions 
+%at 13 and 5 TeV in kinematic bins relevant for LHC detectors. 
+% We compare the LDMEs for charmonia obtained in this analysis with the results from earlier works.
+% The high energy LHC data require a smaller value of the LDME $M_{L}(c\barc([^3S_1]_{8}\rightarrow \psi))$ 
+%and a larger value for the combination  $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\rightarrow \psi)$ of LDMEs.    
+
+
   We have presented NRQCD calculations for the differential production 
-cross sections of prompt J/$\psi$ and prompt $\psi$(2S) in  p+p collisions.
-For the J/$\psi$ meson, all the relevant contributions from higher mass states 
-are estimated. 
- Measured transverse momentum distributions of $\psi$(2S), $\chi_{\rm c}$ and J/$\psi$ 
-in p +{$\bar {\rm p}$} collisions at $\sqrt{s}=$ 1.8, 1.96 TeV and in p+p collisions at 
-7, 8 and 13 TeV are used to constrain LDMEs. 
- The calculations for  prompt J/$\psi$ and prompt $\psi$(2S) are compared with the measured 
-data at Tevatron and LHC. 
-  The formalism provides a very good description of the data in wide energy range. 
-The values of LDMEs are used to predict the charmonia cross sections in p+p collisions 
-at 13 and 5 TeV in kinematic bins relevant for LHC detectors. 
- We compare the LDMEs for charmonia obtained in this analysis with the results from earlier works.
- The high energy LHC data require a smaller value of the LDME $M_{L}(c\barc([^3S_1]_{8}\rightarrow \psi))$ 
-and a larger value for the combination  $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\rightarrow \psi)$ of LDMEs.    
+  cross sections of prompt J/$\psi$ and prompt $\psi$(2S) in  p+p collisions.
+  For the J/$\psi$ meson, all the relevant contributions from higher mass states 
+  are estimated. 
+  Measured transverse momentum distributions of $\psi$(2S), $\chi_{\rm c}$ and J/$\psi$ 
+  in p +{$\bar {\rm p}$} collisions at $\sqrt{s}=$ 1.8, 1.96 TeV and in p+p collisions at 
+  7, 8 and 13 TeV are used to constrain LDMEs. 
+  The calculations for  prompt J/$\psi$ and prompt $\psi$(2S) are compared with the measured 
+  data at Tevatron and LHC. 
+  The formalism provides  very good description of the data in wide energy range. 
+  The values of LDMEs are used to predict the charmonia cross sections in p+p collisions 
+  at 13 and 5 TeV in kinematic bins relevant for LHC detectors. 
+  We compare the LDMEs for charmonia obtained in this analysis with the results from earlier works.
+ {\color{black}   
+   At high $p_T$, the color singlet contribution is very small and thus the LHC data in large $p_T$ range 
+   help to constrain the relative contributions of different colour octet contributions.
+   The high energy LHC data require a smaller value of the LDME $M_{L}(c\barc([^3S_1]_{8}\rightarrow \psi))$ 
+   and a larger value for the combination  $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\rightarrow \psi)$ of LDMEs.   
+   In summary, we present a comprehensive lowest-order analysis of hadroproduction data, 
+   including very recent LHC data. The values of fitted LDMEs will be useful for 
+   predictions of quarkonia cross section and for the purpose of a comparison with those 
+   obtained using NLO formulations.
+ }
 
 \section*{Acknowledgement}
  We acknowledge the fruitful discussions on this topic with Rishi Sharma.
 
+\begin{comment}
+
+\newpage
+\appendix
+%\begin{appendices}
+
+\section{Short distance pQCD cross sections for quarkonia production}
+\label{section:pqcd}
+  Here we list the leading order QCD cross sections for the resonance production used 
+in our calculations. We write the formulas in terms of the invariants $\cs$, $\ct$, $\cu$.
+ To order $\alpha_{s}^{2}$ one only has the gluon fusion processes, 
+g g $\rightarrow ^{(2S+1)}L_{J}$ which gives resonance with very small $\pT$, 
+and hence are not used in our calculations.
+To order $\alpha_{s}^{3}$, on the other hand, one has typically two-by-two 
+scattering processes. We reproduced relevant cross sections from
+Refs.~\cite{Baier:1983va,Humpert:1986cy,Gastmans:1987be,Cho:1995vh,Cho:1995ce,Braaten:2000cm}
+below:
 
 
 
+\subsection{\bf Color Singlet PQCD cross sections}
+\begin{itemize}
+\item g q $\rightarrow {\rm ^{(2S+1)}L_{J}}$ q or (q$\rightarrow \bar{\rm q})$
+\begin{equation}
+\begin{split}
+\frac{d\sigma}{d\ct}(^1S_0) = &\frac{2\pi\alphas^{3} (R_{0})^{2}}{9M\cs^2}\cdot\frac{(\ct-M^2)^{2}-2\cs\cu}{(-\ct)(\ct-M^2)^{2}}\\
+\frac{d\sigma}{d\ct}(^3P_0) = &\frac{8\pi\alphas^3 (R_{1}^\prime)^{2}}{9M^{3}\cs^2}\cdot\frac{(\ct-3M^2)^{2}(\cs^2+\cu^2)}{(-\ct)(\ct-M^2)^{4}}\\
+\frac{d\sigma}{d\ct}(^3P_1) = &\frac{16\pi\alphas^3 (R_{1}^\prime)^{2}}{3M^{3}\cs^2}\cdot\frac{-\ct(\cs^2+\cu^2)-4M^2\cs\cu}{(\ct-M^2)^{4}}\\
+\frac{d\sigma}{d\ct}(^3P_2) = &\frac{16\pi\alphas^3 (R_{1}^\prime)^{2}}{9M^{3}\cs^2} \cdot \\
+                              &\frac{(\ct-M^2)^2(\ct^2+6M^4)-2\cs\cu(\ct^2-6M^2(\ct-M^2))}{(-\ct)(\ct-M^2)^4}
+\end{split}  
+\end{equation}
+\item q $\bar{\rm q}$ $\rightarrow {\rm ^{(2S+1)}L_{J}}$ g
+\begin{equation}
+\frac{d\sigma}{d\ct}({\rm ^{(2S+1)}L_{J}})=-\frac{8}{3}\frac{\ct^2}{\cs^2}\frac{d\sigma}{d\ct}({\rm g q \rightarrow ^{(2S+1)}L_{J} q})|_{\ct\leftrightarrow\cu}
+\end{equation}
+%\item g g $\rightarrow {\rm ^{(2S+1)}L_{J}}$ g
+%\begin{equation}
+%\begin{split}
+%\frac{d\sigma}{d\ct}(^3S_1) = &\frac{5\pi\alphas^{3} (R_{0})^{2}}{9M\cs^2}\cdot \frac{M^2}{(\cs-M^2)^2 (\ct-M^2)^2 (\cu-M^2)^2}\\
+%                             &\cdot \{[\cs^2(\cs-M^2)^2]+[\cs\rightarrow\ct]+[\cs\rightarrow\cu] \}\\
+%\end{split}  
+%\end{equation}
+%\begin{equation}
+%\begin{split}
+%\frac{d\sigma}{d\ct}(^1S_0) = &\frac{\pi\alphas^{3} (R_{0})^{2}}{2M\cs^2}\frac{1}{\cs\ct\cu(\cs-M^2)^2(\ct-M^2)^2(\cu-M^2)^2}\\
+%                              &\cdot\{[\cs^4(\cs-M^2)^2((\cs-M^2)^2+2M^4)\\
+%                              &-\frac{4}{3}\cs\ct\cu(\cs^2+\ct^2+\cu^2)(\cs-M^2)(\ct-M^2)(\cu-M^2)\\
+%                              &+\frac{16}{3}M^2\cs\ct\cu(\cs^2\ct^2+\cs^2\cu^2+\ct^2\cu^2)\\
+%                              &+\frac{28}{3}M^4\cs^2\ct^2\cu^2]+[\cs\leftrightarrow\ct]+[\cs\leftrightarrow\cu]\}\\
+%\end{split}  
+%\end{equation}
+We define two new variables as a combination of $\cs$, $\ct$ and $\cu$ which 
+can be used to define the g g $\rightarrow {\rm ^{(2S+1)}L_{J}}$ g cross sections.
+\begin{equation}
+\begin{split}
+  P = & \,\cs\ct + \ct\cu + \cu\cs \\
+  Q = & \,\cs\ct\cu\\
+\end{split} 
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{d\sigma}{d\ct}(^1S_0) = ~&\frac{\pi \alphas^3 (R_{0})^{2}}{M\cs^2}\frac{P^2(M^8-2M^4P+P^2+2M^2Q)}{Q(Q-M^2P)^2}\\
+\frac{d\sigma}{d\ct}(^3S_1) = ~&\frac{10\pi \alphas^3 (R_{0})^{2}}{9\cs^2}\frac{M(P^2-M^2Q)}{(Q-M^2P)^2}\\
+\end{split}  
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{d\sigma}{d\ct}(^1P_1) = ~&\frac{40\pi \alphas^3 (R_{1}^\prime)^{2}}{3M\cs^2}\frac{[-M^{10}P + M^6P^2 + Q(5M^8-7M^4P+2P^2)+4M^2Q^2]}{(Q-M^2P)^3}\\
+\frac{d\sigma}{d\ct}(^3P_0) = ~&\frac{4\pi \alphas^3 (R_{1}^\prime)^{2}}{M^3\cs^2}\frac{1}{Q(Q-M^2P)^4}[9M^4P^4(M^8-2M^4P+P^2)\\
+                              ~&-6M^2P^3Q(2M^8-5M^4P+P^2)\\
+                              ~&-P^2Q^2(M^8+2M^4P-P^2)\\
+                              ~&+2M^2PQ^3(M^4-P)+6M^4Q^4]
+\end{split}  
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{d\sigma}{d\ct}(^3P_1) = ~&\frac{12\pi \alphas^3 (R_{1}^\prime)^{2}}{M^3\cs^2}\frac{P^2\{M^2P^2(M^4-4P)-2Q(M^8-5M^4P-P^2)-15M^2Q^2\}}{(Q-M^2P)^4}\\
+\frac{d\sigma}{d\ct}(^3P_2) = ~&\frac{4\pi \alphas^3 (R_{1}^\prime)^{2}}{M^3\cs^2}\frac{1}{Q(Q-M^2P)^4}\\
+                             ~&\{12M^4P^4(M^8-2M^4P+P^2) - 3M^2P^3Q(8M^8-M^4P+4P^2)\\
+                             ~&-2P^2Q^2(7M^8-43M^4P-P^2)+M^2PQ^3(16M^4-61P)\\
+                             ~&+12M^4Q^4\}
+\end{split}  
+\end{equation}
+\end{itemize}
+
+
+\subsection{\bf Color Octet PQCD cross sections}
+ We list below short distance squared amplitudes for $2 \to 2$ scattering 
+processes which mediate color-octet quarkonia production. 
+These expressions are averaged over initial spins and colors of the two 
+incident partons.  The helicity levels of outgoing $J=1$ and $J=2$ pairs 
+are labeled by the subscript $h$.  
+\begin{itemize}
+\item q $\bar{\rm q}$ $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ g
+\begin{equation}
+\begin{split}
+%{\overline{\sum}} | \CA(q\barq \to \QQbaroctetsingS g) |^2 &= {5 (4\pi \alphas)^3 \over 27 M} {\ct^2+\cu^2 \over \cs (\cs-M^2)^2}\\
+\mathop{{\bar{\sum}}} | \CA(q\barq \to \QQbaroctetsingS g) |^2 &= {5 (4\pi \alphas)^3 \over 27 M} {\ct^2+\cu^2 \over \cs (\cs-M^2)^2}\\
+\mathop{{\bar{\sum_{h=0}}}} | \CA(q\barq \to \QQbaroctettripS g) |^2 &= {8 (4\pi \alphas)^3 \over 81 M^3} {M^2 \shat \over (\shat-M^2)^4} 
+ \bigl[4(\that^2+\uhat^2)-\that\uhat \bigr]\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(q\barq \to \QQbaroctettripS g) |^2 &= {2 (4\pi \alphas)^3 \over 81 M^3} {\shat^2+M^4 \over (\shat-M^2)^4} 
+ {\that^2+\uhat^2 \over \that\uhat} \bigl[4(\that^2+\uhat^2)-\that\uhat \bigr] 
+\end{split}  
+\end{equation}
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum}}} | \CA(q\barq \to \QQbaroctetPzero g) |^2 &= {20 (4\pi \alphas)^3 \over 81 M^3} {(\shat-3 M^2)^2 
+(\that^2+\uhat^2) \over \shat(\shat-M^2)^4}\\
+\mathop{{\bar{\sum_{h=0}}}} | \CA(q\barq \to \QQbaroctetPone g) |^2 &={40 (4\pi \alphas)^3 \over 81 M^3} {\shat(\that^2+\uhat^2)
+\over (\shat-M^2)^4} \\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(q\barq \to \QQbaroctetPone g) |^2 &= {160 (4\pi \alphas)^3 \over 81 M^3} {M^2 \that \uhat\over (\shat-M^2)^4} 
+\end{split}  
+\end{equation}
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{h=0}}}} | \CA(q\barq \to \QQbaroctetPtwo g) |^2 &= {8 (4\pi \alphas)^3 \over 81 M^3} {\shat(\that^2+\uhat^2)\over (\shat-M^2)^4}\\ 
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(q\barq \to \QQbaroctetPtwo g) |^2 &={32 (4\pi \alphas)^3 \over 27 M^3} {M^2 \that\uhat\over (\shat-M^2)^4}\\ 
+\mathop{{\bar{\sum_{|h|=2}}}} | \CA(q\barq \to \QQbaroctetPtwo g) |^2 &={16 (4\pi \alphas)^3 \over 27 M^3} {M^4 (\that^2+\uhat^2)\over \shat(\shat-M^2)^4}
+\end{split}  
+\end{equation}
+
+\item g q $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ q
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum}}} | \CA(gq \to \QQbaroctetsingS q) |^2 &=-{5 (4\pi \alphas)^3 \over 72 M} {\shat^2+\uhat^2 \over \that (\that-M^2)^2}\\
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gq \to \QQbaroctettripS q) |^2 &=-{(4\pi \alphas)^3 \over 54 M^3} {M^2 \that\bigl[4(\shat^2+\uhat^2)-\shat\uhat\bigr] \over 
+  \bigl[(\shat-M^2)(\that-M^2)\bigr]^2}\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gq \to \QQbaroctettripS q) |^2 &=-{(4\pi \alphas)^3 \over 108 M^3} \\
+                                   &\times {(\shat^2+\uhat^2+2 M^2 \that)(\shat-M^2)^2- 2 M^2 \shat\that\uhat \over \shat\uhat\bigl[(\shat-M^2)(\that-M^2)\bigr]^2} \\
+                                   & \times \bigl[4(\shat^2+\uhat^2)-\shat\uhat\bigr]
+\end{split}  
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum}}} | \CA(gq \to \QQbaroctetPzero q) |^2 &=-{5 (4\pi \alphas)^3 \over 54 M^3} {(\that-3 M^2)^2(\shat^2+\uhat^2) \over \that(\that-M^2)^4}\\ 
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gq \to \QQbaroctetPone q) |^2 &=-{5 (4\pi \alphas)^3 \over 27 M^3} 
+       {\that \bigl[\shat^2(\shat-M^2)^2 + \uhat^2(\shat+M^2)^2 \bigr] \over(\that-M^2)^4 (\shat-M^2)^2}\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gq \to \QQbaroctetPone q) |^2 &=-{20 (4\pi \alphas)^3 \over 27 M^3} 
+       {M^2 \shat \uhat(\that^2+\that\uhat+\uhat^2) \over (\that-M^2)^4 (\shat-M^2)^2}
+\end{split}  
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gq \to \QQbaroctetPtwo q) |^2 &=-{(4\pi \alphas)^3 \over 27 M^3} {\that \over (\that-M^2)^4}\\
+                                 & \times \bigl[ \shat^2+\uhat^2+12 M^2 \shat \uhat^2{\shat^2+M^2 \shat + M^4 \over(\shat-M^2)^4} \bigr]\\
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gq \to \QQbaroctetPtwo q) |^2 &=-{4 (4\pi \alphas)^3 \over 9 M^3} {M^2 \shat\uhat\over (\that-M^2)^4} \\
+                                                                & \times {(\shat-M^2)^2 (\shat^2+M^4) - (\shat+M^2)^2 \that\uhat \over (\shat-M^2)^4}\\
+\mathop{{\bar{\sum_{|h|=2}}}} | \CA(gq \to \QQbaroctetPtwo q) |^2 &=-{2 (4\pi \alphas)^3 \over 9 M^3} {M^4\over \that(\that-M^2)^4} \\
+                                        & \times \bigl[ \shat^2+\uhat^2 + 2 \shat^2 \that \uhat{(\shat-M^2)(2 \that+\uhat) - \uhat^2 \over (\shat-M^2)^4} \bigr] 
+\end{split}  
+\end{equation}
+
+\item g g $\rightarrow Q\barQ[{\rm ^{(2S+1)}L_{J}^{(8)}}]$ g ( The $gg \to \QQbaroctettripP\ g$ squared amplitudes are expressed in 
+  terms of the variables $\shat$ and $\zhat \equiv \sqrt{\that\uhat}$.)
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum}}} | \CA(gg \to \QQbaroctetsingS g) |^2 &=
+       {5 (4\pi \alphas)^3 \over 16 M} \bigl[ \shat^2 (\shat-M^2)^2 + \shat \that\uhat(M^2-2\shat) + (\that\uhat)^2 \bigr] \\
+       &\times { (\shat^2-M^2 \shat + M^4)^2-\that\uhat (2 \that^2 + 3 \that\uhat + 2 \uhat^2) \over \shat\that\uhat \bigl[ (\shat-M^2) (\that-M^2) (\uhat-M^2) \bigr]^2}\\ 
+\mathop{{\bar{\sum_{h=0}}}} | \CA(g g \to \QQbaroctettripS g) |^2 &= -{(4\pi \alphas)^3 \over 144 M^3}{2 M^2 \shat \over (\shat-M^2)^2} (\that^2+\uhat^2) \that\uhat \\
+                                                              & \times {27(\shat\that+\that\uhat+\uhat\shat)-19M^4 \over \bigl[(\shat-M^2)(\that-M^2)(\uhat-M^2)\bigr]^2}
+\end{split}  
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(g g \to \QQbaroctettripS g) |^2 &= -{(4\pi \alphas)^3 \over 144 M^3} {\shat^2 \over (\shat-M^2)^2}\\ 
+                                                                  &\times \bigl[(\shat-M^2)^4+\that^4+\uhat^4+2 M^4 \bigl({\that\uhat \over \shat}\bigr)^2 \bigr]\\ 
+                                                                & \times {27(\shat\that+\that\uhat+\uhat\shat)-19M^4 \over \bigl[(\shat-M^2)(\that-M^2)(\uhat-M^2)\bigr]^2}
+\end{split}  
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum}}} | \CA(gg & \to \QQbaroctetPzero g) |^2 = {5 (4\pi \alphas)^3 \over 12 M^3} \frac{1}{\bigl[\shat \zhat^2 (\shat-M^2)^4 (\shat M^2 + \zhat^2)^4 \bigr]}\\
+                                                           & \times \Bigl\{\shat^2 \zhat^4 (\shat^2-\zhat^2)^4+ M^2 \shat \zhat^2 (\shat^2-\zhat^2)^2 (3\shat^2-2\zhat^2)(2\shat^4 - 6 \shat^2 \zhat^2 + 3 \zhat^4)\\
+                                                           & + M^4 \bigl[ 9\shat^{12} - 84 \shat^{10} \zhat^2 + 265 \shat^8 \zhat^4  - 382 \shat^6 \zhat^6 + 276 \shat^4 \zhat^8  - 88 \shat^2 \zhat^{10}+ 9 \zhat^{12} \bigr]\\ 
+                                                           & - M^6 \shat \bigl[ 54 \shat^{10} - 357 \shat^8 \zhat^2  + 844 \shat^6 \zhat^4 - 898 \shat^4 \zhat^6 + 439 \shat^2 \zhat^8- 81 \zhat^{10} \bigr] \\
+                                                           & + M^8 \bigl[ 153 \shat^{10} - 798 \shat^8 \zhat^2 + 1415 \shat^6 \zhat^4 - 1041 \shat^4 \zhat^6 + 301 \shat^2 \zhat^8 - 18 \zhat^{10} \bigr] \\
+                                                           & -M^{10} \shat \bigl[ 270 \shat^8 - 1089 \shat^6 \zhat^2 + 1365 \shat^4 \zhat^4 - 616 \shat^2 \zhat^6 + 87 \zhat^8 \bigr] \\
+                                                           & + M^{12} \bigl[ 324 \shat^8 - 951 \shat^6 \zhat^2 + 769 \shat^4 \zhat^4 - 189 \shat^2 \zhat^6 + 9 \zhat^8 \bigr] \\
+                                                           & - 9 M^{14} \shat \bigl[ (6 \shat^2 - \zhat^2) (5 \shat^4 - 9 \shat^2 \zhat^2 + 3 \zhat^4) \bigr]\\
+                                                           & + 3 M^{16} \shat^2 \bigl[51 \shat^4 - 59 \shat^2 \zhat^2 + 12 \zhat^4\bigr]\\
+                                                           & - 27 M^{18} \shat^3 \bigl[2\shat^2 - \zhat^2 \bigr]\\
+                                                           & + 9 M^{20} \shat^4 \Bigr\} 
+\end{split}  
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gg \to \QQbaroctetPone g) |^2 &={5 (4\pi \alphas)^3 \over 6 M^3} \frac{1}{\bigl[(\shat-M^2)^4 (\shat M^2 + \zhat^2)^4  \bigr]}\\
+                                                              & \times \shat \zhat^2 \bigl[(\shat^2-\zhat^2)^2 - 2 M^2 \shat \zhat^2 - M^4 (\shat^2+2 \zhat^2) + M^8 \bigr] \\
+                                                             & \times \bigl[(\shat^2-\zhat^2)^2 - M^2 \shat (2\shat^2 - \zhat^2) + M^4 \shat^2 \bigr] 
+\end{split}  
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gg \to \QQbaroctetPone g) |^2 &={5 (4\pi \alphas)^3 \over 6 M^3} \frac{1}{\bigl[(\shat-M^2)^4 (\shat M^2 + \zhat^2)^4 \bigr]}\\
+                                                                & \times M^2 \Bigl\{ 2(\shat^2-\zhat^2)^2 (\shat^6-4 \shat^4\zhat^2 + \shat^2 \zhat^4 - \zhat^6) \\
+                                                                & - M^2 \shat (2 \shat^2-\zhat^2) (5 \shat^6 - 17 \shat^4\zhat^2 + 9 \shat^2 \zhat^4 - \zhat^6 ) \\
+                                                                & + M^4 ( 21\shat^8 - 49 \shat^6 \zhat^2 + 21 \shat^4 \zhat^4 - 4 \shat^2 \zhat^6 + \zhat^8) \\
+                                                                & - M^6 \shat (24 \shat^6 - 30 \shat^4 \zhat^2 + 6 \shat^2 \zhat^4 - \zhat^6) \\
+                                                                & + M^8 \shat^2 (16 \shat^4 - 9 \shat^2 \zhat^2 + 2 \zhat^4)\\
+                                                                & - M^{10} \shat^3 (6 \shat^2 - \zhat^2) \\
+                                                                & + M^{12} \shat^4 \Bigr\} 
+\end{split}  
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{h=0}}}} | \CA(gg \to \QQbaroctetPtwo g) |^2  &={(4\pi \alphas)^3 \over 6 M^3} \frac{ \shat \zhat^2}{\bigl[(\shat-M^2)^6 (\shat M^2 + \zhat^2)^4 \bigr]}\\
+                                                               & \Bigl\{ \shat^2 (\shat^2-\zhat^2)^4 - M^2 \shat \zhat^2 (\shat^2-\zhat^2)^2(11 \shat^2+2 \zhat^2) \\
+                                                               & + M^4 \bigl[ \shat^8 - 12 \shat^6 \zhat^2 + 41 \shat^4 \zhat^4 - 20 \shat^2 \zhat^6 + \zhat^8 \bigr] \\
+                                                               & - M^6 \shat \bigl[ 4\shat^6 - 26 \shat^4 \zhat^2 - \shat^2 \zhat^4 - 5 \zhat^6 \bigr] \\
+                                                               & + M^8 \bigl[ 29 \shat^6 - 114 \shat^4 \zhat^2 + 108 \shat^2 \zhat^4 - 10 \zhat^6 \bigr] \\
+                                                               & - M^{10} \shat \bigl[ 65 \shat^4 - 104 \shat^2 \zhat^2 -33 \zhat^4 \bigr] \\
+                                                               & + M^{12} \bigl[ 54 \shat^4 - 20 \shat^2 \zhat^2 + 7 \zhat^4 \bigr] \\
+                                                               & - M^{14} \shat \bigl[23 \shat^2 + 5 \zhat^2\bigr]\\ 
+                                                               & + 7 M^{16} \shat^2 \Bigr\}
+\end{split}  
+\end{equation}
+
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{|h|=1}}}} | \CA(gg \to \QQbaroctetPtwo g) |^2 &={(4\pi \alphas)^3 \over 2 M^3} \frac{M^2}{\bigl[(\shat-M^2)^6 (\shat M^2+\zhat^2)^4 \bigr]}\\
+                                                                 &  \times \Bigl\{2 \shat^2 (\shat^2-\zhat^2)^2 (\shat^6 - 4 \shat^4 \zhat^2 + \shat^2 \zhat^4 - \zhat^6) \\
+                                                                 & - M^2 \shat \bigl[ 10 \shat^{10} - 37 \shat^8 \zhat^2  + 19 \shat^6 \zhat^4 + 11 \shat^4 \zhat^6 - \shat^2 \zhat^8 - 4 \zhat^{10} \bigr] \\
+                                                                 & + M^4 \bigl[ 25 \shat^{10} - 61 \shat^8 \zhat^2  + 27 \shat^6  \zhat^4 - 34 \shat^4 \zhat^6 + 23 \shat^2 \zhat^8 - 2 \zhat^{10} \bigr] \\
+                                                                 & - M^6 \shat \bigl[ 42 \shat^8 - 77 \shat^6 \zhat^2 + 41 \shat^4 \zhat^4 - 22 \shat^2 \zhat^6 + 17 \zhat^8 \bigr] \\
+                                                                 & + M^8 \bigl[ 53 \shat^8 - 88 \shat^6 \zhat^2 + 69 \shat^4 \zhat^4 - 68 \shat^2 \zhat^6 + 3 \zhat^8 \bigr] \\
+                                                                 & - M^{10} \shat \bigl[ 54 \shat^6 - 85 \shat^4 \zhat^2 + 60 \shat^2 \zhat^4 - 9 \zhat^6 \bigr] \\
+                                                                 & + M^{12} \shat^2 \bigl[ 43 \shat^4 - 47 \shat^2 \zhat^2 + 20 \zhat^4 \bigr] \\
+                                                                 & - M^{14} \shat^3 \bigl[22 \shat^2 - 9 \zhat^2\bigr]\\ 
+                                                                 & + 5 M^{16} \shat^4 \Bigr\} 
+\end{split}  
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathop{{\bar{\sum_{|h|=2}}}} | \CA(gg \to & \QQbaroctetPtwo g) |^2 ={(4\pi \alphas)^3 \over 2 M^3}\frac{M^4}{\bigl[ \shat \zhat^2 (\shat-M^2)^6 (\shat M^2 + \zhat^2)^4 \bigr]}\\ 
+                                     & \times  \Bigl\{ 2 \shat^2 \bigl[ \shat^{12} - 8 \shat^{10} \zhat^2 + 22 \shat^8 \zhat^4 - 24 \shat^6  \zhat^6 + 10 \shat^4 \zhat^8 - 3 \shat^2 \zhat^{10} + \zhat^{12} \bigr] \\
+                                     & - M^2 \shat \bigl[ 16 \shat^{12} - 102 \shat^{10} \zhat^2  + 210 \shat^8 \zhat^4 - 153 \shat^6 \zhat^6 + 36 \shat^4 \zhat^8  - 6 \shat^2 \zhat^{10}  + 4 \zhat^{12} \bigr] \\
+                                     & + M^4 \bigl[ 60 \shat^{12} - 306 \shat^{10} \zhat^2  + 482 \shat^8 \zhat^4 - 271 \shat^6 \zhat^6 + 77 \shat^4 \zhat^8 - 18 \shat^2 \zhat^{10}  + 2 \zhat^{12} \bigr] \\
+                                     & - M^6 \shat \bigl[ 140 \shat^{10} - 573 \shat^8 \zhat^2 + 710 \shat^6 \zhat^4 - 344 \shat^4 \zhat^6 + 91 \shat^2 \zhat^8 - 18 \zhat^{10} \bigr] \\
+                                     & + M^8 \bigl[ 226 \shat^{10} - 741 \shat^8 \zhat^2 + 737 \shat^6 \zhat^4 - 310 \shat^4 \zhat^6 + 77 \shat^2 \zhat^8 - 4 \zhat^{10} \bigr] \\
+                                     & - M^{10} \shat \bigl[ 264 \shat^8 - 686 \shat^6 \zhat^2 + 541 \shat^4 \zhat^4 - 177 \shat^2 \zhat^6 + 25 \zhat^8 \bigr] \\
+                                     & + M^{12} \bigl[ 226 \shat^8 - 452 \shat^6 \zhat^2 + 261 \shat^4 \zhat^4 - 55 \shat^2 \zhat^6 + 2 \zhat^8 \bigr] \\
+                                     & - M^{14} \shat \bigl[ 140 \shat^6 - 201 \shat^4 \zhat^2 + 71 \shat^2 \zhat^4 - 6 \zhat^6 \bigr] \\
+                                     & + M^{16} \shat^2 \bigl[ 60 \shat^4 - 53 \shat^2 \zhat^2 + 8 \zhat^4 \bigr] \\
+                                     & - 2 M^{18} \shat^3 \bigl[ 8 \shat^2 - 3 \zhat^2 \bigr]\\
+                                     & + 2 M^{20} \shat^4 \Bigr\} 
+\end{split}  
+\end{equation}
+\end{itemize}
+
+\newpage
+
+\end{comment}
 
 \section*{References}
 %\noindent
@@ -1020,8 +1478,8 @@ and a larger value for the combination  $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\r
 \bibitem{Augustin:1974xw} 
   J.~E.~Augustin {\it et al.} [SLAC-SP-017 Collaboration],
   ``Discovery of a Narrow Resonance in e+ e- Annihilation,''
-  Phys.\ Rev.\ Lett.\  {\bf 33}, 1406 (1974)
-  [Adv.\ Exp.\ Phys.\  {\bf 5}, 141 (1976)].
+  Phys.\ Rev.\ Lett.\  {\bf 33}, 1406 (1974).
+  %[Adv.\ Exp.\ Phys.\  {\bf 5}, 141 (1976)].
 
 \bibitem{Aubert:1974js} 
   J.~J.~Aubert {\it et al.} [E598 Collaboration],
@@ -1029,14 +1487,41 @@ and a larger value for the combination  $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\r
   Phys.\ Rev.\ Lett.\  {\bf 33}, 1404 (1974).
   
 
-%\cite{Kumar:2014kfa}
+%\cite{Braun-Munzinger:2015hba}
+\bibitem{Braun-Munzinger:2015hba} 
+  P.~Braun-Munzinger, V.~Koch, T.~Schäfer and J.~Stachel,
+  ``Properties of hot and dense matter from relativistic heavy ion collisions,''
+  Phys.\ Rept.\  {\bf 621}, 76 (2016),
+  [arXiv:1510.00442 [nucl-th]].
+  
+
+%\bibitem{Strickland:2011mw} 
+%  M.~Strickland,
+%  ``Thermal $\Upsilon$(1S) and $\chi_{b1}$ suppression in $\sqrt{s_{NN}}=2.76$ TeV Pb-Pb collisions at the LHC,''
+%  Phys.\ Rev.\ Lett.\  {\bf 107}, 132301 (2011), [arXiv:1106.2571 [hep-ph]].
+
+
+
 \bibitem{Kumar:2014kfa} 
   V.~Kumar, P.~Shukla and R.~Vogt,
   ``Quarkonia suppression in PbPb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV,''
   Phys.\ Rev.\ C {\bf 92}, 024908 (2015).
 
+%\bibitem{Zhou:2016wbo} 
+%  K.~Zhou, Z.~Chen, C.~Greiner and P.~Zhuang,
+%  ``Thermal Charm and Charmonium Production in Quark Gluon Plasma,''
+%  Phys.\ Lett.\ B {\bf 758}, 434 (2016), [arXiv:1602.01667 [hep-ph]].
 
-%\cite{Chatrchyan:2012lxa}
+
+%
+\bibitem{Mocsy:2013syh} 
+  A.~Mocsy, P.~Petreczky and M.~Strickland,
+  ``Quarkonia in the Quark Gluon Plasma,''
+  Int.\ J.\ Mod.\ Phys.\ A {\bf 28}, 1340012 (2013),
+  [arXiv:1302.2180 [hep-ph]].
+
+
+
 \bibitem{Chatrchyan:2012lxa} 
   S.~Chatrchyan {\it et al.} [CMS Collaboration],
   ``Observation of sequential Upsilon suppression in PbPb collisions,''
@@ -1048,6 +1533,34 @@ and a larger value for the combination  $M_{L}(c\barc([^1S_0]_{8},[^3P_0]_{8})\r
   V.~Khachatryan {\it et al.} [CMS Collaboration],
   ``Measurement of Prompt $\psi(2S) \to J/\psi$ Yield Ratios in Pb-Pb and $p-p$ Collisions at $\sqrt {s_{NN}}=$ 2.76  TeV,''
   Phys.\ Rev.\ Lett.\  {\bf 113}, no. 26, 262301 (2014).
+
+
+%\cite{Khachatryan:2016ypw}
+\bibitem{Khachatryan:2016ypw} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Suppression and azimuthal anisotropy of prompt and nonprompt $J/\psi$ production in PbPb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV,''
+  Eur.\ Phys.\ J.\ C, {\bf 77}, 252 (2017), [arXiv:1610.00613 [nucl-ex]].
+
+
+
+%\cite{Sirunyan:2016znt}
+\bibitem{Sirunyan:2016znt} 
+  A.~M.~Sirunyan {\it et al.} [CMS Collaboration],
+  ``Relative modification of prompt $ {\psi\mathrm{(2S)}} $ and $\mathrm{J}/\psi $ yields from pp to PbPb collisions at ${\sqrt{s_{\mathrm{NN}}}} = $ 5.02 TeV,''
+  [Phys.\ Rev.\ Lett.\  {\bf 118}, 162301 (2017)], [arXiv:1611.01438 [nucl-ex]].
+
+
+\bibitem{Khachatryan:2016xxp} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Suppression of $\Upsilon(1S)$, $\Upsilon(2S)$ and $\Upsilon(3S)$ production in PbPb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV,''
+  Phys.\ Lett.\ B {\bf 770}, 357 (2017), [arXiv:1611.01510 [nucl-ex]].
+
+\bibitem{Abelev:2013ila} 
+  B.~B.~Abelev {\it et al.} [ALICE Collaboration],
+  ``Centrality, rapidity and transverse momentum dependence of $J/\psi$ suppression in Pb-Pb collisions at $\sqrt{s_{\rm NN}}$=2.76 TeV,''
+  Phys.\ Lett.\ B {\bf 734}, 314 (2014), [arXiv:1311.0214 [nucl-ex]].
+
+
 
 
 \bibitem{Nason:1987xz}
@@ -1107,7 +1620,7 @@ Phys.\ Rev.\ D {\bf 51} 1125 (1995),
 
 \bibitem{Carlson:1976cd}
   C.~E.~Carlson and R.~Suaya,
-  ``Hadronic Production Of Psi/J Mesons,''
+  ``Hadronic Production Of J/$\psi$ Mesons,''
   Phys.\ Rev.\  D {\bf 14} 3115 (1976).
   
 \bibitem{Berger:1980ni} 
@@ -1208,6 +1721,16 @@ Phys.\ Rev.\ D {\bf 51} 1125 (1995),
   Phys.\ Rev.\ Lett.\  {\bf 108}, 172002 (2012).
 %  [arXiv:1201.1872 [hep-ph]].
   
+\bibitem{Butenschoen:2012qr} 
+  M.~Butenschoen and B.~A.~Kniehl,
+  ``Next-to-leading-order tests of NRQCD factorization with $J/\psi$ yield and polarization,''
+  Mod.\ Phys.\ Lett.\ A {\bf 28}, 1350027 (2013), [arXiv:1212.2037 [hep-ph]].
+
+
+
+
+
+
 \bibitem{Chao:2012iv} 
   K.~T.~Chao, Y.~Q.~Ma, H.~S.~Shao, K.~Wang and Y.~J.~Zhang,
   ``$J/\psi$ Polarization at Hadron Colliders in Nonrelativistic QCD,''
@@ -1220,12 +1743,26 @@ Phys.\ Rev.\ D {\bf 51} 1125 (1995),
   Phys.\ Rev.\ Lett.\  {\bf 110}, 042002 (2013).
 %  [arXiv:1205.6682 [hep-ph]].
  
+\bibitem{Abulencia:2007us} 
+  A.~Abulencia {\it et al.} [CDF Collaboration],
+  ``Polarization of $J/\psi$ and $\psi_{2S}$ mesons produced in $p \bar{p}$ collisions at $\sqrt{s}$ = 1.96-TeV,''
+  Phys.\ Rev.\ Lett.\  {\bf 99}, 132001 (2007), [arXiv:0704.0638 [hep-ex]].
+
+
 \bibitem{Butenschoen:2010rq} 
   M.~Butenschoen and B.~A.~Kniehl,
   ``Reconciling $J/\psi$ production at HERA, RHIC, Tevatron, and LHC with NRQCD factorization at next-to-leading order,''
   Phys.\ Rev.\ Lett.\  {\bf 106}, 022003 (2011). 
 %[arXiv:1009.5662 [hep-ph]].
  
+
+
+\bibitem{Butenschoen:2011yh} 
+  M.~Butenschoen and B.~A.~Kniehl,
+  ``World data of J/$\psi$ production consolidate NRQCD factorization at NLO,''
+  Phys.\ Rev.\ D {\bf 84}, 051501 (2011), [arXiv:1105.0820 [hep-ph]].
+ 
+
 
 
 
@@ -1249,6 +1786,67 @@ Phys.\ Rev.\ D {\bf 51} 1125 (1995),
   JHEP {\bf 1505}, 103 (2015).
 %  [arXiv:1411.3300 [hep-ph]].
 
+
+\bibitem{Aaij:2014bga} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of the $\eta_c (1S)$ production cross-section in proton-proton collisions via the decay $\eta_c (1S) \rightarrow p \bar{p}$,''
+  Eur.\ Phys.\ J.\ C {\bf 75}, no. 7, 311 (2015), [arXiv:1409.3612 [hep-ex]].
+ 
+
+\bibitem{Butenschoen:2014dra} 
+  M.~Butenschoen, Z.~G.~He and B.~A.~Kniehl,
+  ``$\eta_c$ production at the LHC challenges nonrelativistic-QCD factorization,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, no. 9, 092004 (2015), [arXiv:1411.5287 [hep-ph]].
+
+
+\bibitem{Han:2014jya} 
+  H.~Han, Y.~Q.~Ma, C.~Meng, H.~S.~Shao and K.~T.~Chao,
+  ``$\eta_c$ production at LHC and indications on the understanding of $J/\psi$ production,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, no. 9, 092005 (2015), [arXiv:1411.7350 [hep-ph]].
+  
+
+\bibitem{Zhang:2014ybe} 
+  H.~F.~Zhang, Z.~Sun, W.~L.~Sang and R.~Li,
+  ``Impact of $\eta_c$ hadroproduction data on charmonium production and polarization within NRQCD framework,''
+  Phys.\ Rev.\ Lett.\  {\bf 114}, 092006 (2015), [arXiv:1412.0508 [hep-ph]].
+
+
+
+
+\bibitem{Aaij:2011yc} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Observation of $J/\psi$ pair production in $pp$ collisions at $\sqrt{s}=7 TeV$,''
+  Phys.\ Lett.\ B {\bf 707}, 52 (2012), [arXiv:1109.0963 [hep-ex]].
+
+
+\bibitem{Khachatryan:2014iia} 
+  V.~Khachatryan {\it et al.} [CMS Collaboration],
+  ``Measurement of prompt $J/\psi$ pair production in pp collisions at $ \sqrt{s} $ = 7 Tev,''
+  JHEP {\bf 1409}, 094 (2014), [arXiv:1406.0484 [hep-ex]].
+ 
+
+\bibitem{Aaboud:2016fzt} 
+  M.~Aaboud {\it et al.} [ATLAS Collaboration],
+  ``Measurement of the prompt J/ $\psi $ pair production cross-section in pp collisions at $\sqrt{s} = 8$  TeV with the ATLAS detector,''
+  Eur.\ Phys.\ J.\ C {\bf 77}, no. 2, 76 (2017), [arXiv:1612.02950 [hep-ex]].
+
+
+\bibitem{Aaij:2016bqq} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of the $J/\psi$ pair production cross-section in $pp$ collisions at $\sqrt{s} = 13 \,{\mathrm{TeV}}$,''
+   JHEP {\bf 1706}, 047 (2017), arXiv:1612.07451 [hep-ex].
+  
+
+\bibitem{He:2015qya} 
+  Z.~G.~He and B.~A.~Kniehl,
+  ``Complete Nonrelativistic-QCD Prediction for Prompt Double J/ψ Hadroproduction,''
+  Phys.\ Rev.\ Lett.\  {\bf 115}, 022002 (2015), [arXiv:1609.02786 [hep-ph]].
+
+
+\bibitem{Sun:2014gca} 
+  L.~P.~Sun, H.~Han and K.~T.~Chao,
+  ``Impact of $J/\psi$ pair production at the LHC and predictions in nonrelativistic QCD,''
+  Phys.\ Rev.\ D {\bf 94}, 074033 (2016), [arXiv:1404.4042 [hep-ph]].
 
 
 
@@ -1302,7 +1900,7 @@ Phys.\ Rev.\ D {\bf 51} 1125 (1995),
   G.~Aad {\it et al.} [ATLAS Collaboration],
   ``Measurement of the differential cross-sections of prompt and non-prompt production of $J/\psi$ 
   and $\psi(2\mathrm{S})$ in $pp$ collisions at $\sqrt{s} = 7$ and $8$ TeV with the ATLAS detector,''
-  arXiv:1512.03657 [hep-ex].
+  Eur.\ Phys.\ J.\ C {\bf 76}, 283 (2016), arXiv:1512.03657 [hep-ex].
 
 
 \bibitem{ATLAS:2014ala} 

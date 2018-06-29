@@ -1,0 +1,1 @@
+pdflatex Ref_Report.tex;pdflatex Ref_Report.tex;pdflatex Ref_Report.tex;evince Ref_Report.pdf& 

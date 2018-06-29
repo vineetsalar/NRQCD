@@ -1,0 +1,52 @@
+Q1 Please specify the corresponding author.
+A1 Vineet Kumar is corresponding author
+
+
+Q2 Please check the details for any journal references that do not have a link as they may contain
+   some incorrect information. If any journal references do not have a link, please update with
+   correct details and supply a Crossref DOI if available.
+A2 remove this ref. "Augustin J E et al (SLAC-SP-017 Collaboration) 1976 Discovery of a narrow resonance in e+ e−
+                     annihilation Adv. Exp. Phys. 5 141"
+
+Q3 Please update the year of publication, volume and page range in references [8, 10].
+
+A3 Following are the updated refrences
+
+[8] V. Khachatryan et al. [CMS Collaboration], “Suppression and azimuthal anisotropy of prompt and nonprompt J/ψ production in PbPb collisions at sNN = 2.76 TeV,” 
+    Eur. Phys. J. C, 77, 252 (2017), [arXiv:1610.00613 [nucl-ex]].
+
+
+[10] \bibitem{Khachatryan:2016ypw} 
+     V.~Khachatryan {\it et al.} [CMS Collaboration],
+     ``Suppression and azimuthal anisotropy of prompt and nonprompt $J/\psi$ production in PbPb collisions at $\sqrt{s_{NN}}$ = 2.76 TeV,''
+     Eur.\ Phys.\ J.\ C, {\bf 77}, 252 (2017), [arXiv:1610.00613 [nucl-ex]].
+
+
+[10] V. Khachatryan et al. [CMS Collaboration], “Suppression of Υ(1S), Υ(2S) and Υ(3S) production in PbPb collisions 2.76 TeV,” Phys. Lett. B 770, 357 (2017), [arXiv:1611.01510
+[nucl-ex]].
+
+
+
+
+
+Q4 Please provide updated details for references [21, 50, 60] if available.
+A4 Following are the updates
+
+  [21] Schuler G A Quarkonium production and decays arXiv:hep-ph/9403387
+  
+  [50] 
+  \bibitem{Aaij:2016bqq} 
+  R.~Aaij {\it et al.} [LHCb Collaboration],
+  ``Measurement of the $J/\psi$ pair production cross-section in $pp$ collisions at $\sqrt{s} = 13 \,{\mathrm{TeV}}$,''
+   JHEP {\bf 1706}, 047 (2017), arXiv:1612.07451 [hep-ex].
+
+
+  [60]
+  \bibitem{Aad:2015duc} 
+  G.~Aad {\it et al.} [ATLAS Collaboration],
+  ``Measurement of the differential cross-sections of prompt and non-prompt production of $J/\psi$ 
+  and $\psi(2\mathrm{S})$ in $pp$ collisions at $\sqrt{s} = 7$ and $8$ TeV with the ATLAS detector,''
+  Eur.\ Phys.\ J.\ C {\bf 76}, 283 (2016), arXiv:1512.03657 [hep-ex].
+
+
+

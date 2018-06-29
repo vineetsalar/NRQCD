@@ -1,0 +1,1 @@
+pdflatex NRQCDChar.tex; pdflatex NRQCDChar.tex;pdflatex NRQCDChar.tex;rm -f NRQCDChar.aux; rm -f NRQCDChar.log;evince NRQCDChar.pdf& 

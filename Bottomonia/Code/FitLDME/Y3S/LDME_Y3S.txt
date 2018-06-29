@@ -172,3 +172,273 @@ LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0126488 \pm 0.00077117
 LDME : 3S1_1 1\pm0
 LDME : 3S1_8 0.0725122\pm0.00128834
 LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0126488 \pm 0.00077117
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0725122\pm0.00128834
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0126488 \pm 0.00077117
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0725122\pm0.00128834
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0126488 \pm 0.00077117
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0725122\pm0.00128834
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0126488 \pm 0.00077117
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0725122\pm0.00128834
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0126488 \pm 0.00077117
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0725122\pm0.00128834
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0126488 \pm 0.00077117
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0725122\pm0.00128834
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0126488 \pm 0.00077117
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.073397\pm0.00124521
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0129999 \pm 0.000734915
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158
+
+
+ combined fitting perameters 
+LDME : 3S1_1 1\pm0
+LDME : 3S1_8 0.0738814\pm0.00120333
+LDME : M(1S0_8/5 + 3P0_8/mc2)  0.0125748 \pm 0.000686158

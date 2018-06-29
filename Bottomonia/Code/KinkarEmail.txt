@@ -1,0 +1,21 @@
+Dear Kinkar, 
+
+How are you? Hope you are set to visit us. If you are planning to come with 
+your laptop please try to install following softwares 
+
+1. root
+2. LHAPDF (I had used version 5.8.8 for the charmonia calculations)
+3. emacs
+
+If you face any problem while doing this please let me know. 
+
+I am also attaching our preliminary work submitted to nuclear physics 
+symposium. 
+
+with regards,
+Vineet 
+
+
+
+
+

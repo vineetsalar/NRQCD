@@ -593,9 +593,14 @@ void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag);
 
 
 
+
 Double_t Scale_Pt(Double_t JPsiPt);
 Double_t Scale_Chi_Pt(Double_t JPsiPt, Int_t Par);
+
+
 TGraph *Scale_QCDSigma(TGraph *InGraph, Double_t LDME);
+
+
 TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4);
 TGraph *Add_FeedDown_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3, TF1 *InFunc);
 TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin);
@@ -716,7 +721,7 @@ void JPsiLDME()
   
   cout<<" getting Data Graph 0009: "<<endl;
   TGraphAsymmErrors *grfData_CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt=new TGraphAsymmErrors();
-  grfData_CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt=Data_CMS_New_D2NDPtDy_PrompJPsi_Y0009_Pt();
+  grfData_CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt= Data_CMS_New_D2NDPtDy_PrompJPsi_Y0009_Pt();
   
   TF1 *CMS_0009_FitFunctionLDME = new TF1("CMS_0009_FitFunctionLDME", CMS_0009_FitLDME, 5.0, 120, 3);
   CMS_0009_FitFunctionLDME->SetLineColor(2);
@@ -837,9 +842,7 @@ void JPsiLDME()
   gPad->SaveAs("Plots/CMS_New_D2NDPtDy_PromptJPsi_Y0009_Pt.png");
 
 
-
-
-
+  
 
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== FITTING CMS DATA FOR LDME ================================"<<endl;
@@ -972,6 +975,7 @@ void JPsiLDME()
   gPad->SaveAs("Plots/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.pdf");
   gPad->SaveAs("Plots/CMS_Latest_D2NDPtDy_PromptJPsi_Y0012_Pt.png");
 
+  return;
 
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== FITTING CDF DATA 196 TeV FOR LDME ======================="<<endl;
@@ -2903,10 +2907,6 @@ Double_t CMS_0009_FitLDME(Double_t *x, Double_t *par)
   Double_t Sigma = SigmaDirect + SigmaFeedDown;
 
 
-
-
-  
-
   return Sigma;
   
 }
@@ -4370,10 +4370,6 @@ TGraph *Add_ChiC_FeedDown(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3)
 
 
 }
-
-
-
-
 
 
 

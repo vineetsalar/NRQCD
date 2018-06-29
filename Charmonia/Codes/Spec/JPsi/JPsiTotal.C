@@ -43,6 +43,9 @@ const Double_t mC = 1.6;
 Double_t Psi2S_LDME_3S1_1 = 1.0;  
 Double_t Psi2S_LDME_3S1_8 = 0.00362;
 Double_t Psi2S_LDME_1S0_8 = 0.022804;
+
+
+
 //========= Our Values of fitted Chic LDME =========//
 Double_t Chic0_LDME_3P0_1 = 1.0;
 Double_t Chic0_LDME_3S1_8 = 0.011118;
@@ -52,6 +55,8 @@ Double_t Chic1_LDME_3S1_8 = 0.011118;
 
 Double_t Chic2_LDME_3P2_1 = 1.0;
 Double_t Chic2_LDME_3S1_8 = 0.011118;
+
+
 //========= Our Values of fitted Jsi LDME =========//
 Double_t JPsi_LDME_3S1_1 = 1.0;  
 Double_t JPsi_LDME_3S1_8 = 0.002055;

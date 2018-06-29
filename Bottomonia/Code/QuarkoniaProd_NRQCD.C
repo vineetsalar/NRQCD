@@ -46,20 +46,18 @@
 #include <string>
 #include <vector>
 #include <map>
-# include "Math/GaussLegendreIntegrator.h"
-
+#include "Math/GaussLegendreIntegrator.h"
 
 using namespace std;
 using namespace LHAPDF;
-
 
 //=========================== Global Variables ============================//
 const Double_t pi = TMath::Pi();
 const Double_t hbarc = 0.197327;
 const Double_t hbarc2 = hbarc*hbarc;
-const Double_t RootS = 1800.0;
+const Double_t RootS = 8000.0; //GeV
 
-Int_t IsPrediction =1;
+Int_t IsPrediction =0;
 
 
 //===== for gauss quadrature integration ========//
@@ -76,9 +74,7 @@ Double_t WWk[NNXXk]={0.0};
 //const Double_t mC = 1.4; //Mass_var1
 const Double_t mC = 4.88;
 //const Double_t mC = 1.8;//Mass_var2
-
 const Double_t mJPsi = 2.0*mC;
-
 
 /*
 //JPsi %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -194,8 +190,8 @@ const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3
 /*
 // Y(2S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 7;
-const Double_t mC = 4.88;
-const Double_t mJPsi = 10.02326;
+//const Double_t mC = 4.88;
+//const Double_t mJPsi = 10.02326;
 
 //const Double_t OO_QQbar_3S1_1_JPsi=4.5;   //GeV^3
 const Double_t NC = 3.0;        
@@ -211,7 +207,7 @@ const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
 */
 
-
+/*
 // Y(3S)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 8;
 
@@ -220,8 +216,8 @@ Int_t QQbarVar = 8;
 //const Double_t OO_QQbar_3S1_1_JPsi=4.3;   //GeV^3
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*4.3/(3.0*NC);  //GeV^3
-const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
 
+const Double_t OO_QQbar_3S1_1_JPsi=1.0;   //GeV^3 This is going through R02 for singlet state
 const Double_t OO_QQbar_3S1_8_JPsi=0.0513;  //GeV^3
 const Double_t OO_QQbar_1S0_8_JPsi=0.0002;   //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0002*mC*mC; //GeV^5 
@@ -229,15 +225,17 @@ const Double_t OO_QQbar_3P0_8_JPsi=5.0*0.0002*mC*mC; //GeV^5
 //================ Faltu ===============//
 const Double_t OO_QQbar_3P0_1_Chic=0.0; // going through R02        
 const Double_t OO_QQbar_3S1_8_Chic=0.0;  // no mc2 it is going as GeV^3  
+*/
 
 
-/*
 // Chi_b0 (1P)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Int_t QQbarVar = 9;
-const Double_t mC = 4.88;
-const Double_t mJPsi = 9.85944;
 
+//const Double_t mC = 4.88;
+//const Double_t mJPsi = 9.85944;
 //const Double_t OO_QQbar_3P0_1_Chic= 0.1*mb*mb; // going through R02        
+
+
 const Double_t NC = 3.0;        
 const Double_t R02 = 2.0*pi*0.1*mC*mC/(3.0*NC);  //GeV^3
 const Double_t OO_QQbar_3P0_1_Chic=1.0; // going through R02        
@@ -249,7 +247,7 @@ const Double_t OO_QQbar_3S1_1_JPsi=0.0;   //GeV^3 This is going through R02 for 
 const Double_t OO_QQbar_3S1_8_JPsi=0.0;  //GeV^3
 const Double_t OO_QQbar_1S0_8_JPsi=0.0;   //GeV^3
 const Double_t OO_QQbar_3P0_8_JPsi=0.0; //GeV^3   //not being used right now 
-*/
+
 
 
 
@@ -484,8 +482,8 @@ void QuarkoniaProd_NRQCD()
   if(QQbarVar ==7){OutFile = new TFile("Y2SCrossSection.root","Recreate");}
   if(QQbarVar ==8){OutFile = new TFile("Y3SCrossSection.root","Recreate");}
 
-  if(QQbarVar ==9){OutFile = new TFile("Chib0_1PCrossSection.root","Recreate");}
-  if(QQbarVar ==10){OutFile = new TFile("Chib0_2PCrossSection.root","Recreate");}
+  if(QQbarVar ==9){OutFile = new TFile("Chib1_1PCrossSection.root","Recreate");}
+  if(QQbarVar ==10){OutFile = new TFile("Chib2_1PCrossSection.root","Recreate");}
 
   //export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/vineet/LHAPDF/lib
   //gSystem->Load("libLHAPDF.so");
@@ -797,7 +795,7 @@ void QuarkoniaProd_NRQCD()
       if(QQbarVar  ==1 || QQbarVar ==2 || QQbarVar ==3 || QQbarVar ==4 || QQbarVar ==5 
 	 || QQbarVar ==6 || QQbarVar ==7 || QQbarVar ==8 || QQbarVar ==9 || QQbarVar ==10){
 
-	Double_t YMin = -0.4; Double_t YMax = 0.4; 
+	Double_t YMin = -1.5; Double_t YMax = 1.5; 
 
 	Double_t DeltaY = (YMax - YMin);
 	
@@ -824,12 +822,11 @@ void QuarkoniaProd_NRQCD()
 	DSigmaDPtDY_Pt[i] = (Psi2MuMu*DSigmaDPt_Gauss(Pt, YMin, YMax))/DeltaY;
 	
 	if(QQbarVar ==1 || QQbarVar ==2 || QQbarVar ==6 || QQbarVar ==7 || QQbarVar ==8){
-	
+	  
 	  DSigmaDPtDY_Pt_3S1_1_Fit[i] = (LDME_3S1_1*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,1))/DeltaY;
+	  
 	  DSigmaDPtDY_Pt_1S0_8_Fit[i] = (LDME_1S0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,2))/DeltaY;
-	  
 	  DSigmaDPtDY_Pt_3S1_8_Fit[i] = (LDME_3S1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,3))/DeltaY;
-	  
 	  DSigmaDPtDY_Pt_3P0_8_Fit[i] = (LDME_3P0_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,4))/DeltaY;
 	  DSigmaDPtDY_Pt_3P1_8_Fit[i] = (LDME_3P1_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,5))/DeltaY;
 	  DSigmaDPtDY_Pt_3P2_8_Fit[i] = (LDME_3P2_8*Psi2MuMu*DSigmaDPt_Gauss_Fit(Pt, YMin, YMax,6))/DeltaY;
@@ -1989,12 +1986,6 @@ void QuarkoniaProd_NRQCD()
   grDSigmaDPtDY_Pt_3P0_1_Fit_ALICE->Write();
   grDSigmaDPtDY_Pt_3P1_1_Fit_ALICE->Write();
   grDSigmaDPtDY_Pt_3P2_1_Fit_ALICE->Write();
-
-
-
-
-
-
 
 
 

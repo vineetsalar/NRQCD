@@ -223,7 +223,7 @@ void Psi2SLDME()
 
 
 
-  /*
+  
   //======================== Checking Ratio ======================================//
   Double_t PT[200]; Double_t SDCS[200];
   Double_t SDCS1[200];
@@ -235,8 +235,8 @@ void Psi2SLDME()
 
   for(int i=0;i<NN;i++){
     PT[i]=PtMin + i*PtStep;
-    SDCS1[i]=2.0*mC*mC*CDFRatio_3PJ8_1S0_8(PT[i]);
-    SDCS[i]=2.0*mC*mC*Ratio_3PJ8_1S0_8(PT[i]);
+    SDCS1[i]=mC*mC*CDFRatio_3PJ8_1S0_8(PT[i]);
+    SDCS[i]=mC*mC*Ratio_3PJ8_1S0_8(PT[i]);
   }
 
   TGraph *grf_Ratio_3PJ_8_1S0_8 = new TGraph(NN,PT,SDCS);
@@ -253,15 +253,7 @@ void Psi2SLDME()
   grf_Ratio_3PJ_8_1S0_8->Draw("AL");
   grf_CDFRatio_3PJ_8_1S0_8->Draw("Lsame");
   
-  //return;
-  */
-
-
-
-
-
-
-
+ 
   //============================ Open a output text file ====================================//
   char OutTextFile[100];
   sprintf(OutTextFile,"LDME_Psi2S.txt");
@@ -1293,7 +1285,8 @@ void Psi2SLDME()
   fun_5->SetLineWidth(4);
 
   
-  TF1 *fun_6=new TF1("fun_6", LHCb_FitLDME, 6.0, 20, 3);
+  //  TF1 *fun_6=new TF1("fun_6", LHCb_FitLDME, 6.0, 20, 3);
+  TF1 *fun_6=new TF1("fun_6", LHCb_FitLDME, 5.0, 20, 3);
   for(Int_t i=0;i<3;i++){fun_6->FixParameter(i,currentPar[i]);}
   //fun_5->SetParameters(currentPar);
   fun_6->SetLineColor(2);
@@ -1853,7 +1846,7 @@ void Psi2SLDME()
 
   
 
-  gr6->Fit("fun_6","Q0","MER", 6, 20);
+  gr6->Fit("fun_6","Q0","MER", 5, 20);
   /*
   new TCanvas;
   gPad->SetTicks();
@@ -1885,9 +1878,9 @@ void Psi2SLDME()
   TGraph *Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit= Scale_QCDSigma(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit, Fac_1S0_8_To_3PJ_8);
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->SetLineColor(4);
   
-  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=CutGraph(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,6.0);
-  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,6.0);
-  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=CutGraph(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,6.0);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=CutGraph(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,5.0);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=CutGraph(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,5.0);
+  Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit=CutGraph(Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit,5.0);
 
   TLegend *Comb_lgd_LHCb_DSigmaDPtDY_Pt1 = new TLegend(0.20,0.88,0.82,0.93);
   Comb_lgd_LHCb_DSigmaDPtDY_Pt1->SetBorderSize(0);
@@ -1949,7 +1942,7 @@ void Psi2SLDME()
   Comb_Out_grLHCb_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Fit->Draw("Lsame");
   Comb_lgd_LHCb_DSigmaDPtDY_Pt1->Draw("same");
   Comb_lgd_LHCb_DSigmaDPtDY_Pt1_1->Draw("same");
-
+  tb->DrawLatex(0.23,0.18,"(c)");
   gPad->SaveAs("Plots/Psi2S_LHCb.pdf");
   gPad->SaveAs("Plots/Psi2S_LHCb.png");
 
@@ -2381,7 +2374,6 @@ Double_t fcn6(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
   }
   return chisq;
 }
-
 
 
 

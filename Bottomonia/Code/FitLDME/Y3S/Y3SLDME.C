@@ -44,6 +44,7 @@
 #include "TMath.h"
 
 
+
 //================== CMS: open the calculated root file ===========================================//
 TFile *file_CMS_RootS7TeV_Y3SCrossSection =  new TFile("rootFiles/CMS/Y3SCrossSection.root","R");
 //================ Get All the graphs ===============================//
@@ -59,7 +60,7 @@ TGraphAsymmErrors *Data_CMS_D2NDPtDy_Y3S_Y0012_Pt();
 
 
 //================== ATLAS: open the calculated root file ===========================================//
-TFile *file_ATLAS_RootS7TeV_Y3SCrossSection =  new TFile("rootFiles/ATLAS/Y3SCrossSection.root","R");
+TFile *file_ATLAS_RootS7TeV_Y3SCrossSection =  new TFile("rootFiles/ATLAS/Y3SCrossSection0012.root","R");
 //================ Get All the graphs ===============================//
 TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection->Get("grDSigmaDPtDY_Pt_3S1_1_Fit");
 TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection->Get("grDSigmaDPtDY_Pt_1S0_8_Fit");
@@ -69,6 +70,51 @@ TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit =(TGraph*)file_ATLAS_RootS7Te
 TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection->Get("grDSigmaDPtDY_Pt_3P2_8_Fit");
 //======== Data Graphs =============================//
 TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y3S_Y0012_Pt();
+
+
+//================== ATLAS: open the calculated root file for Rap 12_225 ===========================================//
+TFile *file_ATLAS_RootS7TeV_Y3SCrossSection_Rap12225 =  new TFile("rootFiles/ATLAS/Y3SCrossSection_12225.root","R");
+//================ Get All the graphs ===============================//
+TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection_Rap12225->Get("grDSigmaDPtDY_Pt_3S1_1_Fit");
+TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rap12225_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection_Rap12225->Get("grDSigmaDPtDY_Pt_1S0_8_Fit");
+TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection_Rap12225->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Rap12225_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection_Rap12225->Get("grDSigmaDPtDY_Pt_3P0_8_Fit");
+TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Rap12225_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection_Rap12225->Get("grDSigmaDPtDY_Pt_3P1_8_Fit");
+TGraph *grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Rap12225_Fit =(TGraph*)file_ATLAS_RootS7TeV_Y3SCrossSection_Rap12225->Get("grDSigmaDPtDY_Pt_3P2_8_Fit");
+
+//================== CMS: open the calculated root file for Rapl24 ===========================================//
+TFile *file_CMS_RootS7TeV_Y3SCrossSection_Rapl24 =  new TFile("rootFiles/CMS/Y3SCrossSection_Rapl24.root","R");
+//================ Get All the graphs ===============================//
+TGraph *grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit =(TGraph*)file_CMS_RootS7TeV_Y3SCrossSection_Rapl24->Get("grDSigmaDPtDY_Pt_3S1_1_Fit");
+TGraph *grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rapl24_Fit =(TGraph*)file_CMS_RootS7TeV_Y3SCrossSection_Rapl24->Get("grDSigmaDPtDY_Pt_1S0_8_Fit");
+TGraph *grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit =(TGraph*)file_CMS_RootS7TeV_Y3SCrossSection_Rapl24->Get("grDSigmaDPtDY_Pt_3S1_8_Fit");
+TGraph *grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Rapl24_Fit =(TGraph*)file_CMS_RootS7TeV_Y3SCrossSection_Rapl24->Get("grDSigmaDPtDY_Pt_3P0_8_Fit");
+TGraph *grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Rapl24_Fit =(TGraph*)file_CMS_RootS7TeV_Y3SCrossSection_Rapl24->Get("grDSigmaDPtDY_Pt_3P1_8_Fit");
+TGraph *grCMS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Rapl24_Fit =(TGraph*)file_CMS_RootS7TeV_Y3SCrossSection_Rapl24->Get("grDSigmaDPtDY_Pt_3P2_8_Fit");
+//======== Data Graphs =============================//
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt();
+
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt();
+
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y2S_Rap12225_Pt();
+
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt();
+
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y1S_Rap12225_Pt();
+
+TGraphAsymmErrors *Data_CMS_D2NDPtDy_Y3S_Rapl24_Pt();
+
+TGraphAsymmErrors *Data_CMS_D2NDPtDy_Y2S_Rapl24_Pt();
+
+TGraphAsymmErrors *Data_CMS_D2NDPtDy_Y1S_Rapl24_Pt();
+
+TGraphAsymmErrors *Data_LHCb_D2NDPtDy_Chib_ratio_Rap2045_Pt();
+
+TGraphAsymmErrors *Data_CMS_D2NDPtDy_Chib_ratio_Rapl15_Pt();
+
+
+
+
 
 
 //================== LHCb: open the calculated root file ===========================================//
@@ -97,8 +143,15 @@ TGraph *grCDF_RootS180TeV_DSigmaDPtDY_Pt_3P2_8_Fit =(TGraph*)file_CDF_RootS180Te
 TGraphAsymmErrors *Data_CDF_D2NDPtDy_Y3S_Y0004_Pt();
 
 
+
+//TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y3S_Y1225_Pt();
+
+
+
 Double_t CMS_FitLDME(Double_t *x, Double_t *par);
 Double_t ATLAS_FitLDME(Double_t *x, Double_t *par);
+Double_t ATLAS_FitLDME_Rap12225(Double_t *x, Double_t *par);
+Double_t CMS_FitLDME_Rapl24(Double_t *x, Double_t *par);
 Double_t LHCb_FitLDME(Double_t *x, Double_t *par);
 Double_t CDF_FitLDME(Double_t *x, Double_t *par);
 
@@ -106,18 +159,26 @@ Double_t CDF_FitLDME(Double_t *x, Double_t *par);
 //================ Global Fittings ================================//
 TGraphAsymmErrors *gr0;
 TGraphAsymmErrors *gr1;
-
+TGraphAsymmErrors *gr2;
+TGraphAsymmErrors *gr3;
 
 
 Double_t fcn0(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
 Double_t fcn1(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
+Double_t fcn2(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
+Double_t fcn3(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag);
 void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag);
 
 TGraph *Scale_QCDSigma(TGraph *InGraph, Double_t LDME);
 TGraph *Add_QCDSigma(TGraph *InGraph1, TGraph *InGraph2, TGraph *InGraph3,TGraph *InGraph4);
+
 TGraphAsymmErrors *CutGraph(TGraph *InGraph, Double_t XMin);
+
 Double_t CalcChi2(TGraphAsymmErrors *InGrf, TF1 *InFunc);
+
 TGraph *ScaleGraph(TGraph *InGraph, Double_t ScaleFac);
+TGraphAsymmErrors *ScaleDataGraph(TGraph *InGraph, Double_t ScaleFac);
+
 
 const Double_t mC = 4.88;
 const Double_t Y3SToMuMu = 0.0218;
@@ -173,7 +234,9 @@ void Y3SLDME()
   gStyle->SetMarkerSize(1.3);
 
   gROOT->ForceStyle();
-  
+
+
+  //  return;
 
   TLegend *legd0 = new TLegend(0.16,0.64,0.97,0.93);
   legd0->SetBorderSize(0);
@@ -187,6 +250,120 @@ void Y3SLDME()
   tb->SetTextAlign(12);
   tb->SetTextColor(1);
   tb->SetTextSize(0.040);
+
+  //======================================================================================================================//
+
+ //*****************LHCb_chi2b_ratio_Rap2045*******************
+ TGraphAsymmErrors *grfData_LHCb_D2NDPtDy_Chib_ratio_Rap2045_Pt=new TGraphAsymmErrors();
+  grfData_LHCb_D2NDPtDy_Chib_ratio_Rap2045_Pt=Data_LHCb_D2NDPtDy_Chib_ratio_Rap2045_Pt();
+
+  new TCanvas ;
+  // gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  //gpad->SetColor(4);
+  //grfData_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt->SetColor(4);
+  grfData_LHCb_D2NDPtDy_Chib_ratio_Rap2045_Pt->Draw("AP");
+
+ //*****************CMS_chi2b_ratio_Rapl15*******************
+ TGraphAsymmErrors *grfData_CMS_D2NDPtDy_Chib_ratio_Rapl15_Pt=new TGraphAsymmErrors();
+  grfData_CMS_D2NDPtDy_Chib_ratio_Rapl15_Pt=Data_CMS_D2NDPtDy_Chib_ratio_Rapl15_Pt();
+
+  new TCanvas ;
+  //gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  //gpad->SetColor(4);
+  //grfData_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt->SetColor(4);
+  grfData_CMS_D2NDPtDy_Chib_ratio_Rapl15_Pt->Draw("AP");
+
+  //**********Fit Y2S mid rapidity********
+ TGraphAsymmErrors *grfData_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt=new TGraphAsymmErrors();
+  grfData_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt=Data_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt();
+
+  new TCanvas ;
+
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grfData_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt->Draw("AP");
+  //  ATLASFitFunctionLDME_Rap12225->Draw("same");
+
+
+  //*****************Y2S_Rap12225*******************
+ TGraphAsymmErrors *grfData_ATLAS_D2NDPtDy_Y2S_Rap12225_Pt=new TGraphAsymmErrors();
+  grfData_ATLAS_D2NDPtDy_Y2S_Rap12225_Pt=Data_ATLAS_D2NDPtDy_Y2S_Rap12225_Pt();
+
+  new TCanvas ;
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grfData_ATLAS_D2NDPtDy_Y2S_Rap12225_Pt->Draw("AP");
+  //  ATLASFitFunctionLDME_Rap12225->Draw("same");
+
+  //*****************CMS_Y2S_Rapl24*******************
+ TGraphAsymmErrors *grfData_CMS_D2NDPtDy_Y2S_Rapl24_Pt=new TGraphAsymmErrors();
+  grfData_CMS_D2NDPtDy_Y2S_Rapl24_Pt=Data_CMS_D2NDPtDy_Y2S_Rapl24_Pt();
+
+  new TCanvas ;
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grfData_CMS_D2NDPtDy_Y2S_Rapl24_Pt->Draw("AP");
+  //  ATLASFitFunctionLDME_Rap12225->Draw("same");
+  //return;
+
+  //*****************Y1S_Rap0012*******************
+ TGraphAsymmErrors *grfData_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt=new TGraphAsymmErrors();
+  grfData_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt=Data_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt();
+
+  new TCanvas ;
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  //gpad->SetColor(4);
+  //grfData_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt->SetColor(4);
+  grfData_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt->Draw("AP");
+  //  ATLASFitFunctionLDME_Rap12225->Draw("same");
+
+  //*****************Y1S_Rap12225*******************
+ TGraphAsymmErrors *grfData_ATLAS_D2NDPtDy_Y1S_Rap12225_Pt=new TGraphAsymmErrors();
+  grfData_ATLAS_D2NDPtDy_Y1S_Rap12225_Pt=Data_ATLAS_D2NDPtDy_Y1S_Rap12225_Pt();
+
+  new TCanvas ;
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  //gpad->SetColor(4);
+  //grfData_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt->SetColor(4);
+  grfData_ATLAS_D2NDPtDy_Y1S_Rap12225_Pt->Draw("AP");
+
+  //*****************CMS_Y1S_Rapl24*******************
+ TGraphAsymmErrors *grfData_CMS_D2NDPtDy_Y1S_Rapl24_Pt=new TGraphAsymmErrors();
+  grfData_CMS_D2NDPtDy_Y1S_Rapl24_Pt=Data_CMS_D2NDPtDy_Y1S_Rapl24_Pt();
+
+  new TCanvas ;
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  //gpad->SetColor(4);
+  //grfData_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt->SetColor(4);
+  grfData_CMS_D2NDPtDy_Y1S_Rapl24_Pt->Draw("AP");
+
+
+
+  //return;
+
+
+
+  //======================================================================================================================//
+
+
+  
+
+
+
+  //TGraphAsymmErrors *ScaleDataGraph(TGraph *InGraph, Double_t ScaleFac)
+  //grfData_ATLAS_D2NDPtDy_Y3S_Y12225_Pt=ScaleDataGraph(grfData_ATLAS_D2NDPtDy_Y3S_Y12225_Pt, 0.001);
+  
+
+
+ 
+
+
+
 
 
 
@@ -228,10 +405,20 @@ void Y3SLDME()
   grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=ScaleGraph(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,Y3SToMuMu*nbTopb);
   grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=ScaleGraph(grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Y3SToMuMu*nbTopb);
 
+  grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit=ScaleGraph(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit,Y3SToMuMu*nbTopb);
+  grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit=ScaleGraph(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit,Y3SToMuMu*nbTopb);
+  grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rapl24_Fit=ScaleGraph(grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rapl24_Fit,Y3SToMuMu*nbTopb);
+
 
   grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=ScaleGraph(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,Y3SToMuMu*nbTopb);
   grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit=ScaleGraph(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit,Y3SToMuMu*nbTopb);
   grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit=ScaleGraph(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit,Y3SToMuMu*nbTopb);
+
+
+ grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit=ScaleGraph(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit,Y3SToMuMu*nbTopb);
+  grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit=ScaleGraph(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit,Y3SToMuMu*nbTopb);
+  grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rap12225_Fit=ScaleGraph(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rap12225_Fit,Y3SToMuMu*nbTopb);
+
 
 
   grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit=ScaleGraph(grLHCb_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit,Y3SToMuMu);
@@ -305,8 +492,78 @@ void Y3SLDME()
   ATLASFitFunctionLDME->Draw("same");
 
 
+  
+  
+  //***********Fit Rap12225***********
+  TGraphAsymmErrors *grfData_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt=new TGraphAsymmErrors();
+  grfData_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt=Data_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt();
+
+  
+
+  TF1 *ATLASFitFunctionLDME_Rap12225 = new TF1("ATLASFitFunctionLDME_Rap12225", ATLAS_FitLDME_Rap12225, 10.0, 100, 3);
+  ATLASFitFunctionLDME_Rap12225->SetLineColor(4);
+
+
+  ATLASFitFunctionLDME_Rap12225->FixParameter(0,1); 
+  grfData_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt->Fit("ATLASFitFunctionLDME_Rap12225","0","MER", 15, 50);
+
+
+  new TCanvas;
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grfData_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt->Draw("AP");
+  ATLASFitFunctionLDME_Rap12225->Draw("same");
+
+
+  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+  cout<<" ===================== FITTING CMS DATA FOR LDME Rapl24 ================================"<<endl;
+  cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
+
+  cout<<" getting Data Graph : "<<endl;
+  TGraphAsymmErrors *grfData_CMS_D2NDPtDy_Y3S_Rapl24_Pt=new TGraphAsymmErrors();
+  grfData_CMS_D2NDPtDy_Y3S_Rapl24_Pt=Data_CMS_D2NDPtDy_Y3S_Rapl24_Pt();
+
+
+
+  TF1 *CMSFitFunctionLDME_Rapl24 = new TF1("CMSFitFunctionLDME_Rapl24", CMS_FitLDME_Rapl24, 8.0, 50, 3);
+  CMSFitFunctionLDME_Rapl24->SetLineColor(2);
+
+  //  0       1     2     
+  // 3S1_1, 1S0_8, 3S1_8
+  CMSFitFunctionLDME_Rapl24->FixParameter(0,1);                         
+  grfData_CMS_D2NDPtDy_Y3S_Rapl24_Pt->Fit("CMSFitFunctionLDME_Rapl24","0","MER", 10, 50);
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  grfData_CMS_D2NDPtDy_Y3S_Rapl24_Pt->Draw("zAP");
+  CMSFitFunctionLDME_Rapl24->Draw("same");
+  //return;
+
+  //************************************** 
  
 
+  //  return;
+
+
+  /*
+   auto legend = new TLegend(0.1,0.7,0.48,0.9);
+   // legend->SetHeader("The Legend Title","C"); // option "C" allows to center the header
+   //legend->AddEntry(h1,"Histogram filled with random numbers","f");
+   //legend->AddEntry("f1","Function abs(#frac{sin(x)}{x})","l");
+   legend->AddEntry("gr","ATLAS_Y1S_Rap12225","lep");
+   legend->Draw("same");
+  */
+  //  ATLASFitFunctionLDME_Rap12225->Draw("same");
+
+
+  //  TGraphAsymmErrors *graphData_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt =  Data_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt();
+  // gPad->SetLogy(1);
+  // graphData_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt->Draw("AP");
+
+
+
+  //return;
 
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ===================== FITTING LHCb DATA FOR LDME ================================"<<endl;
@@ -361,32 +618,21 @@ void Y3SLDME()
 
 
 
-
-  
-
-
-
-
-
-
-
-
-
-
- 
-
-
   new TCanvas;
   gPad->SetTicks();
   gPad->SetLogy(1);
   gPad->SetLeftMargin(0.18);
   grfData_LHCb_D2NDPtDy_Y3S_Y2025_Pt->Draw("zAP");
   grfData_CMS_D2NDPtDy_Y3S_Y0012_Pt->Draw("Psame");
-  grfData_ATLAS_D2NDPtDy_Y3S_Y0012_Pt->Draw("Psame");
+  grfData_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt->Draw("Psame");
   grfData_CDF_D2NDPtDy_Y3S_Y0004_Pt->Draw("Psame");
 
 
-  return;
+ 
+
+
+
+  //return;
 
   cout<<" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ======================== COMBINED FITTING of ATLAS and CMS Data 7 TeV Data ================================="<<endl;
@@ -400,6 +646,23 @@ void Y3SLDME()
     
   TGraphAsymmErrors *gr1_t =new TGraphAsymmErrors();
   gr1_t = Data_ATLAS_D2NDPtDy_Y3S_Y0012_Pt();
+
+
+  gr2=new TGraphAsymmErrors();
+  gr2=CutGraph(Data_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt(),15);
+
+
+  TGraphAsymmErrors *gr2_t =new TGraphAsymmErrors();
+  gr2_t = Data_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt();
+
+  // for CMS Y<2.4 let us start fitting from pT=10GeV
+  gr3=new TGraphAsymmErrors();
+  gr3=CutGraph(Data_CMS_D2NDPtDy_Y3S_Rapl24_Pt(),10);
+
+
+  TGraphAsymmErrors *gr3_t =new TGraphAsymmErrors();
+  gr3_t = Data_CMS_D2NDPtDy_Y3S_Rapl24_Pt();
+
 
  //---------------------------------------------------------------------
   //     Blocks for fitting procedure
@@ -483,6 +746,17 @@ void Y3SLDME()
 
 
 
+  TF1 *fun_2=new TF1("fun_2",ATLAS_FitLDME_Rap12225, 15.0, 100, 3);
+  for(Int_t i=0;i<3;i++){fun_2->FixParameter(i,currentPar[i]);}
+  fun_1->SetLineColor(2);
+  fun_1->SetLineStyle(1);
+  fun_1->SetLineWidth(4);
+
+  TF1 *fun_3=new TF1("fun_3",CMS_FitLDME_Rapl24, 10.0, 100, 3);
+  for(Int_t i=0;i<3;i++){fun_2->FixParameter(i,currentPar[i]);}
+  fun_1->SetLineColor(2);
+  fun_1->SetLineStyle(1);
+  fun_1->SetLineWidth(4);
 
 
   cout<<endl<<endl;
@@ -648,13 +922,204 @@ void Y3SLDME()
   gPad->SaveAs("Plots/Y3S_ATLAS.pdf");
   gPad->SaveAs("Plots/Y3S_ATLAS.png");
 
+
+
+
+  gr2_t->Fit("fun_2","Q0","MER", 10, 100);
+                                                                                      
+  TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit, Comb_LDME_3S1_1);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit->SetLineColor(1);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit->SetLineStyle(7);
+
+  TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit, Comb_LDME_3S1_8);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit->SetLineColor(6);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit->SetLineStyle(3);
+
+  TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rap12225_Fit=Scale_QCDSigma(grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rap12225_Fit, Comb_LDME_1S0_8);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rap12225_Fit->SetLineColor(4);
+
+ 
+  TGraph *Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rap12225_Fit= Scale_QCDSigma(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rap12225_Fit, Fac_1S0_8_To_3PJ_8);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rap12225_Fit->SetLineColor(4);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rap12225_Fit->SetLineStyle(9);
+  
+
+  TLegend *Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225 = new TLegend(0.251,0.883,0.796,0.933);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225->SetBorderSize(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225->SetFillStyle(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225->SetFillColor(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225->SetTextSize(0.04);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225->SetHeader("pp #surds=7 TeV, #varUpsilon(3S), 1.2 < |y^{#varUpsilon(3S)}| < 2.25");
+
+  TLegend *Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1 = new TLegend(0.580,0.527,0.924,0.878);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->SetBorderSize(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->SetFillStyle(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->SetFillColor(0);
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->SetTextSize(0.04);
+
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->AddEntry(gr2,"ATLAS Data","P");  
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->AddEntry(fun_2,"Total","L");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rap12225_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->AddEntry(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit,"^{3}S_{1}^{[8]}","L");
+  
+
+
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit=CutGraph(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit,15.0);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit=CutGraph(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit,15.0);
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rap12225_Fit=CutGraph(Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rap12225_Fit,15.0);
+
+
+
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  
+  gr2_t->GetYaxis()->SetRangeUser(0.0001,100.0);
+  gr2_t->SetMarkerSize(1.8);
+  gr2_t->SetMarkerColor(1);
+  gr2_t->Draw("zAP");
+  gr2_t->GetYaxis()->SetTitleOffset(1.6);
+  gPad->Update();
+  fun_2->Draw("same");
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit->Draw("Lsame");
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit->Draw("Lsame");
+  Comb_Out_grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rap12225_Fit->Draw("Lsame");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225->Draw("same");
+  Comb_lgd_ATLAS_DSigmaDPtDY_Pt1_Rap12225_1->Draw("same");
+  
+  tb->DrawLatex(0.23,0.18,"(c)");
+
+  gPad->SaveAs("Plots/Y3S_ATLAS_Rap12225.pdf");
+  gPad->SaveAs("Plots/Y3S_ATLAS_Rap12225.png");
+
+  //************************************************************************
+
+  gr3_t->Fit("fun_3","Q0","MER", 10, 100);
+                                                                                      
+  TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit, Comb_LDME_3S1_1);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit->SetLineColor(1);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit->SetLineStyle(7);
+
+  TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit, Comb_LDME_3S1_8);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit->SetLineColor(6);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit->SetLineStyle(3);
+
+  TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rapl24_Fit=Scale_QCDSigma(grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rapl24_Fit, Comb_LDME_1S0_8);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rapl24_Fit->SetLineColor(4);
+
+ 
+  TGraph *Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rapl24_Fit= Scale_QCDSigma(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rapl24_Fit, Fac_1S0_8_To_3PJ_8);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rapl24_Fit->SetLineColor(4);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rapl24_Fit->SetLineStyle(9);
+  
+
+  TLegend *Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24 = new TLegend(0.251,0.883,0.796,0.933);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24->SetBorderSize(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24->SetFillStyle(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24->SetFillColor(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24->SetTextSize(0.04);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24->SetHeader("pp #surds=7 TeV, #varUpsilon(3S), |y^{#varUpsilon(3S)}| < 2.4");
+
+  TLegend *Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1 = new TLegend(0.580,0.527,0.924,0.878);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->SetBorderSize(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->SetFillStyle(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->SetFillColor(0);
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->SetTextSize(0.04);
+
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->AddEntry(gr3,"CMS Data","P");  
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->AddEntry(fun_3,"Total","L");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit,"^{3}S_{1}^{[1]}","L");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rapl24_Fit,"^{1}S_{0}^{[8]}+^{3}P_{J}^{[8]}","L");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->AddEntry(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit,"^{3}S_{1}^{[8]}","L");
+  
+
+
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit=CutGraph(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit,10.0);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit=CutGraph(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit,10.0);
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rapl24_Fit=CutGraph(Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rapl24_Fit,10.0);
+
+
+
+
+  new TCanvas;
+  gPad->SetTicks();
+  gPad->SetLogy(1);
+  gPad->SetLeftMargin(0.18);
+  
+  gr3_t->GetYaxis()->SetRangeUser(0.0001,100.0);
+  gr3_t->SetMarkerSize(1.8);
+  gr3_t->SetMarkerColor(2);
+  gr3_t->Draw("zAP");
+  gr3_t->GetYaxis()->SetTitleOffset(1.6);
+  gPad->Update();
+  fun_3->Draw("same");
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit->Draw("Lsame");
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit->Draw("Lsame");
+  Comb_Out_grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_3PJ_8_Rapl24_Fit->Draw("Lsame");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24->Draw("same");
+  Comb_lgd_CMS_DSigmaDPtDY_Pt1_Rapl24_1->Draw("same");
+  
+  tb->DrawLatex(0.23,0.18,"(d)");
+
+  gPad->SaveAs("Plots/Y3S_CMS_Rapl24.pdf");
+  gPad->SaveAs("Plots/Y3S_CMS_Rapl24.png");
+
+
+  //************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
-Double_t TotalChi2 = CalcChi2(gr0,fun_0) + CalcChi2(gr1,fun_1);
-  
-  Double_t TotalNDF = (gr0->GetN() + gr1->GetN()) - 2 ;
-  
+  Double_t TotalChi2 = CalcChi2(gr0,fun_0) + CalcChi2(gr1,fun_1) + CalcChi2(gr2,fun_2) + CalcChi2(gr3,fun_3);
+  Double_t TotalNDF = (gr0->GetN() + gr1->GetN() + gr2->GetN() + gr3->GetN()) - 2 ;
   cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
 
 
@@ -738,8 +1203,7 @@ Double_t ATLAS_FitLDME(Double_t *x, Double_t *par)
 
 
 
-  Double_t Sigma = LDME_3S1_1*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_3S1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) 
-    + LDME_1S0_8 * 5.0 * grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]);
+  Double_t Sigma = LDME_3S1_1*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_3S1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_1S0_8 * 5.0 * grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]);
 
 
 
@@ -747,6 +1211,59 @@ Double_t ATLAS_FitLDME(Double_t *x, Double_t *par)
   
 }
 
+
+
+
+
+//**********Fitting function for ATLAS Rap12225**********
+Double_t ATLAS_FitLDME_Rap12225(Double_t *x, Double_t *par)
+{
+
+ 
+  Double_t LDME_3S1_1 = par[0];  
+  Double_t LDME_1S0_8 = par[1];
+  Double_t LDME_3S1_8 = par[2];
+
+ 
+  //  Double_t Sigma = (LDME_3S1_1*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]) + 
+  //LDME_3S1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
+  //		    LDME_3P1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]));
+
+
+
+  Double_t Sigma = LDME_3S1_1*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rap12225_Fit->Eval(x[0]) + LDME_3S1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rap12225_Fit->Eval(x[0]) + LDME_1S0_8 * 5.0 * grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rap12225_Fit->Eval(x[0]);
+
+
+
+  return Sigma;
+  
+}
+//*****************************************
+
+//**********Fitting function for CMS Rapl24**********
+Double_t CMS_FitLDME_Rapl24(Double_t *x, Double_t *par)
+{
+
+ 
+  Double_t LDME_3S1_1 = par[0];  
+  Double_t LDME_1S0_8 = par[1];
+  Double_t LDME_3S1_8 = par[2];
+
+ 
+  //  Double_t Sigma = (LDME_3S1_1*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Fit->Eval(x[0]) + LDME_1S0_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Fit->Eval(x[0]) + 
+  //LDME_3S1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Eval(x[0]) + LDME_3P0_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P0_8_Fit->Eval(x[0]) + 
+  //		    LDME_3P1_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P1_8_Fit->Eval(x[0])+ LDME_3P2_8*grATLAS_RootS7TeV_DSigmaDPtDY_Pt_3P2_8_Fit->Eval(x[0]));
+
+
+
+  Double_t Sigma = LDME_3S1_1*grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_1_Rapl24_Fit->Eval(x[0]) + LDME_3S1_8*grCMS_RootS7TeV_DSigmaDPtDY_Pt_3S1_8_Rapl24_Fit->Eval(x[0]) + LDME_1S0_8 * 5.0 * grCMS_RootS7TeV_DSigmaDPtDY_Pt_1S0_8_Rapl24_Fit->Eval(x[0]);
+
+
+
+  return Sigma;
+  
+}
+//*****************************************
 
 
 
@@ -854,12 +1371,76 @@ Double_t fcn1(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
 }
 
 
+
+
+//______________________________________________________________________________
+Double_t fcn2(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
+{
+  const Int_t nbins = gr2->GetN();
+  Int_t i;
+  Double_t xx1[nbins];
+  Double_t yy1[nbins];
+  Double_t erryy1[nbins];
+  
+  
+  for (Int_t j=0;j<nbins; j++) 
+    {
+      gr2->GetPoint(j,xx1[j],yy1[j]);
+      erryy1[j]= gr2->GetErrorY(j);
+    }
+
+  //calculate chisquare
+  Double_t chisq = 0;
+  for (i=0;i<  nbins; i++) {
+    Double_t delta  = (yy1[i]-ATLAS_FitLDME_Rap12225(&xx1[i],par))/erryy1[i];
+    chisq += delta*delta;
+  }
+  return chisq;
+}
+
+Double_t fcn3(Int_t &npar, Double_t *gin, Double_t *par, Int_t iflag)
+{
+  const Int_t nbins = gr3->GetN();
+  Int_t i;
+  Double_t xx1[nbins];
+  Double_t yy1[nbins];
+  Double_t erryy1[nbins];
+  
+  
+  for (Int_t j=0;j<nbins; j++) 
+    {
+      gr3->GetPoint(j,xx1[j],yy1[j]);
+      erryy1[j]= gr3->GetErrorY(j);
+    }
+
+  //calculate chisquare
+  Double_t chisq = 0;
+  for (i=0;i<  nbins; i++) {
+    Double_t delta  = (yy1[i]-CMS_FitLDME_Rapl24(&xx1[i],par))/erryy1[i];
+    chisq += delta*delta;
+  }
+  return chisq;
+}
+
+
+
+
+
+
+
+
+
+
 //______________________________________________________________________________
 void fcn(Int_t &npar, Double_t *gin, Double_t &f, Double_t *par, Int_t iflag)
 {
 
 
-  f = fcn0(npar,gin, par, iflag) + fcn1(npar,gin, par, iflag);
+  f = fcn0(npar,gin, par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) + fcn3(npar,gin, par, iflag);
+
+  //f = fcn0(npar,gin, par, iflag) + fcn1(npar,gin, par, iflag) + fcn2(npar,gin, par, iflag) ;
+
+
 
 
 }
@@ -1024,7 +1605,7 @@ TGraph *ScaleGraph(TGraph *InGraph, Double_t ScaleFac)
  
   TGraph *OutGraph;
   OutGraph = SGraph;
-  
+
   OutGraph->SetLineColor(InGraph->GetLineColor());
   OutGraph->SetLineStyle(InGraph->GetLineStyle());
   OutGraph->SetLineWidth(InGraph->GetLineWidth());
@@ -1034,6 +1615,10 @@ TGraph *ScaleGraph(TGraph *InGraph, Double_t ScaleFac)
   
   return OutGraph;
 }
+
+
+
+
 
 
 TGraphAsymmErrors *Data_CMS_D2NDPtDy_Y3S_Y0012_Pt()
@@ -1214,6 +1799,35 @@ TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y3S_Y0012_Pt()
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 TGraphAsymmErrors *Data_CDF_D2NDPtDy_Y3S_Y0004_Pt()
 {
 
@@ -1371,3 +1985,1058 @@ TGraphAsymmErrors *Data_LHCb_D2NDPtDy_Y3S_Y2025_Pt()
 }
 
 
+
+/*
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y3S_Y1225_Pt()
+{
+  TFile *file_in =  new TFile("rootFiles/DataFiles/ATLAS/Y3SData_Rap12_225.root","R");
+  TGraphAsymmErrors *Grf_in = (TGraphAsymmErrors*)file_in->Get("Table 8/Graph1D_y2");
+
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(25);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(1.6);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.0001,100);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_in;
+
+  OutGraph->SetMarkerStyle(21);
+
+  return OutGraph;
+  
+}
+*/
+
+
+
+
+TGraphAsymmErrors *ScaleDataGraph(TGraph *InGraph, Double_t ScaleFac)
+{
+  
+  TGraphAsymmErrors *SGraph = new TGraphAsymmErrors; 
+  const int NN = InGraph->GetN();
+  
+  for (int j=0; j < NN; ++j){
+    
+    Double_t xx,yy;
+    Double_t errlowxx,errlowyy;
+    Double_t errhighxx,errhighyy;
+    
+    InGraph->GetPoint(j,xx,yy);
+    
+    errlowxx=InGraph->GetErrorXlow(j);
+    errhighxx=InGraph->GetErrorXhigh(j);
+    
+    errlowyy=InGraph->GetErrorYlow(j);
+    errhighyy=InGraph->GetErrorYhigh(j);
+    
+    Double_t xx1,yy1;
+    Double_t errlowxx1,errlowyy1;
+    Double_t errhighxx1,errhighyy1;
+    
+    xx1=xx;
+    yy1=yy*ScaleFac;
+    errlowxx1=errlowxx;
+    errhighxx1=errhighxx;
+    errlowyy1=errlowyy*ScaleFac;
+    errhighyy1=errhighyy*ScaleFac;
+
+    SGraph->SetPoint(j,xx1,yy1);  
+    SGraph->SetPointError(j,errlowxx1,errhighxx1,errlowyy1,errhighyy1);  
+  }
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = SGraph;
+
+  OutGraph->SetLineColor(InGraph->GetLineColor());
+  OutGraph->SetLineStyle(InGraph->GetLineStyle());
+  OutGraph->SetLineWidth(InGraph->GetLineWidth());
+  
+  OutGraph->SetMarkerColor(InGraph->GetMarkerColor());
+  OutGraph->SetMarkerStyle(InGraph->GetMarkerStyle());
+  OutGraph->SetMarkerSize(InGraph->GetMarkerSize());
+
+  return OutGraph;
+}
+
+
+
+
+
+
+
+
+//*************Experimental Data Set Rap12225*********************
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y3S_Rap12225_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 24;
+  
+  Double_t p8319_d1x1y1_xval[NN] = {0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 34, 38, 45};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 5};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 5};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {8881.54, 15114.97, 17766.86, 18882.13, 26040.3, 22076.53, 17509.49, 16461.49, 13129.7, 
+    11208.93, 8224.32, 4877.85, 2836.45, 2619.5, 1455.57, 920.66, 719.97, 426.54, 254.7, 
+    275.27, 124.41, 72.23, 45.15, 23.86}; 
+
+  
+
+
+  Double_t p8319_d1x1y1_yerrminus[NN] = {846.69, 1422.31, 1953.84, 1690.49, 1393.95, 1405.24, 1123.72, 915.81, 758.7, 
+    655.52, 338.75, 225.9, 142.77, 138.51, 96.37, 58.51, 52.92, 46.85, 34.09, 
+    33.11, 26.59, 12.52, 9.58, 4.88};
+  
+  Double_t p8319_d1x1y1_yerrplus[NN] = {846.69, 1422.31, 1953.84, 1690.49, 1393.95, 1405.24, 1123.72, 915.81, 758.7, 
+    655.52, 338.75, 225.9, 142.77, 138.51, 96.37, 58.51, 52.92, 46.85, 34.09, 
+    33.11, 26.59, 12.52, 9.58, 4.88};
+
+
+  Double_t p8319_d1x1y1_yerrminus_syst[NN] = {663.87, 4764.74, 1867.56, 2960.55, 2631.89, 2111.55, 1345.68, 920.65, 691.99, 470.63, 276.97, 154.17, 110.62, 
+					      81.94, 50.14, 28.23, 16.69, 14.92, 10.23, 34.32, 11.89, 4.03, 3.57, 1.36};
+  
+  Double_t p8319_d1x1y1_yerrplus_syst[NN] = {663.87, 4764.74, 1867.56, 2960.55, 2631.89, 2111.55, 1345.68, 920.65, 691.99, 470.63, 276.97, 154.17, 110.62, 
+					     81.94, 50.14, 28.23, 16.69, 14.92, 10.23, 34.32, 11.89, 4.03, 3.57, 1.36};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 1;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  Double_t Fac = FeftoBarnToPicoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/DeltaY)*Fac;
+      
+      yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus[j]*p8319_d1x1y1_yerrminus[j] + p8319_d1x1y1_yerrminus_syst[j]*p8319_d1x1y1_yerrminus_syst[j]);
+      yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus[j]*p8319_d1x1y1_yerrplus[j] + p8319_d1x1y1_yerrplus_syst[j]*p8319_d1x1y1_yerrplus_syst[j]); 
+      
+
+      yerr_minus[j]=(yerr_minus[j]/DeltaY)*Fac;
+      yerr_plus[j]=(yerr_plus[j]/DeltaY)*Fac;
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(28);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(2.2);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.0001,100);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+//*************Experimental Data Set Y(2S) Rap0012*********************
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y2S_Rap0012_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 25;
+  
+  Double_t p8319_d1x1y1_xval[NN] = {0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 11.0, 13.0, 15.0, 17.0, 19.0, 21.0, 23.0, 25.0, 27.0, 
+    29.0, 31.0, 34.0, 38.0, 45.0, 60.0};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
+    1.0, 1.0, 2.0, 2.0, 5.0, 10.0};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
+    1.0, 1.0, 2.0, 2.0, 5.0, 10.0};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {14099.19, 37169.61, 43895.41, 53632.18, 51016.7, 41440.45, 35410.02, 29636.38, 22632.57, 
+    19053.93, 12611.54, 7939.33, 5343.06, 3309.25, 2072.13, 1337.29, 897.91, 608.07, 418.21, 
+    296.1, 209.3, 128.9, 74.37, 31.83, 7.51 }; 
+
+  // Double_t p8319_d1x1y1_yerrminus[NN] = {3915.9007974794254, 10660.241072564917, 12853.494024929563, 14293.457798353062, 13238.90561274987, 11292.63679040905, 9961.513892185263, 8653.921212323346, 6430.445462843145, 
+  //    5246.714875557847, 3297.1416707960852, 1967.388458693402, 1217.0259453273788, 705.8831526534685, 410.33545277004765, 246.36233255106188, 157.04912002300426, 101.24744243683392, 67.16017048816954, 
+  //  44.87941398904402, 31.301439264033853, 17.62770830255595, 10.05802167426577, 3.9284348028190563, 1.1434159348198711};
+  
+  //Double_t p8319_d1x1y1_yerrplus[NN] = {3584.398011884283, 14539.50576821647, 48442.20717914285, 101196.61661934454, 106239.46591437947, 80524.4152455173, 58953.63710351805, 39473.663513499734, 22059.308130478617, 
+  // 13904.259904140888, 7055.801357018209, 3287.4933701225923, 1749.2841637652814, 920.9084363279554, 497.0995806676968, 286.2217689135472, 173.65078692594514, 108.14296371008149, 70.38218595639098, 
+  //  47.09316192399911, 32.442011343318406, 17.764475787368454, 10.074691062260918, 3.9676315353117153, 1.162497311824849};
+
+
+  Double_t p8319_d1x1y1_yerrminus_syst[NN] = {964.76, 2312.76, 2868.30, 2121.16, 2570.79, 1950.95, 2072.88, 2140.29, 1532.72, 1025.33, 547.18, 437.05, 119.26, 77.34, 32.81, 22.57, 15.91, 12.89, 13.90, 9.53, 7.17, 2.51, 2.15, 1.06, 0.76};
+  
+  Double_t p8319_d1x1y1_yerrplus_syst[NN] = {964.76, 2312.76, 2868.30, 2121.16, 2570.79, 1950.95, 2072.88, 2140.29, 1532.72, 1025.33, 547.18, 437.05, 119.26, 77.34, 32.81, 22.57, 15.91, 12.89, 13.90, 9.53, 7.17, 2.51, 2.15, 1.06, 0.76};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {462.5, 901.0, 1013.67, 1219.81, 1122.06, 989.2, 818.33, 1227.45, 664.19, 
+    465.43, 283.93, 153.6, 82.14, 59.1, 43.89, 33.56, 27.06, 21.34, 18.39, 
+    14.47, 12.56, 6.82, 5.13, 2.21, 0.67};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {462.5, 901.0, 1013.67, 1219.81, 1122.06, 989.2, 818.33, 1227.45, 664.19, 
+    465.43, 283.93, 153.6, 82.14, 59.1, 43.89, 33.56, 27.06, 21.34, 18.39, 
+    14.47, 12.56, 6.82, 5.13, 2.21, 0.67};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 1;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  Double_t Fac = FeftoBarnToPicoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/DeltaY)*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus_syst[j]*p8319_d1x1y1_yerrminus_syst[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus_syst[j]*p8319_d1x1y1_yerrplus_syst[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+      yerr_minus[j]=(yerr_minus[j]/DeltaY)*Fac;
+      yerr_plus[j]=(yerr_plus[j]/DeltaY)*Fac;
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(21);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(1.6);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.0001,100);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+//*********************************************************************
+//*************Experimental Data Set Y(2S) Rap0012*********************
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y2S_Rap12225_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 25;
+  
+  Double_t p8319_d1x1y1_xval[NN] = {0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 
+    9.5, 11.0, 13.0, 15.0, 17.0, 19.0, 21.0, 23.0, 25.0, 27.0, 
+    29.0, 31.0, 34.0, 38.0, 45.0};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
+    1.0, 1.0, 2.0, 2.0, 5.0};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 
+    1.0, 1.0, 2.0, 2.0, 5.0};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {20172.01, 55920.85, 40941.32, 58286.08, 60111.3, 51690.28, 45008.54, 35739.85, 28268.04, 
+    21814.99, 15238.53, 9156.52, 5854.1, 3272.03, 2019.04, 1366.64, 788.9, 685.27, 497.98, 
+    263.42, 209.42, 145.07, 62.53, 31.98 }; 
+
+  // Double_t p8319_d1x1y1_yerrminus[NN] = {3915.9007974794254, 10660.241072564917, 12853.494024929563, 14293.457798353062, 13238.90561274987, 11292.63679040905, 9961.513892185263, 8653.921212323346, 6430.445462843145, 
+  //    5246.714875557847, 3297.1416707960852, 1967.388458693402, 1217.0259453273788, 705.8831526534685, 410.33545277004765, 246.36233255106188, 157.04912002300426, 101.24744243683392, 67.16017048816954, 
+  //  44.87941398904402, 31.301439264033853, 17.62770830255595, 10.05802167426577, 3.9284348028190563, 1.1434159348198711};
+  
+  //Double_t p8319_d1x1y1_yerrplus[NN] = {3584.398011884283, 14539.50576821647, 48442.20717914285, 101196.61661934454, 106239.46591437947, 80524.4152455173, 58953.63710351805, 39473.663513499734, 22059.308130478617, 
+  // 13904.259904140888, 7055.801357018209, 3287.4933701225923, 1749.2841637652814, 920.9084363279554, 497.0995806676968, 286.2217689135472, 173.65078692594514, 108.14296371008149, 70.38218595639098, 
+  //  47.09316192399911, 32.442011343318406, 17.764475787368454, 10.074691062260918, 3.9676315353117153, 1.162497311824849};
+
+
+  Double_t p8319_d1x1y1_yerrminus_syst[NN] = {1959.99, 7520.86, 4774.27, 8610.77, 5348.66, 3105.15, 1846.77, 1237.76, 755.17, 509.60, 359.40, 189.82, 103.57, 102.00, 44.81, 27.83, 16.31, 14.92, 12.85, 8.87, 6.84, 4.18, 2.76, 1.44, 0.0};
+  
+  Double_t p8319_d1x1y1_yerrplus_syst[NN] = {1959.99, 7520.86, 4774.27, 8610.77, 5348.66, 3105.15, 1846.77, 1237.76, 755.17, 509.60, 359.40, 189.82, 103.57, 102.00, 44.81, 27.83, 16.31, 14.92, 12.85, 8.87, 6.84, 4.18, 2.76, 1.44, 0.0};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {713.38, 1479.21, 1989.83, 2433.03, 1808.08, 1532.13, 1281.64, 1033.83, 831.67, 
+    713.14, 379.55, 245.98, 173.28, 139.9, 98.54, 62.35, 51.14, 48.35, 38.21, 
+    32.8, 31.67, 14.22, 10.03, 4.73};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {713.38, 1479.21, 1989.83, 2433.03, 1808.08, 1532.13, 1281.64, 1033.83, 831.67, 
+    713.14, 379.55, 245.98, 173.28, 139.9, 98.54, 62.35, 51.14, 48.35, 38.21, 
+    32.8, 31.67, 14.22, 10.03, 4.73};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 1;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  Double_t Fac = FeftoBarnToPicoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/DeltaY)*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus_syst[j]*p8319_d1x1y1_yerrminus_syst[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus_syst[j]*p8319_d1x1y1_yerrplus_syst[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+      yerr_minus[j]=(yerr_minus[j]/DeltaY)*Fac;
+      yerr_plus[j]=(yerr_plus[j]/DeltaY)*Fac;
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(21);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(1.6);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.0001,100);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+
+//*********************************************************************
+//*************Experimental Data Set Y(1S) Rap0012*********************
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y1S_Rap0012_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 50;
+  
+  Double_t p8319_d1x1y1_xval[NN] = {0.25, 0.75, 1.25, 1.75, 2.25, 2.75, 3.25, 3.75, 4.25, 
+    4.75, 5.25, 5.75, 6.25, 6.75, 7.25, 7.75, 8.25, 8.75, 9.25, 
+    9.75, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 
+    19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 
+    29.5, 30.5, 31.5, 33.0, 35.0, 37.0, 39.0, 42.5, 47.5, 55.0, 
+    65.0};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 2.5, 2.5, 5.0, 
+    5.0};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 2.5, 2.5, 5.0, 
+    5.0};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {35392.84, 98878.16, 148372.15, 182173.1, 206775.92, 231574.2, 242509.16, 240950.58, 229797.15, 
+    208978.78, 184938.25, 179761.51, 157285.63, 136729.51, 122675.42, 108822.11, 94001.57, 82014.84, 71983.66, 
+    62278.51, 49124.29, 35832.87, 27727.3, 20263.43, 16302.79, 12331.68, 9516.72, 7338.76, 5701.8, 
+    4476.17, 3595.25, 2801.82, 2288.65, 1867.8, 1472.76, 1240.35, 988.08, 780.36, 662.63, 
+    599.29, 488.3, 374.2, 309.67, 236.99, 164.84, 126.49, 74.05, 41.24, 18.07, 
+    7.28 }; 
+
+  // Double_t p8319_d1x1y1_yerrminus[NN] = {3915.9007974794254, 10660.241072564917, 12853.494024929563, 14293.457798353062, 13238.90561274987, 11292.63679040905, 9961.513892185263, 8653.921212323346, 6430.445462843145, 
+  //    5246.714875557847, 3297.1416707960852, 1967.388458693402, 1217.0259453273788, 705.8831526534685, 410.33545277004765, 246.36233255106188, 157.04912002300426, 101.24744243683392, 67.16017048816954, 
+  //  44.87941398904402, 31.301439264033853, 17.62770830255595, 10.05802167426577, 3.9284348028190563, 1.1434159348198711};
+  
+  //Double_t p8319_d1x1y1_yerrplus[NN] = {3584.398011884283, 14539.50576821647, 48442.20717914285, 101196.61661934454, 106239.46591437947, 80524.4152455173, 58953.63710351805, 39473.663513499734, 22059.308130478617, 
+  // 13904.259904140888, 7055.801357018209, 3287.4933701225923, 1749.2841637652814, 920.9084363279554, 497.0995806676968, 286.2217689135472, 173.65078692594514, 108.14296371008149, 70.38218595639098, 
+  //  47.09316192399911, 32.442011343318406, 17.764475787368454, 10.074691062260918, 3.9676315353117153, 1.162497311824849};
+
+
+  Double_t p8319_d1x1y1_yerrminus_syst[NN] = {2541.91, 6370.61, 13288.38, 10817.87, 12167.98, 12571.33, 14413.31, 13939.29, 13283.69, 12685.54, 10690.55, 10602.53, 9502.68, 6961.64, 7321.94, 6924.00, 5401.66, 4261.48, 3734.32, 3708.91, 2528.63, 1766.62, 1417.77, 1074.79, 741.02, 580.95, 430.10, 314.70, 246.09, 183.31, 146.62, 117.78, 95.51, 75.67, 62.77, 51.78, 41.32, 31.61, 29.21, 24.37, 22.06, 14.98, 12.61, 9.63, 6.79, 5.26, 3.19, 2.20, 0.84, 0.38};
+  
+  Double_t p8319_d1x1y1_yerrplus_syst[NN] = {2541.91, 6370.61, 13288.38, 10817.87, 12167.98, 12571.33, 14413.31, 13939.29, 13283.69, 12685.54, 10690.55, 10602.53, 9502.68, 6961.64, 7321.94, 6924.00, 5401.66, 4261.48, 3734.32, 3708.91, 2528.63, 1766.62, 1417.77, 1074.79, 741.02, 580.95, 430.10, 314.70, 246.09, 183.31, 146.62, 117.78, 95.51, 75.67, 62.77, 51.78, 41.32, 31.61, 29.21, 24.37, 22.06, 14.98, 12.61, 9.63, 6.79, 5.26, 3.19, 2.20, 0.84, 0.38};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {936.86, 2155.91, 2587.05, 2985.8, 3191.88, 2809.87, 3533.43, 3492.8, 3058.9, 
+    2937.09, 2939.08, 2576.18, 2420.64, 1824.43, 1731.36, 1984.32, 1559.85, 1322.67, 1157.24, 
+    746.27, 663.51, 426.62, 319.35, 332.39, 182.0, 142.19, 126.55, 107.58, 88.57, 
+    76.01, 63.94, 56.97, 51.14, 46.03, 40.61, 37.7, 32.44, 30.2, 26.21, 
+    24.61, 22.76, 19.91, 12.43, 11.26, 9.21, 7.96, 4.0, 2.96, 1.38, 
+    0.89};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {936.86, 2155.91, 2587.05, 2985.8, 3191.88, 2809.87, 3533.43, 3492.8, 3058.9, 
+    2937.09, 2939.08, 2576.18, 2420.64, 1824.43, 1731.36, 1984.32, 1559.85, 1322.67, 1157.24, 
+    746.27, 663.51, 426.62, 319.35, 332.39, 182.0, 142.19, 126.55, 107.58, 88.57, 
+    76.01, 63.94, 56.97, 51.14, 46.03, 40.61, 37.7, 32.44, 30.2, 26.21, 
+    24.61, 22.76, 19.91, 12.43, 11.26, 9.21, 7.96, 4.0, 2.96, 1.38, 
+    0.89};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 1;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  Double_t Fac = FeftoBarnToPicoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/DeltaY)*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus_syst[j]*p8319_d1x1y1_yerrminus_syst[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus_syst[j]*p8319_d1x1y1_yerrplus_syst[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+      yerr_minus[j]=(yerr_minus[j]/DeltaY)*Fac;
+      yerr_plus[j]=(yerr_plus[j]/DeltaY)*Fac;
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(21);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(1.6);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.001,1000);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+
+//*********************************************************************
+//*************Experimental Data Set Y(1S) Rap0012*********************
+TGraphAsymmErrors *Data_ATLAS_D2NDPtDy_Y1S_Rap12225_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 50;
+  
+  Double_t p8319_d1x1y1_xval[NN] = {0.25, 0.75, 1.25, 1.75, 2.25, 2.75, 3.25, 3.75, 4.25, 
+    4.75, 5.25, 5.75, 6.25, 6.75, 7.25, 7.75, 8.25, 8.75, 9.25, 
+    9.75, 10.5, 11.5, 12.5, 13.5, 14.5, 15.5, 16.5, 17.5, 18.5, 
+    19.5, 20.5, 21.5, 22.5, 23.5, 24.5, 25.5, 26.5, 27.5, 28.5, 
+    29.5, 30.5, 31.5, 33.0, 35.0, 37.0, 39.0, 42.5, 47.5, 55.0, 
+    65.0};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 2.5, 2.5, 5.0, 
+    5.0};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 
+    0.25, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 
+    0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 2.5, 2.5, 5.0, 
+    5.0};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {43958.51, 132563.84, 164694.79, 227307.13, 206265.29, 220898.28, 243954.85, 255241.64, 255375.81, 
+    225352.37, 215394.81, 185628.92, 168933.99, 148767.82, 129627.79, 118413.73, 100368.48, 85213.48, 78496.07, 
+    61770.2, 51532.41, 37747.42, 28428.44, 21204.62, 16322.09, 11056.3, 9592.31, 7056.95, 5317.84, 
+    4324.2, 3100.83, 2744.72, 1988.57, 1645.54, 1322.06, 1064.22, 911.26, 756.43, 708.95, 
+    543.8, 453.0, 402.59, 316.01, 186.07, 138.52, 111.37, 66.29, 42.98, 17.62, 
+    8.09 }; 
+
+  // Double_t p8319_d1x1y1_yerrminus[NN] = {3915.9007974794254, 10660.241072564917, 12853.494024929563, 14293.457798353062, 13238.90561274987, 11292.63679040905, 9961.513892185263, 8653.921212323346, 6430.445462843145, 
+  //    5246.714875557847, 3297.1416707960852, 1967.388458693402, 1217.0259453273788, 705.8831526534685, 410.33545277004765, 246.36233255106188, 157.04912002300426, 101.24744243683392, 67.16017048816954, 
+  //  44.87941398904402, 31.301439264033853, 17.62770830255595, 10.05802167426577, 3.9284348028190563, 1.1434159348198711};
+  
+  //Double_t p8319_d1x1y1_yerrplus[NN] = {3584.398011884283, 14539.50576821647, 48442.20717914285, 101196.61661934454, 106239.46591437947, 80524.4152455173, 58953.63710351805, 39473.663513499734, 22059.308130478617, 
+  // 13904.259904140888, 7055.801357018209, 3287.4933701225923, 1749.2841637652814, 920.9084363279554, 497.0995806676968, 286.2217689135472, 173.65078692594514, 108.14296371008149, 70.38218595639098, 
+  //  47.09316192399911, 32.442011343318406, 17.764475787368454, 10.074691062260918, 3.9676315353117153, 1.162497311824849};
+
+
+  Double_t p8319_d1x1y1_yerrminus_syst[NN] = {4268.84, 10075.58, 11626.65, 27766.11, 19632.30, 17271.54, 13277.31, 19828.62, 20674.50, 20412.27, 15070.33, 12641.77, 10576.86, 9493.11, 9761.89, 7105.05, 5979.76, 5021.04, 4916.29, 3462.33, 3039.17, 2184.78, 1580.91, 1187.53, 885.50, 604.39, 589.71, 567.10, 302.54, 242.03, 164.31, 141.07, 102.35, 88.70, 84.56, 54.53, 44.82, 41.74, 136.23, 28.04, 24.09, 24.68, 16.68, 9.39, 7.59, 6.83, 3.44, 2.58, 1.04, 0.64};
+  
+  Double_t p8319_d1x1y1_yerrplus_syst[NN] = {4268.84, 10075.58, 11626.65, 27766.11, 19632.30, 17271.54, 13277.31, 19828.62, 20674.50, 20412.27, 15070.33, 12641.77, 10576.86, 9493.11, 9761.89, 7105.05, 5979.76, 5021.04, 4916.29, 3462.33, 3039.17, 2184.78, 1580.91, 1187.53, 885.50, 604.39, 589.71, 567.10, 302.54, 242.03, 164.31, 141.07, 102.35, 88.70, 84.56, 54.53, 44.82, 41.74, 136.23, 28.04, 24.09, 24.68, 16.68, 9.39, 7.59, 6.83, 3.44, 2.58, 1.04, 0.64};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {1976.31, 3618.02, 4778.43, 5610.67, 7039.06, 7642.24, 5369.13, 4492.99, 4573.83, 
+    4643.44, 4411.7, 3407.28, 3460.61, 2649.55, 2138.32, 2104.71, 1819.44, 1554.2, 1508.09, 
+    1317.92, 718.34, 583.91, 471.29, 423.05, 312.38, 248.15, 268.31, 193.24, 152.39, 
+    135.75, 97.5, 94.07, 75.79, 69.23, 61.97, 62.03, 50.76, 47.31, 38.23, 
+    48.46, 40.79, 42.11, 24.41, 15.41, 16.16, 10.61, 6.78, 3.94, 2.31, 
+    1.38};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {1976.31, 3618.02, 4778.43, 5610.67, 7039.06, 7642.24, 5369.13, 4492.99, 4573.83, 
+    4643.44, 4411.7, 3407.28, 3460.61, 2649.55, 2138.32, 2104.71, 1819.44, 1554.2, 1508.09, 
+    1317.92, 718.34, 583.91, 471.29, 423.05, 312.38, 248.15, 268.31, 193.24, 152.39, 
+    135.75, 97.5, 94.07, 75.79, 69.23, 61.97, 62.03, 50.76, 47.31, 38.23, 
+    48.46, 40.79, 42.11, 24.41, 15.41, 16.16, 10.61, 6.78, 3.94, 2.31, 
+    1.38};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 1;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  Double_t Fac = FeftoBarnToPicoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/DeltaY)*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus_syst[j]*p8319_d1x1y1_yerrminus_syst[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus_syst[j]*p8319_d1x1y1_yerrplus_syst[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+      yerr_minus[j]=(yerr_minus[j]/DeltaY)*Fac;
+      yerr_plus[j]=(yerr_plus[j]/DeltaY)*Fac;
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(21);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(1.6);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.001,1000);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+
+//*********************************************************************
+//*************Experimental Data Set Y(3S) Rapl24 CMS*********************
+TGraphAsymmErrors *Data_CMS_D2NDPtDy_Y3S_Rapl24_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 9;
+
+  Double_t pT_bin_val[NN] = {2.5, 2.5, 2.5, 2.5, 3.0, 3.0, 2.0, 4.0, 16.0};
+  Double_t p8319_d1x1y1_xval[NN] = {1.539, 3.62, 6.147, 8.618, 11.306, 14.298, 16.943, 19.702, 26.514};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {1.539, 1.12, 1.1470000000000002, 1.1180000000000003, 1.3059999999999992, 1.298, 0.9430000000000014, 1.7020000000000017, 4.513999999999999};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.9610000000000001, 1.38, 1.3529999999999998, 1.3819999999999997, 1.6940000000000008, 1.702, 1.0569999999999986, 2.2979999999999983, 11.486};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {0.203, 0.287, 0.227, 0.157, 0.1127, 0.0617, 0.0227, 0.0229, 0.0185}; 
+
+  // Double_t p8319_d1x1y1_yerrminus[NN] = {3915.9007974794254, 10660.241072564917, 12853.494024929563, 14293.457798353062, 13238.90561274987, 11292.63679040905, 9961.513892185263, 8653.921212323346, 6430.445462843145, 
+  //    5246.714875557847, 3297.1416707960852, 1967.388458693402, 1217.0259453273788, 705.8831526534685, 410.33545277004765, 246.36233255106188, 157.04912002300426, 101.24744243683392, 67.16017048816954, 
+  //  44.87941398904402, 31.301439264033853, 17.62770830255595, 10.05802167426577, 3.9284348028190563, 1.1434159348198711};
+  
+  //Double_t p8319_d1x1y1_yerrplus[NN] = {3584.398011884283, 14539.50576821647, 48442.20717914285, 101196.61661934454, 106239.46591437947, 80524.4152455173, 58953.63710351805, 39473.663513499734, 22059.308130478617, 
+  // 13904.259904140888, 7055.801357018209, 3287.4933701225923, 1749.2841637652814, 920.9084363279554, 497.0995806676968, 286.2217689135472, 173.65078692594514, 108.14296371008149, 70.38218595639098, 
+  //  47.09316192399911, 32.442011343318406, 17.764475787368454, 10.074691062260918, 3.9676315353117153, 1.162497311824849};
+
+
+  Double_t p8319_d1x1y1_yerrminus[NN] = {0.0194164878389476, 0.03178049716414141, 0.020591260281974, 0.013601470508735444, 0.007981227975693965, 0.0052201532544552745, 0.0026248809496813375, 0.002640075756488817, 0.0030413812651491103};
+  
+  Double_t p8319_d1x1y1_yerrplus[NN] = {0.021095023109728987, 0.028178005607210743, 0.023259406699226014, 0.01969771560359221, 0.009984988733093291, 0.005140038910358559, 0.0026248809496813375, 0.002408318915758459, 0.0021260291625469297};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {0.011, 0.013, 0.01, 0.008, 0.0049, 0.0031, 0.0017, 0.0016, 0.0014};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {0.011, 0.013, 0.01, 0.008, 0.0049, 0.0031, 0.0017, 0.0016, 0.0014};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 4.8;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t NanoBarnToPicoBarn = 1000.0;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  //  Double_t Fac = FeftoBarnToPicoBarn;
+  Double_t Fac = NanoBarnToPicoBarn;
+    //*PicoBarnToNanoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/(pT_bin_val[j]*DeltaY))*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus[j]*p8319_d1x1y1_yerrminus[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus[j]*p8319_d1x1y1_yerrplus[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+	    yerr_minus[j]=(yerr_minus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+	    yerr_plus[j]=(yerr_plus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(46);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(2);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(2.0);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.001,1000);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+//*************Experimental Data Set Y(2S) Rapl24 CMS*********************
+TGraphAsymmErrors *Data_CMS_D2NDPtDy_Y2S_Rapl24_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 16;
+
+  Double_t pT_bin_val[NN] = {1.0, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 2.0, 1.5, 2.5, 4.0, 16.0};
+  Double_t p8319_d1x1y1_xval[NN] = {0.656, 1.785, 3.214, 4.708, 6.217, 7.711, 9.206, 10.691, 12.213, 
+    13.698, 15.222, 16.875, 18.757, 20.647, 23.688, 31.3};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.656, 0.7849999999999999, 0.714, 0.7080000000000002, 0.7169999999999996, 0.7110000000000003, 0.7059999999999995, 0.6910000000000007, 0.7129999999999992, 
+    0.6980000000000004, 0.7219999999999995, 0.875, 0.7570000000000014, 1.1469999999999985, 1.6879999999999988, 5.300000000000001};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.344, 0.7150000000000001, 0.786, 0.7919999999999998, 0.7830000000000004, 0.7889999999999997, 0.7940000000000005, 0.8089999999999993, 0.7870000000000008, 
+    0.8019999999999996, 0.7780000000000005, 1.125, 0.7429999999999986, 1.3530000000000015, 2.312000000000001, 10.7};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {0.0829, 0.331, 0.409, 0.362, 0.286, 0.212, 0.146, 0.1123, 0.0765, 
+    0.0519, 0.0376, 0.0373, 0.0159, 0.0204, 0.0158, 0.0126}; 
+
+  Double_t p8319_d1x1y1_yerrminus[NN] = {0.008792041856133307, 0.024596747752497684, 0.02996664812754339, 0.025942243542145693, 0.021470910553583886, 0.014422205101855958, 0.01, 0.007402702209328699, 0.00562227711874824, 
+    0.00412310562561766, 0.003996248240537617, 0.0032015621187164245, 0.0017691806012954132, 0.0021260291625469297, 0.0017029386365926401, 0.0014866068747318507};
+  
+  Double_t p8319_d1x1y1_yerrplus[NN] = {0.00929623579735368, 0.03860051813123756, 0.03827531841800927, 0.030463092423455636, 0.022360679774997897, 0.018788294228055936, 0.012529964086141668, 0.009752948272189288, 0.006351377803280167, 
+    0.004360045871318328, 0.003420526275297414, 0.0033600595232822885, 0.0017691806012954132, 0.0021260291625469297, 0.0017029386365926401, 0.0015620499351813306};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {0.0049, 0.011, 0.013, 0.012, 0.01, 0.008, 0.006, 0.0046, 0.0035, 
+    0.0026, 0.0021, 0.002, 0.0012, 0.0014, 0.0011, 0.001};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {0.0049, 0.011, 0.013, 0.012, 0.01, 0.008, 0.006, 0.0046, 0.0035, 
+    0.0026, 0.0021, 0.002, 0.0012, 0.0014, 0.0011, 0.001};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 4.8;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t NanoBarnToPicoBarn = 1000.0;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  //  Double_t Fac = FeftoBarnToPicoBarn;
+  Double_t Fac = NanoBarnToPicoBarn;
+    //*PicoBarnToNanoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/(pT_bin_val[j]*DeltaY))*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus[j]*p8319_d1x1y1_yerrminus[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus[j]*p8319_d1x1y1_yerrplus[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+	    yerr_minus[j]=(yerr_minus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+	    yerr_plus[j]=(yerr_plus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(46);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(2);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(2.0);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.001,1000);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+//*************Experimental Data Set Y(1S) Rapl24 CMS*********************
+TGraphAsymmErrors *Data_CMS_D2NDPtDy_Y1S_Rapl24_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 24;
+
+  Double_t pT_bin_val[NN] = {0.5, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 5.0, 20.0};
+  Double_t p8319_d1x1y1_xval[NN] = {0.327, 0.772, 1.257, 1.751, 2.489, 3.481, 4.478, 5.485, 6.487, 
+    7.493, 8.484, 9.478, 10.479, 11.485, 12.487, 13.475, 14.489, 15.477, 16.909, 
+    18.978, 20.937, 23.284, 27.024, 35.968};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {0.327, 0.272, 0.2569999999999999, 0.2509999999999999, 0.4889999999999999, 0.48099999999999987, 0.47799999999999976, 0.4850000000000003, 0.4870000000000001, 
+    0.4930000000000003, 0.484, 0.47799999999999976, 0.4789999999999992, 0.48499999999999943, 0.4870000000000001, 0.47499999999999964, 0.48900000000000077, 0.4770000000000003, 0.9089999999999989, 
+    0.9780000000000015, 0.9370000000000012, 1.283999999999999, 2.024000000000001, 5.9680000000000035};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {0.173, 0.22799999999999998, 0.2430000000000001, 0.2490000000000001, 0.5110000000000001, 0.5190000000000001, 0.5220000000000002, 0.5149999999999997, 0.5129999999999999, 
+    0.5069999999999997, 0.516, 0.5220000000000002, 0.5210000000000008, 0.5150000000000006, 0.5129999999999999, 0.5250000000000004, 0.5109999999999992, 0.5229999999999997, 1.091000000000001, 
+    1.0219999999999985, 1.0629999999999988, 1.716000000000001, 2.975999999999999, 14.031999999999996};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {0.0859, 0.263, 0.374, 0.505, 1.16, 1.212, 1.084, 0.879, 0.68, 
+    0.556, 0.419, 0.331, 0.238, 0.1793, 0.1451, 0.099, 0.075, 0.0595, 0.0732, 
+    0.05, 0.0302, 0.0237, 0.0205, 0.0123}; 
+
+  Double_t p8319_d1x1y1_yerrminus[NN] = {0.008459905436823748, 0.02102379604162864, 0.02785677655436824, 0.032310988842807024, 0.11180339887498948, 0.0696419413859206, 0.05961543424315552, 0.07106335201775948, 0.03623534186398688, 
+    0.02731300056749533, 0.020124611797498106, 0.016999999999999998, 0.0116619037896906, 0.010135580891098447, 0.007823042886243178, 0.005968249324550709, 0.004580392996239515, 0.0038600518131237565, 0.004301162633521313, 
+    0.0032202484376209236, 0.002420743687382041, 0.00206155281280883, 0.0019209372712298545, 0.001345362404707371};
+  
+  Double_t p8319_d1x1y1_yerrplus[NN] = {0.009489467845985885, 0.021931712199461308, 0.029732137494637014, 0.04368065933568311, 0.09219544457292887, 0.09052071586106686, 0.06800735254367722, 0.06332456079595025, 0.048104053883222773, 
+    0.03383784863137726, 0.025632011235952594, 0.018788294228055936, 0.01341640786499874, 0.010135580891098447, 0.009035485598461214, 0.005883026432033091, 0.005420332093147061, 0.004272001872658766, 0.004887739763939974, 
+    0.003466987164671943, 0.002420743687382041, 0.00206155281280883, 0.0019209372712298545, 0.0014212670403551896};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {0.0046, 0.009, 0.01, 0.012, 0.02, 0.025, 0.023, 0.017, 0.017, 
+    0.011, 0.009, 0.008, 0.006, 0.0052, 0.0042, 0.0031, 0.0027, 0.0023, 0.0025, 
+    0.0019, 0.0015, 0.0013, 0.0012, 9.0E-4};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {0.0046, 0.009, 0.01, 0.012, 0.02, 0.025, 0.023, 0.017, 0.017, 
+    0.011, 0.009, 0.008, 0.006, 0.0052, 0.0042, 0.0031, 0.0027, 0.0023, 0.0025, 
+    0.0019, 0.0015, 0.0013, 0.0012, 9.0E-4};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 4.8;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t NanoBarnToPicoBarn = 1000.0;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  //  Double_t Fac = FeftoBarnToPicoBarn;
+  Double_t Fac = NanoBarnToPicoBarn;
+    //*PicoBarnToNanoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/(pT_bin_val[j]*DeltaY))*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus[j]*p8319_d1x1y1_yerrminus[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus[j]*p8319_d1x1y1_yerrplus[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+	    yerr_minus[j]=(yerr_minus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+	    yerr_plus[j]=(yerr_plus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(46);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(2);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(2.0);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.001,1000);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{d^{2}#sigma}{dp_{T}dy}#timesB(#mu^{+}#mu^{-})[pb/GeV]");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+//******************************************************************
+//*************Experimental Data Set Chi2b LHCb*********************
+// Rapidity 2.0-4.5
+//Relative production cross section of chib2(1P) to chib1(1P) mesons in pT bins of Y(1S) meson.
+// The first uncertainty is statistical, the second is systematic and the third is due to the uncertainty on the branching fractions. 
+TGraphAsymmErrors *Data_LHCb_D2NDPtDy_Chib_ratio_Rap2045_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 3;
+
+  // Double_t pT_bin_val[NN] = {0.5, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 5.0, 20.0};
+  Double_t pT_bin_val[NN] = {1.0, 1.0, 1.0};
+  Double_t p8319_d1x1y1_xval[NN] = {7.5, 12.5, 20.0};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {2.5, 2.5, 5.0};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {2.5, 2.5, 5.0};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {1.09, 0.91, 1.09}; 
+
+  Double_t p8319_d1x1y1_yerrminus[NN] = {0.3395585369269929, 0.27999999999999997, 0.3586084215408222};
+  
+  Double_t p8319_d1x1y1_yerrplus[NN] = {0.3082207001484488, 0.2720294101747089, 0.3545419580247167};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {0.27, 0.24, 0.31};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {0.27, 0.24, 0.31};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 1.0;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t NanoBarnToPicoBarn = 1000.0;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  //  Double_t Fac = FeftoBarnToPicoBarn;
+  Double_t Fac = 1.0;
+    //*PicoBarnToNanoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/(pT_bin_val[j]*DeltaY))*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus[j]*p8319_d1x1y1_yerrminus[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus[j]*p8319_d1x1y1_yerrplus[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+	    yerr_minus[j]=(yerr_minus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+	    yerr_plus[j]=(yerr_plus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(46);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(2);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(2.0);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.001,1000);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{#sigma(#chi_{b2})}{#sigma(#chi_{b1})}");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}
+
+
+//******************************************************************
+//*************Experimental Data Set Chi2b CMS*********************
+// Rapidity < 1.5, sqrt{s}=8 TeV
+
+// The first uncertainty is statistical, the second is systematic and the third is due to the uncertainty on the branching fractions. 
+TGraphAsymmErrors *Data_CMS_D2NDPtDy_Chib_ratio_Rapl15_Pt()
+{
+  // D2(SIG)/DPT/DYRAP IN FB/GEV http://hepdata.cedar.ac.uk/view/ins1204994/first
+  const int NN = 4;
+
+  // Double_t pT_bin_val[NN] = {0.5, 0.5, 0.5, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 5.0, 20.0};
+  Double_t pT_bin_val[NN] = {1.0, 1.0, 1.0, 1.0};
+  Double_t p8319_d1x1y1_xval[NN] = {8.7, 12.9, 17.5, 26.2};
+  Double_t p8319_d1x1y1_xerrminus[NN] = {1.7, 1.9, 1.5, 6.2};
+  Double_t p8319_d1x1y1_xerrplus[NN] = {2.3, 3.1, 2.5, 13.8};
+  
+  Double_t p8319_d1x1y1_yval[NN] = {0.99, 0.83, 0.80, 0.89}; 
+
+  Double_t p8319_d1x1y1_yerrminus[NN] = {0.10, 0.08, 0.08, 0.09};
+  
+  Double_t p8319_d1x1y1_yerrplus[NN] = {0.10, 0.08, 0.08, 0.09};
+
+
+  Double_t p8319_d1x1y1_yerrminus_stat[NN] = {0.18, 0.10, 0.13, 0.11};
+  
+  Double_t p8319_d1x1y1_yerrplus_stat[NN] = {0.18, 0.10, 0.13, 0.11};
+
+  Double_t yerr_plus[NN]={0.0};
+  Double_t yerr_minus[NN]={0.0};
+
+  Double_t DeltaY = 1.0;
+   
+  Double_t FeftoBarnToPicoBarn = 0.001;
+  Double_t NanoBarnToPicoBarn = 1000.0;
+  Double_t BR_Y3SToMuMu = 0.0218;
+
+  //  Double_t Fac = FeftoBarnToPicoBarn;
+  Double_t Fac = 1.0;
+    //*PicoBarnToNanoBarn;
+
+  //Fac =1;
+
+  for(int j=0;j<NN;j++)
+    {
+      p8319_d1x1y1_yval[j] =((p8319_d1x1y1_yval[j])/(pT_bin_val[j]*DeltaY))*Fac;
+      
+
+            yerr_minus[j]=TMath::Sqrt(p8319_d1x1y1_yerrminus[j]*p8319_d1x1y1_yerrminus[j] + p8319_d1x1y1_yerrminus_stat[j]*p8319_d1x1y1_yerrminus_stat[j]);
+            yerr_plus[j]=TMath::Sqrt(p8319_d1x1y1_yerrplus[j]*p8319_d1x1y1_yerrplus[j] + p8319_d1x1y1_yerrplus_stat[j]*p8319_d1x1y1_yerrplus_stat[j]); 
+      //      yerr_minus[j]=p8319_d1x1y1_yerrminus_stat[j];
+      //      yerr_plus[j]=p8319_d1x1y1_yerrplus_stat[j]; 
+      
+
+	    yerr_minus[j]=(yerr_minus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+	    yerr_plus[j]=(yerr_plus[j]/(pT_bin_val[j]*DeltaY))*Fac;
+
+      
+  
+    }
+  
+  TGraphAsymmErrors *Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt = new TGraphAsymmErrors(NN,p8319_d1x1y1_xval, p8319_d1x1y1_yval, p8319_d1x1y1_xerrminus, 
+											 p8319_d1x1y1_xerrplus, yerr_minus, yerr_plus);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerStyle(46);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerColor(2);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->SetMarkerSize(2.0);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitleOffset(1.6);
+  //Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.000001,0.1);
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetRangeUser(0.0,1.7);
+  
+  TAxis *Xaxis1 = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis();
+  Xaxis1->SetLimits(0.0,70.0);
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->CenterTitle();
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->CenterTitle();
+  
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetXaxis()->SetTitle("p_{T}[GeV]");
+  Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt->GetYaxis()->SetTitle("#frac{#sigma(#chi_{b2})}{#sigma(#chi_{b1})}");
+  
+  
+  TGraphAsymmErrors *OutGraph;
+  OutGraph = Grf_ATLAS_7TeV_D2NDPtDy_PromptUps3S_Y012_Pt;
+  return OutGraph;
+  
+}

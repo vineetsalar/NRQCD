@@ -306,7 +306,8 @@ void ChiCLDME()
   Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3P0_1_Fit->Draw("Lsame");
   Out_grCDF_Chic0_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
   lgd_DSigmaDPtDY_CDF_180_Chic0->Draw("same");
-  
+
+    
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ============= FITTING CDF RootS 1.8 TeV DATA FOR LDME (Chic1 & Chic2)=========="<<endl;
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
@@ -357,6 +358,10 @@ void ChiCLDME()
   //Double_t TotalChi2 = CalcChi2(grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt,CDF_180_Chic1Chic2_FitFunctionLDME);
   //Double_t TotalNDF = (grfData_CDF_180_D2NDPtDy_PromptChic1Chic2ToJPsi_Y0006_Pt->GetN() - 2 );
   //cout<<" Total Chi2 "<<TotalChi2<<"/"<<TotalNDF<<"   "<<(TotalChi2/TotalNDF)<<endl;
+
+
+  //return;
+  
 
   cout<<" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
   cout<<" ============= FITTING ATLAS RootS 7 TeV DATA FOR LDME (Chic1)=========="<<endl;
@@ -687,13 +692,11 @@ void ChiCLDME()
  
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3P1_1_Fit->Draw("Lsame");
   Out_grCDF_Chic1Chic2_RootS180TeV_DSigmaDPtDY_Pt_3S1_8_Fit->Draw("Lsame");
-  
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2->Draw("same");
   lgd_DSigmaDPtDY_CDF_180_Chic1Chic2_1->Draw("same");
-  
+  tb->DrawLatex(0.23,0.18,"(c)");
   gPad->SaveAs("Chic1_CDF_Fit.png");
   gPad->SaveAs("Chic1_CDF_Fit.pdf");
-
 
 
 
@@ -705,7 +708,6 @@ void ChiCLDME()
   fun_1->SetLineWidth(2);
 
   gr1->Fit("fun_1","Q0","MER", 5, 20);
-
 
 
 

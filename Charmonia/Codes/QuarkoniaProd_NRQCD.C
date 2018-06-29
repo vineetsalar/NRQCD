@@ -46,7 +46,7 @@
 #include <string>
 #include <vector>
 #include <map>
-# include "Math/GaussLegendreIntegrator.h"
+#include "Math/GaussLegendreIntegrator.h"
 
 
 using namespace std;
